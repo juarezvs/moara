@@ -1,0 +1,2 @@
+version: 0.7.0 (build 0, commit 620d2225cc436ab0b001e3200e590e3b286ef9ab)
+built with GNU 12.2.0 for Linux x86_64

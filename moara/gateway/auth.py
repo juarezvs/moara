@@ -81,6 +81,7 @@ class Auth:
             if result.status_code!=200:raise HTTPException(503,'institutional_directory_unavailable')
             identity=result.json()
             if identity.get('enabled') is not True:raise HTTPException(403,'institutional_unit_disabled')
+            if identity.get('institutional_verified') is False:raise HTTPException(403,'directory_binding_changed')
             if identity.get('organization'):
                 group_id=str(uuid.uuid5(uuid.NAMESPACE_URL,'moara:organization:'+identity['organization']))
                 # Membership comes only from the server-side immutable AD binding.

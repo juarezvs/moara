@@ -14,6 +14,7 @@ from prometheus_client import CollectorRegistry,Counter,Histogram,generate_lates
 from opentelemetry import trace
 from opentelemetry.propagate import extract
 
+from . import platform_api,platform_runs,platform_development
 from .settings import Settings
 from .database import Database
 from .auth import Auth,require
@@ -42,9 +43,11 @@ def create_app(settings=None):
         await app.state.auth.seed_roles();await app.state.identity.initialize()
         await bootstrap.seed(app.state.db,app.state.auth)
         dispatcher=asyncio.create_task(jobs_api.dispatch(app))
+        platform_dispatcher=asyncio.create_task(platform_runs.dispatch(app))
         try:yield
         finally:
-            dispatcher.cancel();await asyncio.gather(dispatcher,return_exceptions=True)
+            dispatcher.cancel();platform_dispatcher.cancel()
+            await asyncio.gather(dispatcher,platform_dispatcher,return_exceptions=True)
             await app.state.auth.close();await app.state.http.aclose();await app.state.db.dispose()
             if tracer:await asyncio.to_thread(tracer.shutdown)
 
@@ -120,6 +123,8 @@ def create_app(settings=None):
     app.include_router(connectors_api.router)
     app.include_router(connector_tickets.router)
     app.include_router(observability.router)
+    app.include_router(platform_api.router)
+    app.include_router(platform_development.router)
 
     @app.get('/',include_in_schema=False)
     async def index():

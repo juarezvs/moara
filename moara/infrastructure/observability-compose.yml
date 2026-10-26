@@ -1,0 +1,109 @@
+services:
+  moara-gateway:
+    environment:
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://moara-otel:4318/v1/traces
+    networks:
+      frontend: {}
+      storage: {}
+      inference: {}
+      moara_control: {}
+      moara_telemetry: {ipv4_address: 10.92.2.20}
+    volumes:
+      - ../docs/runtime/moara-telemetry:/run/moara:ro
+    secrets: [moara_metrics_key]
+  caddy:
+    networks:
+      frontend: {}
+      moara_telemetry: {ipv4_address: 10.92.2.2}
+  moara-prometheus:
+    image: ${MOARA_PROMETHEUS_IMAGE:?prepare observability first}
+    restart: unless-stopped
+    user: '10001:10001'
+    command: [--config.file=/etc/prometheus/moara.yml,--storage.tsdb.path=/prometheus,--storage.tsdb.retention.time=14d,--web.listen-address=0.0.0.0:9090]
+    networks:
+      moara_telemetry: {ipv4_address: 10.92.2.10}
+    volumes:
+      - ../moara/infrastructure/observability/prometheus.yml:/etc/prometheus/moara.yml:ro
+      - type: volume
+        source: moara_prometheus
+        target: /prometheus
+        volume: {nocopy: true}
+    secrets: [moara_metrics_key]
+    read_only: true
+    tmpfs: ['/tmp:size=32m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 768m
+    pids_limit: 128
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+  moara-grafana:
+    image: ${MOARA_GRAFANA_IMAGE:?prepare observability first}
+    restart: unless-stopped
+    user: '10001:10001'
+    environment:
+      GF_SERVER_ROOT_URL: https://localhost:8443/moara/monitoramento/
+      GF_SERVER_SERVE_FROM_SUB_PATH: 'true'
+      GF_AUTH_PROXY_ENABLED: 'true'
+      GF_AUTH_PROXY_HEADER_NAME: X-WEBAUTH-USER
+      GF_AUTH_PROXY_HEADER_PROPERTY: username
+      GF_AUTH_PROXY_AUTO_SIGN_UP: 'true'
+      GF_AUTH_PROXY_WHITELIST: 10.92.2.2
+      GF_AUTH_DISABLE_LOGIN_FORM: 'true'
+      GF_AUTH_BASIC_ENABLED: 'false'
+      GF_AUTH_ANONYMOUS_ENABLED: 'false'
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_USERS_AUTO_ASSIGN_ORG_ROLE: Viewer
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/moara_grafana_password
+      GF_SECURITY_COOKIE_SECURE: 'true'
+      GF_SECURITY_COOKIE_SAMESITE: strict
+      GF_SECURITY_CONTENT_SECURITY_POLICY: 'true'
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_ANALYTICS_CHECK_FOR_UPDATES: 'false'
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: 'false'
+      GF_PLUGINS_PREINSTALL_DISABLED: 'true'
+      GF_LOG_LEVEL: warn
+    networks:
+      moara_telemetry: {ipv4_address: 10.92.2.11}
+    volumes:
+      - ../moara/infrastructure/observability/grafana:/etc/grafana/provisioning:ro
+      - ../moara/infrastructure/observability/dashboards:/etc/grafana/moara-dashboards:ro
+      - type: volume
+        source: moara_grafana
+        target: /var/lib/grafana
+        volume: {nocopy: true}
+    secrets: [moara_grafana_password]
+    read_only: true
+    tmpfs: ['/tmp:size=64m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1
+    mem_limit: 768m
+    pids_limit: 128
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+  moara-otel:
+    image: ${MOARA_OTEL_IMAGE:?prepare observability first}
+    restart: unless-stopped
+    user: '10001:10001'
+    command: [--config=/etc/otelcol/moara.yml]
+    networks:
+      moara_telemetry: {ipv4_address: 10.92.2.12}
+    volumes: ['../moara/infrastructure/observability/otel.yml:/etc/otelcol/moara.yml:ro']
+    read_only: true
+    tmpfs: ['/tmp:size=32m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 0.5
+    mem_limit: 256m
+    pids_limit: 64
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+networks:
+  moara_telemetry:
+    internal: true
+    ipam: {config: [{subnet: 10.92.2.0/24}]}
+volumes:
+  moara_prometheus: {}
+  moara_grafana: {}
+secrets:
+  moara_metrics_key: {file: ../secrets/moara_metrics_key}
+  moara_grafana_password: {file: ../secrets/moara_grafana_password}

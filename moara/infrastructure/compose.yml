@@ -1,0 +1,140 @@
+services:
+  webui:
+    image: ai-webui:moara-integrated-v1
+    build:
+      context: ./webui
+      dockerfile: Dockerfile.integration
+    networks: [frontend,moara_directory_egress]
+    environment:
+      OPENAI_API_BASE_URL: http://moara-gateway:8075/moara/v1
+      DEFAULT_MODELS: auto
+      ENABLE_FORWARD_USER_INFO_HEADERS: 'True'
+      FORWARD_USER_INFO_HEADER_JWT_EXPIRES_SECONDS: '60'
+      MOARA_CONNECTORS_ENABLED: 'true'
+    secrets: [moara_forward_jwt_secret]
+  moara-model-management:
+    image: ${OLLAMA_IMAGE}
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_NO_CLOUD: '1'
+      OLLAMA_NUM_PARALLEL: '1'
+      OLLAMA_MAX_LOADED_MODELS: '1'
+      OLLAMA_KEEP_ALIVE: '0'
+    networks: [moara_model_control,download]
+    volumes: [ollama:/root/.ollama]
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 1
+    pids_limit: 128
+    security_opt: [no-new-privileges:true]
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+    healthcheck:
+      test: [CMD,ollama,list]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  moara-worker:
+    image: moara-core:1.0.0
+    restart: unless-stopped
+    command: [celery,-A,moara.gateway.worker:celery_app,worker,--pool=solo,--concurrency=1,--queues=moara.control,--loglevel=WARNING,--without-gossip,--without-mingle]
+    networks: [moara_control,moara_model_control,storage,inference]
+    secrets: [moara_worker_password,moara_crypto_key,moara_redis_password,moara_llm_key]
+    read_only: true
+    tmpfs: ['/tmp:size=64m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 2
+    pids_limit: 128
+    depends_on: {moara-redis: {condition: service_healthy},postgres: {condition: service_healthy},moara-model-management: {condition: service_healthy}}
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+  moara-redis:
+    image: ${MOARA_REDIS_IMAGE:?run Moara image preparation}
+    restart: unless-stopped
+    user: '10001:10001'
+    command: [redis-server, /run/secrets/moara_redis_config]
+    networks: [moara_control]
+    volumes:
+      - type: volume
+        source: moara_redis
+        target: /data
+        volume: {nocopy: true}
+    secrets: [moara_redis_config,moara_redis_password]
+    read_only: true
+    tmpfs: ['/tmp:size=32m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 64
+    logging: {driver: json-file, options: {max-size: 10m,max-file: '3'}}
+    healthcheck:
+      test: [CMD-SHELL, 'REDISCLI_AUTH="$$(cat /run/secrets/moara_redis_password)" redis-cli --no-auth-warning ping | grep -q PONG']
+      interval: 15s
+      timeout: 5s
+      retries: 10
+  moara-gateway:
+    image: moara-core:1.0.0
+    build: {context: '..',dockerfile: moara/gateway/Dockerfile,network: none}
+    restart: unless-stopped
+    networks: [frontend,storage,inference,moara_control]
+    volumes:
+      - moara_data:/data
+    environment:
+      MOARA_BOOTSTRAP_REQUIRED: 'true'
+    secrets: [moara_db_password,moara_session_key,moara_crypto_key,moara_redis_password,moara_forward_jwt_secret,moara_llm_key,connector_hub_key,{source: moara_bootstrap_catalog,target: moara_bootstrap_catalog.json}]
+    read_only: true
+    tmpfs: ['/tmp:size=128m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: 2
+    pids_limit: 128
+    depends_on: {postgres: {condition: service_healthy},moara-redis: {condition: service_healthy}}
+    logging: {driver: json-file, options: {max-size: 10m,max-file: '3'}}
+    healthcheck:
+      test: [CMD,python,-c,'import urllib.request; urllib.request.urlopen("http://localhost:8075/api/v1/ready",timeout=10)']
+      interval: 15s
+      timeout: 12s
+      retries: 10
+      start_period: 25s
+  moara-migrate:
+    image: moara-core:1.0.0
+    profiles: [maintenance]
+    command: [alembic,-c,/app/moara/gateway/alembic.ini,upgrade,head]
+    networks: [storage]
+    secrets: [moara_migration_password]
+    read_only: true
+    tmpfs: ['/tmp:size=64m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 768m
+    cpus: 1
+    pids_limit: 64
+networks:
+  # Only the native authentication service uses this outbound network for LDAPS
+  # and corporate DNS. It publishes no port and does not expose the data plane.
+  moara_directory_egress: {}
+  moara_model_control:
+    internal: true
+    ipam: {config: [{subnet: 10.92.1.0/24}]}
+  moara_control:
+    internal: true
+    ipam: {config: [{subnet: 10.92.0.0/24}]}
+volumes:
+  moara_redis: {}
+  moara_data: {}
+secrets:
+  moara_llm_key: {file: ../secrets/moara_llm_key}
+  moara_db_password: {file: ../secrets/moara_db_password}
+  moara_migration_password: {file: ../secrets/moara_migration_password}
+  moara_worker_password: {file: ../secrets/moara_worker_password}
+  moara_session_key: {file: ../secrets/moara_session_key}
+  moara_crypto_key: {file: ../secrets/moara_crypto_key}
+  moara_redis_password: {file: ../secrets/moara_redis_password}
+  moara_forward_jwt_secret: {file: ../secrets/moara_forward_jwt_secret}
+  moara_redis_config: {file: ../secrets/moara_redis_config}
+  moara_bootstrap_catalog: {file: ../secrets/moara_bootstrap_catalog.json}

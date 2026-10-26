@@ -1,23 +1,44 @@
-# Estado da implantação
+# Estado da implantação — 26/10/2026
 
-Atualizado em 26/10/2026 após aceitação da Fase 1.
+Servidor 172.19.5.250; código /home/nutec/ai-server.
+URL: https://moara.am.trf1.gov.br/moara/espaco.
 
-Servidor: 172.19.5.250. Código: /home/nutec/ai-server. Correções publicadas somente
-nos scripts de backup/inicialização e unidades systemd do usuário.
+Publicado em 2026-10-26T16:59:30Z. Imagem:
+sha256:47cfddf5b672bce68f24986e4bd9eba031f8310f97eb9fa454e5eb5e08acd92d
+(moara-core:platform-20261026). Anterior:
+sha256:65d14849f7ce7edbaaa4833496acae818592b85244f9156ae15d143a3cfaf6d9.
 
-- ai-server.service: active/exited, Result=success, ExecMainStatus=0.
-- ai-backup.service: inactive/dead após execução oneshot bem-sucedida,
-  Result=success, ExecMainStatus=0. Inactive neste caso é o estado esperado.
-- ai-backup.timer: active; agenda diária preservada.
-- 25 containers originais em execução, IDs preservados; healthchecks existentes saudáveis.
-- DNS moara.am.trf1.gov.br resolve 172.19.5.250; cadeia e hostname TLS verificados
-  com a CA pública interna. /, /moara/, /studio/ e /health retornaram 200;
-  /moara/api/v1/auth/me e /moara/api/v1/admin/accounts retornaram 401 sem credenciais.
+Migração 0005_platform confirmada; PostgreSQL passou de 39 para 46 tabelas.
+Somente ai-server-moara-gateway-1 foi substituído. Outros 24 containers preservados;
+todos em execução e healthchecks disponíveis saudáveis. ai-server.service e
+moara-sandbox-worker.service ativos. A unidade também está em infrastructure/systemd.
 
-Último backup verificado nesta sessão: moara-before-migration-20261026T131943Z.tar.enc.
-Tamanho: 857828880 bytes.
-SHA256: 6f2bc3f36ac68db3b160c6db7ca7eae833b6beb593601621a3227ef2df59b0a4.
-Verificado em 2026-10-26T13:21:06.943333+00:00 (UTC), aproximadamente 09:21 em Manaus.
+Rotas públicas /, /moara/, /studio/ e health retornaram 200. Recursos retornaram
+401 sem credenciais. Agents, groups e runs retornaram 200 com sessão administrativa;
+nenhum conteúdo institucional foi incluído no relatório.
 
-Rollback e evidências: PHASE1_OPERATIONS.md. Nenhuma imagem reconstruída, volume
-produtivo removido ou reboot realizado. Firewall permanece sem inspeção privilegiada.
+## Backup e rollback
+
+Antes: moara-before-migration-20261026T143424Z.tar.enc,
+SHA256 c5ea939f57b25608df499d7834cf19106fb037d5fa10a1bcfb73eccd0f48f9a6.
+Restore verificado em 14:35 UTC.
+
+Após migração: moara-before-migration-20261026T170055Z.tar.enc,
+SHA256 31b96098331e7da4633fe9889cc375c2f3ebb232fd4b835525226bf4ed363240,
+858401792 bytes, 46 tabelas; restore isolado verificado.
+Consulte o manifesto operacional para backups posteriores.
+
+Preservação: /home/nutec/ai-server/docs/runtime/platform-release-20261026/before
+e before-state.json no diretório pai. Migração aditiva: rollback da aplicação
+não apaga tabelas nem restaura dados antigos sobre novos.
+
+A primeira tentativa acionou rollback porque o teste usou ai-root-ca.crt em vez
+da CA específica do domínio. A imagem anterior voltou saudável. O teste foi
+corrigido para moara-domain-root-ca.crt e a publicação passou com validação de
+cadeia e hostname; TLS não foi desativado.
+
+Rollback manual: parar moara-sandbox-worker.service, aplicar a imagem anterior
+no overlay e subir somente moara-gateway com --no-deps --no-build. Restaurar os
+arquivos preservados e conferir rotas. Não usar down -v nem apagar migrations.
+
+Não houve reboot, mudança de credenciais ou importação de dados de homologação.

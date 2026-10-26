@@ -1,0 +1,7 @@
+services:
+  moara-gateway:
+    image: moara-core:platform-20261026
+    environment:
+      MOARA_SANDBOX_READY: 'true'
+  moara-migrate:
+    image: moara-core:platform-20261026

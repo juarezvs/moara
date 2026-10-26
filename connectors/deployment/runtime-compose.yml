@@ -1,0 +1,84 @@
+{
+  "services": {
+    "connector-postgres": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-postgres:runtime-20261020"
+        }
+      }
+    },
+    "connector-mssql": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-mssql:runtime-20261020"
+        }
+      }
+    },
+    "connector-mysql": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-mysql:runtime-20261020"
+        }
+      }
+    },
+    "connector-oracle": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-oracle:runtime-20261020"
+        }
+      }
+    },
+    "connector-mongodb": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-mongodb:runtime-20261020"
+        }
+      }
+    },
+    "connector-sqlite": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-sqlite:runtime-20261020"
+        }
+      }
+    },
+    "connector-rest": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-rest:runtime-20261020"
+        }
+      }
+    },
+    "connector-hub": {
+      "build": {
+        "context": "..",
+        "dockerfile": "connectors/deployment/Dockerfile.runtime",
+        "network": "none",
+        "args": {
+          "CONNECTOR_RUNTIME_IMAGE": "ai-connector-hub:runtime-20261020"
+        }
+      }
+    }
+  }
+}

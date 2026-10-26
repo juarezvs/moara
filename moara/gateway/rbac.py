@@ -6,9 +6,10 @@ PERMISSIONS=frozenset({
     'chat.use','history.read','history.manage','files.use','identity.read','identity.draft','identity.publish',
     'models.read','models.manage','models.install','models.remove','profiles.read','profiles.manage','benchmarks.run',
     'connectors.read','connectors.manage','data.query','groups.manage','users.read','users.manage','roles.assign',
+    'workspace.use','knowledge.use','documents.use','development.use','development.execute','workflows.use',
     'api_keys.manage','audit.read','jobs.read','jobs.cancel','jobs.manage','status.read',
 })
-BASE={'chat.use','history.read','history.manage','files.use','identity.read','profiles.read','connectors.read','data.query','jobs.read','jobs.cancel'}
+BASE={'workspace.use','knowledge.use','documents.use','development.use','workflows.use','chat.use','history.read','history.manage','files.use','identity.read','profiles.read','connectors.read','data.query','jobs.read','jobs.cancel'}
 ROLES={
     'user':('Usuário',BASE),
     'analyst':('Analista',BASE|{'models.read'}),

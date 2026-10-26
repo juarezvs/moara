@@ -1,0 +1,690 @@
+name: ai-server
+x-common: &common
+  restart: unless-stopped
+  security_opt: [no-new-privileges:true]
+  logging:
+    driver: json-file
+    options: {max-size: 10m, max-file: '3'}
+  networks: [frontend]
+services:
+  ollama:
+    <<: *common
+    networks: [inference]
+    image: ${OLLAMA_IMAGE:?run lock-images.py}
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_MODELS: /root/.ollama/models
+      OLLAMA_NUM_PARALLEL: '1'
+      OLLAMA_MAX_LOADED_MODELS: '4'
+      OLLAMA_KEEP_ALIVE: '-1'
+      OLLAMA_CONTEXT_LENGTH: '8192'
+      OLLAMA_NO_CLOUD: '1'
+      CUDA_VISIBLE_DEVICES: '-1'
+      HIP_VISIBLE_DEVICES: '-1'
+    volumes: [ollama:/root/.ollama]
+    mem_limit: 96g
+    memswap_limit: 96g
+    cpus: 44
+    pids_limit: 512
+    healthcheck:
+      test: [CMD, ollama, list]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+  seed:
+    <<: *common
+    profiles: [provision]
+    image: ${OLLAMA_IMAGE}
+    volumes: [ollama:/root/.ollama]
+    networks: [download]
+    mem_limit: 64g
+    memswap_limit: 64g
+    entrypoint: [/bin/ollama]
+    command: [serve]
+  ollama-specialists:
+    <<: *common
+    networks: [inference]
+    image: ${OLLAMA_IMAGE}
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_MODELS: /root/.ollama/models
+      OLLAMA_NUM_PARALLEL: '1'
+      OLLAMA_MAX_LOADED_MODELS: '1'
+      OLLAMA_KEEP_ALIVE: '5m'
+      OLLAMA_CONTEXT_LENGTH: '8192'
+      OLLAMA_NO_CLOUD: '1'
+      CUDA_VISIBLE_DEVICES: '-1'
+      HIP_VISIBLE_DEVICES: '-1'
+    volumes: [ollama:/root/.ollama:ro]
+    mem_limit: 72g
+    memswap_limit: 72g
+    cpus: 16
+    pids_limit: 256
+    healthcheck:
+      test: [CMD, ollama, list]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+  postgres:
+    <<: *common
+    networks: [storage]
+    image: ${POSTGRES_IMAGE}
+    environment:
+      POSTGRES_DB: ai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    secrets: [postgres_password, db_password]
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./postgres/init.sh:/docker-entrypoint-initdb.d/01-ai.sh:ro
+    shm_size: 256m
+    mem_limit: 4g
+    cpus: 4
+    pids_limit: 256
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U postgres -d ai']
+      interval: 10s
+      timeout: 5s
+      retries: 15
+  gateway:
+    <<: *common
+    networks: [inference, storage, frontend, agents, images]
+    build:
+      context: ../gateway/fastapi
+      args: {PYTHON_IMAGE: '${PYTHON_IMAGE}'}
+    image: ai-gateway:1.0.0
+    environment:
+      INFERENCE_BASE_URL: http://ollama:11434
+      EMBEDDING_MODEL: embeddinggemma:300m
+      EMBEDDING_VERSION: ${EMBEDDING_VERSION:-unresolved}
+      MODELS_JSON: '{"coding":"ai-coder-8k","fast":"ai-fast-8k","general":"${GENERAL_MODEL:-ai-general-8k}","qwen25-coder-32b":"ai-qwen25-coder-32b-8k","llama31-70b":"ai-llama31-70b-8k","llama33-70b":"ai-llama33-70b-8k","deepseek-coder-v2-lite":"ai-deepseek-coder-v2-lite-8k"}'
+      MODEL_UPSTREAMS_JSON: '{"qwen25-coder-32b":"http://ollama-specialists:11434","llama31-70b":"http://ollama-specialists:11434","llama33-70b":"http://ollama-specialists:11434","deepseek-coder-v2-lite":"http://ollama-specialists:11434"}'
+      LLM_THREADS: '12'
+      GENERAL_REASONING_EFFORT: ${GENERAL_REASONING_EFFORT:-}
+      INFERENCE_QUEUE_LIMIT: '16'
+      INFERENCE_QUEUE_TIMEOUT: '120'
+      IMAGE_BASE_URL: http://image-generator:1234
+    secrets:
+      - db_password
+      - source: clients
+        target: clients.json
+    depends_on:
+      postgres: {condition: service_healthy}
+      ollama: {condition: service_healthy}
+      image-generator: {condition: service_healthy}
+    read_only: true
+    tmpfs: ['/tmp:size=64m,mode=1777']
+    cap_drop: [ALL]
+    mem_limit: 1g
+    cpus: 2
+    pids_limit: 128
+    healthcheck:
+      test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://localhost:8000/health",timeout=5)']
+      interval: 20s
+      timeout: 10s
+      retries: 10
+  image-generator:
+    <<: *common
+    image: ai-image-generator:95b3090-source
+    build:
+      context: ./image-generator
+      dockerfile: Dockerfile.source
+    networks: [images]
+    command: ['-m', '/models/sd_turbo.safetensors', '--listen-ip', '0.0.0.0', '--listen-port', '1234', '--threads', '12', '--steps', '2', '--cfg-scale', '1.0', '--sampling-method', 'euler_a', '--width', '512', '--height', '512', '--backend', 'cpu', '--log-level', 'warn']
+    volumes: ['../inference/images/sd_turbo.safetensors:/models/sd_turbo.safetensors:ro']
+    read_only: true
+    tmpfs: ['/tmp:size=1g,mode=1777']
+    cap_drop: [ALL]
+    mem_limit: 24g
+    memswap_limit: 24g
+    cpus: 16
+    pids_limit: 256
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, http://localhost:1234/sdcpp/v1/capabilities]
+      interval: 20s
+      timeout: 10s
+      retries: 15
+      start_period: 120s
+  studio-renderer:
+    <<: *common
+    image: ia-studio-renderer:1.0.0
+    build: ../ia-studio/renderer
+    networks: [studio_render, browser_outbound]
+    init: true
+    security_opt: ['no-new-privileges:true', 'seccomp=../ia-studio/deployment/chromium-seccomp.json']
+    secrets: [studio_renderer_key]
+    volumes: [studio_data:/data]
+    tmpfs: ['/tmp:size=1g,mode=1777']
+    shm_size: 512m
+    mem_limit: 6g
+    memswap_limit: 6g
+    cpus: 8
+    pids_limit: 512
+    healthcheck:
+      test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://localhost:8091/health",timeout=5)']
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+  studio-demo:
+    <<: *common
+    image: ia-studio:1.0.0
+    networks: [studio_render]
+    command: [uvicorn, demo:app, --host, 0.0.0.0, --port, '8092', --no-access-log]
+    read_only: true
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 1
+    pids_limit: 64
+    healthcheck:
+      test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://localhost:8092/health",timeout=5)']
+      interval: 20s
+      timeout: 10s
+      retries: 10
+  studio:
+    <<: *common
+    image: ia-studio:1.0.0
+    build:
+      context: ../ia-studio/backend
+      dockerfile: Dockerfile.presentation
+    networks: [frontend, storage, studio_render]
+    secrets: [db_password, studio_key, studio_renderer_key, studio_crypto_key, connector_hub_key]
+    volumes: [studio_data:/data]
+    environment:
+      STUDIO_RETENTION_DAYS: '7'
+    read_only: true
+    tmpfs: ['/tmp:size=256m,mode=1777']
+    cap_drop: [ALL]
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 128
+    depends_on:
+      gateway: {condition: service_healthy}
+      studio-renderer: {condition: service_healthy}
+      studio-demo: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://localhost:8090/health",timeout=5)']
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+  webui:
+    <<: *common
+    image: ai-webui:0.12.3-offline
+    build:
+      context: ./webui
+      network: none
+      args: {WEBUI_IMAGE: '${WEBUI_IMAGE}'}
+    environment:
+      WEBUI_NAME: Moara AI
+      AIOHTTP_CLIENT_TIMEOUT: '1200'
+      WEBUI_BANNERS: '[{"id":"ia-studio","type":"info","content":"**Moara Studio** · Interfaces, imagens e manuais com IA local. [Abrir plataforma](/studio/)","dismissible":true,"timestamp":1792440000}]'
+      WEBUI_AUTH: 'True'
+      GLOBAL_LOG_LEVEL: WARNING
+      WEBUI_ADMIN_EMAIL: admin@ai.internal
+      ENABLE_SIGNUP: 'False'
+      ENABLE_OLLAMA_API: 'False'
+      ENABLE_OPENAI_API: 'True'
+      OPENAI_API_BASE_URL: http://gateway:8000/v1
+      RAG_OPENAI_API_BASE_URL: http://gateway:8000/v1
+      RAG_EMBEDDING_ENGINE: openai
+      RAG_EMBEDDING_MODEL: embeddinggemma:300m
+      RAG_EMBEDDING_BATCH_SIZE: '1'
+      ENABLE_ASYNC_EMBEDDING: 'False'
+      CHUNK_SIZE: '384'
+      CHUNK_OVERLAP: '64'
+      OFFLINE_MODE: 'True'
+      HF_HUB_OFFLINE: '1'
+      DO_NOT_TRACK: 'True'
+      SCARF_NO_ANALYTICS: 'True'
+      ANONYMIZED_TELEMETRY: 'False'
+      ENABLE_VERSION_UPDATE_CHECK: 'False'
+      ENABLE_PERSISTENT_CONFIG: 'False'
+      ENABLE_PLUGINS: 'False'
+      ENABLE_PIP_INSTALL_FRONTMATTER_REQUIREMENTS: 'False'
+      ENABLE_CODE_EXECUTION: 'False'
+      ENABLE_CODE_INTERPRETER: 'False'
+      ENABLE_WEB_SEARCH: 'False'
+      ENABLE_IMAGE_GENERATION: 'True'
+      IMAGE_GENERATION_ENGINE: openai
+      IMAGE_GENERATION_MODEL: sd-turbo
+      IMAGES_OPENAI_API_BASE_URL: http://gateway:8000/v1
+      IMAGE_SIZE: 512x512
+      IMAGE_STEPS: '2'
+      WEBUI_SESSION_COOKIE_SECURE: 'True'
+      DEFAULT_MODELS: coding
+      DEFAULT_PROMPT_SUGGESTIONS: >-
+        [{"title":["Mostre-me um trecho de código","de um cabeçalho fixo para um site"],"content":"Mostre-me um trecho de código de um cabeçalho fixo para um site."},{"title":["Ajude-me a estudar","vocabulário para o vestibular"],"content":"Ajude-me a estudar vocabulário para o vestibular."},{"title":["Explique o mercado de opções","para quem já conhece compra e venda de ações"],"content":"Explique o mercado de opções para quem já conhece compra e venda de ações."},{"title":["Crie uma automação","um script para organizar meus arquivos"],"content":"Ajude-me a criar um script para organizar meus arquivos. Primeiro pergunte quais arquivos e regras eu quero usar."},{"title":["Gere um manual ou documentação","para um sistema interno"],"content":"Quero gerar um manual para um sistema interno usando o Moara Studio. Pergunte qual sistema e quais informações preciso fornecer."},{"title":["Crie uma imagem","para apresentação ou material de estudo"],"content":"Quero criar uma imagem para uma apresentação ou material de estudo. Pergunte o tema e o estilo antes de gerar a imagem."}]
+      DEFAULT_USER_ROLE: pending
+    entrypoint: [/bin/bash, /run/webui-start.sh]
+    secrets: [webui_key, webui_admin_password, webui_secret]
+    volumes:
+      - webui:/app/backend/data
+      - ./webui-start.sh:/run/webui-start.sh:ro
+    depends_on:
+      gateway: {condition: service_healthy}
+    mem_limit: 8g
+    cpus: 4
+    pids_limit: 512
+    healthcheck:
+      test: [CMD, python, -c, 'import urllib.request; urllib.request.urlopen("http://localhost:8080/health",timeout=10)']
+      interval: 30s
+      timeout: 15s
+      retries: 20
+      start_period: 120s
+  caddy:
+    <<: *common
+    networks: [frontend, edge]
+    image: ai-caddy:2.11.7
+    build:
+      context: ./caddy
+      args: {CADDY_IMAGE: '${CADDY_IMAGE}'}
+    ports: ['127.0.0.1:8443:8443']
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      gateway: {condition: service_healthy}
+      webui: {condition: service_healthy}
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 1
+    pids_limit: 128
+# BEGIN CONNECTORS SERVICES
+  connector-postgres:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: &id001
+    - ALL
+    security_opt: &id002
+    - no-new-privileges:true
+    logging: &id003
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    pids_limit: 128
+    tmpfs: &id004
+    - /tmp:size=64m,mode=1777
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-postgres:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.postgres
+    networks:
+      connector_postgres: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.10
+    environment:
+      CONNECTOR_KIND: postgres
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_postgres_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-mssql:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-mssql:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.mssql
+    networks:
+      connector_mssql: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.11
+    environment:
+      CONNECTOR_KIND: mssql
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_mssql_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-mysql:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-mysql:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.mysql
+    networks:
+      connector_mysql: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.12
+    environment:
+      CONNECTOR_KIND: mysql
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_mysql_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-oracle:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-oracle:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.oracle
+    networks:
+      connector_oracle: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.13
+    environment:
+      CONNECTOR_KIND: oracle
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_oracle_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-mongodb:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-mongodb:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.mongodb
+    networks:
+      connector_mongodb: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.14
+    environment:
+      CONNECTOR_KIND: mongodb
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_mongodb_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-sqlite:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-sqlite:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.sqlite
+    networks:
+      connector_sqlite: {}
+    environment:
+      CONNECTOR_KIND: sqlite
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_sqlite_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+    volumes:
+    - connector_sqlite:/data
+  connector-rest:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 768m
+    memswap_limit: 768m
+    image: ai-connector-rest:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.rest
+    networks:
+      connector_rest: {}
+      connector_outbound:
+        ipv4_address: 10.91.240.16
+    environment:
+      CONNECTOR_KIND: rest
+      FORBIDDEN_NETWORKS: ${CONNECTOR_FORBIDDEN_NETWORKS}
+    secrets:
+    - source: connector_rest_key
+      target: connector_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8071/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+  connector-hub:
+    restart: unless-stopped
+    read_only: true
+    cap_drop: *id001
+    security_opt: *id002
+    logging: *id003
+    pids_limit: 128
+    tmpfs: *id004
+    cpus: 1
+    mem_limit: 1g
+    memswap_limit: 1g
+    image: ai-connector-hub:1.0.0
+    build:
+      context: ..
+      dockerfile: connectors/deployment/Dockerfile.hub
+    networks:
+    - frontend
+    - storage
+    - connector_postgres
+    - connector_mssql
+    - connector_mysql
+    - connector_oracle
+    - connector_mongodb
+    - connector_sqlite
+    - connector_rest
+    secrets:
+    - db_password
+    - connector_hub_key
+    - connector_crypto_key
+    - connector_postgres_key
+    - connector_mssql_key
+    - connector_mysql_key
+    - connector_oracle_key
+    - connector_mongodb_key
+    - connector_sqlite_key
+    - connector_rest_key
+    - source: webui_key
+      target: llm_key
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen("http://localhost:8070/health",timeout=5)
+      interval: 20s
+      timeout: 7s
+      retries: 10
+      start_period: 30s
+# END CONNECTORS SERVICES
+networks:
+  inference: {internal: true}
+  storage: {internal: true}
+  frontend: {internal: true}
+  agents: {internal: true}
+  images: {internal: true}
+  studio_render: {internal: true}
+  browser_outbound: {}
+  edge: {}
+  download: {}
+# BEGIN CONNECTORS NETWORKS
+  connector_postgres:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.0.0/24
+  connector_mssql:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.1.0/24
+  connector_mysql:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.2.0/24
+  connector_oracle:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.3.0/24
+  connector_mongodb:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.4.0/24
+  connector_sqlite:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.5.0/24
+  connector_rest:
+    internal: true
+    ipam:
+      config:
+      - subnet: 10.91.6.0/24
+  connector_outbound:
+    ipam:
+      config:
+      - subnet: 10.91.240.0/24
+# END CONNECTORS NETWORKS
+volumes:
+  ollama: {}
+  postgres: {}
+  webui: {}
+  caddy_data: {}
+  caddy_config: {}
+  studio_data: {}
+# BEGIN CONNECTORS VOLUMES
+  connector_sqlite: {}
+# END CONNECTORS VOLUMES
+secrets:
+  postgres_password: {file: ../secrets/postgres_password}
+  db_password: {file: ../secrets/db_password}
+  clients: {file: ../secrets/clients.json}
+  webui_key: {file: ../secrets/webui_key}
+  webui_admin_password: {file: ../secrets/webui_admin_password}
+  webui_secret: {file: ../secrets/webui_secret}
+  studio_renderer_key: {file: ../secrets/studio_renderer_key}
+  studio_crypto_key: {file: ../secrets/studio_crypto_key}
+  studio_key: {file: ../secrets/studio_key}
+
+# BEGIN CONNECTORS SECRETS
+  connector_hub_key:
+    file: ../secrets/connector_hub_key
+  connector_crypto_key:
+    file: ../secrets/connector_crypto_key
+  connector_postgres_key:
+    file: ../secrets/connector_postgres_key
+  connector_mssql_key:
+    file: ../secrets/connector_mssql_key
+  connector_mysql_key:
+    file: ../secrets/connector_mysql_key
+  connector_oracle_key:
+    file: ../secrets/connector_oracle_key
+  connector_mongodb_key:
+    file: ../secrets/connector_mongodb_key
+  connector_sqlite_key:
+    file: ../secrets/connector_sqlite_key
+  connector_rest_key:
+    file: ../secrets/connector_rest_key
+# END CONNECTORS SECRETS

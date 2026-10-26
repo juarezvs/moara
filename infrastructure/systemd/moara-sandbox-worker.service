@@ -1,0 +1,18 @@
+# MOARA managed sandbox worker
+[Unit]
+Description=Moara approved rootless code execution worker
+After=ai-server.service
+[Service]
+Type=simple
+WorkingDirectory=/home/nutec/ai-server
+Environment=DOCKER_HOST=unix:///run/user/1000/docker.sock
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /home/nutec/ai-server/infrastructure/scripts/sandbox_worker.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+MemoryMax=512M
+TasksMax=64
+[Install]
+WantedBy=default.target

@@ -1,3 +1,5 @@
+> Atualização: todas as fases restantes foram autorizadas. Implementação funcional publicada; cobertura e pendências em PROJECT_STATUS.md. O plano abaixo preserva o histórico inicial.
+
 # Plano de implementação
 
 Preparado em 26/10/2026. Plano da Fase 1 aprovado pelo usuário e executado.

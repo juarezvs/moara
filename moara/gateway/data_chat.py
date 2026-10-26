@@ -40,7 +40,7 @@ def secp_profile_command(question):
 
 
 async def answer(question,request,actor):
-    if '/internal/connectors/' in request.scope.get('path','') or not data_question(question):return None
+    if request.scope.get('moara_disable_data_tools') or '/internal/connectors/' in request.scope.get('path','') or not data_question(question):return None
     personal_portal=bool(re.search(r'\b(contracheques?|holerites?)\b',question,re.I))
     secp=bool(re.search(r'\bsecp\b',question,re.I))
     if secp and getattr(actor,'key_id',None) is not None and not actor.can('data.query'):

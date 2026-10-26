@@ -1,16 +1,22 @@
-# Pendências
+# Pendências e limites atuais
 
-| ID | Prioridade | Pendência e evidência necessária |
+| ID | Estado | Trabalho restante |
 |---|---|---|
-| OPS-001 | Resolvida | Backup corrigido e restore isolado verificado em 26/10; ver PHASE1_OPERATIONS.md |
-| OPS-002 | Resolvida no escopo | Unidade ativa; stack completa e persistência testadas em staging; reboot produtivo depende de janela |
-| OPS-003 | Parcial | TLS/DNS/rotas verificados; inspeção privilegiada de firewall pendente |
-| OPS-004 | Alta | Destino de backup fora do host, guarda separada da chave e política de retenção |
-| SEC-001 | Alta | Avaliar GDS/microcode com infraestrutura; kernel indica Vulnerable |
-| PERF-001 | Média | Rever quatro modelos Forever; benchmark threads/NUMA e capacidade concorrente |
-| DATA-001 | Alta | Auditar fontes e ACLs existentes sem consultar ou copiar dados reais |
-| DEV-001 | Parcial | 83 arquivos importados com hashes e versão local; restante da árvore remota ainda sem Git |
-| QA-001 | Alta | Reexecutar testes em homologação, sem usar aceites históricos como novos |
-| INFRA-001 | Média | Temperatura, RAID/SMART, certificados e firewall requerem inspeção adicional |
-| AD-001 | Dependência | Domínio/CA/SPN/grupos e autenticação segura somente quando iniciar Fase 11 |
-| RAG-001 | Dependência | Validar modelos/dimensões; não misturar índices de embeddings incompatíveis |
+| OPS-001 | Resolvido | Backup/restore antes e depois da migração |
+| OPS-002 | Resolvido no escopo | Reboot físico exige janela operacional |
+| OPS-003 | Parcial | TLS verificado; inspeção privilegiada de firewall pendente |
+| OPS-004 | Dependência externa | Destino externo de backup, guarda da chave e retenção |
+| SEC-001 | Alta | Kernel informa GDS vulnerável; tratar microcode/kernel |
+| SANDBOX-001 | Limite | Rootless Docker+seccomp não substitui VM/gVisor |
+| PERF-001 | Parcial | Matriz 7B pronta; faltam corpus representativo e carga prolongada |
+| RAG-001 | Parcial | Pipeline passou com fontes fictícias; avaliar recall em corpus jurídico |
+| AD-001 | Parcial | LDAPS testado; SPN/keytab necessários para Kerberos/SPNEGO |
+| PJE-001 | Dependência externa | Endpoint oficial, contrato, credenciais e escopo; nenhuma integração real nova ativada |
+| FLOW-001 | Deliberado | Operações fixas e notificações simuladas; efeitos externos exigem integração específica |
+| DEV-001 | Parcial | Git local do projeto; sem integração dos projetos de usuário com Git remoto |
+| DOC-001 | Parcial | DOCX textual implementado; layout avançado Word/PDF ainda não implementado |
+| QA-001 | Parcial | Smoke e testes sintéticos passaram; pentest e aceite institucional pendentes |
+| INFRA-001 | Dependência externa | RAID/SMART, temperatura e inspeção privilegiada |
+
+Não ocultar estes limites sob uma declaração de conclusão integral. A entrega
+funcional e a cobertura estão em PLATFORM_RELEASE.md e PROJECT_STATUS.md.
