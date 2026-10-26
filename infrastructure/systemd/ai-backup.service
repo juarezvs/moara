@@ -1,0 +1,10 @@
+[Unit]
+Description=Private AI encrypted online backup and isolated restore verification
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/nutec/ai-server
+Environment=DOCKER_HOST=unix:///run/user/1000/docker.sock
+UMask=0077
+ExecStart=/bin/bash /home/nutec/ai-server/infrastructure/scripts/backup.sh
+TimeoutStartSec=3600

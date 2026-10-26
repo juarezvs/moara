@@ -1,6 +1,7 @@
 # Plano de implementação
 
-Preparado em 26/10/2026. Execução incremental sobre a instalação real existente.
+Preparado em 26/10/2026. Plano da Fase 1 aprovado pelo usuário e executado.
+Evidências e limites de aceite: PHASE1_OPERATIONS.md.
 
 ## Fase 1 — plano concreto de alterações para aprovação
 

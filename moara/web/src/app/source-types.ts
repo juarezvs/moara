@@ -1,0 +1,10 @@
+export interface Connection {host:string;port:number;database:string;username:string;tls:boolean;ca_pem:string;timeout:number;approved_ips:string[];sqlite_id:string;base_url:string;endpoints:string[];query_parameters:string[];readonly_endpoints_attested:boolean;oracle_readonly_mode?:'credential'|'transaction';oracle_role?:string;oracle_schema?:string;}
+export interface Column {name:string;type:string;sensitive?:boolean;}
+export interface CatalogObject {type:string;fields:Column[];sampled_schema?:boolean;primary_key?:string[];}
+export interface CatalogRelationship {from_object:string;from_field:string;to_object:string;to_field:string;constraint_name?:string;position?:number;column_count?:number;}
+export interface Policy {owners:string[];groups:string[];max_rows:number;timeout:number;allow_sensitive:boolean;objects:Record<string,CatalogObject>;blocked_objects:string[];audit:string;}
+export interface Source {id:string;name:string;description:string;kind:string;active:boolean;verified?:boolean;connection?:Connection;policy?:Policy;catalog?:{objects:Record<string,CatalogObject>;relationships?:CatalogRelationship[]};objects?:Record<string,CatalogObject>;semantic:Record<string,unknown>;health:{ok?:boolean;latency_ms?:number;error?:string};credential_set?:boolean;}
+export interface SourceType {id:string;name:string;description:string;enabled:boolean;sources:number;version:string;health:{ok:boolean;latency_ms?:number};}
+export const KIND_PORTS:Record<string,number>={postgres:5432,mysql:3306,mssql:1433,oracle:1521,mongodb:27017,sqlite:0,rest:443};
+export const emptyConnection=():Connection=>({host:'',port:5432,database:'',username:'',tls:true,ca_pem:'',timeout:15,approved_ips:[],sqlite_id:'',base_url:'',endpoints:[],query_parameters:[],readonly_endpoints_attested:false,oracle_readonly_mode:'credential',oracle_role:'',oracle_schema:''});
+export const emptyPolicy=():Policy=>({owners:[],groups:[],max_rows:100,timeout:15,allow_sensitive:false,objects:{},blocked_objects:[],audit:'masked'});

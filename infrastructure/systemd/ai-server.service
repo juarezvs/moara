@@ -1,0 +1,16 @@
+[Unit]
+Description=Private CPU AI services
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/nutec/ai-server
+Environment=DOCKER_HOST=unix:///run/user/1000/docker.sock
+ExecStart=/bin/bash /home/nutec/ai-server/infrastructure/scripts/start-services.sh
+ExecStop=/bin/sh /home/nutec/ai-server/moara/infrastructure/scripts/compose.sh stop
+TimeoutStartSec=1900
+
+[Install]
+WantedBy=default.target

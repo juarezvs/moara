@@ -2,14 +2,25 @@
 
 Atualizado em 26/10/2026, America/Manaus.
 
-- Fase 0: inventário e plano preparados; aceite formal do plano pendente.
-- Fase 1: correções propostas, nenhuma alteração publicada no servidor.
-- Fases 2–13: ambiente anterior contém componentes; aceite desta especificação
-  ainda exige revisão e evidências por fase.
-- Local: coletor de inventário e documentos de acompanhamento implementados.
-- Remoto: código e dados preservados em `/home/nutec/ai-server`.
-- Principais achados: backup falha por permissão; unidade de inicialização falhada;
-  containers ativos; quatro modelos residentes; exposição de rede a revisar.
+- Fase 0: diagnóstico entregue e plano da Fase 1 explicitamente aprovado pelo usuário.
+- Fase 1: correções operacionais publicadas e verificadas. Inicialização recuperada;
+  backup online criptografado e restauração isolada concluídos pelo systemd.
+- 25 containers produtivos preservados com os mesmos IDs. HTTPS e recusa de acesso
+  sem autenticação verificados antes e depois.
+- 8 testes de segurança passaram no Linux; persistência e dependências validadas
+  em containers descartáveis sem rede, com dados fictícios.
+- Código: 83 arquivos selecionados importados com hashes de origem; aplicação
+  Angular/FastAPI não foi recompilada nem modificada funcionalmente nesta fase.
+- A cópia local é parcial: configs com segredos, dados, pesos e dependências não
+  foram importados. A instalação operacional continua em /home/nutec/ai-server.
+- Fases 2–13: pendentes de execução/revisão por critério de aceite da especificação.
 
-Na próxima sessão, ler este arquivo, plano, relatório, decisões, testes, implantação,
-segurança e pendências. Não interpretar relatórios históricos como testes novos.
+Pendências administrativas: destino externo de backup/guarda da chave, firewall,
+GDS/microcode e teste de reboot em janela própria. O teste de persistência desta
+fase cobriu staging; não houve reboot do host produtivo.
+
+Próximo marco: Fase 2, auditar modelos/licenças/digests e planejar benchmarks CPU
+sem descarregar automaticamente modelos usados pela instalação existente.
+
+Ler PHASE1_OPERATIONS.md, IMPLEMENTATION_PLAN.md, TEST_RESULTS.md, OPEN_ISSUES.md e
+SECURITY_DECISIONS.md ao retomar. Resultados históricos continuam separados dos novos.

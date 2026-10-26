@@ -17,3 +17,11 @@
 - Não foi autorizada formatação, exclusão de volumes ou migração destrutiva.
 - O documento fornecido exige aprovação do plano entre Fases 0 e 1. O plano
   preparado limita explicitamente as primeiras alterações e seu rollback.
+
+## Fase 1 aprovada e executada
+
+A aprovação explícita do usuário autorizou a publicação restrita. O helper de backup
+foi validado sem rede, com origem somente leitura e capability DAC_READ_SEARCH;
+nenhuma permissão original foi ampliada. HMAC adulterado e arquivos fora da pasta
+de backups são recusados antes da descriptografia. Chave e backups permanecem
+no servidor; nenhuma credencial foi copiada para Git ou exibida.

@@ -23,3 +23,11 @@ Nesta sessão não foram executados testes funcionais de chat, autorização, ba
 RAG, AD, conectores, backups/restauração, geração, segurança, build Angular ou
 benchmarks. Documentos anteriores descrevem ensaios históricos, sem revalidação.
 Nenhuma funcionalidade nova da plataforma é declarada homologada.
+
+## Fase 1 — resultados posteriores à aprovação
+
+8 testes passaram no Linux. Testes reais de persistência/dependências em staging,
+backup pré-publicação, backup via systemd, restores isolados, HTTPS, autenticação
+negativa, IDs de containers e hashes publicados passaram. Evidências locais em
+docs/evidence/phase1-*. Detalhes e limitações: PHASE1_OPERATIONS.md. Os testes de
+aplicação listados como não executados na Fase 0 continuam fora deste escopo.
