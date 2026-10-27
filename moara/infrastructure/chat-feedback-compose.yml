@@ -1,0 +1,12 @@
+services:
+  webui:
+    image: ai-webui:moara-feedback-20261027
+    build:
+      context: ../moara/webui/embedding-retry
+      dockerfile: Dockerfile
+      args:
+        BASE_IMAGE: ai-webui:before-feedback-20261027
+    environment:
+      RAG_EMBEDDING_BATCH_SIZE: '16'
+      RAG_EMBEDDING_CONCURRENT_REQUESTS: '1'
+      ENABLE_ASYNC_EMBEDDING: 'false'

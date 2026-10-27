@@ -1,0 +1,6 @@
+#moara-feedback{display:flex;flex-direction:column;gap:.4rem;width:100%;max-height:14rem;overflow:auto;text-align:left}
+#moara-feedback:empty{display:none}
+.moara-feedback-card{display:grid;grid-template-columns:1fr auto;gap:.2rem .6rem;padding:.55rem .8rem;border:1px solid #a3b8b2;border-radius:.75rem;background:#f0f8f4;color:#163d32;font-size:.8rem;line-height:1.4}
+.moara-feedback-card strong{overflow-wrap:anywhere}.moara-feedback-card span,.moara-feedback-card progress{grid-column:1/-1}
+.moara-feedback-card progress{width:100%;height:.45rem;accent-color:#287659}.moara-feedback-card button{grid-column:2;grid-row:1;text-decoration:underline}
+.dark .moara-feedback-card{background:#163329;color:#e2f5eb;border-color:#476b5c}

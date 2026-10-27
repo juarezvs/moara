@@ -8,4 +8,5 @@ exec docker compose --env-file infrastructure/.env \
  -f moara/infrastructure/secp-rbac-compose.yml \
  -f moara/infrastructure/observability-compose.yml \
  -f moara/infrastructure/public-site-compose.yml \
- -f moara/infrastructure/platform-compose.yml "$@"
+ -f moara/infrastructure/platform-compose.yml \
+ -f moara/infrastructure/chat-feedback-compose.yml "$@"
