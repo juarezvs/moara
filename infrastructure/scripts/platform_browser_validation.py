@@ -1,6 +1,6 @@
 import io,json,os,subprocess,tarfile,time
 from pathlib import Path
-ROOT=Path('/home/nutec/ai-server');STAGE=Path('/home/nutec/moara-platform-20261026')
+ROOT=Path('/home/nutec/ai-server');STAGE=Path('/home/nutec/moara-platform-20261026-r2')
 def run(args,**kwargs):
  p=subprocess.run(args,capture_output=True,timeout=180,**kwargs)
  if p.returncode:raise RuntimeError(p.stderr.decode()[-1000:])

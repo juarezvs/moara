@@ -3,10 +3,10 @@
 Servidor 172.19.5.250; código /home/nutec/ai-server.
 URL: https://moara.am.trf1.gov.br/moara/espaco.
 
-Publicado em 2026-10-26T16:59:30Z. Imagem:
-sha256:47cfddf5b672bce68f24986e4bd9eba031f8310f97eb9fa454e5eb5e08acd92d
-(moara-core:platform-20261026). Anterior:
-sha256:65d14849f7ce7edbaaa4833496acae818592b85244f9156ae15d143a3cfaf6d9.
+R2 publicada em 2026-10-27T01:00:11.039386+00:00. Imagem:
+sha256:48989ca495c04815242fa0db9df3978a8d7d520c3b4184974a7fec593c8bf461
+(moara-core:platform-20261026-r2). Anterior (R1):
+sha256:47cfddf5b672bce68f24986e4bd9eba031f8310f97eb9fa454e5eb5e08acd92d.
 
 Migração 0005_platform confirmada; PostgreSQL passou de 39 para 46 tabelas.
 Somente ai-server-moara-gateway-1 foi substituído. Outros 24 containers preservados;
@@ -42,3 +42,11 @@ no overlay e subir somente moara-gateway com --no-deps --no-build. Restaurar os
 arquivos preservados e conferir rotas. Não usar down -v nem apagar migrations.
 
 Não houve reboot, mudança de credenciais ou importação de dados de homologação.
+
+## Preservação R2
+
+Diretório: /home/nutec/ai-server/docs/runtime/platform-release-20261026-r2/before
+
+Backup anterior: moara-before-migration-20261027T005817Z.tar.enc
+SHA256 17eca3a91ed33a08403f53afe2bf15c7401a5eb02ccff37ca51941b381ec06d4. Restore verificado de 46 tabelas.
+O supervisor de sandbox foi reiniciado para aplicar o timeout interno.

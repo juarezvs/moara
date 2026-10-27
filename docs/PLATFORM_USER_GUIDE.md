@@ -29,7 +29,7 @@ clara; fontes indisponíveis para a sua conta não serão usadas.
 
 Para Analytics, envie um CSV, escolha uma fonte, a coluna de agrupamento e
 contagem, soma ou média. A saída inclui definição, hash da fonte e CSV exportado.
-A API também permite filtros por igualdade; não executa SQL livre.
+A tela permite filtros por igualdade e mostra barras com os valores exatos na tabela; não executa SQL livre.
 
 Em Processos, vincule documentos autorizados e registre eventos com data, fato e
 fonte. Gere uma minuta pela solicitação. Confira fatos, citações, cálculos e
@@ -51,8 +51,28 @@ os testes ou a revisão foram aprovados.
 
 ## Fluxos
 
-A tela oferece um fluxo inicial de notificação simulada. A API aceita também
-busca documental, template e agregação. Nenhuma notificação é enviada a pessoas.
+Use Nova etapa para adicionar pesquisa documental, preenchimento de template,
+agregação ou notificação simulada. Templates ficam vinculados à versão selecionada;
+alterar o template exige atualizar a etapa. Nenhuma notificação é enviada a pessoas.
 Ative o agendamento e escolha um intervalo de pelo menos 300 segundos. Alterações
 geram nova versão. Se o proprietário perder permissão, o agendamento deixa de
 executar. Cancelamento é cooperativo e verificado durante os jobs.
+
+## Complementos R2
+
+Em Templates, selecione opcionalmente um DOCX enviado à biblioteca. Campos
+como {{nome}} em parágrafos, tabelas, cabeçalhos e rodapés são preenchidos mantendo
+os estilos do documento. Revise o DOCX gerado. O PDF de conferência é uma cópia
+textual paginada; não reproduz o layout original. Caracteres fora do conjunto
+português/WinAnsi exigem usar o DOCX.
+
+No projeto, adicione arquivos pelo campo Novo caminho de arquivo e salve a versão.
+Exportar histórico Git gera um bundle privado com até as últimas 100 versões.
+Para trabalhar localmente: `git clone moara-project.bundle meu-projeto`.
+A exportação não publica em serviços Git nem acessa repositórios externos.
+
+Em Agentes especializados, escolha uma das nove especialidades, descreva a
+solicitação e, quando necessário, selecione fontes autorizadas. A resposta fica
+em Execuções. Agentes propõem análises; ferramentas de cálculo, fluxo e execução
+continuam nas respectivas ações explícitas. Resultados textuais podem ser
+baixados em DOCX ou PDF de conferência.

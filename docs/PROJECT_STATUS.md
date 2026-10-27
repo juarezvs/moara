@@ -2,7 +2,7 @@
 
 O usuário autorizou todas as fases restantes; não há aprovação pendente.
 
-A plataforma ampliada foi publicada às 16:59 UTC (12:59 em Manaus), em
+A versão R2 foi publicada em 27/10 às 01:00 UTC (26/10, 21:00 em Manaus), em
 https://moara.am.trf1.gov.br/moara/espaco. Migração aditiva 0005_platform aplicada.
 Um gateway substituído, 24 containers preservados; todos em execução e saudáveis.
 
@@ -11,7 +11,7 @@ Um gateway substituído, 24 containers preservados; todos em execução e saudá
 | 0–1 | Diagnóstico, inicialização, backup e restore corrigidos | Reboot, firewall, GDS e backup externo dependem da infraestrutura |
 | 2 | Ollama/llama.cpp: 9 configurações, 18 amostras | Não certifica todos os modelos nem qualidade jurídica |
 | 3 | APIs protegidas, migrations, ACL, versões e auditoria append-only | Revisão independente ainda necessária para certificação |
-| 4 | Angular, espaço de trabalho e testes desktop/mobile | Editor avançado de workflows permanece via API |
+| 4 | Angular, espaço de trabalho e testes desktop/mobile | Editor visual de etapas fixas; sem execução arbitrária |
 | 5 | Propostas/diff/revisão, aceitação e sandbox por digest | Rootless Docker, não VM/gVisor; sem Git remoto ou instalação livre de dependências |
 | 6 | Upload, PDF/DOCX/OCR, embeddings, híbrida, reranking e citações | Corpus sintético; avaliação jurídica ampla e cross-encoder dedicado pendentes |
 | 7 | Conectores existentes e 72 testes sintéticos | PJe novo depende de API/contrato/credenciais |

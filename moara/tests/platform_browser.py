@@ -1,8 +1,8 @@
-import json,sys
+import json,sys,re,uuid
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 fixture=json.load(sys.stdin);out=Path('/tmp/platform-browser');out.mkdir(exist_ok=True)
-checks={};errors=[]
+checks={};errors=[];prompt_title='Prompt ficticio '+uuid.uuid4().hex[:8]
 with sync_playwright() as p:
  browser=p.chromium.launch(headless=True,args=['--no-sandbox'])
  context=browser.new_context(ignore_https_errors=True,viewport={'width':1440,'height':1000})
@@ -15,10 +15,10 @@ with sync_playwright() as p:
  expect(page.get_by_role('heading',name='Espaço de trabalho',exact=True)).to_be_visible()
  checks['workspace_navigation']=True
  page.get_by_role('button',name='Prompts',exact=True).click()
- page.get_by_label('Título',exact=True).fill('Prompt fictício de homologação')
+ page.get_by_label('Título',exact=True).fill(prompt_title)
  page.get_by_label('Texto (use {{campo}} para variáveis)',exact=True).fill('Responda com base nas fontes autorizadas.')
  page.get_by_role('button',name='Salvar versão',exact=True).click()
- expect(page.get_by_role('button',name='Prompt fictício de homologação',exact=True)).to_be_visible()
+ expect(page.get_by_role('button',name=prompt_title,exact=True)).to_be_visible()
  checks['prompt_created_from_browser']=True
  page.get_by_role('button',name='Histórico de versões',exact=True).click()
  expect(page.locator('.platform-output')).to_contain_text('version')
@@ -26,6 +26,13 @@ with sync_playwright() as p:
  page.get_by_role('button',name='MOARA FLOW',exact=True).click()
  page.get_by_label('Título',exact=True).fill('Fluxo fictício de homologação')
  page.get_by_label('Descrição ou instruções',exact=True).fill('Notificação simulada.')
+ page.get_by_label('Mensagem de teste',exact=True).fill('Etapa fictícia configurada pela interface.')
+ page.get_by_role('button',name='Adicionar etapa',exact=True).click()
+ expect(page.get_by_role('button',name='Remover etapa',exact=True)).to_have_count(1)
+ checks['workflow_step_builder']=True
+ page.get_by_role('combobox',name=re.compile('^Especialidade')).select_option('architect')
+ expect(page.get_by_role('combobox',name=re.compile('^Especialidade'))).to_have_value('architect')
+ checks['nine_agent_options']=page.get_by_role('combobox',name=re.compile('^Especialidade')).locator('option').count()==9
  page.get_by_role('button',name='Salvar versão',exact=True).click()
  expect(page.get_by_role('button',name='Executar teste',exact=True)).to_be_visible()
  page.get_by_role('button',name='Executar teste',exact=True).click()

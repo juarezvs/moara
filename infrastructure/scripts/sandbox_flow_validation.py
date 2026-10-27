@@ -1,6 +1,6 @@
 import json,subprocess,time
 from pathlib import Path
-STAGE=Path('/home/nutec/moara-platform-20261026')
+STAGE=Path('/home/nutec/moara-platform-20261026-r2')
 source="""import json,httpx
 from pathlib import Path
 c=httpx.Client(base_url='http://127.0.0.1:8075/api/v1/',headers={'Origin':'https://localhost:8443'},timeout=20)

@@ -76,3 +76,15 @@ inferência local sintética e backup/restore devem ter evidências recentes.
 O estado efetivamente publicado, imagem, backup, migração e resultados finais são
 registrados em DEPLOYMENT_STATUS.md e TEST_RESULTS.md. Este documento descreve a
 implementação; não substitui os resultados de aceite.
+
+## Complementos R2
+
+Nove especialidades podem ser solicitadas pela interface e pela fila autenticada.
+Templates DOCX preservam estilos, tabelas e cabeçalhos; resultados textuais
+podem ser exportados em DOCX/PDF. O PDF é uma prova textual para conferência.
+Projetos exportam histórico Git portátil e privado. O editor de fluxo configura
+as quatro etapas fixas; Analytics tem filtro por igualdade e gráfico com tabela.
+O supervisor de código aplica timeout dentro do container e limpeza por SIGTERM.
+
+A R2 mantém a migração 0005_platform, sem alteração de esquema. Não habilita
+Git remoto, notificações externas, PJe ou Kerberos sem as integrações necessárias.

@@ -19,7 +19,7 @@ class ResourceUpdate(Strict):
  body:dict
  group_id:UUID|None=None
 class RunCreate(Strict):
- operation:Literal['document.ingest','knowledge.answer','assistant.run','project.generate','project.execute','legal.draft','workflow.run']
+ operation:Literal['document.ingest','knowledge.answer','assistant.run','project.generate','project.execute','agent.run','legal.draft','workflow.run']
  resource_id:UUID|None=None
  input:dict=Field(default_factory=dict)
  idempotency_key:str|None=Field(default=None,max_length=100,pattern=r'^[a-zA-Z0-9_.:-]+$')
@@ -41,6 +41,12 @@ class DatasetQuery(Strict):
  operation:Literal['count','sum','average']='count'
  value_column:str|None=Field(default=None,max_length=100)
  filters:dict[str,str]=Field(default_factory=dict,max_length=10)
+class FlowTemplate(Strict):
+ template_id:UUID
+ version:int|None=Field(default=None,ge=1)
+ fields:dict[str,str]=Field(default_factory=dict,max_length=60)
+class FlowNotification(Strict):
+ message:str=Field(default='',max_length=2000)
 class Revision(Strict):
  version:int=Field(ge=1)
 class Approval(Strict):
@@ -55,7 +61,7 @@ class CaseEvent(Strict):
  document_id:UUID
  page:int|None=Field(default=None,ge=1,le=500)
 
-OPERATIONS={'project.execute':('project','development.execute'),'document.ingest':('document','documents.use'),'knowledge.answer':(None,'knowledge.use'),
+OPERATIONS={'agent.run':(None,'chat.use'),'project.execute':('project','development.execute'),'document.ingest':('document','documents.use'),'knowledge.answer':(None,'knowledge.use'),
  'assistant.run':('assistant','workspace.use'),'project.generate':('project','development.use'),
  'legal.draft':('case','documents.use'),'workflow.run':('workflow','workflows.use')}
 AGENTS=[
@@ -96,6 +102,9 @@ def validate_body(kind,body):
   for step in steps:
    if not isinstance(step,dict) or set(step)-{'type','parameters'} or step.get('type') not in {'knowledge.search','template.render','notification.test','analytics.aggregate'}:raise HTTPException(422,'workflow_step_not_allowed')
    if not isinstance(step.get('parameters',{}),dict):raise HTTPException(422,'invalid_step_parameters')
+   contract={'knowledge.search':SearchRequest,'template.render':FlowTemplate,'analytics.aggregate':DatasetQuery,'notification.test':FlowNotification}[step['type']]
+   try:contract.model_validate(step.get('parameters',{}))
+   except ValueError:raise HTTPException(422,'invalid_step_parameters') from None
   schedule=body.get('schedule',{})
   if not isinstance(schedule,dict):raise HTTPException(422,'invalid_schedule')
   if set(schedule)-{'enabled','interval_seconds'} or not isinstance(schedule.get('enabled',False),bool):raise HTTPException(422,'invalid_schedule')
@@ -114,8 +123,11 @@ def validate_body(kind,body):
 def validate_files(files):
  if not isinstance(files,dict) or len(files)>64:raise HTTPException(422,'invalid_project_files')
  total=0
+ if len({name.casefold() for name in files if isinstance(name,str)})!=len(files):raise HTTPException(422,'duplicate_project_path')
+ for name in files:
+  if isinstance(name,str) and any('/'.join(name.split('/')[:i]) in files for i in range(1,len(name.split('/')))):raise HTTPException(422,'conflicting_project_path')
  for name,value in files.items():
-  if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z0-9_. /-]{1,180}',name) or name.startswith(('/','.')) or ':' in name or name.rstrip(' .')!=name or any(p.split('.')[0].upper() in {'CON','PRN','AUX','NUL',*[f'COM{i}' for i in range(10)],*[f'LPT{i}' for i in range(10)]} for p in name.split('/')) or '\\' in name or any(p in ('','..','.') or p.startswith('.') for p in name.split('/')):raise HTTPException(422,'unsafe_project_path')
+  if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z0-9_. /-]{1,180}',name) or name.startswith(('/','.')) or ':' in name or name.rstrip(' .')!=name or any(p.split('.')[0].upper() in {'CON','PRN','AUX','NUL',*[f'COM{i}' for i in range(10)],*[f'LPT{i}' for i in range(10)]} for p in name.split('/')) or '\\' in name or any(p in ('','..','.') or p.rstrip(' .')!=p or p.startswith('.') for p in name.split('/')):raise HTTPException(422,'unsafe_project_path')
   if not isinstance(value,str) or len(value.encode())>200000:raise HTTPException(413,'project_file_too_large')
   total+=len(value.encode())
  if total>1000000:raise HTTPException(413,'project_too_large')

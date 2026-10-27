@@ -1,5 +1,5 @@
 """Rootless Docker execution worker. No service ports, socket mounts, or shell interpolation."""
-import argparse,json,os,re,subprocess,tempfile,threading,time,uuid
+import argparse,json,os,re,signal,subprocess,tempfile,threading,time,uuid
 from pathlib import Path
 LABEL='moara.sandbox.job'
 def command(args,**kwargs):return subprocess.run(args,capture_output=True,timeout=20,**kwargs)
@@ -33,6 +33,8 @@ def execute(files,language,python_image,node_image,checkpoint=lambda:True,timeou
    '--tmpfs','/tmp:rw,noexec,nosuid,nodev,size=16m','--log-driver','none',
    '--mount',f'type=bind,source={root},target=/workspace,readonly','-w','/workspace',
    '-e','HOME=/tmp','-e','PYTHONDONTWRITEBYTECODE=1',image]
+  ttl=max(1,min(30,int(timeout)))
+  argv+=['timeout','--signal=KILL',str(ttl)+'s']
   argv+=['python','-I','-B','/workspace/main.py'] if language in ('python','fastapi') else ['node','--disable-proto=throw','/workspace/main.ts']
   proc=subprocess.Popen(argv,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   def drain():
@@ -52,6 +54,7 @@ def execute(files,language,python_image,node_image,checkpoint=lambda:True,timeou
    try:code=proc.wait(timeout=10)
    except subprocess.TimeoutExpired:proc.kill();code=proc.wait()
    reader.join(timeout=5)
+   if reason is None and code in (124,137) and time.monotonic()-started>=ttl:reason='timeout'
   finally:owned_stop(name,identifier)
  return {'exit_code':code,'output':output.decode('utf-8',errors='replace'),'truncated':truncated,
   'termination':reason,'duration_seconds':round(time.monotonic()-started,3),'network':'none','memory_mib':256,'cpu_limit':1,
@@ -61,6 +64,8 @@ def bridge(api,request):
  if p.returncode:raise RuntimeError('bridge_unavailable')
  return json.loads(p.stdout)
 def main():
+ def terminate(*_):raise SystemExit(0)
+ signal.signal(signal.SIGTERM,terminate)
  parser=argparse.ArgumentParser();parser.add_argument('--api',default='ai-server-moara-gateway-1');parser.add_argument('--once',action='store_true');args=parser.parse_args()
  def image(name):
   p=command(['docker','image','inspect','-f','{{.Id}}',name],text=True)

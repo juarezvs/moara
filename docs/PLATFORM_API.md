@@ -38,3 +38,18 @@ da conta e da ACL atual.
 
 Erros não incluem conteúdo de documentos nem segredos. Logs guardam identificador,
 rota, status e tipo de falha. Conteúdos e resultados não são enviados à telemetria.
+
+## Complementos R2
+
+- GET /projects/{id}/git.bundle: development.use e proprietário atual;
+  até 100 versões. Sem remote, hooks ou comandos fornecidos pelo usuário.
+- GET /runs/{id}/export?format=docx|pdf: documents.use, jobs.read,
+  permissão atual da operação, propriedade e ACL atual de todas as fontes.
+- POST /runs com operation=agent.run: input.agent_id deve ser um dos nove IDs
+  do catálogo; input.query, model e document_ids opcionais seguem os limites
+  existentes. Exige chat.use e knowledge.use quando há fontes.
+- Template com body.document_id referencia um DOCX autorizado. Render retorna
+  docx_base64, text e pdf_base64 quando o conjunto de caracteres for suportado.
+  pdf_layout=text_review_copy indica que o PDF não reproduz o layout DOCX.
+- Etapa template.render aceita version para fixar a revisão; divergência falha
+  explicitamente. Fontes do template são rastreadas e revalidadas.

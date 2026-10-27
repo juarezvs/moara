@@ -1,5 +1,6 @@
 """Institutional workspace APIs; authorization and encryption are centralized."""
-import base64,hashlib,json,uuid
+import asyncio,base64,hashlib,json,uuid
+from .platform_exports import isolated as export_isolated
 from fastapi import APIRouter,Depends,HTTPException,Request
 from fastapi.responses import Response
 from .auth import require
@@ -67,10 +68,19 @@ async def search(body:SearchRequest,request:Request,actor=Depends(require('knowl
 async def render(identifier:uuid.UUID,body:TemplateRender,request:Request,actor=Depends(require('documents.use'))):
  row=await store.get(request.app,actor,identifier,kind='template')
  if row['version']!=body.version:raise HTTPException(409,'resource_version_conflict')
- text=render_template(row['body'].get('text',''),row['body'].get('variables',[]),body.fields)
+ data=row['body']
+ if data.get('document_id'):
+  _,source,raw=await knowledge.blob(request.app,actor,data['document_id'])
+  if not source['filename'].lower().endswith('.docx'):raise HTTPException(422,'docx_template_required')
+  result=await asyncio.to_thread(export_isolated,'docx',{'source':base64.b64encode(raw).decode(),'variables':data.get('variables',[]),'fields':body.fields})
+ else:
+  text=render_template(data.get('text',''),data.get('variables',[]),body.fields)
+  result={'text':text,'docx_base64':base64.b64encode(docx_export(text)).decode()}
+ try:result.update(await asyncio.to_thread(export_isolated,'pdf',{'text':result['text']}))
+ except HTTPException:result['pdf_available']=False
+ await store.references(request.app,actor,data)
  await request.app.state.db.audit(actor,'template.rendered',identifier)
- return {'text':text,'template_id':str(identifier),'version':row['version'],'draft':True,
- 'docx_base64':base64.b64encode(docx_export(text)).decode()}
+ return {**result,'template_id':str(identifier),'version':row['version'],'draft':True,'pdf_layout':'text_review_copy'}
 @router.post('/analytics/query')
 async def analytics(body:DatasetQuery,request:Request,actor=Depends(require('data.query'))):
  _,row,raw=await knowledge.blob(request.app,actor,body.document_id)
@@ -100,3 +110,15 @@ async def cancel(identifier:uuid.UUID,request:Request,actor=Depends(require('job
  WHERE id=CAST(:id AS uuid) AND account_id=CAST(:actor AS uuid) AND status IN ('queued','running')""",{'id':str(identifier),'actor':str(actor.user_id)})
  await request.app.state.db.audit(actor,'platform.run.cancelled',identifier)
  return {'cancel_requested':True}
+
+@router.get('/runs/{identifier}/export')
+async def export_run(identifier:uuid.UUID,request:Request,format:str='docx',actor=Depends(require('documents.use'))):
+ actor.require('jobs.read');row=await job(identifier,request,actor)
+ text=(row.get('result') or {}).get('text')
+ if not isinstance(text,str):raise HTTPException(422,'text_result_required')
+ if format=='docx':raw=docx_export(text);media='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+ elif format=='pdf':
+  result=await asyncio.to_thread(export_isolated,'pdf',{'text':text});raw=base64.b64decode(result['pdf_base64']);media='application/pdf'
+ else:raise HTTPException(422,'unsupported_export_format')
+ await job(identifier,request,actor)
+ return Response(raw,media_type=media,headers={'Content-Disposition':'attachment; filename="moara-rascunho.'+format+'"'})

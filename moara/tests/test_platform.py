@@ -71,3 +71,47 @@ class ResultSerializationTests(unittest.TestCase):
   value={'id':UUID('00000000-0000-0000-0000-000000000001'),'score':Decimal('0.25')}
   decoded=unseal(app,seal(app,value))
   self.assertEqual(decoded['id'],str(value['id']));self.assertEqual(decoded['score'],0.25)
+
+class ExportTests(unittest.TestCase):
+ def test_docx_split_runs_tables_and_styles(self):
+  from docx import Document
+  from moara.gateway.platform_exports import fill_docx
+  doc=Document();p=doc.add_paragraph('Olá ');p.add_run('{{no').bold=True;p.add_run('me}}!')
+  doc.add_table(rows=1,cols=1).cell(0,0).text='Responsável: {{nome}}'
+  doc.sections[0].header.paragraphs[0].text='Equipe {{nome}}'
+  out=io.BytesIO();doc.save(out)
+  raw,text=fill_docx(out.getvalue(),['nome'],{'nome':'Ana'})
+  restored=Document(io.BytesIO(raw))
+  self.assertEqual(restored.paragraphs[0].text,'Olá Ana!')
+  self.assertTrue(restored.paragraphs[0].runs[1].bold)
+  self.assertEqual(restored.tables[0].cell(0,0).text,'Responsável: Ana')
+  self.assertIn('Equipe Ana',restored.sections[0].header.paragraphs[0].text)
+  self.assertTrue(any('RASCUNHO' in p.text for p in restored.sections[0].header.paragraphs))
+ def test_pdf_text_unicode_and_pagination(self):
+  from moara.gateway.platform_exports import pdf_text
+  from pypdf import PdfReader
+  reader=PdfReader(io.BytesIO(pdf_text('\n'.join(['Revisão fictícia — ação número 42.']*90))))
+  self.assertGreater(len(reader.pages),1)
+  self.assertIn('Revisão fictícia',reader.pages[0].extract_text())
+  self.assertIn('RASCUNHO',reader.pages[0].extract_text())
+ def test_pdf_unsupported_character_is_explicit(self):
+  from moara.gateway.platform_exports import pdf_text
+  with self.assertRaises(ValueError):pdf_text('Emoji não substituído silenciosamente: 😀')
+ def test_git_history_roundtrip(self):
+  import tempfile,subprocess
+  from pathlib import Path
+  from moara.gateway.platform_exports import git_bundle
+  raw=git_bundle([{'version':1,'files':{'src/old.py':'print(1)'}},{'version':2,'files':{'main.py':'print(42)'}}])
+  with tempfile.TemporaryDirectory() as folder:
+   root=Path(folder);(root/'project.bundle').write_bytes(raw)
+   subprocess.run(['git','clone',str(root/'project.bundle'),str(root/'checkout')],check=True,capture_output=True)
+   self.assertEqual((root/'checkout/main.py').read_text(),'print(42)')
+   self.assertFalse((root/'checkout/src/old.py').exists())
+   count=subprocess.check_output(['git','-C',str(root/'checkout'),'rev-list','--count','HEAD'],text=True).strip()
+   self.assertEqual(count,'2')
+ def test_file_directory_collision_rejected(self):
+  with self.assertRaises(HTTPException):validate_files({'src':'x','src/a.py':'y'})
+ def test_unknown_agent_rejected_at_contract_boundary(self):
+  from moara.gateway.platform_runs import AGENT_PROMPTS
+  self.assertEqual(len(AGENT_PROMPTS),9)
+  self.assertNotIn('shell',AGENT_PROMPTS)

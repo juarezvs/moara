@@ -42,5 +42,8 @@ project=call('resources',{'kind':'project','title':'Projeto fictício mínimo','
 proposal=job('project.generate',project['id'],{'instructions':'Gere somente main.py que imprime 42.','model':'fast'})
 checks['developer_and_security_review']=proposal['result']['agent_steps']==['developer','security_reviewer'] and bool(proposal['result']['files'])
 checks['generated_code_not_executed']=proposal['result']['executed'] is False
+agent=job('agent.run',params={'agent_id':'architect','query':'Proponha três critérios simples para uma API local de tarefas fictícias.','model':'fast'})
+checks['specialized_agent_actual_inference']=agent['result']['agent_id']=='architect' and bool(agent['result']['text'])
+export=c.get('platform/runs/'+legal['id']+'/export?format=pdf');checks['legal_pdf_export']=export.status_code==200 and export.content.startswith(b'%PDF-')
 assert all(checks.values()),json.dumps(checks)
 print('LOCAL_INFERENCE_REPORT='+json.dumps({'checks':checks,'synthetic_only':True,'production_records_created':False}))

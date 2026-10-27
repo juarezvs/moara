@@ -1,5 +1,7 @@
 """Explicit, digest-bound execution approval; the API has no Docker socket."""
-import json,os,uuid
+import asyncio,base64,json,os,uuid
+from fastapi.responses import Response
+from .platform_exports import isolated as export_isolated
 from fastapi import APIRouter,Depends,HTTPException,Request
 from pydantic import Field
 from .auth import require
@@ -38,3 +40,14 @@ async def execute(identifier:uuid.UUID,body:Approval,request:Request,actor=Depen
  WHERE id=CAST(:id AS uuid) AND status='queued'""",{'id':queued['id'],'actor':str(actor.user_id),'digest':body.digest})
  await request.app.state.db.audit(actor,'project.execution.approved',queued['id'])
  return queued
+
+@router.get('/{identifier}/git.bundle')
+async def export_git(identifier:uuid.UUID,request:Request,actor=Depends(require('development.use'))):
+ await store.get(request.app,actor,identifier,kind='project',write=True)
+ versions=await request.app.state.db.execute('SELECT version,body FROM moara.resource_versions WHERE resource_id=CAST(:id AS uuid) ORDER BY version DESC LIMIT 100',{'id':str(identifier)})
+ payload=[{'version':r['version'],'files':store.unseal(request.app,r['body']).get('files',{})} for r in reversed(versions)]
+ result=await asyncio.to_thread(export_isolated,'git',{'versions':payload})
+ await store.get(request.app,actor,identifier,kind='project',write=True)
+ await request.app.state.db.audit(actor,'project.git.exported',identifier)
+ return Response(base64.b64decode(result['bundle_base64']),media_type='application/octet-stream',
+  headers={'Content-Disposition':'attachment; filename="moara-project.bundle"','X-Moara-Exported-Versions':str(len(payload))})

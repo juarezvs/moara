@@ -1,10 +1,10 @@
 """Synthetic runtime checks for bounded code execution and document tools."""
 import importlib.util,json,subprocess
 from pathlib import Path
-ROOT=Path('/home/nutec/moara-platform-20261026')
+ROOT=Path('/home/nutec/moara-platform-20261026-r2')
 spec=importlib.util.spec_from_file_location('sandbox',ROOT/'sandbox_worker.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 def image(name):return subprocess.check_output(['docker','image','inspect','-f','{{.Id}}',name],text=True).strip()
-py=image('moara-core:platform-20261026');node=image('node:24-bookworm-slim');checks=[]
+py=image('moara-core:platform-20261026-r2');node=image('node:24-bookworm-slim');checks=[]
 def check(name,value):
  checks.append({'name':name,'passed':bool(value)})
  if not value:raise AssertionError(name)

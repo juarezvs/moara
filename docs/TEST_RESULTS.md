@@ -65,3 +65,20 @@ backup pré-publicação, backup via systemd, restores isolados, HTTPS, autentic
 negativa, IDs de containers e hashes publicados passaram. Evidências locais em
 docs/evidence/phase1-*. Detalhes e limitações: PHASE1_OPERATIONS.md. Os testes de
 aplicação listados como não executados na Fase 0 continuam fora deste escopo.
+
+## Complementos R2
+
+83 testes de backend passaram. Exportação HTTP de DOCX formatado/PDF, histórico
+Git clonável, template em workflow, rastreamento de fontes e rejeição de agente
+inválido passaram. O teste de navegador confirmou nove agentes e edição de
+etapas, sem erros JS ou overflow mobile. Oito verificações com inferência local
+real passaram, incluindo agente de arquitetura e exportação de minuta em PDF.
+
+O sandbox passou nove verificações e o fluxo durável por digest passou.
+O limite de execução também é aplicado dentro do container, independentemente
+do processo supervisor. Busca/ACL/PDF/OCR e concorrência de 12 requisições foram
+revalidados. A resposta inicial de um agente sem fontes tentou citar [1] e foi
+rejeitada; o prompt foi corrigido sem relaxar a validação das citações.
+
+As evidências R2 ficam em docs/evidence/platform-r2-*. Os 72 testes de conectores
+e 43 verificações LDAPS são da R1, cujos componentes não foram alterados na R2.

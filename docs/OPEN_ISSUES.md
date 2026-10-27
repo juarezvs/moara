@@ -14,7 +14,7 @@
 | PJE-001 | Dependência externa | Endpoint oficial, contrato, credenciais e escopo; nenhuma integração real nova ativada |
 | FLOW-001 | Deliberado | Operações fixas e notificações simuladas; efeitos externos exigem integração específica |
 | DEV-001 | Parcial | Git local do projeto; sem integração dos projetos de usuário com Git remoto |
-| DOC-001 | Parcial | DOCX textual implementado; layout avançado Word/PDF ainda não implementado |
+| DOC-001 | Parcial | DOCX preserva estilos, tabelas e cabeçalhos; PDF é cópia textual de conferência, sem fidelidade ao layout Word |
 | QA-001 | Parcial | Smoke e testes sintéticos passaram; pentest e aceite institucional pendentes |
 | INFRA-001 | Dependência externa | RAID/SMART, temperatura e inspeção privilegiada |
 

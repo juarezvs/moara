@@ -1,6 +1,6 @@
 import json,subprocess
 from pathlib import Path
-ROOT=Path('/home/nutec/ai-server');STAGE=Path('/home/nutec/moara-platform-20261026');name='moara-platform-inference-relay'
+ROOT=Path('/home/nutec/ai-server');STAGE=Path('/home/nutec/moara-platform-20261026-r2');name='moara-platform-inference-relay'
 obj=json.loads(subprocess.check_output(['docker','inspect','ai-server-gateway-1']))[0]
 address=next(v['IPAddress'] for k,v in obj['NetworkSettings']['Networks'].items() if k.endswith('_inference'))
 p=subprocess.run(['docker','inspect',name],capture_output=True)
@@ -12,7 +12,7 @@ args=['docker','run','-d','--name',name,'--label','moara.test=platform-inference
  '-e','UPSTREAM_IP='+address,'--mount',f'type=bind,source={STAGE}/moara/tests/inference_relay.py,target=/relay.py,readonly',
  '--mount',f'type=bind,source={ROOT}/secrets/moara_llm_key,target=/run/secrets/upstream,readonly',
  '--mount',f'type=bind,source={ROOT}/secrets/moara-platform-qa/moara_llm_key,target=/run/secrets/qa,readonly',
- 'moara-core:platform-20261026','python','/relay.py']
+ 'moara-core:platform-20261026-r2','python','/relay.py']
 p=subprocess.run(args,capture_output=True)
 if p.returncode:raise RuntimeError('relay_start_failed')
 subprocess.run(['docker','network','connect','ai-server_inference',name],capture_output=True,check=True)

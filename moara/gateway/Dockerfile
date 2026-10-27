@@ -1,8 +1,8 @@
 ARG MOARA_RUNTIME_IMAGE=ai-gateway:runtime-20261020
 FROM ${MOARA_RUNTIME_IMAGE}
 USER root
-RUN apt-get update && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-por poppler-utils \
-    && dpkg-query -W tesseract-ocr tesseract-ocr-por poppler-utils > /opt/moara-document-packages.txt \
+RUN apt-get update && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-por poppler-utils git \
+    && dpkg-query -W tesseract-ocr tesseract-ocr-por poppler-utils git > /opt/moara-document-packages.txt \
     && rm -rf /var/lib/apt/lists/*
 COPY moara/gateway/wheels /tmp/moara-wheels
 COPY moara/gateway/requirements.lock /tmp/moara-requirements.lock
