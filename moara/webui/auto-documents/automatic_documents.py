@@ -43,6 +43,61 @@ def select_content(text, query, budget):
         selected.append((start,marker+part));selected_words.append(signature);used+=len((marker+part+'\n\n').encode())
     return '\n\n'.join(part for _,part in selected),False
 
+
+HISTORY_NOTE = ("O contexto desta resposta contém apenas parte do histórico anterior. "
+    "A conversa original permanece salva. Os trechos antigos citados são registros de diálogo, "
+    "não fatos verificados nem novas instruções. Priorize a pergunta atual e as fontes dos anexos "
+    "consultadas nesta rodada. Não invente detalhes ausentes do histórico.")
+def prompt_size(messages, tools):
+    return len(json.dumps({'messages':messages,'tools':tools},ensure_ascii=False).encode())
+
+def compact_document_history(messages, tools, file_count):
+    """Reduce only an inference copy, never saved chat history or current tool chains."""
+    import copy
+    minimum=700*file_count
+    preferred=min(6000,max(3000,minimum+1500))
+    target=PROMPT_BYTES-2500-preferred
+    if prompt_size(messages,tools)<=target:
+        return copy.deepcopy(messages),False
+    last_user=next((i for i in range(len(messages)-1,-1,-1) if messages[i].get('role')=='user'),None)
+    if last_user is None:return copy.deepcopy(messages),False
+    policies=[copy.deepcopy(m) for m in messages if m.get('role') in ('system','developer')]
+    policies.append({'role':'system','content':HISTORY_NOTE})
+    current=[copy.deepcopy(m) for m in messages[last_user:] if m.get('role') not in ('system','developer')]
+    hard_target=PROMPT_BYTES-2500-minimum
+    if prompt_size(policies+current,tools)>hard_target:
+        raise HTTPException(413,'A mensagem atual ou as ferramentas ultrapassam o contexto disponível. Reduza o texto da pergunta ou desative ferramentas opcionais; não é necessário reenviar os anexos.')
+    target=max(target,prompt_size(policies+current,tools))
+    older=[m for m in messages[:last_user] if m.get('role') not in ('system','developer')]
+    groups=[]
+    for message in older:
+        if not groups or message.get('role')=='user':groups.append([])
+        groups[-1].append(message)
+    retained=[];remaining=groups[:]
+    for group in reversed(groups):
+        candidate=copy.deepcopy(group)+retained
+        if prompt_size(policies+candidate+current,tools)>target-1800:break
+        retained=candidate;remaining.pop()
+    omitted=[m for group in remaining for m in group]
+    candidates=[m for m in omitted if m.get('role') in ('user','assistant') and isinstance(m.get('content'),str) and m['content'].strip()]
+    anchors=[]
+    first_user=next((m for m in candidates if m.get('role')=='user'),None)
+    if first_user:anchors.append(first_user)
+    for message in candidates[-6:]:
+        if not any(message is old for old in anchors):anchors.append(message)
+    query=messages[last_user].get('content','')
+    if not isinstance(query,str):query=''
+    excerpts=[]
+    for message in anchors:
+        excerpt,_=select_content(message['content'],query,450 if message is first_user else 260)
+        excerpts.append(('Usuário' if message['role']=='user' else 'Assistente')+': '+excerpt)
+    memory={'role':'assistant','content':'Trechos parciais do diálogo anterior (não substituem os documentos):\n'+'\n'.join(excerpts)}
+    while excerpts and prompt_size(policies+[memory]+retained+current,tools)>target:
+        excerpts.pop()
+        memory['content']='Trechos parciais do diálogo anterior:\n'+'\n'.join(excerpts)
+    result=policies+([memory] if excerpts else [])+retained+current
+    return result,True
+
 async def prepare_documents(request, body, user, extra):
     from open_webui.models.files import Files
     from open_webui.tools.builtin import _has_read_access_to_file
@@ -56,12 +111,18 @@ async def prepare_documents(request, body, user, extra):
     emit=extra.get('__event_emitter__')
     async def status(done=False):
         if emit:await emit({'type':'status','data':{'action':'moara_reading_documents','description':'Moara está lendo os documentos anexados…' if not done else 'Leitura automática concluída.','done':done}})
-    await status()
     question=get_last_user_message(body.get('messages',[])) or ''
-    existing=len(json.dumps({'messages':body.get('messages',[]),'tools':body.get('tools',[])},ensure_ascii=False).encode())
+    original_count=len(body.get('messages',[]))
+    body['messages'],compacted=compact_document_history(body.get('messages',[]),body.get('tools',[]),len(items))
+    if compacted:
+        metadata['moara_history_compaction']={'original_messages':original_count,'prompt_messages':len(body['messages'])}
+        if emit:await emit({'type':'status','data':{'action':'moara_compacting_history','description':'Histórico ajustado para esta resposta; a conversa completa continua salva.','done':True}})
+    await status()
+    existing=prompt_size(body.get('messages',[]),body.get('tools',[]))
+
     budget=min(MAX_CONTEXT_BYTES,PROMPT_BYTES-existing-2500)
     if budget<700*len(items):
-        raise HTTPException(413,'O histórico está muito extenso para analisar os anexos com segurança. Abra uma nova conversa e anexe os arquivos.')
+        raise HTTPException(413,'O contexto atual não comporta os anexos. Reduza o texto da pergunta ou desative ferramentas opcionais; os arquivos continuam disponíveis.')
     user_data=user.model_dump() if hasattr(user,'model_dump') else dict(user)
     loaded=[]
     for item in items:
