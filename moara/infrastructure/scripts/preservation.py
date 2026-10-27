@@ -194,8 +194,10 @@ def verify(path):
                 '--security-opt','no-new-privileges:true','--mount',f'type=volume,src={volume},dst=/var/lib/postgresql/data',
                 '--mount',f'type=bind,src={stage}/config/secrets/postgres_password,dst=/run/db-password,readonly',
                 '-e','POSTGRES_PASSWORD_FILE=/run/db-password','-e','POSTGRES_DB=ai',manifest['postgres_image']],stdout=subprocess.DEVNULL);created_container=True
+            # The initdb temporary server accepts Unix sockets before restarting.
+            # TCP readiness identifies the final server used for restoration.
             for _ in range(90):
-                if subprocess.run(['docker','exec',name,'pg_isready','-U','postgres','-d','ai'],capture_output=True).returncode==0:break
+                if subprocess.run(['docker','exec',name,'pg_isready','-h','127.0.0.1','-U','postgres','-d','ai'],capture_output=True).returncode==0:break
                 time.sleep(1)
             else:raise RuntimeError('Isolated restore database did not become ready')
             print('PRESERVATION_RESTORE_POSTGRES',flush=True)
