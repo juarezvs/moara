@@ -65,3 +65,25 @@ Treze testes internos passaram, incluindo preservação do histórico original, 
 Teste de navegador: docs/evidence/history-continuation-browser.txt. Ele cria somente uma conversa fictícia, com 16 mensagens antigas e um PDF, faz duas perguntas sem reenviar o anexo e compara o conteúdo original de cada mensagem salva após cada resposta.
 
 Resultado r4: ambas as perguntas de continuação passaram, com evento de compactação e nova leitura do documento em cada rodada, apenas um upload e as 16 mensagens originais preservadas exatamente. A primeira resposta identificou a validação Atlas pela NUTEC até 12/11/2026; a segunda confirmou que esse prazo não foi atribuído à SECAD. Conversa e arquivo fictícios removidos. Serviço saudável e backup verificado: docs/evidence/history-compaction-final-health.txt.
+
+## Upload de PDF — revisão r5 (27/10/2026)
+
+Causa reproduzida com sessão autenticada e dados fictícios: um envio de 11.868.084 bytes recebia HTTP 413 com corpo vazio devido ao limite de 2 MB do fallback do Caddy. O cliente tentava interpretar esse corpo como JSON.
+
+A rota POST /api/v1/files (com ou sem barra final) passa a aceitar requisições multipart de até 32 MB. Os demais limites permanecem intactos. O limite inclui o pequeno cabeçalho multipart. Aplicador: infrastructure/scripts/patch_chat_upload_limit.py; valida configuração, salva cópia anterior e reinicia somente Caddy, pois a API administrativa está desativada.
+
+O cliente normaliza respostas vazias, HTML e JSON incompleto, apresenta erros em português e só confirma recebimento quando há um identificador válido. Não repete automaticamente POSTs cuja confirmação falhou. Cache do script atualizado para upload-r5.
+
+Imagem: ai-webui:moara-auto-documents-20261027-r5.
+Digest: sha256:a98f00a9fb910be4729b90a1dda1dd274e0f6771ea35562bbdc5edbf048f7258.
+WebUI saudável; Caddy em execução; backup verificado antes da implantação.
+
+Verificações:
+- Nove cenários em Chromium isolado: 413 vazio, HTML 502, sucesso vazio/incompleto/null/sem identificador, 429 vazio, detalhe válido e sucesso com processamento completo.
+- Navegador publicado: PDF integralmente fictício com 176 páginas e exatamente 11.868.084 bytes enviado pela interface, 20.307 caracteres extraídos, status completed e “Pronto para consulta — 100%”. Nenhum erro JavaScript; arquivo removido após o teste e sessão temporária revogada.
+- Requisição autenticada com arquivo fictício de 33.000.000 bytes rejeitada com HTTP 413.
+- O PDF real foi inspecionado apenas localmente: possui texto extraível nas 176 páginas. Não foi enviado à produção pelo teste. O teste valida transporte e processamento, não uma análise jurídica de todo o processo nem seu tempo de indexação.
+
+Evidências locais em docs/evidence/upload-json-{before,unit,proxy,deploy,browser,above-limit,health}.txt e upload-json-success.png.
+Reversão no servidor: restaurar docs/runtime/upload-json-20261027/Caddyfile.before para infrastructure/caddy/Caddyfile em lugar, validar e reiniciar Caddy; restaurar chat-feedback-compose.before.yml para moara/infrastructure/chat-feedback-compose.yml e recriar apenas webui pelo helper completo. A imagem r4 está preservada. Não remover volumes.
+

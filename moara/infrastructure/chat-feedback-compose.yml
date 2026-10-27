@@ -1,6 +1,6 @@
 services:
   webui:
-    image: ai-webui:moara-auto-documents-20261027-r4
+    image: ai-webui:moara-auto-documents-20261027-r5
     build:
       context: ../moara/webui/auto-documents
       dockerfile: Dockerfile
