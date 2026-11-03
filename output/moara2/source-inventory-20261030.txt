@@ -1,0 +1,92 @@
+srvdev01-am
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+               total        used        free      shared  buff/cache   available
+Mem:     265481089024 108513447936 25376186368    47882240 133412995072 156967641088
+Swap:     8589930496    17543168  8572387328
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  48
+On-line CPU(s) list:                     0-47
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+CPU family:                              6
+Model:                                   85
+Thread(s) per core:                      2
+Core(s) per socket:                      12
+Socket(s):                               2
+Stepping:                                7
+CPU(s) scaling MHz:                      38%
+CPU max MHz:                             3200.0000
+CPU min MHz:                             1000.0000
+BogoMIPS:                                4400.00
+Filesystem                            1B-blocks         Used    Available Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv 1175898214400 297770115072 818320261120  27% /
+ai-server-moara-gateway-1 moara-core:legal-20261030 Up 8 minutes (healthy)
+ai-server-moara-legal-mcp-1 moara-core:legal-20261030 Up 8 minutes (healthy)
+ai-server-moara-gpu-tunnel-1 moara-gpu-tunnel:20261029 Up 11 hours
+ai-server-gateway-1 ai-gateway:gpu-20261029 Up 11 hours (healthy)
+ai-server-webui-1 ai-webui:moara-auto-documents-20261027-r5 Up 2 days (healthy)
+ai-server-connector-oracle-1 ai-connector-oracle:1.0.0 Up 7 days (healthy)
+ai-server-connector-hub-1 ai-connector-hub:1.0.0 Up 7 days (healthy)
+ai-server-connector-postgres-1 ai-connector-postgres:1.0.0 Up 7 days (healthy)
+ai-server-connector-sqlite-1 ai-connector-sqlite:1.0.0 Up 9 days (healthy)
+ai-server-connector-mysql-1 ai-connector-mysql:1.0.0 Up 9 days (healthy)
+ai-server-connector-mssql-1 ai-connector-mssql:1.0.0 Up 9 days (healthy)
+ai-server-connector-mongodb-1 ai-connector-mongodb:1.0.0 Up 9 days (healthy)
+ai-server-connector-rest-1 ai-connector-rest:1.0.0 Up 9 days (healthy)
+ai-server-moara-worker-1 3ee58961a227 Up 9 days
+ai-server-caddy-1 ai-caddy:2.11.7 Up 2 days
+ai-server-studio-1 ia-studio:1.0.0 Up 9 days (healthy)
+ai-server-postgres-1 pgvector/pgvector:0.8.2-pg17-bookworm Up 9 days (healthy)
+ai-server-moara-redis-1 3811787313eb Up 9 days (healthy)
+ai-server-moara-grafana-1 dbbc38ea2110 Up 9 days
+ai-server-moara-prometheus-1 efd719c99d83 Up 9 days
+ai-server-studio-renderer-1 ia-studio-renderer:1.0.0 Up 9 days (healthy)
+ai-server-moara-otel-1 1175b0300305 Up 9 days
+ai-server-image-generator-1 ai-image-generator:95b3090-source Up 9 days (healthy)
+ai-server-ollama-1 ollama/ollama:0.40.6 Up 9 days (healthy)
+ai-server-ollama-specialists-1 ollama/ollama:0.40.6 Up 9 days (healthy)
+ai-server-moara-model-management-1 ollama/ollama:0.40.6 Up 9 days (healthy)
+ai-server-studio-demo-1 ia-studio:1.0.0 Up 9 days (healthy)
+7d232cf72a60184e231e168e3e3ab9a6591cde4412fea99283e7dde8be636905
+8a27c638d8aaccbabd01e66f50359e6bfa857ece937b19c05cef0e427fb4232e
+9d951c080a5dfa9c8df9f1c0d4bc76ed4546a94e78e8a542d286e5bee41726a3
+564a214ea3ac90ab59fc06966cd23dcfcf0a9968b32c6bb79632d912d085d021
+afb0ac91804920f1efe21b58ce9581577db7dc50d270625488db769f201fa4f7
+ai-server_caddy_config
+ai-server_caddy_data
+ai-server_connector_sqlite
+ai-server_moara_data
+ai-server_moara_grafana
+ai-server_moara_prometheus
+ai-server_moara_redis
+ai-server_ollama
+ai-server_postgres
+ai-server_studio_data
+ai-server_webui
+b47b00d66a49e21ff44e403cbded9cb0a067ade20c33e664524aa4a8b77c933a
+cc391548f71349b7563aaadabbab10a46cb14bf6844edd426b761062c30f5e8b
+e747852e4c5975d6574ccae28fd08acae3c8faeea55ea88d82f8956ff65da1f1
+ee03850496d72b3f014b23f0e5f779557515b225c288d6234aaeae0dd957972a
+f4fac15c805df183a9f02ab9468e9013af0a8992273a4cf718a6dd781424c0d4
+f9cae7251aee8568f2a20bb78e01a98572a166b34856c46c7553b7fdea16c4b8
+infrastructure_studio_data
+active
+enabled
+moara-before-migration-20261028T071152Z.tar.enc.manifest.json 959 2026-10-28T07:13
+moara-before-migration-20261028T071152Z.tar.enc.restore.json 454 2026-10-28T07:13
+moara-before-migration-20261029T071315Z.tar.enc 861894736 2026-10-29T07:14
+moara-before-migration-20261029T071315Z.tar.enc.hmac 64 2026-10-29T07:14
+moara-before-migration-20261029T071315Z.tar.enc.manifest.json 959 2026-10-29T07:14
+moara-before-migration-20261029T071315Z.tar.enc.restore.json 454 2026-10-29T07:14
+moara-before-migration-20261030T070252Z.tar.enc 861968176 2026-10-30T07:03
+moara-before-migration-20261030T070252Z.tar.enc.hmac 64 2026-10-30T07:03
+moara-before-migration-20261030T070252Z.tar.enc.manifest.json 959 2026-10-30T07:04
+moara-before-migration-20261030T070252Z.tar.enc.restore.json 454 2026-10-30T07:04
+{"resources": [{"kind": "dashboard", "count": 1}, {"kind": "document", "count": 4}, {"kind": "project", "count": 2}, {"kind": "template", "count": 2}, {"kind": "workflow", "count": 2}], "jobs": [{"status": "completed", "count": 103}, {"status": "failed", "count": 2}], "models": {"error_type": "ProgrammingError"}, "profiles": [{"id": "coding", "name": "coding", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "legacy_alias": "coding", "context_length": 8192}}, {"id": "deepseek-coder-v2-lite", "name": "DeepSeek-Coder-V2 Lite Instruct \u00b7 Q4_K_M", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 1200, "max_tokens": 512, "temperature": 0.2, "legacy_alias": "deepseek-coder-v2-lite", "auto_eligible": true, "context_length": 8192}}, {"id": "fast", "name": "Respostas r\u00e1pidas", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": true, "context_length": 8192, "reasoning_effort": "none"}}, {"id": "gemma4-12b", "name": "Gemma 4 12B", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": true, "context_length": 8192, "reasoning_effort": "none"}}, {"id": "gemma4-26b-cpu", "name": "Gemma 4 26B \u00b7 CPU", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": false, "context_length": 8192}}, {"id": "general", "name": "Moara principal", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": true, "context_length": 8192, "reasoning_effort": "none"}}, {"id": "llama31-70b", "name": "Llama 3.1 70B Instruct \u00b7 Q4_K_M", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 1200, "max_tokens": 512, "temperature": 0.2, "legacy_alias": "llama31-70b", "auto_eligible": true, "context_length": 8192}}, {"id": "llama33-70b", "name": "Llama 3.3 70B Instruct \u00b7 Q4_K_M", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 1200, "max_tokens": 512, "temperature": 0.2, "legacy_alias": "llama33-70b", "auto_eligible": true, "context_length": 8192}}, {"id": "qwen25-coder-32b", "name": "Qwen2.5-Coder 32B Instruct \u00b7 Q4_K_M", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 1200, "max_tokens": 512, "temperature": 0.2, "legacy_alias": "qwen25-coder-32b", "auto_eligible": true, "context_length": 8192}}, {"id": "qwen25-coder-7b", "name": "Qwen 2.5 Coder 7B", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": true, "context_length": 8192}}, {"id": "qwen3-8b-cpu", "name": "Qwen3 8B \u00b7 CPU", "enabled": true, "manual_allowed": true, "settings": {"threads": 12, "timeout": 300, "max_tokens": 512, "temperature": 0.2, "auto_eligible": false, "context_length": 8192, "reasoning_effort": "none"}}], "active_identity": [{"version": "1.0.0", "sha256": "e50e1e78ab886f0357f4e3b9cb880eb4ad988ed062701d8a18b2fb527245a3c2", "name": "Moara", "product": "Moara AI", "signature": "Justi\u00e7a Federal do Amazonas \u2014 Tecnologia com ra\u00edzes, inova\u00e7\u00e3o com prop\u00f3sito."}], "schema": {"error_type": "ProgrammingError"}, "evidence_permissions": [{"update": false, "delete": false, "truncate": false}]}

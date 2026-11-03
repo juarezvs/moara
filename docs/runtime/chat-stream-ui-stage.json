@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "thinking_visible_before_first_token": true,
+    "thinking_uses_moara_mark": true,
+    "thinking_respects_reduced_motion": true,
+    "cursor_visible_during_stream": true,
+    "text_visible_before_network_completes": true,
+    "stream_keeps_growing_while_paused": true,
+    "manual_reading_position_is_preserved": true,
+    "resume_follows_stream_end": true,
+    "stream_text_is_not_hidden_by_composer": true,
+    "code_has_syntax_highlighting": true,
+    "cursor_removed_on_completion": true,
+    "real_sse_arrives_in_multiple_reads": true,
+    "response_renders_incrementally": true,
+    "rendering_has_no_500ms_main_thread_stall": true,
+    "cancel_preserves_received_text": true,
+    "cancel_is_marked_interrupted": true,
+    "cancel_removes_cursor": true,
+    "reduced_motion_is_supported": true,
+    "mobile_has_no_horizontal_overflow": true,
+    "no_javascript_errors": true,
+    "test_chats_archived": true
+  },
+  "metrics": {
+    "network_reads": 102,
+    "visible_updates": 36,
+    "max_long_task_ms": 55
+  },
+  "created_chats": [
+    "54c332e1-ed59-4caa-be99-d2106572ca35"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793634033598437966",
+  "old_fixture_id": "12c76e64-0df9-4d3d-8b1c-02d8199806b1",
+  "tested_image_id": "sha256:368899965892c77c3fac238b77b93dfed93b84689218a60cd929ec06cd2a23e2"
+}

@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "six_cards": true,
+    "upload_indexed": true,
+    "rag_answer_cited": true,
+    "seconds_send_to_answer": 2.52,
+    "gpu_backend_confirmed": true,
+    "history_reopens": true,
+    "local_font_contrast_scale": true,
+    "escape_closes_dialog": true,
+    "mobile_no_horizontal_overflow": true,
+    "prepared_integrations_visible_in_admin": true,
+    "physical_GPU_metrics_visible": true,
+    "libras_parent_isolated": true,
+    "libras_cookie_isolated": true,
+    "public_libras_widget_loaded": true,
+    "no_javascript_errors": true,
+    "synthetic_content_archived": true
+  },
+  "created_chats": [
+    "ba4dfc16-74ff-4e3c-a50d-2d018b30120a"
+  ],
+  "created_documents": [
+    "02212dc0-6be4-4e70-8e8f-e5ccb6e73868"
+  ],
+  "javascript_errors": [],
+  "candidate_proxy": false,
+  "native_test_session_revoked": true
+}

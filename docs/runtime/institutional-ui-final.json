@@ -1,0 +1,21 @@
+{
+  "published": true,
+  "image": "sha256:984ac563e8667d42035254d680ea42ffb5cc5d67aa43d237fc4125f06996f77d",
+  "frontend_only": true,
+  "design_checks": 22,
+  "conversation_checks": 12,
+  "preservation_checks": 7,
+  "backend_source_unchanged": true,
+  "mcp_image_unchanged": true,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "metadata_timer_preserved": true,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-984ac563e8-302f267d",
+    "moara-institutional-ui-stage-984ac563e8",
+    "moara-unified-proxy-stage-ffe7ed5a3b-3eb1da27",
+    "moara-institutional-ui-stage-ffe7ed5a3b",
+    "moara-unified-proxy-stage-a8d22b0c43-aa07cce9",
+    "moara-institutional-ui-stage-a8d22b0c43"
+  ]
+}

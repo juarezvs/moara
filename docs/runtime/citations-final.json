@@ -1,0 +1,16 @@
+{
+  "published": true,
+  "image": "sha256:efac0325d30ee8e194ece086525c4b4ba9080dfed456a72801ab0777938282fb",
+  "mcp_unchanged": true,
+  "inference_restarted": false,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-efac0325d3-95046d0f",
+    "moara-citations-stage-efac0325d3",
+    "moara-unified-proxy-stage-b5c441e086-520167ce",
+    "moara-citations-stage-b5c441e086",
+    "moara-unified-proxy-stage-17219e89ce-55762c33",
+    "moara-citations-stage-17219e89ce",
+    "moara-unified-proxy-stage-2bfdf61f94-5a7764f5",
+    "moara-citations-stage-2bfdf61f94"
+  ]
+}

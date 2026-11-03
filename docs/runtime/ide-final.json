@@ -1,0 +1,11 @@
+{
+  "synthetic_keys_revoked": true,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "preserved_stopped_candidates": [
+    "moara-ide-stage-d0c1e784cd",
+    "moara-ide-stage-3a5f61cf3d"
+  ],
+  "gateway_image": "sha256:d0c1e784cd3a218fe70a2df014d20c99d0ae7890a0450f58f4bcf05d03f32424",
+  "published": true
+}

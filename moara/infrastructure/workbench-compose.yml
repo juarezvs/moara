@@ -1,0 +1,3 @@
+services:
+  moara-gateway:
+    image: moara-core:workbench-20261030

@@ -9,4 +9,42 @@ exec docker compose --env-file infrastructure/.env \
  -f moara/infrastructure/observability-compose.yml \
  -f moara/infrastructure/public-site-compose.yml \
  -f moara/infrastructure/platform-compose.yml \
- -f moara/infrastructure/chat-feedback-compose.yml "$@"
+ -f moara/infrastructure/chat-feedback-compose.yml \
+ -f moara/infrastructure/gpu-compose.yml \
+ -f moara/infrastructure/legal-compose.yml \
+ -f moara/infrastructure/gpu-tls-compose.yml \
+ -f moara/infrastructure/moara2-compose.yml \
+ -f moara/infrastructure/workbench-compose.yml \
+ -f moara/infrastructure/chat-intent-compose.yml \
+ -f moara/infrastructure/site-entry-compose.yml \
+ -f moara/infrastructure/work-progress-compose.yml \
+ -f moara/infrastructure/legal-sources-v2-compose.yml \
+ -f moara/infrastructure/brand-compose.yml \
+ -f moara/infrastructure/ide-compose.yml \
+ -f moara/infrastructure/legal-information-compose.yml \
+ -f moara/infrastructure/legal-grounding-compose.yml \
+ -f moara/infrastructure/unified-compose.yml \
+ -f moara/infrastructure/network-login-compose.yml \
+ -f moara/infrastructure/identity-rbac-compose.yml \
+ -f moara/infrastructure/legal-discovery-compose.yml \
+ -f moara/infrastructure/legal-recovery-compose.yml \
+ -f moara/infrastructure/jurisprudence-compose.yml \
+ -f moara/infrastructure/citations-compose.yml \
+ -f moara/infrastructure/citations-v2-compose.yml \
+ -f moara/infrastructure/google-discovery-compose.yml \
+ -f moara/infrastructure/careers-compose.yml \
+ -f moara/infrastructure/stf-catalog-compose.yml \
+ -f moara/infrastructure/legal-metadata-compose.yml \
+ -f moara/infrastructure/chat-reading-compose.yml \
+ -f moara/infrastructure/institutional-ui-compose.yml \
+ -f moara/infrastructure/chat-scroll-compose.yml \
+ -f moara/infrastructure/explanation-compose.yml \
+ -f moara/infrastructure/self-knowledge-compose.yml \
+ -f moara/infrastructure/chat-background-compose.yml \
+ -f moara/infrastructure/general-development-compose.yml \
+ -f moara/infrastructure/project-files-compose.yml \
+ -f moara/infrastructure/chat-stream-compose.yml \
+ -f moara/infrastructure/public-web-compose.yml \
+ -f moara/infrastructure/page-scroll-compose.yml \
+ -f moara/infrastructure/continue-unlimited-compose.yml \
+ -f moara/infrastructure/legal-draft-compose.yml "$@"

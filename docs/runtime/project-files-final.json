@@ -1,0 +1,35 @@
+{
+  "published": true,
+  "tested_image_id": "sha256:2c6b77769e542126c8606001814d7440b9031bc69e5535caf681ea9d068a8253",
+  "unit_tests": 261,
+  "checks": {
+    "tested_image_is_published": true,
+    "project-files-ui-qualified-stage.json": true,
+    "project-files-ui-public.json": true,
+    "local_project_tools": true,
+    "principal_remains_resident": true,
+    "embeddings_remain_resident": true,
+    "metadata_timer_active": true,
+    "unrelated_backend_modules_preserved": true,
+    "legal_mcp_image_preserved": true
+  },
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "changed_backend_modules": [
+    "gateway/developer_api.py",
+    "gateway/platform_contracts.py",
+    "gateway/platform_development.py",
+    "gateway/project_agent.py",
+    "gateway/project_tree.py"
+  ],
+  "stopped_preserved_candidates": [
+    "moara-project-files-stage-2c6b77769e",
+    "moara-project-files-stage-6553cd7f4d",
+    "moara-project-files-stage-ec7653eea2",
+    "moara-project-files-stage-96df6d7e72"
+  ],
+  "database_migrations": false
+}

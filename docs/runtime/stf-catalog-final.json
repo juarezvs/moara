@@ -1,0 +1,33 @@
+{
+  "published": true,
+  "image": "sha256:78488fa1d7fdd71ae573f9ad8dc7ad0f581756f577946788a14ef6f041dc35d4",
+  "mcp_version": "0.9.0",
+  "catalogue_counts": {
+    "com": 819,
+    "sem": 473
+  },
+  "catalogue_total": 1292,
+  "catalogue_version": "20261031T225322Z-3d1ade9dfb4d",
+  "unit_tests": 185,
+  "read_only_catalogue_mounts": true,
+  "all_records_verified_against_official_snapshots": true,
+  "inference_restarted": false,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-78488fa1d7-4ee0c614",
+    "moara-stf-catalog-app-stage-78488fa1d7",
+    "moara-stf-catalog-mcp-stage-78488fa1d7",
+    "moara-unified-proxy-stage-020235e54f-39349d3d",
+    "moara-stf-catalog-app-stage-020235e54f",
+    "moara-stf-catalog-mcp-stage-020235e54f",
+    "moara-unified-proxy-stage-289e860186-c5367536",
+    "moara-stf-catalog-app-stage-289e860186",
+    "moara-stf-catalog-mcp-stage-289e860186",
+    "moara-unified-proxy-stage-fbd60edad0-019ad0e4",
+    "moara-stf-catalog-app-stage-fbd60edad0",
+    "moara-stf-catalog-mcp-stage-fbd60edad0",
+    "moara-stf-catalog-app-stage-728c1df74a",
+    "moara-stf-catalog-mcp-stage-728c1df74a"
+  ]
+}

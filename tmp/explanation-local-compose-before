@@ -1,0 +1,36 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")/../../.."
+exec docker compose --env-file infrastructure/.env \
+ -f infrastructure/docker-compose.yml \
+ -f moara/infrastructure/compose.yml \
+ -f connectors/deployment/runtime-compose.yml \
+ -f moara/infrastructure/secp-rbac-compose.yml \
+ -f moara/infrastructure/observability-compose.yml \
+ -f moara/infrastructure/public-site-compose.yml \
+ -f moara/infrastructure/platform-compose.yml \
+ -f moara/infrastructure/chat-feedback-compose.yml \
+ -f moara/infrastructure/gpu-compose.yml \
+ -f moara/infrastructure/legal-compose.yml \
+ -f moara/infrastructure/gpu-tls-compose.yml \
+ -f moara/infrastructure/moara2-compose.yml \
+ -f moara/infrastructure/workbench-compose.yml \
+ -f moara/infrastructure/chat-intent-compose.yml \
+ -f moara/infrastructure/site-entry-compose.yml \
+ -f moara/infrastructure/work-progress-compose.yml \
+ -f moara/infrastructure/legal-sources-v2-compose.yml \
+ -f moara/infrastructure/brand-compose.yml \
+ -f moara/infrastructure/ide-compose.yml \
+ -f moara/infrastructure/legal-information-compose.yml \
+ -f moara/infrastructure/legal-grounding-compose.yml \
+ -f moara/infrastructure/unified-compose.yml \
+ -f moara/infrastructure/network-login-compose.yml \
+ -f moara/infrastructure/identity-rbac-compose.yml \
+ -f moara/infrastructure/legal-discovery-compose.yml \
+ -f moara/infrastructure/legal-recovery-compose.yml \
+ -f moara/infrastructure/jurisprudence-compose.yml \
+ -f moara/infrastructure/citations-compose.yml \
+ -f moara/infrastructure/citations-v2-compose.yml \
+ -f moara/infrastructure/google-discovery-compose.yml \
+ -f moara/infrastructure/careers-compose.yml \
+ -f moara/infrastructure/stf-catalog-compose.yml "$@"

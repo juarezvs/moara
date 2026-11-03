@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "legacy_json_above_four_mib_accepted": true,
+    "legacy_document_download_preserved": true,
+    "raw_upload_above_eight_mib_accepted": true,
+    "server_sha256_matches": true,
+    "segmented_download_bytes_match": true,
+    "empty_document_rejected": true,
+    "utf8_document_required_rejected": true,
+    "invalid_pdf_rejected": true,
+    "invalid_filename_rejected": true,
+    "upload_requires_authentication": true,
+    "synthetic_documents_archived": true
+  },
+  "image": "sha256:80b20651178ca6e98e096eadcfaf26ee7fdd21d464796c3ac5f52f16b81b042e"
+}

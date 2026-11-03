@@ -1,0 +1,84 @@
+{
+  "checks": {
+    "GET /": true,
+    "HEAD /": true,
+    "GET /?interface=anterior": true,
+    "GET /?q=qualquer": true,
+    "GET /chat-anterior": true,
+    "GET /auth": true,
+    "GET /workspace": true,
+    "GET /assets/previous-ui.js": true,
+    "GET /c/11111111-1111-4111-8111-111111111111": true,
+    "GET /moara/chat": true,
+    "GET /moara/api/v1/ready": true,
+    "GET /api/v1/chats/list": true,
+    "GET /moara/v1/models": true
+  },
+  "routes": [
+    {
+      "path": "/",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/?interface=anterior",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/?q=qualquer",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/chat-anterior",
+      "status": 302,
+      "location": "/moara/chat?area=historico"
+    },
+    {
+      "path": "/auth",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/workspace",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/assets/previous-ui.js",
+      "status": 302,
+      "location": "/moara/chat"
+    },
+    {
+      "path": "/c/11111111-1111-4111-8111-111111111111",
+      "status": 302,
+      "location": "/moara/chat?previous=11111111-1111-4111-8111-111111111111"
+    },
+    {
+      "path": "/moara/chat",
+      "status": 200,
+      "location": null
+    },
+    {
+      "path": "/moara/api/v1/ready",
+      "status": 200,
+      "location": null
+    },
+    {
+      "path": "/api/v1/chats/list",
+      "status": 401,
+      "location": null
+    },
+    {
+      "path": "/moara/v1/models",
+      "status": 401,
+      "location": null
+    }
+  ]
+}

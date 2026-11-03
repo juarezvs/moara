@@ -1,0 +1,217 @@
+{
+  "checks": {
+    "automatic_personal_recipe_site_is_development": true,
+    "automatic_request_generates_code": true,
+    "ide_general_development_scope": true,
+    "ide_returns_real_tool_call": true,
+    "ide_valid_tool_arguments": true,
+    "game_nine_playable_cells": true,
+    "game_x_wins": true,
+    "game_finished_game_does_not_continue": true,
+    "game_reset_operates": true,
+    "game_mobile_fits": true,
+    "game_no_javascript_errors": true,
+    "generated_file_written_and_tested": true,
+    "ide_tool_result_and_streaming_continue": true
+  },
+  "reports": [
+    {
+      "case": "automatic_personal_website",
+      "response": {
+        "id": "chatcmpl-839",
+        "object": "chat.completion",
+        "created": 1793630147,
+        "model": "moara-main-gpu",
+        "system_fingerprint": "fp_ollama",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "Aqui est\u00e1 o c\u00f3digo completo para o seu site de receitas de bolo. O projeto foi estruturado em um \u00fanico arquivo HTML, utilizando CSS interno para o estilo e JavaScript para a funcionalidade de altern\u00e2ncia de tema (Dark/Light Mode), sem depend\u00eancias externas.\n\n```html\n<!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Cantinho dos Bolos - Receitas Caseiras</title>\n    <style>\n        :root {\n            --bg-color: #fdf6e3;\n            --text-color: #586e75;\n            --card-bg: #ffffff;\n            --accent-color: #d33682;\n            --border-color: #eee8d5;\n        }\n\n        [data-theme=\"dark\"] {\n            --bg-color: #073642;\n            --text-color: #eee8d5;\n            --card-bg: #002b36;\n            --accent-color: #f6c17a;\n            --border-color: #073642;\n        }\n\n        body {\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n            background-color: var(--bg-color);\n            color: var(--text-color);\n            margin: 0;\n            padding: 20px;\n            transition: background-color 0.3s, color 0.3s;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        header {\n            text-align: center;\n            margin-bottom: 40px;\n        }\n\n        h1 {\n            color: var(--accent-color);\n        }\n\n        .container {\n            max-width: 800px;\n            width: 100%;\n        }\n\n        .recipe-card {\n            background-color: var(--card-bg);\n            padding: 25px;\n            border-radius: 12px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n            border: 1px solid var(--border-color);\n        }\n\n        h2 {\n            border-bottom: 2px solid var(--accent-color);\n            padding-bottom: 10px;\n        }\n\n        ul, ol {\n            padding-left: 20px;\n        }\n\n        li {\n            margin-bottom: 8px;\n        }\n\n        .controls {\n            margin-top: 20px;\n            padding: 20px;\n        }\n\n        button {\n            padding: 12px 24px;\n            font-size: 16px;\n            cursor: pointer;\n            background-color: var(--accent-color);\n            color: white;\n            border: none;\n            border-radius: 8px;\n            transition: opacity 0.2s;\n        }\n\n        button:hover {\n            opacity: 0.8;\n        }\n    </style>\n</head>\n<body>\n\n    <header>\n        <h1>\ud83c\udf70 Cantinho dos Bolos</h1>\n        <p>Receitas simples e deliciosas para o seu dia a dia.</p>\n    </header>\n\n    <div class=\"container\">\n        <!-- Receita 1 -->\n        <div class=\"recipe-card\">\n            <h2>Bolo de Cenoura Simples</h2>\n            <p><strong>Ingredientes:</strong></p>\n            <ul>\n                <li>3 cenouras m\u00e9dias picadas</li>\n                <li>3 ovos</li>\n                <li>1 x\u00edcara de \u00f3leo"
+            },
+            "finish_reason": "length"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 905,
+          "prompt_tokens_details": {
+            "cached_tokens": 900
+          },
+          "completion_tokens": 900,
+          "total_tokens": 1805
+        },
+        "moara": {
+          "request_id": "ae5171b6-9a31-42b2-a046-bfabba0d0b4c",
+          "profile": "gemma4-12b",
+          "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+          "model_name": "Gemma 4 12B",
+          "reason": "assistant_shared_principal",
+          "identity_version": "2.0.0",
+          "inference_used": true,
+          "assistant": {
+            "id": "desenvolvedora",
+            "name": "Moara Desenvolvedora",
+            "version": "2.1.0",
+            "revision": 2,
+            "prompt_sha256": "7f805d6a8b377195d59fcfae174cab0b945145070a632a33d2d355ac939df123",
+            "policy_version": "2.0.0",
+            "allowed_tools": [
+              "development.propose",
+              "documents.read",
+              "documents.search"
+            ],
+            "decision": "allowed",
+            "reason": "general_software_development",
+            "development_scope": "general_software",
+            "development_scope_version": "2.1.0"
+          },
+          "context_management": {
+            "context_length": 8192,
+            "original_input_bytes": 4253,
+            "input_bytes": 4253,
+            "estimation": "utf8_bytes_div_3",
+            "requested_output_tokens": 900,
+            "output_tokens_limit": 900,
+            "omitted_messages": 0,
+            "omitted_turns": 0,
+            "current_input_truncated": false
+          },
+          "execution_backend": "gpu"
+        }
+      }
+    },
+    {
+      "case": "generated_personal_game",
+      "attempt": 1,
+      "response": {
+        "id": "chatcmpl-718",
+        "object": "chat.completion",
+        "created": 1793630172,
+        "model": "moara-code",
+        "system_fingerprint": "fp_ollama",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_dgc15biv",
+                  "index": 0,
+                  "type": "function",
+                  "function": {
+                    "name": "write_file",
+                    "arguments": "{\"content\":\"\\u003c!DOCTYPE html\\u003e\\n\\u003chtml lang=\\\"pt-br\\\"\\u003e\\n\\u003chead\\u003e\\n    \\u003cmeta charset=\\\"UTF-8\\\"\\u003e\\n    \\u003cmeta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\"\\u003e\\n    \\u003ctitle\\u003eJogo da Velha\\u003c/title\\u003e\\n    \\u003cstyle\\u003e\\n        body {\\n            font-family: sans-serif;\\n            display: flex;\\n            flex-direction: column;\\n            align-items: center;\\n            justify-content: center;\\n            height: 100vh;\\n            margin: 0;\\n            background-color: #f0f0f0;\\n        }\\n        .grid {\\n            display: grid;\\n            grid-template-columns: repeat(3, 100px);\\n            grid-template-rows: repeat(3, 100px);\\n            gap: 5px;\\n            margin-bottom: 20px;\\n        }\\n        button {\\n            width: 100px;\\n            height: 100px;\\n            font-size: 2rem;\\n            cursor: pointer;\\n            border: 1px solid #333;\\n            background-color: white;\\n        }\\n        button:disabled {\\n            cursor: default;\\n        }\\n        #status {\\n            font-size: 1.5rem;\\n            margin-bottom: 20px;\\n            height: 2rem;\\n        }\\n        #reset {\\n            padding: 10px 20px;\\n            font-size: 1rem;\\n            cursor: pointer;\\n        }\\n    \\u003c/style\\u003e\\n\\u003c/head\\u003e\\n\\u003cbody\\u003e\\n\\n    \\u003cdiv id=\\\"status\\\"\\u003eVez do X\\u003c/div\\u003e\\n\\n    \\u003cdiv class=\\\"grid\\\"\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"0\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"1\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"2\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"3\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"4\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"5\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"6\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"7\\\"\\u003e\\u003c/button\\u003e\\n        \\u003cbutton class=\\\"cell\\\" data-cell=\\\"8\\\"\\u003e\\u003c/button\\u003e\\n    \\u003c/div\\u003e\\n\\n    \\u003cbutton id=\\\"reset\\\"\\u003eRecome\u00e7ar\\u003c/button\\u003e\\n\\n    \\u003cscript\\u003e\\n        const cells = document.querySelectorAll('.cell');\\n        const statusDisplay = document.getElementById('status');\\n        const resetBtn = document.getElementById('reset');\\n        let currentPlayer = 'X';\\n        let gameState = Array(9).fill(null);\\n        let gameActive = true;\\n\\n        const winningConditions = [\\n            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontais\\n            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Verticais\\n            [0, 4, 8], [2, 4, 6]             // Diagonais\\n        ];\\n\\n        function handleCellClick(e) {\\n            const cellIndex = parseInt(e.target.getAttribute('data-cell'));\\n\\n            if (gameState[cellIndex] !== null || !gameActive) {\\n                return;\\n            }\\n\\n            gameState[cellIndex] = currentPlayer;\\n            e.target.innerText = currentPlayer;\\n            e.target.disabled = true;\\n\\n            checkWinner();\\n        }\\n\\n        function checkWinner() {\\n            let roundWon = false;\\n            for (let i = 0; i \\u003c winningConditions.length; i++) {\\n                const [a, b, c] = winningConditions[i];\\n                if (gameState[a] \\u0026\\u0026 gameState[a] === gameState[b] \\u0026\\u0026 gameState[a] === gameState[c]) {\\n                    roundWon = true;\\n                    break;\\n                }\\n            }\\n\\n            if (roundWon) {\\n                statusDisplay.innerText = `${currentPlayer} venceu!`;\\n                gameActive = false;\\n                return;\\n            }\\n\\n            if (!gameState.includes(null)) {\\n                statusDisplay.innerText = \\\"Empate!\\\";\\n                gameActive = false;\\n                return;\\n            }\\n\\n            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';\\n            statusDisplay.innerText = `Vez do ${currentPlayer}`;\\n        }\\n\\n        function resetGame() {\\n            currentPlayer = 'X';\\n            gameState = Array(9).fill(null);\\n            gameActive = true;\\n            statusDisplay.innerText = 'Vez do X';\\n            cells.forEach(cell =\\u003e {\\n                cell.innerText = '';\\n                cell.disabled = false;\\n            });\\n        }\\n\\n        cells.forEach(cell =\\u003e cell.addEventListener('click', handleCellClick));\\n        resetBtn.addEventListener('click', resetGame);\\n    \\u003c/script\\u003e\\n\\u003c/body\\u003e\\n\\u003c/html\\u003e\\n\",\"path\":\"index.html\"}"
+                  }
+                }
+              ]
+            },
+            "finish_reason": "tool_calls"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1083,
+          "prompt_tokens_details": {
+            "cached_tokens": 9
+          },
+          "completion_tokens": 1168,
+          "total_tokens": 2251
+        },
+        "moara": {
+          "request_id": "657c0c20-554f-467f-a379-beb7755a6831",
+          "profile": "general",
+          "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+          "model_name": "Gemma 4 12B",
+          "reason": "manual_authorized",
+          "identity_version": "2.0.0",
+          "inference_used": true,
+          "assistant": {
+            "id": "desenvolvedora",
+            "name": "Moara Desenvolvedora",
+            "version": "2.1.0",
+            "revision": 2,
+            "prompt_sha256": "7f805d6a8b377195d59fcfae174cab0b945145070a632a33d2d355ac939df123",
+            "policy_version": "2.0.0",
+            "allowed_tools": [
+              "development.propose",
+              "documents.read",
+              "documents.search"
+            ],
+            "decision": "allowed",
+            "reason": "general_software_development",
+            "development_scope": "general_software",
+            "development_scope_version": "2.1.0"
+          },
+          "context_management": {
+            "context_length": 8192,
+            "original_input_bytes": 4983,
+            "input_bytes": 4983,
+            "estimation": "utf8_bytes_div_3",
+            "requested_output_tokens": 4096,
+            "output_tokens_limit": 4096,
+            "omitted_messages": 0,
+            "omitted_turns": 0,
+            "current_input_truncated": false
+          },
+          "execution_backend": "gpu"
+        }
+      },
+      "browser_passed": true,
+      "browser_error": null
+    },
+    {
+      "case": "agent_tool_result_stream",
+      "response": {
+        "choices": [
+          {
+            "message": {
+              "role": "assistant",
+              "content": "O jogo da velha foi desenvolvido e implementado no arquivo `index.html`.\n\n**Caracter\u00edsticas da implementa\u00e7\u00e3o:**\n- **Tecnologias:** HTML5, CSS3 e JavaScript puro (sem depend\u00eancias).\n- **Interface:** Layout responsivo para dispositivos m\u00f3veis com uma grade de 3x3.\n- **Regras:** \n    - Dois jogadores locais (X come\u00e7a).\n    - Bloqueio de jogadas em c\u00e9lulas j\u00e1 ocupadas ou ap\u00f3s a vit\u00f3ria.\n    - Verifica\u00e7\u00e3o autom\u00e1tica de vit\u00f3ria e empate.\n- **Funcionalidades:** Bot\u00e3o de reset para limpar o tabuleiro e reiniciar o estado do jogo.\n\nO arquivo est\u00e1 pronto para uso imediato."
+            }
+          }
+        ],
+        "moara": {
+          "request_id": "0d3ae887-ad2b-46e2-a41b-9cc4851e8e2f",
+          "profile": "general",
+          "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+          "model_name": "Gemma 4 12B",
+          "reason": "manual_authorized",
+          "identity_version": "2.0.0",
+          "inference_used": true,
+          "assistant": {
+            "id": "desenvolvedora",
+            "name": "Moara Desenvolvedora",
+            "version": "2.1.0",
+            "revision": 2,
+            "prompt_sha256": "7f805d6a8b377195d59fcfae174cab0b945145070a632a33d2d355ac939df123",
+            "policy_version": "2.0.0",
+            "allowed_tools": [
+              "development.propose",
+              "documents.read",
+              "documents.search"
+            ],
+            "decision": "allowed",
+            "reason": "general_software_development",
+            "development_scope": "general_software",
+            "development_scope_version": "2.1.0"
+          },
+          "context_management": {
+            "context_length": 8192,
+            "original_input_bytes": 10599,
+            "input_bytes": 10599,
+            "estimation": "utf8_bytes_div_3",
+            "requested_output_tokens": 160,
+            "output_tokens_limit": 160,
+            "omitted_messages": 0,
+            "omitted_turns": 0,
+            "current_input_truncated": false
+          },
+          "execution_backend": "gpu"
+        }
+      }
+    }
+  ],
+  "tested_image_id": "sha256:125195644fe6b7a04c7941376375136da65c92cca98c644c190dc4148fe079c1"
+}

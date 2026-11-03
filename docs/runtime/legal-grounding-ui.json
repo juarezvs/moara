@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "exact_question_via_real_chat": true,
+    "no_date_clarification": true,
+    "explains_instead_of_blanket_block": true,
+    "owner_can_review_evidence": true,
+    "fresh_sources_audited": true,
+    "no_legal_opinion_bypass": true,
+    "gpu_grounded_response": true,
+    "ordinary_capability_question_preserved": true,
+    "vscode_key_page_preserved": true,
+    "no_javascript_errors": true,
+    "synthetic_chat_archived": true
+  },
+  "created_chats": [
+    "c8fc87e3-8329-40ce-8b51-1ca70f216203",
+    "18b7755d-67bd-4baa-8b4d-5e7c9c6b6b8a"
+  ],
+  "evidence_ids": [
+    "b2b65cf0-f6e5-403d-b7d3-9df0b806ff64"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

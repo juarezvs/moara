@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "principal_law_identified": false,
+    "correct_norm_with_official_excerpts": false,
+    "answer_has_official_link": false,
+    "scope_of_civil_servant_careers_explicit": false,
+    "evidence_reproducible": false,
+    "no_unfounded_vigency_certificate": true
+  },
+  "seconds": 8.83,
+  "answer": "A consulta inicial e a tentativa de recupera\u00e7\u00e3o ainda n\u00e3o trouxeram texto oficial suficiente para responder com seguran\u00e7a. Posso refinar a pesquisa se voc\u00ea indicar o ponto espec\u00edfico, o \u00f3rg\u00e3o ou um endere\u00e7o oficial. As tentativas ficaram registradas nas evid\u00eancias.\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T21:36:21.583706+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/30fcd72c-c22f-47ee-bb3a-b1a8d0a16bf5)",
+  "metadata": {
+    "status": "official_research_unavailable",
+    "reference_date_basis": "current_date_assumed_for_information",
+    "reference_date": "2026-10-31",
+    "evidence_id": "30fcd72c-c22f-47ee-bb3a-b1a8d0a16bf5",
+    "evidence_url": "/moara/api/v1/legal/evidence/30fcd72c-c22f-47ee-bb3a-b1a8d0a16bf5",
+    "legal_conclusion_allowed": false,
+    "inference_used": false,
+    "inference_purpose": "grounded_explanation",
+    "answer_status": "no_sources",
+    "execution_backend": null
+  },
+  "discovery": {},
+  "recovery_steps": [
+    {
+      "operation": "focused_official_catalogue",
+      "topic": "cargos sal\u00e1rios judici\u00e1rio",
+      "status": "official_candidates_retrieved"
+    },
+    {
+      "operation": "official_text_after_focused_search",
+      "norms": [
+        {
+          "kind": "LEI",
+          "number": 2832,
+          "year": 1956,
+          "articles": []
+        },
+        {
+          "kind": "LEI",
+          "number": 7419,
+          "year": 1985,
+          "articles": []
+        }
+      ],
+      "text_retrieved": false
+    }
+  ],
+  "norms": [],
+  "tested_image_id": "sha256:efac0325d30ee8e194ece086525c4b4ba9080dfed456a72801ab0777938282fb"
+}

@@ -1,0 +1,31 @@
+{
+  "published": true,
+  "image": "sha256:22a87ecb1b7ccda1da4c7e3b305f636686cbc9a34cc4e7caf9d0b194b76ccbb1",
+  "unit_tests": 205,
+  "real_case_themes": [
+    6,
+    1234
+  ],
+  "fresh_official_theses": true,
+  "question_answer_same_width": true,
+  "desktop_and_mobile_validated": true,
+  "metadata_timer_preserved": true,
+  "read_only_catalogues_preserved": true,
+  "inference_restarted": false,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-22a87ecb1b-590eabf2",
+    "moara-chat-reading-app-stage-22a87ecb1b",
+    "moara-chat-reading-mcp-stage-22a87ecb1b",
+    "moara-unified-proxy-stage-a182a76c93-407fcfe5",
+    "moara-chat-reading-app-stage-a182a76c93",
+    "moara-chat-reading-mcp-stage-a182a76c93",
+    "moara-unified-proxy-stage-f0175c9f25-304d7606",
+    "moara-chat-reading-app-stage-f0175c9f25",
+    "moara-chat-reading-mcp-stage-f0175c9f25",
+    "moara-unified-proxy-stage-6e36d772a2-c7e54681",
+    "moara-chat-reading-app-stage-6e36d772a2",
+    "moara-chat-reading-mcp-stage-6e36d772a2"
+  ]
+}

@@ -1,0 +1,9 @@
+Tutorial Moara - 27/10/2026
+
+1. Extraia todo o ZIP.
+2. Abra tutorial-moara.html no navegador para ver e ampliar as telas.
+3. Ou abra tutorial-moara.pdf.
+4. Use os arquivos TXT e CSV da pasta dados-ficticios.
+5. Site dos testes: https://moara.am.trf1.gov.br/moara/espaco
+
+As capturas são reais, feitas em produção com dados fictícios. A conta temporária foi desativada.

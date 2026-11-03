@@ -1,0 +1,46 @@
+{
+  "published": true,
+  "image": "moara-core:chat-intent-20261030",
+  "image_id": "sha256:2180886d33f5c0c79fa84d44ae912b6db1402684e206d8665837c14e86d80aa9",
+  "services_running": 27,
+  "unit_tests_passed": 64,
+  "pdf_actual_chat_passed": true,
+  "capabilities_actual_chat_passed": true,
+  "history_budget_notice_passed": true,
+  "private_candidates_stopped": [
+    "moara-chat-intent-stage-bb77c71ae9",
+    "moara-chat-intent-stage-044a043d12",
+    "moara-chat-intent-stage-91058916f8"
+  ],
+  "temporary_pdf_fixture_removed": true,
+  "institutional_files_and_history_preserved": true,
+  "inference": {
+    "available": true,
+    "transport": "mutual_tls_over_ssh",
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "gpu": {
+      "sampled_at": "2026-10-30T22:16:15Z",
+      "available": true,
+      "gpus": [
+        {
+          "name": "NVIDIA RTX A2000 12GB",
+          "memory_total_mib": 12282,
+          "memory_used_mib": 9961,
+          "memory_free_mib": 1938,
+          "temperature_c": 41,
+          "utilization_percent": 0
+        }
+      ]
+    },
+    "queue": {
+      "concurrency": 1,
+      "waiting": 0,
+      "active": false,
+      "limit": 16,
+      "timeout_seconds": 120.0
+    },
+    "principal_model": "moara-main-gpu",
+    "persistent_documents_on_gpu": false
+  }
+}

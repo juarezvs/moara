@@ -1,0 +1,879 @@
+{
+  "checks": {
+    "hiv_does_not_ask_law_number": true,
+    "hiv_correct_official_norm": true,
+    "hiv_grounded_answer": true,
+    "hiv_evidence_reproducible": true,
+    "hiv_no_false_certificate": true,
+    "hiv_leading_case_verified": true,
+    "hiv_military_scope_explicit": true,
+    "hiv_no_invented_final_thesis": true,
+    "hiv_movements_checked": true,
+    "icms_does_not_ask_law_number": true,
+    "icms_correct_official_norm": true,
+    "icms_grounded_answer": true,
+    "icms_evidence_reproducible": true,
+    "icms_no_false_certificate": true,
+    "dialogue_does_not_ask_law_number": true,
+    "dialogue_correct_official_norm": true,
+    "dialogue_grounded_answer": true,
+    "dialogue_evidence_reproducible": true,
+    "dialogue_no_false_certificate": true,
+    "dialogue_recovery_attempted": true,
+    "dialogue_article32_retrieved": true,
+    "dialogue_criteria_explained": true,
+    "traffic_does_not_ask_law_number": true,
+    "traffic_correct_official_norm": true,
+    "traffic_grounded_answer": true,
+    "traffic_evidence_reproducible": true,
+    "traffic_no_false_certificate": true,
+    "traffic_official_subject_discovery": true,
+    "privacy_does_not_ask_law_number": true,
+    "privacy_correct_official_norm": true,
+    "privacy_grounded_answer": true,
+    "privacy_evidence_reproducible": true,
+    "privacy_no_false_certificate": true,
+    "privacy_official_subject_discovery": true,
+    "domestic_does_not_ask_law_number": true,
+    "domestic_correct_official_norm": true,
+    "domestic_grounded_answer": true,
+    "domestic_evidence_reproducible": true,
+    "domestic_no_false_certificate": true,
+    "domestic_official_subject_discovery": true,
+    "promotion_does_not_ask_law_number": true,
+    "promotion_correct_official_norm": true,
+    "promotion_grounded_answer": true,
+    "promotion_answer_uses_verified_sources": true,
+    "promotion_evidence_reproducible": true,
+    "promotion_no_false_certificate": true
+  },
+  "cases": [
+    {
+      "label": "hiv",
+      "question": "qual o tema do stf que trata de pessoas que tem HIV tem direito a aposentadoria?",
+      "seconds": 22.98,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "49b46b2f-c3b7-47e2-8017-bc6ffdb1cbd8",
+        "evidence_url": "/moara/api/v1/legal/evidence/49b46b2f-c3b7-47e2-8017-bc6ffdb1cbd8",
+        "legal_conclusion_allowed": false,
+        "inference_used": false,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_theme_answer",
+        "execution_backend": null
+      },
+      "answer": "**Tema 1.310 do STF \u2014 RE 1447945**\n\n**Objeto no cadastro oficial:** Impossibilidade de o militar, portador assintom\u00e1tico do v\u00edrus HIV, ser reformado ex officio por incapacidade definitiva para o servi\u00e7o ativo das For\u00e7as Armadas, somente por esse motivo, antes da altera\u00e7\u00e3o legislativa promovida pela Lei 13.954/2019.\n\n**Quest\u00e3o descrita pelo STF:** Recurso extraordin\u00e1rio em que se discute \u00e0 luz dos artigos 40; \u00a71; I; \u00a7 4\u00ba; 93; IX; 142; e 201, da Constitui\u00e7\u00e3o Federal, se o portador do v\u00edrus HIV assintom\u00e1tico \u00e9 considerado incapaz para o servi\u00e7o militar, devendo ser definitivamente afastado do servi\u00e7o ativo das For\u00e7as Armadas.\n\n**Situa\u00e7\u00e3o no cadastro do tema:** Ac\u00f3rd\u00e3o de Repercuss\u00e3o Geral publicado - Publicado em: 27/08/2024.\n\n**Andamento de m\u00e9rito recuperado:** 2026-10-29 \u2014 Suspenso o julgamento.\n\nA identifica\u00e7\u00e3o do tema e o reconhecimento de repercuss\u00e3o geral n\u00e3o equivalem a uma tese final de m\u00e9rito nem \u00e0 concess\u00e3o autom\u00e1tica de um benef\u00edcio. A tese final e seus efeitos n\u00e3o foram confirmados por este registro.\n\n**Limite do resultado:** este tema trata de reforma militar. Ele n\u00e3o estabelece, por si, aposentadoria para todos os regimes. Para pesquisar aposentadoria pelo INSS ou de servidor civil, informe qual \u00e9 o regime da sua d\u00favida.\n\n[Cadastro oficial do STF](https://portal.stf.jus.br/jurisprudenciaRepercussao/tema.asp?num=1310).\n\n[Andamentos oficiais do processo](https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=6689678&numeroProcesso=1447945&classeProcesso=RE&numeroTema=1310).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:52:20.732436+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/49b46b2f-c3b7-47e2-8017-bc6ffdb1cbd8)",
+      "recovery": {},
+      "discovery": {},
+      "norms": [
+        {
+          "norm": null,
+          "status": "official_precedent_record_retrieved",
+          "devices": [
+            "STF TEMA 1310",
+            "STF TEMA 1310 ANDAMENTOS"
+          ],
+          "gaps": [
+            "Descri\u00e7\u00e3o de tema e reconhecimento da repercuss\u00e3o geral n\u00e3o s\u00e3o tese final de m\u00e9rito. Votos e propostas de tese n\u00e3o s\u00e3o apresentados como decis\u00e3o definitiva."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "icms",
+      "question": "qual o tema do STF sobre ICMS na base de c\u00e1lculo do PIS e COFINS?",
+      "seconds": 19.04,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "5207038d-b832-40bc-9a9d-67c41a8e85ef",
+        "evidence_url": "/moara/api/v1/legal/evidence/5207038d-b832-40bc-9a9d-67c41a8e85ef",
+        "legal_conclusion_allowed": false,
+        "inference_used": false,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_theme_answer",
+        "execution_backend": null
+      },
+      "answer": "**Tema 69 do STF \u2014 RE 574706**\n\n**Objeto no cadastro oficial:** Inclus\u00e3o do ICMS na base de c\u00e1lculo do PIS e da COFINS.\n\n**Quest\u00e3o descrita pelo STF:** Recurso extraordin\u00e1rio em que se discute, \u00e0 luz do art. 195, I, b, da Constitui\u00e7\u00e3o Federal, se o ICMS integra, ou n\u00e3o, a base de c\u00e1lculo da contribui\u00e7\u00e3o para o Programa de Integra\u00e7\u00e3o Social - PIS e da Contribui\u00e7\u00e3o para o Financiamento da Seguridade Social \u2013 COFINS.\n\n**Situa\u00e7\u00e3o no cadastro do tema:** Tr\u00e2nsito em Julgado - 09/09/2021.\n\n**Andamento de m\u00e9rito recuperado:** 2021-09-17 \u2014 Transitado(a) em julgado.\n\nA identifica\u00e7\u00e3o do tema e o reconhecimento de repercuss\u00e3o geral n\u00e3o equivalem a uma tese final de m\u00e9rito nem \u00e0 concess\u00e3o autom\u00e1tica de um benef\u00edcio. A tese final e seus efeitos n\u00e3o foram confirmados por este registro.\n\n[Cadastro oficial do STF](https://portal.stf.jus.br/jurisprudenciaRepercussao/tema.asp?num=69).\n\n[Andamentos oficiais do processo](https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=2585258&numeroProcesso=574706&classeProcesso=RE&numeroTema=69).\n\n**Tema 843 do STF \u2014 RE 835818**\n\n**Objeto no cadastro oficial:** Possibilidade de exclus\u00e3o da base de c\u00e1lculo do PIS e da COFINS dos valores correspondentes a cr\u00e9ditos presumidos de ICMS decorrentes de incentivos fiscais concedidos pelos Estados e pelo Distrito Federal.\n\n**Quest\u00e3o descrita pelo STF:** Recurso extraordin\u00e1rio em que se discute, \u00e0 luz dos arts. 150, \u00a7 6\u00ba, e 195, I, b, da Constitui\u00e7\u00e3o Federal, a possibilidade de excluir da base de c\u00e1lculo da Contribui\u00e7\u00e3o ao PIS e da COFINS os valores referentes a cr\u00e9ditos presumidos do Imposto sobre a Circula\u00e7\u00e3o de Mercadorias e Servi\u00e7os \u2013 ICMS concedidos pelos Estados e pelo Distrito Federal.\n\n**Situa\u00e7\u00e3o no cadastro do tema:** M\u00e9rito julgado.\n\n**Andamento de m\u00e9rito recuperado:** 2026-10-13 \u2014 Ata de Julgamento Publicada, DJE.\n\nA identifica\u00e7\u00e3o do tema e o reconhecimento de repercuss\u00e3o geral n\u00e3o equivalem a uma tese final de m\u00e9rito nem \u00e0 concess\u00e3o autom\u00e1tica de um benef\u00edcio. A tese final e seus efeitos n\u00e3o foram confirmados por este registro.\n\n[Cadastro oficial do STF](https://portal.stf.jus.br/jurisprudenciaRepercussao/tema.asp?num=843).\n\n[Andamentos oficiais do processo](https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=4630911&numeroProcesso=835818&classeProcesso=RE&numeroTema=843).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:52:43.678362+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/5207038d-b832-40bc-9a9d-67c41a8e85ef)",
+      "recovery": {},
+      "discovery": {},
+      "norms": [
+        {
+          "norm": null,
+          "status": "official_precedent_record_retrieved",
+          "devices": [
+            "STF TEMA 69",
+            "STF TEMA 69 ANDAMENTOS"
+          ],
+          "gaps": [
+            "Descri\u00e7\u00e3o de tema e reconhecimento da repercuss\u00e3o geral n\u00e3o s\u00e3o tese final de m\u00e9rito. Votos e propostas de tese n\u00e3o s\u00e3o apresentados como decis\u00e3o definitiva."
+          ]
+        },
+        {
+          "norm": null,
+          "status": "official_precedent_record_retrieved",
+          "devices": [
+            "STF TEMA 843",
+            "STF TEMA 843 ANDAMENTOS"
+          ],
+          "gaps": [
+            "Descri\u00e7\u00e3o de tema e reconhecimento da repercuss\u00e3o geral n\u00e3o s\u00e3o tese final de m\u00e9rito. Votos e propostas de tese n\u00e3o s\u00e3o apresentados como decis\u00e3o definitiva."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "dialogue",
+      "question": "me explique como funciona e os crit\u00e9rios para usar a modalidade di\u00e1logo competitivo.",
+      "seconds": 4.13,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "f9e49fa2-2fa9-4a07-9bcd-97774e4b119e",
+        "evidence_url": "/moara/api/v1/legal/evidence/f9e49fa2-2fa9-4a07-9bcd-97774e4b119e",
+        "legal_conclusion_allowed": false,
+        "inference_used": false,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_conditions_answer",
+        "execution_backend": null
+      },
+      "answer": "**Lei 14133/2021 \u2014 funcionamento e crit\u00e9rios recuperados na fonte oficial**\n\nPara preservar os requisitos e a rela\u00e7\u00e3o entre eles, seguem os trechos oficiais pertinentes.\n\n**Art. 6, inciso 42** [L1.3]\n\n> di\u00e1logo competitivo: modalidade de licita\u00e7\u00e3o para contrata\u00e7\u00e3o de obras, servi\u00e7os e compras em que a Administra\u00e7\u00e3o P\u00fablica realiza di\u00e1logos com licitantes previamente selecionados mediante crit\u00e9rios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender \u00e0s suas necessidades, devendo os licitantes apresentar proposta final ap\u00f3s o encerramento dos di\u00e1logos;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art6_cpt_inc42).\n\n**Art. 32** [L1.6]\n\n> A modalidade di\u00e1logo competitivo \u00e9 restrita a contrata\u00e7\u00f5es em que a Administra\u00e7\u00e3o:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt).\n\n**Art. 32, inciso 1** [L1.7]\n\n> vise a contratar objeto que envolva as seguintes condi\u00e7\u00f5es:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1).\n\n**Art. 32, inciso 1, al\u00ednea a** [L1.8]\n\n> inova\u00e7\u00e3o tecnol\u00f3gica ou t\u00e9cnica;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali1).\n\n**Art. 32, inciso 1, al\u00ednea b** [L1.9]\n\n> impossibilidade de o \u00f3rg\u00e3o ou entidade ter sua necessidade satisfeita sem a adapta\u00e7\u00e3o de solu\u00e7\u00f5es dispon\u00edveis no mercado; e\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali2).\n\n**Art. 32, inciso 1, al\u00ednea c** [L1.10]\n\n> impossibilidade de as especifica\u00e7\u00f5es t\u00e9cnicas serem definidas com precis\u00e3o suficiente pela Administra\u00e7\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali3).\n\n**Art. 32, inciso 2** [L1.11]\n\n> verifique a necessidade de definir e identificar os meios e as alternativas que possam satisfazer suas necessidades, com destaque para os seguintes aspectos:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2).\n\n**Art. 32, inciso 2, al\u00ednea a** [L1.12]\n\n> a solu\u00e7\u00e3o t\u00e9cnica mais adequada;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali1).\n\n**Art. 32, inciso 2, al\u00ednea b** [L1.13]\n\n> os requisitos t\u00e9cnicos aptos a concretizar a solu\u00e7\u00e3o j\u00e1 definida;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali2).\n\n**Art. 32, inciso 2, al\u00ednea c** [L1.14]\n\n> a estrutura jur\u00eddica ou financeira do contrato;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali3).\n\n**Art. 32, inciso 3** [L1.15]\n\n> (VETADO).\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc3).\n\n**Art. 32, \u00a7 1** [L1.16]\n\n> Na modalidade di\u00e1logo competitivo, ser\u00e3o observadas as seguintes disposi\u00e7\u00f5es:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1).\n\n**Art. 32, \u00a7 1, inciso 1** [L1.17]\n\n> a Administra\u00e7\u00e3o apresentar\u00e1, por ocasi\u00e3o da divulga\u00e7\u00e3o do edital em s\u00edtio eletr\u00f4nico oficial, suas necessidades e as exig\u00eancias j\u00e1 definidas e estabelecer\u00e1 prazo m\u00ednimo de 25 (vinte e cinco) dias \u00fateis para manifesta\u00e7\u00e3o de interesse na participa\u00e7\u00e3o da licita\u00e7\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc1).\n\n**Art. 32, \u00a7 1, inciso 2** [L1.18]\n\n> os crit\u00e9rios empregados para pr\u00e9-sele\u00e7\u00e3o dos licitantes dever\u00e3o ser previstos em edital, e ser\u00e3o admitidos todos os interessados que preencherem os requisitos objetivos estabelecidos;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc2).\n\n**Art. 32, \u00a7 1, inciso 3** [L1.19]\n\n> a divulga\u00e7\u00e3o de informa\u00e7\u00f5es de modo discriminat\u00f3rio que possa implicar vantagem para algum licitante ser\u00e1 vedada;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc3).\n\n**Art. 32, \u00a7 1, inciso 4** [L1.20]\n\n> a Administra\u00e7\u00e3o n\u00e3o poder\u00e1 revelar a outros licitantes as solu\u00e7\u00f5es propostas ou as informa\u00e7\u00f5es sigilosas comunicadas por um licitante sem o seu consentimento;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc4).\n\n**Art. 32, \u00a7 1, inciso 5** [L1.21]\n\n> a fase de di\u00e1logo poder\u00e1 ser mantida at\u00e9 que a Administra\u00e7\u00e3o, em decis\u00e3o fundamentada, identifique a solu\u00e7\u00e3o ou as solu\u00e7\u00f5es que atendam \u00e0s suas necessidades;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc5).\n\n**Art. 32, \u00a7 1, inciso 6** [L1.22]\n\n> as reuni\u00f5es com os licitantes pr\u00e9-selecionados ser\u00e3o registradas em ata e gravadas mediante utiliza\u00e7\u00e3o de recursos tecnol\u00f3gicos de \u00e1udio e v\u00eddeo;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc6).\n\n**Art. 32, \u00a7 1, inciso 7** [L1.23]\n\n> o edital poder\u00e1 prever a realiza\u00e7\u00e3o de fases sucessivas, caso em que cada fase poder\u00e1 restringir as solu\u00e7\u00f5es ou as propostas a serem discutidas;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc7).\n\n**Art. 32, \u00a7 1, inciso 8** [L1.24]\n\n> a Administra\u00e7\u00e3o dever\u00e1, ao declarar que o di\u00e1logo foi conclu\u00eddo, juntar aos autos do processo licitat\u00f3rio os registros e as grava\u00e7\u00f5es da fase de di\u00e1logo, iniciar a fase competitiva com a divulga\u00e7\u00e3o de edital contendo a especifica\u00e7\u00e3o da solu\u00e7\u00e3o que atenda \u00e0s suas necessidades e os crit\u00e9rios objetivos a serem utilizados para sele\u00e7\u00e3o da proposta mais vantajosa e abrir prazo, n\u00e3o inferior a 60 (sessenta) dias \u00fateis, para todos os licitantes pr\u00e9-selecionados na forma do inciso II deste par\u00e1grafo apresentarem suas propostas, que dever\u00e3o conter os elementos necess\u00e1rios para a realiza\u00e7\u00e3o do projeto;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc8).\n\n**Art. 32, \u00a7 1, inciso 9** [L1.25]\n\n> a Administra\u00e7\u00e3o poder\u00e1 solicitar esclarecimentos ou ajustes \u00e0s propostas apresentadas, desde que n\u00e3o impliquem discrimina\u00e7\u00e3o nem distor\u00e7am a concorr\u00eancia entre as propostas;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc9).\n\n**Art. 32, \u00a7 1, inciso 10** [L1.26]\n\n> a Administra\u00e7\u00e3o definir\u00e1 a proposta vencedora de acordo com crit\u00e9rios divulgados no in\u00edcio da fase competitiva, assegurada a contrata\u00e7\u00e3o mais vantajosa como resultado;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc10).\n\n**Art. 32, \u00a7 1, inciso 11** [L1.27]\n\n> o di\u00e1logo competitivo ser\u00e1 conduzido por comiss\u00e3o de contrata\u00e7\u00e3o composta de pelo menos 3 (tr\u00eas) servidores efetivos ou empregados p\u00fablicos pertencentes aos quadros permanentes da Administra\u00e7\u00e3o, admitida a contrata\u00e7\u00e3o de profissionais para assessoramento t\u00e9cnico da comiss\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc11).\n\n**Art. 32, \u00a7 1, inciso 12** [L1.28]\n\n> (VETADO).\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc12).\n\nA aplica\u00e7\u00e3o ao caso exige conferir os requisitos, exce\u00e7\u00f5es e a reda\u00e7\u00e3o integral. Os trechos apoiam a an\u00e1lise; n\u00e3o substituem a confer\u00eancia de aplicabilidade ao caso.\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:53:03.904371+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/f9e49fa2-2fa9-4a07-9bcd-97774e4b119e)",
+      "recovery": {
+        "attempted": true,
+        "status": "official_text_recovered",
+        "steps": [
+          {
+            "operation": "focused_official_catalogue",
+            "topic": "di\u00e1logo competitivo",
+            "status": "official_candidates_retrieved"
+          },
+          {
+            "operation": "official_text_after_focused_search",
+            "norms": [
+              {
+                "kind": "LEI",
+                "number": 14133,
+                "year": 2021,
+                "articles": []
+              },
+              {
+                "kind": "DEC",
+                "number": 11584,
+                "year": 2023,
+                "articles": []
+              }
+            ],
+            "text_retrieved": true
+          }
+        ],
+        "untrusted_text_used_as_law": false
+      },
+      "discovery": {},
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 14133,
+            "year": 2021,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art6_cpt",
+            "art6_cpt_inc42",
+            "art28_cpt",
+            "art28_cpt_inc5",
+            "art32_cpt",
+            "art32_cpt_inc1",
+            "art32_cpt_inc1_ali1",
+            "art32_cpt_inc1_ali2",
+            "art32_cpt_inc1_ali3",
+            "art32_cpt_inc2",
+            "art32_cpt_inc2_ali1",
+            "art32_cpt_inc2_ali2",
+            "art32_cpt_inc2_ali3",
+            "art32_cpt_inc3",
+            "art32_par1",
+            "art32_par1_inc1",
+            "art32_par1_inc2",
+            "art32_par1_inc3",
+            "art32_par1_inc4",
+            "art32_par1_inc5",
+            "art32_par1_inc6",
+            "art32_par1_inc7",
+            "art32_par1_inc8",
+            "art32_par1_inc9",
+            "art32_par1_inc10",
+            "art32_par1_inc11",
+            "art32_par1_inc12",
+            "art6_cpt_inc25"
+          ],
+          "gaps": [
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art177_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art178_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art179_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art180_cpt_alt1",
+            "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        },
+        {
+          "norm": {
+            "kind": "DEC",
+            "number": 11584,
+            "year": 2023,
+            "articles": []
+          },
+          "status": "unconfirmed",
+          "devices": [
+            "identificacao"
+          ],
+          "gaps": [
+            "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "traffic",
+      "question": "qual a lei que trata de crime de tr\u00e2nsitos?",
+      "seconds": 6.11,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "35e9cdc2-744d-4ecb-a69a-eee4b7fdcb37",
+        "evidence_url": "/moara/api/v1/legal/evidence/35e9cdc2-744d-4ecb-a69a-eee4b7fdcb37",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_identity_answer",
+        "execution_backend": null
+      },
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 9503/1997 \u2014 Lei n\u00ba 9.503 de 23/09/1997. Institui o C\u00f3digo de Tr\u00e2nsito Brasileiro. [L1.1]\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://legis.senado.leg.br/dadosabertos/legislacao/LEI/9503/1997.json).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:53:10.204116+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/35e9cdc2-744d-4ecb-a69a-eee4b7fdcb37)",
+      "recovery": {},
+      "discovery": {
+        "status": "official_candidates_retrieved",
+        "checked_at": "2026-10-31T15:53:06.842544+00:00",
+        "query": "crimes tr\u00e2nsito",
+        "candidates": [
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 9503,
+              "year": 1997,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 9.503 de 23/09/1997",
+            "summary": "Institui o C\u00f3digo de Tr\u00e2nsito Brasileiro.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/551379.json",
+            "reference_hits": 4,
+            "relevance_score": 19
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 13804,
+              "year": 2019,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 13.804, de 10 de Janeiro de 2019",
+            "summary": "Disp\u00f5e sobre medidas de preven\u00e7\u00e3o e repress\u00e3o ao contrabando, ao descaminho, ao furto, ao roubo e \u00e0 recepta\u00e7\u00e3o; altera as Leis n\u00bas 9.503, de 23 de setembro de 1997 (C\u00f3digo de Tr\u00e2nsito Brasileiro), e 6.437, de 20 de agosto de 1977.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2019/lei-13804-10-janeiro-2019-787611-norma-pl.html",
+            "catalogue_rank": 12,
+            "reference_hits": 0,
+            "relevance_score": 11
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 6488,
+              "year": 2008,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 6.488, de 19 de Junho de 2008",
+            "summary": "Regulamenta os arts. 276 e 306 da Lei n\u00ba 9.503, de 23 de setembro de 1997 - C\u00f3digo de Tr\u00e2nsito Brasileiro, disciplinando a margem de toler\u00e2ncia de \u00e1lcool no sangue e a equival\u00eancia entre os distintos testes de alcoolemia para efeitos de crime de tr\u00e2nsito.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/2008/decreto-6488-19-junho-2008-576779-norma-pe.html",
+            "catalogue_rank": 14,
+            "reference_hits": 0,
+            "relevance_score": 11
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 62127,
+              "year": 1968,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 62.127 de 16/01/1968",
+            "summary": "APROVA O REGULAMENTO DO CODIGO NACIONAL DE TRANSITO.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/484751.json",
+            "reference_hits": 1,
+            "relevance_score": 6
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 65262,
+              "year": 1969,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 65.262, de 2 de Outubro de 1969",
+            "summary": "Modifica a reda\u00e7\u00e3o do artigo 95 e a da al\u00ednea a do inciso XXX do artigo 181 do Regulamento do C\u00f3digo Nacional do Tr\u00e2nsito, aprovado pelo Decreto n\u00ba 62.127, de 16 de janeiro de 1968.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/1960-1969/decreto-65262-2-outubro-1969-406665-norma-pe.html",
+            "catalogue_rank": 2,
+            "reference_hits": 0,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 6731,
+              "year": 1979,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 6.731, de 4 de Dezembro de 1979",
+            "summary": "Modifica disposi\u00e7\u00f5es da Lei n\u00ba 5108, de 21 de setembro de 1966 ( C\u00f3digo Nacional de Tr\u00e2nsito ).",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/1970-1979/lei-6731-4-dezembro-1979-366097-norma-pl.html",
+            "catalogue_rank": 4,
+            "reference_hits": 0,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "DEL",
+              "number": 2848,
+              "year": 1940,
+              "articles": []
+            },
+            "name": "Decreto-Lei n\u00ba 2.848 de 07/12/1940",
+            "summary": "C\u00f3digo Penal.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/527942.json",
+            "reference_hits": 2,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 48244,
+              "year": 1960,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 48.244, de 27 de Maio de 1960",
+            "summary": "Altera a reda\u00e7\u00e3o de dispositivos do Regulamento Geral do Departamento Federal de Seguran\u00e7a P\u00fablica e d\u00e1 outras provid\u00eancias.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/1960-1969/decreto-48244-27-maio-1960-387818-norma-pe.html",
+            "catalogue_rank": 5,
+            "reference_hits": 0,
+            "relevance_score": 0.16666666666666666
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "www.camara.leg.br",
+            "url": "https://www.camara.leg.br/legislacao/busca?geral=crimes+tr%C3%A2nsito",
+            "attempted_at": "2026-10-31T15:53:06.842686+00:00",
+            "status": "retrieved",
+            "sha256": "0dd1c4d7f51c3008a2d1d61c4e678a705ea527b786a7826e0c6ec34a4fb3586a"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=LEI&numero=9503&ano=1997",
+            "attempted_at": "2026-10-31T15:53:07.066632+00:00",
+            "status": "retrieved",
+            "sha256": "5cb1a2d49bc72103cd60dd94c20237e582f3c3e56ce0616a7dc6edd205052613"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEL&numero=2848&ano=1940",
+            "attempted_at": "2026-10-31T15:53:07.743062+00:00",
+            "status": "retrieved",
+            "sha256": "33b95781bd02a157f98f42b93212cc7e7427d8e4db64defa4e22ec9685bc20c2"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEC&numero=62127&ano=1968",
+            "attempted_at": "2026-10-31T15:53:07.878256+00:00",
+            "status": "retrieved",
+            "sha256": "4f4ff49611e3bee0878cc3f824ec5c183dd61b063e494e53e42016ca92138d6f"
+          }
+        ],
+        "legal_conclusion_allowed": false,
+        "coverage": "federal_partial",
+        "gaps": [
+          "Busca federal por assunto com cobertura parcial. Relev\u00e2ncia no cat\u00e1logo n\u00e3o confirma vig\u00eancia, exclusividade ou aplica\u00e7\u00e3o ao caso."
+        ],
+        "selection": {
+          "status": "finite_official_candidate_selection",
+          "selected_ids": [
+            1
+          ],
+          "inference_used": true
+        },
+        "selected_norms": [
+          {
+            "kind": "LEI",
+            "number": 9503,
+            "year": 1997,
+            "articles": []
+          }
+        ]
+      },
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 9503,
+            "year": 1997,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art256",
+            "art290-a",
+            "art291",
+            "art298",
+            "art301",
+            "art312-a",
+            "art278-a",
+            "art312-b",
+            "art1",
+            "art4",
+            "art5",
+            "art6"
+          ],
+          "gaps": [
+            "N\u00e3o foi poss\u00edvel confirmar a norma e sua reda\u00e7\u00e3o nas fontes oficiais consultadas.",
+            "Texto atualizado vinculado pelo cat\u00e1logo da C\u00e2mara, conferido agora; n\u00e3o \u00e9 comprova\u00e7\u00e3o de reda\u00e7\u00e3o hist\u00f3rica.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "privacy",
+      "question": "Qual lei trata da prote\u00e7\u00e3o de dados pessoais?",
+      "seconds": 3.79,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "f025e0c5-41a3-4bf3-b7bc-c87b9287df9b",
+        "evidence_url": "/moara/api/v1/legal/evidence/f025e0c5-41a3-4bf3-b7bc-c87b9287df9b",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_identity_answer",
+        "execution_backend": null
+      },
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 13709/2018 \u2014 Lei n\u00ba 13.709 de 14/08/2018. Lei Geral de Prote\u00e7\u00e3o de Dados Pessoais (LGPD). [L1.1]\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://legis.senado.leg.br/dadosabertos/legislacao/LEI/13709/2018.json).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:53:15.519194+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/f025e0c5-41a3-4bf3-b7bc-c87b9287df9b)",
+      "recovery": {},
+      "discovery": {
+        "status": "official_candidates_retrieved",
+        "checked_at": "2026-10-31T15:53:12.954302+00:00",
+        "query": "prote\u00e7\u00e3o dados pessoais",
+        "candidates": [
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 13709,
+              "year": 2018,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 13.709, de 14 de Agosto de 2018",
+            "summary": "Disp\u00f5e sobre a prote\u00e7\u00e3o de dados pessoais e altera a Lei n\u00ba 12.965, de 23 de abril de 2014 (Marco Civil da Internet).",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-norma-pl.html",
+            "catalogue_rank": 3,
+            "reference_hits": 1,
+            "relevance_score": 21
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 14460,
+              "year": 2022,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 14.460, de 25 de Outubro de 2022",
+            "summary": "Transforma a Autoridade Nacional de Prote\u00e7\u00e3o de Dados (ANPD) em autarquia de natureza especial e transforma cargos comissionados; altera as Leis n\u00bas 13.709, de 14 de agosto de 2018 (Lei Geral de Prote\u00e7\u00e3o de Dados Pessoais), e 13.844, de 18 de junho de 2019; e revoga dispositivos da Lei n\u00ba 13.853, de 8 de julho de 2019.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2022/lei-14460-25-outubro-2022-793355-norma-pl.html",
+            "catalogue_rank": 4,
+            "reference_hits": 0,
+            "relevance_score": 12
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 12965,
+              "year": 2014,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 12.965 de 23/04/2014",
+            "summary": "Estabelece princ\u00edpios, garantias, direitos e deveres para o uso da Internet no Brasil.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/584776.json",
+            "reference_hits": 1,
+            "relevance_score": 9
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 13853,
+              "year": 2019,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 13.853, de 8 de Julho de 2019",
+            "summary": "Altera a Lei n\u00ba 13.709, de 14 de agosto de 2018, para dispor sobre a prote\u00e7\u00e3o de dados pessoais e para criar a Autoridade Nacional de Prote\u00e7\u00e3o de Dados; e d\u00e1 outras provid\u00eancias.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2019/lei-13853-8-julho-2019-788785-norma-pl.html",
+            "catalogue_rank": 1,
+            "reference_hits": 1,
+            "relevance_score": 5
+          },
+          {
+            "norm": {
+              "kind": "EMC",
+              "number": 115,
+              "year": 2022,
+              "articles": []
+            },
+            "name": "Emenda Constitucional n\u00ba 115, de 2022",
+            "summary": "Altera a Constitui\u00e7\u00e3o Federal para incluir a prote\u00e7\u00e3o de dados pessoais entre os direitos e garantias fundamentais e para fixar a compet\u00eancia privativa da Uni\u00e3o para legislar sobre prote\u00e7\u00e3o e tratamento de dados pessoais.",
+            "source": "https://www2.camara.leg.br/legin/fed/emecon/2022/emendaconstitucional-115-10-fevereiro-2022-792285-norma-pl.html",
+            "catalogue_rank": 2,
+            "reference_hits": 0,
+            "relevance_score": 3
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "www.camara.leg.br",
+            "url": "https://www.camara.leg.br/legislacao/busca?geral=prote%C3%A7%C3%A3o+dados+pessoais",
+            "attempted_at": "2026-10-31T15:53:12.954432+00:00",
+            "status": "retrieved",
+            "sha256": "02c83b77189517fd4f34759b1201c1c0cc18551f56cff89f101688d69db8bb1d"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=LEI&numero=12965&ano=2014",
+            "attempted_at": "2026-10-31T15:53:13.291730+00:00",
+            "status": "retrieved",
+            "sha256": "e034f36f121f1dea52bfdfe1194c5ffb6055082b7a1174ea3fc80408b652cc7e"
+          }
+        ],
+        "legal_conclusion_allowed": false,
+        "coverage": "federal_partial",
+        "gaps": [
+          "Busca federal por assunto com cobertura parcial. Relev\u00e2ncia no cat\u00e1logo n\u00e3o confirma vig\u00eancia, exclusividade ou aplica\u00e7\u00e3o ao caso."
+        ],
+        "selection": {
+          "status": "finite_official_candidate_selection",
+          "selected_ids": [
+            1
+          ],
+          "inference_used": true
+        },
+        "selected_norms": [
+          {
+            "kind": "LEI",
+            "number": 13709,
+            "year": 2018,
+            "articles": []
+          }
+        ]
+      },
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 13709,
+            "year": 2018,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art2_cpt",
+            "art2_cpt_inc1",
+            "art2_cpt_inc2",
+            "art2_cpt_inc3",
+            "art2_cpt_inc4",
+            "art2_cpt_inc5",
+            "art2_cpt_inc6",
+            "art4_cpt",
+            "art4_cpt_inc4",
+            "art4_par1",
+            "art4_par3",
+            "art5_cpt"
+          ],
+          "gaps": [
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art2_cpt_alt1_art52_par6_inc1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art2_cpt_alt1_art52_par6_inc2",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art60_cpt_alt1",
+            "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "domestic",
+      "question": "Qual lei trata de viol\u00eancia dom\u00e9stica contra a mulher?",
+      "seconds": 5.56,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "5397add8-fd30-4f75-8096-1aa4a36f7287",
+        "evidence_url": "/moara/api/v1/legal/evidence/5397add8-fd30-4f75-8096-1aa4a36f7287",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_identity_answer",
+        "execution_backend": null
+      },
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 11340/2006 \u2014 Lei n\u00ba 11.340 de 07/08/2006. Cria mecanismos para coibir a viol\u00eancia dom\u00e9stica e familiar contra a mulher, nos termos do \u00a7 8\u00ba do art. 226 da Constitui\u00e7\u00e3o Federal, da Conven\u00e7\u00e3o sobre a Elimina\u00e7\u00e3o de Todas as Formas de Discrimina\u00e7\u00e3o contra as Mulheres e da Conven\u00e7\u00e3o Interamericana para Prevenir, Punir e Erradicar a Viol\u00eancia contra a Mulher; disp\u00f5e sobre a cria\u00e7\u00e3o dos Juizados de Viol\u00eancia Dom\u00e9stica e Familiar contra a Mulher; altera o C\u00f3digo de Processo Penal, o C\u00f3digo Penal e a Lei de Execu\u00e7\u00e3o Penal; e d\u00e1 outras provid\u00eancias. [L1.1]\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://legis.senado.leg.br/dadosabertos/legislacao/LEI/11340/2006.json).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:53:20.069139+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/5397add8-fd30-4f75-8096-1aa4a36f7287)",
+      "recovery": {},
+      "discovery": {
+        "status": "official_candidates_retrieved",
+        "checked_at": "2026-10-31T15:53:16.712456+00:00",
+        "query": "viol\u00eancia dom\u00e9stica contra mulher",
+        "candidates": [
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 11340,
+              "year": 2006,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 11.340, de 7 de Agosto de 2006",
+            "summary": "Cria mecanismos para coibir a viol\u00eancia dom\u00e9stica e familiar contra a mulher, nos termos do \u00a7 8\u00ba do art. 226 da Constitui\u00e7\u00e3o Federal, da Conven\u00e7\u00e3o sobre a Elimina\u00e7\u00e3o de Todas as Formas de Discrimina\u00e7\u00e3o contra as Mulheres e da Conven\u00e7\u00e3o Interamericana para Prevenir, Punir e Erradicar a Viol\u00eancia contra a Mulher; disp\u00f5e sobre a cria\u00e7\u00e3o dos Juizados de Viol\u00eancia Dom\u00e9stica e Familiar contra a Mulher; altera o C\u00f3digo de Processo Penal, o C\u00f3digo Penal e a Lei de Execu\u00e7\u00e3o Penal; e d\u00e1 outras provid\u00eancias.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2006/lei-11340-7-agosto-2006-545133-norma-pl.html",
+            "catalogue_rank": 2,
+            "reference_hits": 7,
+            "relevance_score": 35
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 14899,
+              "year": 2024,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 14.899, de 17 de Junho de 2024",
+            "summary": "Disp\u00f5e sobre a elabora\u00e7\u00e3o e a implementa\u00e7\u00e3o de plano de metas para o enfrentamento integrado da viol\u00eancia dom\u00e9stica e familiar contra a mulher, da Rede Estadual de Enfrentamento da Viol\u00eancia contra a Mulher e da Rede de Atendimento \u00e0 Mulher em Situa\u00e7\u00e3o de Viol\u00eancia; e altera a Lei n\u00ba 13.675, de 11 de junho de 2018, para determinar que o Sistema Nacional de Informa\u00e7\u00f5es de Seguran\u00e7a P\u00fablica, Prisionais, de Rastreabilidade de Armas e Muni\u00e7\u00f5es, de Material Gen\u00e9tico, de Digitais e de Drogas (Sinesp) armazene dados e informa\u00e7\u00f5es para auxiliar nas pol\u00edticas relacionadas com o enfrentamento da viol\u00eancia dom\u00e9stica e familiar contra a mulher.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2024/lei-14899-17-junho-2024-795793-norma-pl.html",
+            "catalogue_rank": 1,
+            "reference_hits": 0,
+            "relevance_score": 23
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 5030,
+              "year": 2004,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 5.030, de 31 de Mar\u00e7o de 2004",
+            "summary": "Institui o Grupo de Trabalho Interministerial para elaborar proposta de medida legislativa e outros instrumentos para coibir a viol\u00eancia dom\u00e9stica contra a mulher, e d\u00e1 outras provid\u00eancias.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/2004/decreto-5030-31-marco-2004-531519-norma-pe.html",
+            "catalogue_rank": 7,
+            "reference_hits": 0,
+            "relevance_score": 23
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 9586,
+              "year": 2018,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 9.586, de 27 de Novembro de 2018",
+            "summary": "Institui o Sistema Nacional de Pol\u00edticas para as Mulheres e o Plano Nacional de Combate \u00e0 Viol\u00eancia Dom\u00e9stica.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/2018/decreto-9586-27-novembro-2018-787374-norma-pe.html",
+            "catalogue_rank": 3,
+            "reference_hits": 0,
+            "relevance_score": 19
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 14149,
+              "year": 2021,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 14.149, de 5 de Maio de 2021",
+            "summary": "Institui o Formul\u00e1rio Nacional de Avalia\u00e7\u00e3o de Risco, a ser aplicado \u00e0 mulher v\u00edtima de viol\u00eancia dom\u00e9stica e familiar.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14149-5-maio-2021-791330-norma-pl.html",
+            "catalogue_rank": 9,
+            "reference_hits": 0,
+            "relevance_score": 19
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 14188,
+              "year": 2021,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 14.188, de 28 de Julho de 2021",
+            "summary": "Define o programa de coopera\u00e7\u00e3o Sinal Vermelho contra a Viol\u00eancia Dom\u00e9stica como uma das medidas de enfrentamento da viol\u00eancia dom\u00e9stica e familiar contra a mulher previstas na Lei n\u00ba 11.340, de 7 de agosto de 2006 (Lei Maria da Penha), e no Decreto-Lei n\u00ba 2.848, de 7 de dezembro de 1940 (C\u00f3digo Penal), em todo o territ\u00f3rio nacional; e altera o Decreto-Lei n\u00ba 2.848, de 7 de dezembro de 1940 (C\u00f3digo Penal), para modificar a modalidade da pena da les\u00e3o corporal simples cometida contra a mulher por raz\u00f5es da condi\u00e7\u00e3o do sexo feminino e para criar o tipo penal de viol\u00eancia psicol\u00f3gica contra a mulher.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14188-28-julho-2021-791620-norma-pl.html",
+            "catalogue_rank": 8,
+            "reference_hits": 0,
+            "relevance_score": 16
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 14541,
+              "year": 2023,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 14.541, de 3 de Abril de 2023",
+            "summary": "Disp\u00f5e sobre a cria\u00e7\u00e3o e o funcionamento ininterrupto de Delegacias Especializadas de Atendimento \u00e0 Mulher.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2023/lei-14541-3-abril-2023-793991-norma-pl.html",
+            "catalogue_rank": 13,
+            "reference_hits": 0,
+            "relevance_score": 11
+          },
+          {
+            "norm": {
+              "kind": "DEL",
+              "number": 2848,
+              "year": 1940,
+              "articles": []
+            },
+            "name": "Decreto-Lei n\u00ba 2.848 de 07/12/1940",
+            "summary": "C\u00f3digo Penal.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/527942.json",
+            "reference_hits": 5,
+            "relevance_score": 10
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "www.camara.leg.br",
+            "url": "https://www.camara.leg.br/legislacao/busca?geral=viol%C3%AAncia+dom%C3%A9stica+contra+mulher",
+            "attempted_at": "2026-10-31T15:53:16.712556+00:00",
+            "status": "retrieved",
+            "sha256": "9520882ed9e4374adb44290b899f15cf58b78fc9580a1a5332c6983ee8c2898d"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEL&numero=2848&ano=1940",
+            "attempted_at": "2026-10-31T15:53:17.148133+00:00",
+            "status": "retrieved",
+            "sha256": "33b95781bd02a157f98f42b93212cc7e7427d8e4db64defa4e22ec9685bc20c2"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEL&numero=3689&ano=1941",
+            "attempted_at": "2026-10-31T15:53:17.875253+00:00",
+            "status": "retrieved",
+            "sha256": "8fe81bde043942dbbd5202a317080fb95a3835b477430893cfcc37ddc87d14ee"
+          }
+        ],
+        "legal_conclusion_allowed": false,
+        "coverage": "federal_partial",
+        "gaps": [
+          "Busca federal por assunto com cobertura parcial. Relev\u00e2ncia no cat\u00e1logo n\u00e3o confirma vig\u00eancia, exclusividade ou aplica\u00e7\u00e3o ao caso."
+        ],
+        "selection": {
+          "status": "finite_official_candidate_selection",
+          "selected_ids": [
+            1
+          ],
+          "inference_used": true
+        },
+        "selected_norms": [
+          {
+            "kind": "LEI",
+            "number": 11340,
+            "year": 2006,
+            "articles": []
+          }
+        ]
+      },
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 11340,
+            "year": 2006,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art1",
+            "art4",
+            "art5",
+            "art6",
+            "art7",
+            "art8",
+            "art10",
+            "art10-a",
+            "art11",
+            "art12",
+            "art12-a",
+            "art13"
+          ],
+          "gaps": [
+            "N\u00e3o foi poss\u00edvel confirmar a norma e sua reda\u00e7\u00e3o nas fontes oficiais consultadas.",
+            "Texto atualizado vinculado pelo cat\u00e1logo da C\u00e2mara, conferido agora; n\u00e3o \u00e9 comprova\u00e7\u00e3o de reda\u00e7\u00e3o hist\u00f3rica.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "promotion",
+      "question": "de acordo com a lei 8112/1990 o que \u00e9 uma promo\u00e7\u00e3o.",
+      "seconds": 30.62,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "40277247-759e-45b1-a844-29a797ec7e3e",
+        "evidence_url": "/moara/api/v1/legal/evidence/40277247-759e-45b1-a844-29a797ec7e3e",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "quoted_sources_fallback",
+        "execution_backend": null
+      },
+      "answer": "Encontrei estes dispositivos oficiais pertinentes \u00e0 pergunta:\n\n[L1.1] art8 \u2014 Art. 8\u00ba S\u00e3o formas de provimento de cargo p\u00fablico: I - nomea\u00e7\u00e3o; II - promo\u00e7\u00e3o; III - (Revogado pela Lei n\u00ba 9.527, de 10/12/1997) IV - (Revogado pela Lei n\u00ba 9.527, de 10/12/1997) V - readapta\u00e7\u00e3o; VI - revers\u00e3o; VII - aproveitamento; VIII - reintegra\u00e7\u00e3o; IX - recondu\u00e7\u00e3o. Se\u00e7\u00e3o II Da Nomea\u00e7\u00e3o [Fonte oficial](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html).\n\n[L1.2] art10 \u2014 Art. 10. A nomea\u00e7\u00e3o para cargo de carreira ou cargo isolado de provimento efetivo depende de pr\u00e9via habilita\u00e7\u00e3o em concurso p\u00fablico de provas ou de provas e t\u00edtulos, obedecidos a ordem de classifica\u00e7\u00e3o e o prazo de sua validade. Par\u00e1grafo \u00fanico. Os demais requisitos para o ingresso e o desenvolvimento do servidor na carreira, mediante promo\u00e7\u00e3o, ser\u00e3o estabelecidos pela lei que fixar as diretrizes do sistema de carreira na Administra\u00e7\u00e3o P\u00fablica Federal e seus regulamentos. (Par\u00e1grafo \u00fanico com reda\u00e7\u00e3o dada pela Lei n\u00ba 9.527, de 10/12/1997) Se\u00e7\u00e3o III Do Concurso P\u00fablico [Fonte oficial](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html).\n\n[L1.3] art17 \u2014 Art. 17. A promo\u00e7\u00e3o n\u00e3o interrompe o tempo de exerc\u00edcio, que \u00e9 contado no novo posicionamento na carreira a partir da data de publica\u00e7\u00e3o do ato que promover o servidor. (Artigo com reda\u00e7\u00e3o dada pela Lei n\u00ba 9.527, de 10/12/1997). [Fonte oficial](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html).\n\n[L1.4] art33 \u2014 Art. 33. A vac\u00e2ncia do cargo p\u00fablico decorrer\u00e1 de: I - exonera\u00e7\u00e3o; II - demiss\u00e3o; III - promo\u00e7\u00e3o; IV - (Revogado pela Lei n\u00ba 9.527, de 10/12/1997) V - (Revogado pela Lei n\u00ba 9.527, de 10/12/1997) VI - readapta\u00e7\u00e3o; VII - aposentadoria; VIII - posse em outro cargo inacumul\u00e1vel; IX - falecimento. [Fonte oficial](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T15:53:22.282074+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/40277247-759e-45b1-a844-29a797ec7e3e)",
+      "recovery": {},
+      "discovery": {},
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 8112,
+            "year": 1990,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "art8",
+            "art10",
+            "art17",
+            "art33",
+            "art230"
+          ],
+          "gaps": [
+            "N\u00e3o foi poss\u00edvel confirmar a norma e sua reda\u00e7\u00e3o nas fontes oficiais consultadas.",
+            "Texto atualizado vinculado pelo cat\u00e1logo da C\u00e2mara, conferido agora; n\u00e3o \u00e9 comprova\u00e7\u00e3o de reda\u00e7\u00e3o hist\u00f3rica.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    }
+  ],
+  "tested_image_id": "sha256:8709001451e048d10a3ccc1432e0f00e9a2abc0952a4103621d352e8c19f8809"
+}

@@ -1,0 +1,108 @@
+{
+  "checks": {
+    "promotion_requested_behavior": true,
+    "promotion_topic_answered": true,
+    "promotion_not_sources_only": true,
+    "promotion_official_citations": true,
+    "dialogue_requested_behavior": true,
+    "dialogue_topic_answered": true,
+    "dialogue_not_sources_only": true,
+    "dialogue_official_citations": true,
+    "identity_requested_behavior": true,
+    "identity_topic_answered": true,
+    "identity_not_sources_only": true,
+    "identity_official_citations": true,
+    "greeting_requested_behavior": true,
+    "greeting_topic_answered": true,
+    "greeting_not_sources_only": true,
+    "greeting_official_citations": true
+  },
+  "reports": [
+    {
+      "case": "promotion",
+      "question": "de acordo com a lei 8112/1990 o que \u00e9 uma promo\u00e7\u00e3o?",
+      "checks": {
+        "requested_behavior": true,
+        "topic_answered": true,
+        "not_sources_only": true,
+        "official_citations": true
+      },
+      "answer": "No contexto da legisla\u00e7\u00e3o federal consultada:\n\nA promo\u00e7\u00e3o \u00e9 uma das formas de provimento de cargo p\u00fablico e tamb\u00e9m uma das causas de vac\u00e2ncia do cargo anterior. Ela ocorre quando o servidor \u00e9 deslocado para um novo posicionamento na carreira, sendo que o tempo de exerc\u00edcio anterior n\u00e3o \u00e9 interrompido por esse movimento. [L1.1](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html) [L1.3](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html) [L1.4](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8112-11-dezembro-1990-322161-normaatualizada-pl.html)\n\nData de refer\u00eancia: 2026-11-01. Fontes conferidas em 2026-11-01T22:01:33.381312+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/38f2567f-e522-48f8-aaf5-53d28b93d247)",
+      "metadata": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-11-01",
+        "evidence_id": "38f2567f-e522-48f8-aaf5-53d28b93d247",
+        "evidence_url": "/moara/api/v1/legal/evidence/38f2567f-e522-48f8-aaf5-53d28b93d247",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "grounded_explanation",
+        "execution_backend": "gpu"
+      },
+      "seconds": 15.68
+    },
+    {
+      "case": "dialogue",
+      "question": "me explique como funciona e os crit\u00e9rios para usar a modalidade di\u00e1logo competitivo.",
+      "checks": {
+        "requested_behavior": true,
+        "topic_answered": true,
+        "not_sources_only": true,
+        "official_citations": true
+      },
+      "answer": "No contexto da legisla\u00e7\u00e3o federal consultada:\n\nO di\u00e1logo competitivo \u00e9 uma modalidade de licita\u00e7\u00e3o utilizada para contratar obras, servi\u00e7os ou compras em que a Administra\u00e7\u00e3o P\u00fablica precisa desenvolver alternativas para atender \u00e0s suas necessidades. Ele funciona atrav\u00e9s de di\u00e1logos com licitantes previamente selecionados por crit\u00e9rios objetivos, permitindo que o \u00f3rg\u00e3o identifique a solu\u00e7\u00e3o t\u00e9cnica mais adequada, requisitos t\u00e9cnicos, ou estruturas jur\u00eddicas e financeiras do contrato. [L1.3](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art6_cpt_inc42) [L1.11](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2) [L1.12](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali1) [L1.13](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali2)\n\n<details><summary>Conferir os crit\u00e9rios e condi\u00e7\u00f5es na fonte oficial</summary>\n\n**art32_cpt** [L1.6](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt)\n\n> A modalidade di\u00e1logo competitivo \u00e9 restrita a contrata\u00e7\u00f5es em que a Administra\u00e7\u00e3o:\n\n**art32_cpt_inc1** [L1.7](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1)\n\n> vise a contratar objeto que envolva as seguintes condi\u00e7\u00f5es:\n\n**art32_cpt_inc1_ali1** [L1.8](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali1)\n\n> inova\u00e7\u00e3o tecnol\u00f3gica ou t\u00e9cnica;\n\n**art32_cpt_inc1_ali2** [L1.9](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali2)\n\n> impossibilidade de o \u00f3rg\u00e3o ou entidade ter sua necessidade satisfeita sem a adapta\u00e7\u00e3o de solu\u00e7\u00f5es dispon\u00edveis no mercado; e\n\n**art32_cpt_inc1_ali3** [L1.10](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali3)\n\n> impossibilidade de as especifica\u00e7\u00f5es t\u00e9cnicas serem definidas com precis\u00e3o suficiente pela Administra\u00e7\u00e3o;\n\n**art32_cpt_inc2** [L1.11](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2)\n\n> verifique a necessidade de definir e identificar os meios e as alternativas que possam satisfazer suas necessidades, com destaque para os seguintes aspectos:\n\n**art32_cpt_inc2_ali1** [L1.12](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali1)\n\n> a solu\u00e7\u00e3o t\u00e9cnica mais adequada;\n\n**art32_cpt_inc2_ali2** [L1.13](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali2)\n\n> os requisitos t\u00e9cnicos aptos a concretizar a solu\u00e7\u00e3o j\u00e1 definida;\n\n**art32_cpt_inc2_ali3** [L1.14](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali3)\n\n> a estrutura jur\u00eddica ou financeira do contrato;\n\n**art32_cpt_inc3** [L1.15](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc3)\n\n> (VETADO).\n\n**art32_par1** [L1.16](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1)\n\n> Na modalidade di\u00e1logo competitivo, ser\u00e3o observadas as seguintes disposi\u00e7\u00f5es:\n\n**art32_par1_inc1** [L1.17](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc1)\n\n> a Administra\u00e7\u00e3o apresentar\u00e1, por ocasi\u00e3o da divulga\u00e7\u00e3o do edital em s\u00edtio eletr\u00f4nico oficial, suas necessidades e as exig\u00eancias j\u00e1 definidas e estabelecer\u00e1 prazo m\u00ednimo de 25 (vinte e cinco) dias \u00fateis para manifesta\u00e7\u00e3o de interesse na participa\u00e7\u00e3o da licita\u00e7\u00e3o;\n\n**art32_par1_inc2** [L1.18](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc2)\n\n> os crit\u00e9rios empregados para pr\u00e9-sele\u00e7\u00e3o dos licitantes dever\u00e3o ser previstos em edital, e ser\u00e3o admitidos todos os interessados que preencherem os requisitos objetivos estabelecidos;\n\n**art32_par1_inc3** [L1.19](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc3)\n\n> a divulga\u00e7\u00e3o de informa\u00e7\u00f5es de modo discriminat\u00f3rio que possa implicar vantagem para algum licitante ser\u00e1 vedada;\n\n**art32_par1_inc4** [L1.20](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc4)\n\n> a Administra\u00e7\u00e3o n\u00e3o poder\u00e1 revelar a outros licitantes as solu\u00e7\u00f5es propostas ou as informa\u00e7\u00f5es sigilosas comunicadas por um licitante sem o seu consentimento;\n\n**art32_par1_inc5** [L1.21](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc5)\n\n> a fase de di\u00e1logo poder\u00e1 ser mantida at\u00e9 que a Administra\u00e7\u00e3o, em decis\u00e3o fundamentada, identifique a solu\u00e7\u00e3o ou as solu\u00e7\u00f5es que atendam \u00e0s suas necessidades;\n\n**art32_par1_inc6** [L1.22](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc6)\n\n> as reuni\u00f5es com os licitantes pr\u00e9-selecionados ser\u00e3o registradas em ata e gravadas mediante utiliza\u00e7\u00e3o de recursos tecnol\u00f3gicos de \u00e1udio e v\u00eddeo;\n\n**art32_par1_inc7** [L1.23](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc7)\n\n> o edital poder\u00e1 prever a realiza\u00e7\u00e3o de fases sucessivas, caso em que cada fase poder\u00e1 restringir as solu\u00e7\u00f5es ou as propostas a serem discutidas;\n\n**art32_par1_inc8** [L1.24](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc8)\n\n> a Administra\u00e7\u00e3o dever\u00e1, ao declarar que o di\u00e1logo foi conclu\u00eddo, juntar aos autos do processo licitat\u00f3rio os registros e as grava\u00e7\u00f5es da fase de di\u00e1logo, iniciar a fase competitiva com a divulga\u00e7\u00e3o de edital contendo a especifica\u00e7\u00e3o da solu\u00e7\u00e3o que atenda \u00e0s suas necessidades e os crit\u00e9rios objetivos a serem utilizados para sele\u00e7\u00e3o da proposta mais vantajosa e abrir prazo, n\u00e3o inferior a 60 (sessenta) dias \u00fateis, para todos os licitantes pr\u00e9-selecionados na forma do inciso II deste par\u00e1grafo apresentarem suas propostas, que dever\u00e3o conter os elementos necess\u00e1rios para a realiza\u00e7\u00e3o do projeto;\n\n**art32_par1_inc9** [L1.25](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc9)\n\n> a Administra\u00e7\u00e3o poder\u00e1 solicitar esclarecimentos ou ajustes \u00e0s propostas apresentadas, desde que n\u00e3o impliquem discrimina\u00e7\u00e3o nem distor\u00e7am a concorr\u00eancia entre as propostas;\n\n**art32_par1_inc10** [L1.26](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc10)\n\n> a Administra\u00e7\u00e3o definir\u00e1 a proposta vencedora de acordo com crit\u00e9rios divulgados no in\u00edcio da fase competitiva, assegurada a contrata\u00e7\u00e3o mais vantajosa como resultado;\n\n**art32_par1_inc11** [L1.27](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc11)\n\n> o di\u00e1logo competitivo ser\u00e1 conduzido por comiss\u00e3o de contrata\u00e7\u00e3o composta de pelo menos 3 (tr\u00eas) servidores efetivos ou empregados p\u00fablicos pertencentes aos quadros permanentes da Administra\u00e7\u00e3o, admitida a contrata\u00e7\u00e3o de profissionais para assessoramento t\u00e9cnico da comiss\u00e3o;\n\n**art32_par1_inc12** [L1.28](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc12)\n\n> (VETADO).\n\n</details>\n\nData de refer\u00eancia: 2026-11-01. Fontes conferidas em 2026-11-01T22:01:53.709525+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/cf8769fd-7574-425d-acb2-8de1cf3bead9)",
+      "metadata": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-11-01",
+        "evidence_id": "cf8769fd-7574-425d-acb2-8de1cf3bead9",
+        "evidence_url": "/moara/api/v1/legal/evidence/cf8769fd-7574-425d-acb2-8de1cf3bead9",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "grounded_explanation",
+        "execution_backend": "gpu"
+      },
+      "seconds": 21.15
+    },
+    {
+      "case": "identity",
+      "question": "qual a lei de cargos e sal\u00e1rios do judici\u00e1rio federal?",
+      "checks": {
+        "requested_behavior": true,
+        "topic_answered": true,
+        "not_sources_only": true,
+        "official_citations": true
+      },
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 11416/2006 \u2014 Lei n\u00ba 11.416, de 15 de Dezembro de 2006. Disp\u00f5e sobre as Carreiras dos Servidores do Poder Judici\u00e1rio da Uni\u00e3o; revoga as Leis n\u00bas 9.421, de 24 de dezembro de 1996, 10.475, de 27 de junho de 2002, 10.417, de 5 de abril de 2002, e 10.944, de 16 de setembro de 2004; e d\u00e1 outras provid\u00eancias. [L1.1](https://www2.camara.leg.br/legin/fed/lei/2006/lei-11416-15-dezembro-2006-548306-norma-pl.html)\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://www2.camara.leg.br/legin/fed/lei/2006/lei-11416-15-dezembro-2006-548306-norma-pl.html).\n\nData de refer\u00eancia: 2026-11-01. Fontes conferidas em 2026-11-01T22:02:15.753276+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/8447e1bf-d854-424f-9383-aff8ef3c1072)",
+      "metadata": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-11-01",
+        "evidence_id": "8447e1bf-d854-424f-9383-aff8ef3c1072",
+        "evidence_url": "/moara/api/v1/legal/evidence/8447e1bf-d854-424f-9383-aff8ef3c1072",
+        "legal_conclusion_allowed": false,
+        "inference_used": false,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_identity_answer",
+        "execution_backend": null
+      },
+      "seconds": 9.24
+    },
+    {
+      "case": "greeting",
+      "question": "quais suas habilidades?",
+      "checks": {
+        "requested_behavior": true,
+        "topic_answered": true,
+        "not_sources_only": true,
+        "official_citations": true
+      },
+      "answer": "Atuo em seis especialidades: Moara Jur\u00eddica, Gabinete, Administrativa, Documental, Desenvolvedora e Dados. As ferramentas e fontes dependem das permiss\u00f5es da sess\u00e3o; n\u00e3o possuo acesso universal aos sistemas da institui\u00e7\u00e3o.",
+      "metadata": {},
+      "seconds": 0.07
+    }
+  ],
+  "tested_image_id": "sha256:37ca22156212c9ddc0ff21a69b46302c3fde2d9018583f21144d3082542f6588"
+}

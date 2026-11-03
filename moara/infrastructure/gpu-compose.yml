@@ -1,0 +1,57 @@
+services:
+  moara-gpu-tunnel:
+    image: moara-gpu-tunnel:20261029
+    restart: unless-stopped
+    command:
+      - '-NT'
+      - '-g'
+      - '-o'
+      - 'ExitOnForwardFailure=yes'
+      - '-o'
+      - 'ServerAliveInterval=10'
+      - '-o'
+      - 'ServerAliveCountMax=3'
+      - '-o'
+      - 'StrictHostKeyChecking=yes'
+      - '-o'
+      - 'UserKnownHostsFile=/run/secrets/moara_gpu_known_hosts'
+      - '-o'
+      - 'IdentitiesOnly=yes'
+      - '-o'
+      - 'BatchMode=yes'
+      - '-o'
+      - 'ConnectTimeout=5'
+      - '-i'
+      - '/run/secrets/moara_gpu_tunnel_key'
+      - '-L'
+      - '0.0.0.0:11434:127.0.0.1:11434'
+      - '-L'
+      - '0.0.0.0:11435:127.0.0.1:11435'
+      - 'nutec@172.19.5.246'
+    networks: [inference, download]
+    secrets: [moara_gpu_tunnel_key, moara_gpu_known_hosts]
+    read_only: true
+    tmpfs: ['/tmp:size=16m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    cpus: 1
+    pids_limit: 32
+    # GPU readiness is probed by the gateway. CPU startup must not depend on it.
+    healthcheck: {disable: true}
+    logging: {driver: json-file, options: {max-size: 10m, max-file: '3'}}
+  gateway:
+    image: ai-gateway:gpu-20261029
+    environment:
+      GPU_INFERENCE_BASE_URL: http://moara-gpu-tunnel:11434
+      GPU_EMBEDDING_BASE_URL: http://moara-gpu-tunnel:11435
+      GPU_MODELS_JSON: '{"moara-63af8a56-8192-12t":"moara-main-gpu","gemma4:12b-it-q4_K_M":"moara-main-gpu"}'
+      GPU_RESIDENT_MODEL: moara-main-gpu
+      GPU_EMBEDDINGS_ENABLED: 'true'
+      MODELS_JSON: '{"coding":"ai-coder-8k","fast":"moara-63af8a56-8192-12t","general":"moara-63af8a56-8192-12t","qwen25-coder-32b":"ai-qwen25-coder-32b-8k","llama31-70b":"ai-llama31-70b-8k","llama33-70b":"ai-llama33-70b-8k","deepseek-coder-v2-lite":"ai-deepseek-coder-v2-lite-8k"}'
+      GENERAL_REASONING_EFFORT: none
+  moara-gateway:
+    image: moara-core:gpu-20261029
+secrets:
+  moara_gpu_tunnel_key: {file: ../secrets/moara_gpu_tunnel_key}
+  moara_gpu_known_hosts: {file: ../secrets/moara_gpu_known_hosts}

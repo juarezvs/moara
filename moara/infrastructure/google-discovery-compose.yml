@@ -1,0 +1,37 @@
+services:
+  moara-legal-mcp:
+    image: moara-core:google-discovery-20261031
+    environment:
+      MOARA_REFERENCE_BROWSER_URL: http://moara-google-browser:8077/references
+    secrets: [moara_legal_key,moara_google_browser_key]
+    networks: [moara_control,moara_legal_egress,moara_research_browser]
+  moara-google-browser:
+    image: moara-reference-browser:20261031
+    restart: unless-stopped
+    networks: [moara_research_browser,moara_search_egress]
+    secrets: [moara_google_browser_key]
+    read_only: true
+    tmpfs: ['/tmp:size=512m,mode=1777']
+    shm_size: 256m
+    cap_drop: [ALL]
+    cap_add: [SYS_CHROOT]
+    security_opt: [no-new-privileges:true,seccomp=./google-browser-seccomp.json]
+    mem_limit: 1200m
+    memswap_limit: 1200m
+    cpus: 1.5
+    pids_limit: 256
+    healthcheck:
+      test: [CMD,python3,-c,'import urllib.request; urllib.request.urlopen("http://localhost:8077/health",timeout=3)']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+networks:
+  moara_research_browser:
+    external: true
+    name: ai-server_moara_research_browser
+  moara_search_egress:
+    external: true
+    name: ai-server_moara_search_egress
+secrets:
+  moara_google_browser_key: {file: ../secrets/moara_google_browser_key}

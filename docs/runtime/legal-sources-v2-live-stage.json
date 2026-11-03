@@ -1,0 +1,284 @@
+{
+  "checks": {
+    "version_02": true,
+    "three_tools": true,
+    "real_senado_catalogue": true,
+    "cpc_before_blocked_unconfirmed_conclusions": true,
+    "cpc_before_official_text": true,
+    "cpc_after_blocked_unconfirmed_conclusions": true,
+    "cpc_after_official_text": true,
+    "licitacoes_current_blocked_unconfirmed_conclusions": true,
+    "licitacoes_current_official_text": true,
+    "automatic_camara_origin": true,
+    "automatic_camara_history": true,
+    "amending_norm_publications_checked": true,
+    "adi_missing_text_blocked_unconfirmed_conclusions": true,
+    "missing_text_not_fabricated": true,
+    "emenda_constitucional_blocked_unconfirmed_conclusions": true,
+    "constitutional_amendment_identity": true,
+    "historical_and_later_wording_differ": true,
+    "future_versions_not_used_in_past": true,
+    "real_camara_historical_lookup": true,
+    "camara_is_not_normative_text": true,
+    "camara_events_respect_date": true,
+    "all_snapshot_hashes_reproduce": true
+  },
+  "cases": [
+    {
+      "case": "cpc_before",
+      "seconds": 5.46,
+      "status": "verification_incomplete",
+      "norm_status": "official_text_retrieved",
+      "excerpt_count": 18,
+      "version_dates": [
+        "2015-03-16"
+      ],
+      "snapshots": 6,
+      "related_norms": 0,
+      "camara_status": "legislative_history_retrieved",
+      "source_results": [
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/LEI/13105/2015.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:lei:2015-03-16;13105&&tipo_documento=maior-detalhe",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=8046&ano=2010&itens=100&pagina=1",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/490267",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/490267/tramitacoes?dataFim=2015-12-31",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%2213105%22+%222015%22",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",
+          "status": "unavailable",
+          "http_status": null
+        }
+      ]
+    },
+    {
+      "case": "cpc_after",
+      "seconds": 6.24,
+      "status": "verification_incomplete",
+      "norm_status": "official_text_retrieved",
+      "excerpt_count": 18,
+      "version_dates": [
+        "2015-03-16",
+        "2016-02-04"
+      ],
+      "snapshots": 8,
+      "related_norms": 2,
+      "camara_status": "legislative_history_retrieved",
+      "source_results": [
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/LEI/13105/2015.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:lei:2015-03-16;13105&&tipo_documento=maior-detalhe",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/31624456.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/30772942.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=8046&ano=2010&itens=100&pagina=1",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/490267",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/490267/tramitacoes?dataFim=2020-01-01",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%2213105%22+%222015%22",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",
+          "status": "unavailable",
+          "http_status": null
+        }
+      ]
+    },
+    {
+      "case": "licitacoes_current",
+      "seconds": 4.8,
+      "status": "verification_incomplete",
+      "norm_status": "official_text_retrieved",
+      "excerpt_count": 100,
+      "version_dates": [
+        "2021-04-01"
+      ],
+      "snapshots": 8,
+      "related_norms": 2,
+      "camara_status": "legislative_history_retrieved",
+      "source_results": [
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/LEI/14133/2021.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:lei:2021-04-01;14133&&tipo_documento=maior-detalhe",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/43573921.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/41716387.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=6814&ano=2017&itens=100&pagina=1",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2122766",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/2122766/tramitacoes?dataFim=2026-10-30",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%2214133%22+%222021%22",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+          "status": "unavailable",
+          "http_status": null
+        }
+      ]
+    },
+    {
+      "case": "adi_missing_text",
+      "seconds": 4.16,
+      "status": "verification_incomplete",
+      "norm_status": "unconfirmed",
+      "excerpt_count": 0,
+      "version_dates": [],
+      "snapshots": 7,
+      "related_norms": 0,
+      "camara_status": "legislative_history_retrieved",
+      "source_results": [
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/LEI/9868/1999.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:lei:1999-11-10;9868&&tipo_documento=maior-detalhe",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=2960&ano=1997&itens=100&pagina=1",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/208355",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes/208355/tramitacoes?dataFim=2026-10-30",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%229868%22+%221999%22",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        },
+        {
+          "url": "https://www.planalto.gov.br/ccivil_03/leis/l9868.htm",
+          "status": "unavailable",
+          "http_status": null
+        },
+        {
+          "url": "https://portal.stf.jus.br/constituicao-supremo/leis-infraconstitucionais/verlegislacao.asp?item=346",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        }
+      ]
+    },
+    {
+      "case": "emenda_constitucional",
+      "seconds": 3.23,
+      "status": "verification_incomplete",
+      "norm_status": "official_text_retrieved",
+      "excerpt_count": 1,
+      "version_dates": [
+        "2023-12-20"
+      ],
+      "snapshots": 3,
+      "related_norms": 0,
+      "camara_status": "not_identified",
+      "source_results": [
+        {
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/EMC/132/2023.json",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:emenda.constitucional:2023-12-20;132&&tipo_documento=maior-detalhe",
+          "status": "retrieved",
+          "http_status": null
+        },
+        {
+          "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%22132%22+%222023%22",
+          "status": "retrieved_not_certified",
+          "http_status": null
+        }
+      ]
+    }
+  ],
+  "snapshot_count": 36,
+  "tested_image_id": "sha256:723ed26c5e5ee8d753b9bfe44a70cd074b591defe0770cf280720a8b3ea148d2"
+}

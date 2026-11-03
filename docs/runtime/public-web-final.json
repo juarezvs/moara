@@ -1,0 +1,56 @@
+{
+  "published": true,
+  "images": {
+    "core": "sha256:14b88b60b611876672d0dfa4bbd3c60bed1b34e35756b5c89ea6716e53832379",
+    "mcp": "sha256:04d56767786459161f0a86c264009c49701aa4ff71705d718f35009f6a2454ba"
+  },
+  "unit_tests": 280,
+  "checks": {
+    "unit_tests_pass": true,
+    "core_is_tested_image": true,
+    "mcp_is_tested_image": true,
+    "public-web-live-stage.json": true,
+    "public-web-live-public.json": true,
+    "public-web-ui-stage.json": true,
+    "public-web-ui-public.json": true,
+    "search_has_no_host_ports": true,
+    "search_restarts_automatically": true,
+    "search_is_on_private_network": true,
+    "ai-server-moara-gateway-1_catalogues_read_only": true,
+    "ai-server-moara-legal-mcp-1_catalogues_read_only": true,
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "frontend_assets_preserved": true,
+    "legal_metadata_timer_active": true
+  },
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "database_migrations": false,
+  "stopped_private_candidates": [
+    "moara-public-web-tls-7addf213f5",
+    "moara-public-web-app-stage-14b88b60b6",
+    "moara-public-web-mcp-stage-14b88b60b6",
+    "moara-public-web-tls-a2e6477312",
+    "moara-public-web-app-stage-1a1794905f",
+    "moara-public-web-mcp-stage-1a1794905f",
+    "moara-public-web-tls-aa469bbbbf",
+    "moara-public-web-app-stage-487f54eefb",
+    "moara-public-web-mcp-stage-487f54eefb",
+    "moara-public-web-app-stage-c69e06bb47",
+    "moara-public-web-mcp-stage-c69e06bb47",
+    "moara-public-web-tls-f0e13da089",
+    "moara-public-web-app-stage-8b79556717",
+    "moara-public-web-mcp-stage-8b79556717",
+    "moara-public-web-app-stage-14ccd877f4",
+    "moara-public-web-mcp-stage-14ccd877f4",
+    "moara-public-web-app-stage-3c6e7ff51e",
+    "moara-public-web-mcp-stage-3c6e7ff51e",
+    "moara-public-web-app-stage-76315a584d",
+    "moara-public-web-mcp-stage-76315a584d",
+    "moara-public-web-app-stage-35927f24af",
+    "moara-public-web-mcp-stage-35927f24af"
+  ]
+}

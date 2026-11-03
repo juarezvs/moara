@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "six_tabs_vertical_on_right": true,
+    "vertical_keyboard_navigation": true,
+    "processing_uses_Moara_mark": true,
+    "minimal_brand_animation": true,
+    "real_document_stages": true,
+    "no_invented_legal_research": true,
+    "model_ran_on_GPU": true,
+    "answer_keeps_document_citations": true,
+    "processing_finishes": true,
+    "real_legal_lookup_stage": true,
+    "legal_confirmation_limits_preserved": true,
+    "mobile_no_overflow": true,
+    "mobile_rail_is_right": true,
+    "large_text_mobile_no_overflow": true,
+    "reduced_motion_respected": true,
+    "cancel_clears_processing": true,
+    "no_javascript_errors": true,
+    "synthetic_chat_archived": true
+  },
+  "created_chats": [
+    "1420782d-8f74-48d5-8106-1a59ba624258",
+    "ea1c3a89-224e-408a-b4d6-fc87aa084b9b",
+    "84ab8a89-f0a8-4396-98e0-695a54ba0723"
+  ],
+  "created_resources": [
+    "97528cce-3dc7-4877-bc8a-105fb9b5dc1f"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "exact_question_answered_without_date_prompt": true,
+    "both_current_official_amounts": true,
+    "strictly_inferior_not_inclusive": true,
+    "current_date_disclosed": true,
+    "no_unchecked_legal_opinion": true,
+    "three_live_official_sources": true,
+    "source_bytes_reproducible": true,
+    "evidence_integrity": true,
+    "date_assumption_audited": true,
+    "html_evidence_shows_table_and_hashes": true,
+    "case_still_requests_missing_date": true
+  },
+  "seconds": 2.45,
+  "answer": "**Limites de dispensa por valor \u2014 Lei 14.133/2021**\nConsulta considerando a data atual: **2026-10-30**.\nA tabela oficial do Governo Federal para **2026** informa:\n| Hip\u00f3tese | Limite de refer\u00eancia |\n|---|---|\n| Obras e servi\u00e7os de engenharia e servi\u00e7os de manuten\u00e7\u00e3o de ve\u00edculos automotores \u2014 Art. 75, inciso I | R$ 130.984,20 |\n| Outros servi\u00e7os e compras \u2014 Art. 75, inciso II | R$ 65.492,11 |\n\nO art. 75, I e II, exige **valores inferiores** a esses limites. A escolha da hip\u00f3tese e os demais requisitos precisam ser examinados na contrata\u00e7\u00e3o concreta.\nAtualiza\u00e7\u00e3o: **Decreto 12.807/2025**, com in\u00edcio em 2026-01-01, conforme a fonte oficial.\n[Tabela oficial do Governo Federal](https://www.gov.br/compras/pt-br/acesso-a-informacao/comunicados/2025/no-47-25-decreto-altera-valores-da-lei-14-133-para-compras-publicas) \u00b7 [\u00cdndice do PNCP](https://www.gov.br/pncp/pt-br/pncp/legislacao/decretos) \u00b7 [Lei \u2014 fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133).\n\nConsulta informativa \u00e0 tabela divulgada pelo Governo Federal e ao \u00edndice do PNCP; n\u00e3o certifica cobertura exaustiva do DOU, decis\u00f5es judiciais ou autoriza\u00e7\u00e3o para dispensar uma contrata\u00e7\u00e3o concreta.\nConfer\u00eancia: 2026-10-31T03:19:03.303473+00:00.\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/aa7a9840-2e6e-4438-8bd6-a7eec7e0ecca)",
+  "evidence_id": "aa7a9840-2e6e-4438-8bd6-a7eec7e0ecca",
+  "checked_at": "2026-10-31T03:19:03.303473+00:00"
+}

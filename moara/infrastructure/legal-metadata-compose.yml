@@ -1,0 +1,7 @@
+services:
+  moara-gateway:
+    image: moara-core:legal-metadata-20261031
+    volumes: ['../data/legal/metadata:/app/legal_catalog/lexml:ro']
+  moara-legal-mcp:
+    image: moara-core:legal-metadata-20261031
+    volumes: ['../data/legal/metadata:/app/legal_catalog/lexml:ro']

@@ -1,0 +1,5 @@
+services:
+  moara-gateway:
+    image: moara-core:legal-information-20261030
+  moara-legal-mcp:
+    image: moara-core:legal-information-20261030

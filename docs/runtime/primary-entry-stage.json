@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "stage_root_redirect_validated": true,
+    "anonymous_root_opens_institutional_login": true,
+    "login_keeps_Moara_identity": true,
+    "alternative_authentication_has_no_redirect_loop": true,
+    "authenticated_root_opens_workbench": true,
+    "six_workspace_tabs": true,
+    "capabilities_answer_is_not_blocked_by_legal_date": true,
+    "mobile_no_horizontal_overflow": true,
+    "synthetic_chat_archived": true,
+    "legacy_chat_remains_available": true,
+    "brand_assets_preserved": true,
+    "canonical_chat_still_works": true,
+    "no_javascript_errors": true
+  },
+  "created_chats": [
+    "416e142b-6d23-403c-8ac8-f7a5a94a9541"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

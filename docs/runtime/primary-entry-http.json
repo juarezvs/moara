@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "GET /": true,
+    "HEAD /": true,
+    "GET /?q=test": true,
+    "GET /chat-anterior": true,
+    "GET /?interface=anterior": true,
+    "GET /moara/chat": true,
+    "GET /moara/brand/mark.svg": true,
+    "GET /moara/api/v1/ready": true,
+    "expected_image": true,
+    "no_running_unhealthy_services": true
+  },
+  "responses": {
+    "GET /": {
+      "status": 302,
+      "location": "/moara/chat",
+      "cache_control": "no-store"
+    },
+    "HEAD /": {
+      "status": 302,
+      "location": "/moara/chat",
+      "cache_control": "no-store"
+    },
+    "GET /?q=test": {
+      "status": 302,
+      "location": "/moara/chat",
+      "cache_control": "no-store"
+    },
+    "GET /chat-anterior": {
+      "status": 302,
+      "location": "/?interface=anterior",
+      "cache_control": null
+    },
+    "GET /?interface=anterior": {
+      "status": 200,
+      "location": null,
+      "cache_control": "no-cache"
+    },
+    "GET /moara/chat": {
+      "status": 200,
+      "location": null,
+      "cache_control": "no-store"
+    },
+    "GET /moara/brand/mark.svg": {
+      "status": 200,
+      "location": null,
+      "cache_control": "no-store"
+    },
+    "GET /moara/api/v1/ready": {
+      "status": 200,
+      "location": null,
+      "cache_control": "no-store"
+    }
+  },
+  "image": "moara-core:primary-entry-20261030",
+  "tls_validation": true
+}

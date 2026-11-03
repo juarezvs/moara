@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "continue_workspace_rule_installed": true,
+    "continue_tool_use_configured": true,
+    "project_root_is_current_open_folder": true,
+    "model_read_local_file": true,
+    "model_created_document_and_folder": true,
+    "model_created_python_test": true,
+    "existing_local_file_preserved": true,
+    "generated_local_test_passes": true
+  },
+  "operations": [
+    {
+      "op": "read",
+      "path": "main.py"
+    },
+    {
+      "op": "create",
+      "path": "docs\\README.md"
+    },
+    {
+      "op": "create",
+      "path": "tests\\test_total.py"
+    }
+  ],
+  "synthetic_project": "C:\\moara\\tmp\\moara-local-project-1793631971965679600",
+  "editor_tool_execution": "controlled local adapter; VS Code UI not automated"
+}

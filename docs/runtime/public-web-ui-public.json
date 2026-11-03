@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "general_question_is_answered_without_purpose_gate": true,
+    "actual_web_search_progress_is_visible": true,
+    "web_answer_explains_retrieved_content": true,
+    "inline_sources_have_real_urls": true,
+    "web_evidence_is_replayable": true,
+    "source_snapshot_and_quote_are_retained": true,
+    "frontend_has_no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "cde251a5-a97a-4431-9329-f6f6ac636f18",
+    "601598e3-8bb7-4ace-a500-96a78f6fd331"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793638930207356894",
+  "old_fixture_id": "71fc7b8c-18fe-49b0-81c0-8350bf0c34c6",
+  "tested_image_id": "sha256:14b88b60b611876672d0dfa4bbd3c60bed1b34e35756b5c89ea6716e53832379"
+}

@@ -1,0 +1,29 @@
+{
+  "integration_published": true,
+  "mcp_version": "0.8.0",
+  "mcp_image": "sha256:8199cdf7fea9cad12a78c473b6c990de088cf1c01843579c180b0b771dc6e9c9",
+  "gateway_image_unchanged": "sha256:efac0325d30ee8e194ece086525c4b4ba9080dfed456a72801ab0777938282fb",
+  "google_search_operational": false,
+  "provider_status": "provider_access_restricted",
+  "unit_tests": 173,
+  "official_application_checks": true,
+  "policy_snapshot_reproduced": true,
+  "browser_port_unpublished": true,
+  "browser_isolated_from_institutional_networks": true,
+  "inference_restarted": false,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "preserved_stopped_candidates": [
+    "moara-google-app-stage-8199cdf7fe",
+    "moara-google-mcp-stage-8199cdf7fe",
+    "moara-google-browser-stage-a0a130b177-sandbox",
+    "moara-google-app-stage-eacd75b35e",
+    "moara-google-mcp-stage-eacd75b35e",
+    "moara-google-app-stage-86b94651db",
+    "moara-google-mcp-stage-86b94651db",
+    "moara-google-app-stage-ce02eec295",
+    "moara-google-mcp-stage-ce02eec295",
+    "moara-google-app-stage-44ee1da323",
+    "moara-google-mcp-stage-44ee1da323"
+  ]
+}

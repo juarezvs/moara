@@ -34,12 +34,16 @@ class Settings:
     directory_enforcement:bool=False
     session_seconds:int=28800
     session_cookie:str='__Secure-moara_session'
-    version:str='1.0.0'
+    version:str='2.0.0'
     metrics_key:str=field(default='',repr=False)
+    background_jobs_enabled:bool=True
+    legal_mcp_url:str='http://moara-legal-mcp:8076/mcp'
 
     @classmethod
     def load(cls):
         return cls(db_url=database_url(),directory_enforcement=os.getenv('MOARA_DIRECTORY_ENFORCEMENT','true').lower()=='true',
+            background_jobs_enabled=os.getenv('MOARA_BACKGROUND_JOBS','true').lower()=='true',
+            legal_mcp_url=os.getenv('MOARA_LEGAL_MCP_URL','http://moara-legal-mcp:8076/mcp'),
             session_key=secret('moara_session_key').encode(),crypto_key=secret('moara_crypto_key').encode(),
             redis_password=secret('moara_redis_password'),llm_key=secret('moara_llm_key'),connector_key=secret('connector_hub_key'),
             forward_key=secret('moara_forward_jwt_secret'),metrics_key=secret('moara_metrics_key') if (Path(os.getenv('MOARA_SECRETS_DIR','/run/secrets'))/'moara_metrics_key').is_file() else '')

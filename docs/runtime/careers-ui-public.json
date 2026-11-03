@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "exact_question_identifies_principal_law": true,
+    "direct_answer_not_a_failure_notice": true,
+    "official_camara_source_present": true,
+    "evidence_link_present": true,
+    "source_hint_points_to_verified_metadata": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "f7fbf794-479f-43a1-8467-8e9d18d08c34"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793483056511276238",
+  "old_fixture_id": "bb86279a-0dfc-4103-a213-65befad60381",
+  "tested_image_id": "sha256:3ab8c4480eee042199eda2ab27d1bee1e889c91e97cc6a0d16177d820242d3de"
+}

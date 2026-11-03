@@ -1,0 +1,3 @@
+services:
+  moara-gateway:
+    image: sha256:80b20651178ca6e98e096eadcfaf26ee7fdd21d464796c3ac5f52f16b81b042e

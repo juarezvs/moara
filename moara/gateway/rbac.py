@@ -11,7 +11,11 @@ PERMISSIONS=frozenset({
 })
 BASE={'workspace.use','knowledge.use','documents.use','development.use','workflows.use','chat.use','history.read','history.manage','files.use','identity.read','profiles.read','connectors.read','data.query','jobs.read','jobs.cancel'}
 ROLES={
-    'user':('Usuário',BASE),
+    'user':('Chat e histórico pessoal',{'chat.use','history.read','history.manage','profiles.read','identity.read'}),
+    'documents':('Documentos e acervo',{'workspace.use','documents.use','knowledge.use','files.use'}),
+    'developer':('Desenvolvimento e API para VS Code',{'development.use'}),
+    'data_analyst':('Consulta de dados institucionais',{'connectors.read','data.query','jobs.read','jobs.cancel'}),
+    'workflow_operator':('Fluxos de trabalho',{'workspace.use','workflows.use','jobs.read','jobs.cancel'}),
     'analyst':('Analista',BASE|{'models.read'}),
     'manager':('Gestor',BASE|{'status.read'}),
     'administrator':('Administrador',{'*'}),
@@ -39,6 +43,7 @@ class Actor:
     auth_source:str='legacy'
     password_change_required:bool=False
     preferences:dict=field(default_factory=dict)
+    owner_profiles_manage:bool=False
 
     def can(self,permission):return '*' in self.permissions or permission in self.permissions
     def require(self,permission):

@@ -1,0 +1,9 @@
+{
+  "published": true,
+  "image": "sha256:2bf8df6a72f63c754a787d9184c308bd86412772a953b060fc1f3e77ea8731b5",
+  "baseline": "sha256:14b88b60b611876672d0dfa4bbd3c60bed1b34e35756b5c89ea6716e53832379",
+  "frontend_only": true,
+  "mcp_restarted": false,
+  "inference_restarted": false,
+  "database_migrations": false
+}

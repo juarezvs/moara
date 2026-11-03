@@ -1,0 +1,135 @@
+{
+  admin off
+  auto_https disable_redirects
+  default_sni 127.0.0.1
+  pki {
+    ca moara {
+      name "Moara AI - Autoridade Interna"
+    }
+  }
+}
+(moara_routes) {
+  # MOARA_PRIMARY_ENTRY_BEGIN
+  @moara_primary_entry {
+    path /
+    method GET HEAD
+  }
+  header @moara_primary_entry Cache-Control "no-store"
+  redir @moara_primary_entry /moara/chat 302
+  redir /chat-anterior /moara/chat?area=historico 302
+  redir /chat-anterior/ /moara/chat?area=historico 302
+  # MOARA_PRIMARY_ENTRY_END
+
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy same-origin
+    -Server
+  }
+  redir /studio /studio/ 308
+  redir /moara /moara/ 308
+  redir /sobre /moara/sobre 308
+  redir /moara/monitoramento /moara/monitoramento/ 308
+  handle /moara/monitoramento/* {
+    route {
+      request_header -X-Moara-Metrics-User
+      request_header -X-Moara-Metrics-Role
+      request_header -X-WEBAUTH-USER
+      forward_auth moara-gateway:8075 {
+        uri /moara/api/v1/observability/authorize
+        copy_headers X-Moara-Metrics-User X-Moara-Metrics-Role
+      }
+      reverse_proxy moara-grafana:3000 {
+        header_up X-WEBAUTH-USER {http.request.header.X-Moara-Metrics-User}
+        header_up -X-WEBAUTH-ROLE
+        header_up -Authorization
+        header_up -Cookie
+      }
+    }
+  }
+  @moara_document_upload {
+    method POST
+    path /moara/api/v1/platform/documents/upload /moara/api/v1/platform/documents/upload/
+  }
+  handle /moara/* {
+    route {
+      handle @moara_document_upload {
+        reverse_proxy moara-gateway:8075 {
+          flush_interval -1
+        }
+      }
+      handle {
+    request_body {
+      max_size 8MB
+    }
+    reverse_proxy moara-gateway:8075 {
+      flush_interval -1
+    }
+  
+      }
+    }
+  }
+  handle /studio/* {
+    request_body {
+      max_size 8MB
+    }
+    reverse_proxy studio:8090 {
+      flush_interval -1
+    }
+  }
+  @gateway path /v1/* /health /metrics
+  handle @gateway {
+    request_body {
+      max_size 2MB
+    }
+    reverse_proxy gateway:8000 {
+      flush_interval -1
+    }
+  }
+  @chat_upload {
+    method POST
+    path /api/v1/files /api/v1/files/
+  }
+  handle @chat_upload {
+    request_body {
+      max_size 32MB
+    }
+    reverse_proxy webui:8080
+  }
+
+  # Institutional services stay private behind their existing authentication.
+  handle /static/moara/* {
+    reverse_proxy webui:8080
+  }
+  @institutional_services path /api/* /socket.io/* /ws/* /oauth/*
+  handle @institutional_services {
+    request_body {
+      max_size 2MB
+    }
+    reverse_proxy webui:8080 {
+      @previous_ui header Content-Type text/html*
+      handle_response @previous_ui {
+        redir * /moara/chat 302
+      }
+    }
+  }
+  handle {
+    @previous_conversation path_regexp prior ^/c/([0-9a-fA-F-]{36})/?$
+    redir @previous_conversation /moara/chat?previous={re.prior.1} 302
+    redir * /moara/chat 302
+  }
+}
+https://localhost:8443, https://127.0.0.1:8443 {
+  tls internal
+  import moara_routes
+}
+https://moara.am.trf1.gov.br:8443 {
+  tls {
+    issuer internal {
+      ca moara
+    }
+  }
+  import moara_routes
+}
+http://:8080 {
+  redir https://moara.am.trf1.gov.br{uri} 308
+}

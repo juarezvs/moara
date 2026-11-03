@@ -1,0 +1,19 @@
+{
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "published": true,
+  "mcp_version": "0.4.0",
+  "preserved_stopped_candidates": [
+    "moara-legal-app-grounding-stage-4b3f108454",
+    "moara-legal-grounding-stage-4b3f108454",
+    "moara-legal-app-grounding-stage-9e79e59a70",
+    "moara-legal-grounding-stage-9e79e59a70",
+    "moara-legal-app-grounding-stage-ca454bb924",
+    "moara-legal-grounding-stage-ca454bb924",
+    "moara-legal-app-grounding-stage-147039917f",
+    "moara-legal-grounding-stage-147039917f",
+    "moara-legal-app-grounding-stage-ab4aee5b53",
+    "moara-legal-grounding-stage-ab4aee5b53"
+  ],
+  "gateway_image": "sha256:4b3f108454428591f6abd249b10a05fb525a6a6715405f8577805b844f688846"
+}

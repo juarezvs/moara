@@ -1,0 +1,23 @@
+{
+  "published": true,
+  "image": "sha256:2bf8df6a72f63c754a787d9184c308bd86412772a953b060fc1f3e77ea8731b5",
+  "checks": {
+    "published_tested_image": true,
+    "stage_browser_checks": true,
+    "public_browser_checks": true,
+    "backend_and_identity_files_unchanged": true,
+    "ai-server-moara-gateway-1_healthy": true,
+    "ai-server-moara-legal-mcp-1_healthy": true,
+    "gpu_models_resident": true
+  },
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "frontend_only": true,
+  "stopped_private_candidates": [
+    "moara-page-scroll-tls-e9a35cd71c",
+    "moara-page-scroll-stage-2bf8df6a72"
+  ]
+}

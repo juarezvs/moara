@@ -1,0 +1,11 @@
+/* Observable processing feedback for the institutional workspace. */
+.moara-processing{display:flex;align-items:center;gap:12px;margin:14px 30px 22px;padding:13px 0;color:var(--muted);font-size:12px;min-width:0}
+.processing-mark{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:var(--work-soft)}
+.processing-mark img{width:25px;height:25px;object-fit:contain;animation:moara-breathe 1.8s ease-in-out infinite}
+.processing-copy{display:flex;flex-direction:column;gap:4px;min-width:0;line-height:1.5}
+.processing-copy strong{font-size:11px;color:var(--text);font-weight:550}
+.work-conversation .message.pending-message{display:none}
+.moara-processing>.text-button{margin-left:auto;font-size:11px;flex-shrink:0;align-self:center}
+@keyframes moara-breathe{0%,100%{opacity:.6;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
+@media(max-width:600px){.moara-processing{margin:10px 16px 16px;gap:8px;flex-wrap:wrap;font-size:11px}.processing-mark{flex-basis:30px;width:30px;height:30px}.processing-mark img{width:22px;height:22px}.processing-copy{flex:1;min-width:120px}.moara-processing>.text-button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.processing-mark img{animation:none}}

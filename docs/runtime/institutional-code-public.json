@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "application_ready": true,
+    "backend_source_unchanged": true,
+    "mcp_service_image_unchanged": true,
+    "catalogues_read_only_gateway": true,
+    "catalogues_read_only_mcp": true,
+    "metadata_timer_active": true,
+    "principal_model_still_resident": true
+  },
+  "tested_image_id": "sha256:984ac563e8667d42035254d680ea42ffb5cc5d67aa43d237fc4125f06996f77d",
+  "baseline_backend": {
+    "backend_digest": "e4f385eff7ed687f93380458637907f4e9f37be0b0bc3c9e2ff1aaf52bfdf53b",
+    "python_files": 87
+  },
+  "backend": {
+    "backend_digest": "e4f385eff7ed687f93380458637907f4e9f37be0b0bc3c9e2ff1aaf52bfdf53b",
+    "python_files": 87
+  },
+  "baseline_mcp_image": "sha256:22a87ecb1b7ccda1da4c7e3b305f636686cbc9a34cc4e7caf9d0b194b76ccbb1",
+  "principal_resident": true,
+  "embeddings_resident": true
+}

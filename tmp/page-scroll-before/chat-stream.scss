@@ -1,0 +1,46 @@
+:host { --stream-accent: #7961e8; }
+@media (min-width: 701px) {
+  .work-conversation .messages {
+    max-height: max(160px, calc(100dvh - var(--chat-composer-height, 280px) - 230px));
+  }
+}
+.stream-follow {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+.stream-follow button {
+  pointer-events: auto;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel, #fff);
+  color: var(--text);
+  padding: 8px 15px;
+  font: inherit;
+  font-size: 12px;
+  box-shadow: 0 3px 14px #10244a12;
+  cursor: pointer;
+}
+.moara-processing.is-thinking .processing-mark {
+  position: relative;
+  background: transparent;
+}
+.moara-processing.is-thinking .processing-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-top-color: var(--stream-accent);
+  border-right-color: #54cce1;
+  border-radius: 50%;
+  animation: stream-orbit 1.6s linear infinite;
+}
+.moara-processing.is-streaming .processing-mark img { animation: none; }
+.moara-processing.is-streaming { padding-top: 4px; padding-bottom: 4px; }
+@keyframes stream-orbit { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .moara-processing.is-thinking .processing-mark::after { animation: none; }
+}

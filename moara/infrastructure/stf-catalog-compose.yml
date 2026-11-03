@@ -1,0 +1,7 @@
+services:
+  moara-gateway:
+    image: moara-core:stf-catalog-20261031
+    volumes: ['../data/legal/stf-theses:/app/legal_catalog/stf:ro']
+  moara-legal-mcp:
+    image: moara-core:stf-catalog-20261031
+    volumes: ['../data/legal/stf-theses:/app/legal_catalog/stf:ro']

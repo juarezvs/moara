@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "real_progress_visible": true,
+    "real_question_has_both_themes_and_headings": true,
+    "comparison_table_rendered": true,
+    "list_markers_visible": true,
+    "full_thesis_expands": true,
+    "question_and_answer_share_reading_width": true,
+    "official_source_hint_and_link_work": true,
+    "copy_response_includes_source_links": true,
+    "mobile_has_no_horizontal_overflow": true,
+    "mobile_question_answer_widths_match": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "e38141c2-c05b-49ff-a14b-e34e46130d43"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793493061793208921",
+  "old_fixture_id": "d3fd90f7-6692-4f40-846c-37361df26221",
+  "tested_image_id": "sha256:22a87ecb1b7ccda1da4c7e3b305f636686cbc9a34cc4e7caf9d0b194b76ccbb1"
+}

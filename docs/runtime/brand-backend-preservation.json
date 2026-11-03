@@ -1,0 +1,7 @@
+{
+  "backend_unchanged": true,
+  "baseline_sha256": "d847ddbe7f49ea267babb0204b48f408feccb00d0fe13aa20ade0ea1e0d7c2c0",
+  "candidate_sha256": "d847ddbe7f49ea267babb0204b48f408feccb00d0fe13aa20ade0ea1e0d7c2c0",
+  "baseline_image": "sha256:723ed26c5e5ee8d753b9bfe44a70cd074b591defe0770cf280720a8b3ea148d2",
+  "candidate_image": "sha256:0943e1340ce58c0590df997b192b48f4e20b7d19559d2d595aa02811c4513d3e"
+}

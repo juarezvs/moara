@@ -1,0 +1,352 @@
+{
+  "checks": {
+    "dialogue_does_not_ask_law_number": true,
+    "dialogue_correct_official_norm": true,
+    "dialogue_grounded_answer": true,
+    "dialogue_evidence_reproducible": true,
+    "dialogue_no_false_certificate": true,
+    "dialogue_recovery_attempted": true,
+    "dialogue_article32_retrieved": true,
+    "dialogue_criteria_explained": true,
+    "traffic_does_not_ask_law_number": true,
+    "traffic_correct_official_norm": true,
+    "traffic_grounded_answer": true,
+    "traffic_evidence_reproducible": true,
+    "traffic_no_false_certificate": true,
+    "traffic_official_subject_discovery": true
+  },
+  "cases": [
+    {
+      "label": "dialogue",
+      "question": "me explique como funciona e os crit\u00e9rios para usar a modalidade di\u00e1logo competitivo.",
+      "seconds": 5.33,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "4861b70a-103c-4284-9c99-1c5fe6c762c8",
+        "evidence_url": "/moara/api/v1/legal/evidence/4861b70a-103c-4284-9c99-1c5fe6c762c8",
+        "legal_conclusion_allowed": false,
+        "inference_used": false,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_conditions_answer",
+        "execution_backend": null
+      },
+      "answer": "**Lei 14133/2021 \u2014 funcionamento e crit\u00e9rios recuperados na fonte oficial**\n\nPara preservar os requisitos e a rela\u00e7\u00e3o entre eles, seguem os trechos oficiais pertinentes.\n\n**Art. 6, inciso 42** [L1.3](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art6_cpt_inc42)\n\n> di\u00e1logo competitivo: modalidade de licita\u00e7\u00e3o para contrata\u00e7\u00e3o de obras, servi\u00e7os e compras em que a Administra\u00e7\u00e3o P\u00fablica realiza di\u00e1logos com licitantes previamente selecionados mediante crit\u00e9rios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender \u00e0s suas necessidades, devendo os licitantes apresentar proposta final ap\u00f3s o encerramento dos di\u00e1logos;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art6_cpt_inc42).\n\n**Art. 32** [L1.6](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt)\n\n> A modalidade di\u00e1logo competitivo \u00e9 restrita a contrata\u00e7\u00f5es em que a Administra\u00e7\u00e3o:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt).\n\n**Art. 32, inciso 1** [L1.7](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1)\n\n> vise a contratar objeto que envolva as seguintes condi\u00e7\u00f5es:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1).\n\n**Art. 32, inciso 1, al\u00ednea a** [L1.8](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali1)\n\n> inova\u00e7\u00e3o tecnol\u00f3gica ou t\u00e9cnica;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali1).\n\n**Art. 32, inciso 1, al\u00ednea b** [L1.9](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali2)\n\n> impossibilidade de o \u00f3rg\u00e3o ou entidade ter sua necessidade satisfeita sem a adapta\u00e7\u00e3o de solu\u00e7\u00f5es dispon\u00edveis no mercado; e\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali2).\n\n**Art. 32, inciso 1, al\u00ednea c** [L1.10](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali3)\n\n> impossibilidade de as especifica\u00e7\u00f5es t\u00e9cnicas serem definidas com precis\u00e3o suficiente pela Administra\u00e7\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc1_ali3).\n\n**Art. 32, inciso 2** [L1.11](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2)\n\n> verifique a necessidade de definir e identificar os meios e as alternativas que possam satisfazer suas necessidades, com destaque para os seguintes aspectos:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2).\n\n**Art. 32, inciso 2, al\u00ednea a** [L1.12](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali1)\n\n> a solu\u00e7\u00e3o t\u00e9cnica mais adequada;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali1).\n\n**Art. 32, inciso 2, al\u00ednea b** [L1.13](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali2)\n\n> os requisitos t\u00e9cnicos aptos a concretizar a solu\u00e7\u00e3o j\u00e1 definida;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali2).\n\n**Art. 32, inciso 2, al\u00ednea c** [L1.14](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali3)\n\n> a estrutura jur\u00eddica ou financeira do contrato;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc2_ali3).\n\n**Art. 32, inciso 3** [L1.15](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc3)\n\n> (VETADO).\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_cpt_inc3).\n\n**Art. 32, \u00a7 1** [L1.16](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1)\n\n> Na modalidade di\u00e1logo competitivo, ser\u00e3o observadas as seguintes disposi\u00e7\u00f5es:\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1).\n\n**Art. 32, \u00a7 1, inciso 1** [L1.17](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc1)\n\n> a Administra\u00e7\u00e3o apresentar\u00e1, por ocasi\u00e3o da divulga\u00e7\u00e3o do edital em s\u00edtio eletr\u00f4nico oficial, suas necessidades e as exig\u00eancias j\u00e1 definidas e estabelecer\u00e1 prazo m\u00ednimo de 25 (vinte e cinco) dias \u00fateis para manifesta\u00e7\u00e3o de interesse na participa\u00e7\u00e3o da licita\u00e7\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc1).\n\n**Art. 32, \u00a7 1, inciso 2** [L1.18](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc2)\n\n> os crit\u00e9rios empregados para pr\u00e9-sele\u00e7\u00e3o dos licitantes dever\u00e3o ser previstos em edital, e ser\u00e3o admitidos todos os interessados que preencherem os requisitos objetivos estabelecidos;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc2).\n\n**Art. 32, \u00a7 1, inciso 3** [L1.19](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc3)\n\n> a divulga\u00e7\u00e3o de informa\u00e7\u00f5es de modo discriminat\u00f3rio que possa implicar vantagem para algum licitante ser\u00e1 vedada;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc3).\n\n**Art. 32, \u00a7 1, inciso 4** [L1.20](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc4)\n\n> a Administra\u00e7\u00e3o n\u00e3o poder\u00e1 revelar a outros licitantes as solu\u00e7\u00f5es propostas ou as informa\u00e7\u00f5es sigilosas comunicadas por um licitante sem o seu consentimento;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc4).\n\n**Art. 32, \u00a7 1, inciso 5** [L1.21](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc5)\n\n> a fase de di\u00e1logo poder\u00e1 ser mantida at\u00e9 que a Administra\u00e7\u00e3o, em decis\u00e3o fundamentada, identifique a solu\u00e7\u00e3o ou as solu\u00e7\u00f5es que atendam \u00e0s suas necessidades;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc5).\n\n**Art. 32, \u00a7 1, inciso 6** [L1.22](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc6)\n\n> as reuni\u00f5es com os licitantes pr\u00e9-selecionados ser\u00e3o registradas em ata e gravadas mediante utiliza\u00e7\u00e3o de recursos tecnol\u00f3gicos de \u00e1udio e v\u00eddeo;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc6).\n\n**Art. 32, \u00a7 1, inciso 7** [L1.23](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc7)\n\n> o edital poder\u00e1 prever a realiza\u00e7\u00e3o de fases sucessivas, caso em que cada fase poder\u00e1 restringir as solu\u00e7\u00f5es ou as propostas a serem discutidas;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc7).\n\n**Art. 32, \u00a7 1, inciso 8** [L1.24](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc8)\n\n> a Administra\u00e7\u00e3o dever\u00e1, ao declarar que o di\u00e1logo foi conclu\u00eddo, juntar aos autos do processo licitat\u00f3rio os registros e as grava\u00e7\u00f5es da fase de di\u00e1logo, iniciar a fase competitiva com a divulga\u00e7\u00e3o de edital contendo a especifica\u00e7\u00e3o da solu\u00e7\u00e3o que atenda \u00e0s suas necessidades e os crit\u00e9rios objetivos a serem utilizados para sele\u00e7\u00e3o da proposta mais vantajosa e abrir prazo, n\u00e3o inferior a 60 (sessenta) dias \u00fateis, para todos os licitantes pr\u00e9-selecionados na forma do inciso II deste par\u00e1grafo apresentarem suas propostas, que dever\u00e3o conter os elementos necess\u00e1rios para a realiza\u00e7\u00e3o do projeto;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc8).\n\n**Art. 32, \u00a7 1, inciso 9** [L1.25](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc9)\n\n> a Administra\u00e7\u00e3o poder\u00e1 solicitar esclarecimentos ou ajustes \u00e0s propostas apresentadas, desde que n\u00e3o impliquem discrimina\u00e7\u00e3o nem distor\u00e7am a concorr\u00eancia entre as propostas;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc9).\n\n**Art. 32, \u00a7 1, inciso 10** [L1.26](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc10)\n\n> a Administra\u00e7\u00e3o definir\u00e1 a proposta vencedora de acordo com crit\u00e9rios divulgados no in\u00edcio da fase competitiva, assegurada a contrata\u00e7\u00e3o mais vantajosa como resultado;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc10).\n\n**Art. 32, \u00a7 1, inciso 11** [L1.27](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc11)\n\n> o di\u00e1logo competitivo ser\u00e1 conduzido por comiss\u00e3o de contrata\u00e7\u00e3o composta de pelo menos 3 (tr\u00eas) servidores efetivos ou empregados p\u00fablicos pertencentes aos quadros permanentes da Administra\u00e7\u00e3o, admitida a contrata\u00e7\u00e3o de profissionais para assessoramento t\u00e9cnico da comiss\u00e3o;\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc11).\n\n**Art. 32, \u00a7 1, inciso 12** [L1.28](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc12)\n\n> (VETADO).\n\n[Fonte oficial](https://normas.leg.br/?urn=urn:lex:br:federal:lei:2021-04-01;14133@2021-04-01!art32_par1_inc12).\n\nA aplica\u00e7\u00e3o ao caso exige conferir os requisitos, exce\u00e7\u00f5es e a reda\u00e7\u00e3o integral. Os trechos apoiam a an\u00e1lise; n\u00e3o substituem a confer\u00eancia de aplicabilidade ao caso.\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T17:11:21.159625+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/4861b70a-103c-4284-9c99-1c5fe6c762c8)",
+      "recovery": {
+        "attempted": true,
+        "status": "official_text_recovered",
+        "steps": [
+          {
+            "operation": "focused_official_catalogue",
+            "topic": "di\u00e1logo competitivo",
+            "status": "official_candidates_retrieved"
+          },
+          {
+            "operation": "official_text_after_focused_search",
+            "norms": [
+              {
+                "kind": "LEI",
+                "number": 14133,
+                "year": 2021,
+                "articles": []
+              },
+              {
+                "kind": "DEC",
+                "number": 11584,
+                "year": 2023,
+                "articles": []
+              }
+            ],
+            "text_retrieved": true
+          }
+        ],
+        "untrusted_text_used_as_law": false
+      },
+      "discovery": {},
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 14133,
+            "year": 2021,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art6_cpt",
+            "art6_cpt_inc42",
+            "art28_cpt",
+            "art28_cpt_inc5",
+            "art32_cpt",
+            "art32_cpt_inc1",
+            "art32_cpt_inc1_ali1",
+            "art32_cpt_inc1_ali2",
+            "art32_cpt_inc1_ali3",
+            "art32_cpt_inc2",
+            "art32_cpt_inc2_ali1",
+            "art32_cpt_inc2_ali2",
+            "art32_cpt_inc2_ali3",
+            "art32_cpt_inc3",
+            "art32_par1",
+            "art32_par1_inc1",
+            "art32_par1_inc2",
+            "art32_par1_inc3",
+            "art32_par1_inc4",
+            "art32_par1_inc5",
+            "art32_par1_inc6",
+            "art32_par1_inc7",
+            "art32_par1_inc8",
+            "art32_par1_inc9",
+            "art32_par1_inc10",
+            "art32_par1_inc11",
+            "art32_par1_inc12",
+            "art6_cpt_inc25"
+          ],
+          "gaps": [
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art177_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art178_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art179_cpt_alt1",
+            "Texto de altera\u00e7\u00e3o de outra norma exige consulta separada \u00e0 norma alterada: art180_cpt_alt1",
+            "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        },
+        {
+          "norm": {
+            "kind": "DEC",
+            "number": 11584,
+            "year": 2023,
+            "articles": []
+          },
+          "status": "unconfirmed",
+          "devices": [
+            "identificacao"
+          ],
+          "gaps": [
+            "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "traffic",
+      "question": "qual a lei que trata de crime de tr\u00e2nsitos?",
+      "seconds": 6.33,
+      "meta": {
+        "status": "official_sources_retrieved",
+        "reference_date_basis": "current_date_assumed_for_information",
+        "reference_date": "2026-10-31",
+        "evidence_id": "05b324e2-8cd3-488a-a1ce-f90f8d960061",
+        "evidence_url": "/moara/api/v1/legal/evidence/05b324e2-8cd3-488a-a1ce-f90f8d960061",
+        "legal_conclusion_allowed": false,
+        "inference_used": true,
+        "inference_purpose": "grounded_explanation",
+        "answer_status": "official_identity_answer",
+        "execution_backend": null
+      },
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 9503/1997 \u2014 Lei n\u00ba 9.503 de 23/09/1997. Institui o C\u00f3digo de Tr\u00e2nsito Brasileiro. [L1.1](https://legis.senado.leg.br/dadosabertos/legislacao/LEI/9503/1997.json)\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://legis.senado.leg.br/dadosabertos/legislacao/LEI/9503/1997.json).\n\nData de refer\u00eancia: 2026-10-31. Fontes conferidas em 2026-10-31T17:11:27.977283+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/05b324e2-8cd3-488a-a1ce-f90f8d960061)",
+      "recovery": {},
+      "discovery": {
+        "status": "official_candidates_retrieved",
+        "checked_at": "2026-10-31T17:11:24.715894+00:00",
+        "query": "crimes tr\u00e2nsito",
+        "candidates": [
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 9503,
+              "year": 1997,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 9.503 de 23/09/1997",
+            "summary": "Institui o C\u00f3digo de Tr\u00e2nsito Brasileiro.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/551379.json",
+            "reference_hits": 4,
+            "relevance_score": 19
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 13804,
+              "year": 2019,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 13.804, de 10 de Janeiro de 2019",
+            "summary": "Disp\u00f5e sobre medidas de preven\u00e7\u00e3o e repress\u00e3o ao contrabando, ao descaminho, ao furto, ao roubo e \u00e0 recepta\u00e7\u00e3o; altera as Leis n\u00bas 9.503, de 23 de setembro de 1997 (C\u00f3digo de Tr\u00e2nsito Brasileiro), e 6.437, de 20 de agosto de 1977.",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/2019/lei-13804-10-janeiro-2019-787611-norma-pl.html",
+            "catalogue_rank": 12,
+            "reference_hits": 0,
+            "relevance_score": 11
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 6488,
+              "year": 2008,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 6.488, de 19 de Junho de 2008",
+            "summary": "Regulamenta os arts. 276 e 306 da Lei n\u00ba 9.503, de 23 de setembro de 1997 - C\u00f3digo de Tr\u00e2nsito Brasileiro, disciplinando a margem de toler\u00e2ncia de \u00e1lcool no sangue e a equival\u00eancia entre os distintos testes de alcoolemia para efeitos de crime de tr\u00e2nsito.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/2008/decreto-6488-19-junho-2008-576779-norma-pe.html",
+            "catalogue_rank": 14,
+            "reference_hits": 0,
+            "relevance_score": 11
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 62127,
+              "year": 1968,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 62.127 de 16/01/1968",
+            "summary": "APROVA O REGULAMENTO DO CODIGO NACIONAL DE TRANSITO.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/484751.json",
+            "reference_hits": 1,
+            "relevance_score": 6
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 65262,
+              "year": 1969,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 65.262, de 2 de Outubro de 1969",
+            "summary": "Modifica a reda\u00e7\u00e3o do artigo 95 e a da al\u00ednea a do inciso XXX do artigo 181 do Regulamento do C\u00f3digo Nacional do Tr\u00e2nsito, aprovado pelo Decreto n\u00ba 62.127, de 16 de janeiro de 1968.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/1960-1969/decreto-65262-2-outubro-1969-406665-norma-pe.html",
+            "catalogue_rank": 2,
+            "reference_hits": 0,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "LEI",
+              "number": 6731,
+              "year": 1979,
+              "articles": []
+            },
+            "name": "Lei n\u00ba 6.731, de 4 de Dezembro de 1979",
+            "summary": "Modifica disposi\u00e7\u00f5es da Lei n\u00ba 5108, de 21 de setembro de 1966 ( C\u00f3digo Nacional de Tr\u00e2nsito ).",
+            "source": "https://www2.camara.leg.br/legin/fed/lei/1970-1979/lei-6731-4-dezembro-1979-366097-norma-pl.html",
+            "catalogue_rank": 4,
+            "reference_hits": 0,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "DEL",
+              "number": 2848,
+              "year": 1940,
+              "articles": []
+            },
+            "name": "Decreto-Lei n\u00ba 2.848 de 07/12/1940",
+            "summary": "C\u00f3digo Penal.",
+            "source": "https://legis.senado.leg.br/dadosabertos/legislacao/527942.json",
+            "reference_hits": 2,
+            "relevance_score": 4
+          },
+          {
+            "norm": {
+              "kind": "DEC",
+              "number": 48244,
+              "year": 1960,
+              "articles": []
+            },
+            "name": "Decreto n\u00ba 48.244, de 27 de Maio de 1960",
+            "summary": "Altera a reda\u00e7\u00e3o de dispositivos do Regulamento Geral do Departamento Federal de Seguran\u00e7a P\u00fablica e d\u00e1 outras provid\u00eancias.",
+            "source": "https://www2.camara.leg.br/legin/fed/decret/1960-1969/decreto-48244-27-maio-1960-387818-norma-pe.html",
+            "catalogue_rank": 5,
+            "reference_hits": 0,
+            "relevance_score": 0.16666666666666666
+          }
+        ],
+        "source_checks": [
+          {
+            "source": "www.camara.leg.br",
+            "url": "https://www.camara.leg.br/legislacao/busca?geral=crimes+tr%C3%A2nsito",
+            "attempted_at": "2026-10-31T17:11:24.715992+00:00",
+            "status": "retrieved",
+            "sha256": "c20a207f8445dd2dcac9362d1fa05f51af43f7891523d0059b13371da1957c22"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=LEI&numero=9503&ano=1997",
+            "attempted_at": "2026-10-31T17:11:24.943357+00:00",
+            "status": "retrieved",
+            "sha256": "3f61f47f946e1d0ca9514726b84be36a9ddc8b9ca263b8a418917ff26a34597b"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEL&numero=2848&ano=1940",
+            "attempted_at": "2026-10-31T17:11:25.543377+00:00",
+            "status": "retrieved",
+            "sha256": "77ac9442290fb3f5148fb39cf98b4e50557d2b939d335790ae01cdbf2df4390a"
+          },
+          {
+            "source": "Senado",
+            "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=DEC&numero=62127&ano=1968",
+            "attempted_at": "2026-10-31T17:11:25.662361+00:00",
+            "status": "retrieved",
+            "sha256": "3c934de53bf31cc770a336daecd652196c3b8b603f77e8cb6a416d63719ce905"
+          }
+        ],
+        "legal_conclusion_allowed": false,
+        "coverage": "federal_partial",
+        "gaps": [
+          "Busca federal por assunto com cobertura parcial. Relev\u00e2ncia no cat\u00e1logo n\u00e3o confirma vig\u00eancia, exclusividade ou aplica\u00e7\u00e3o ao caso."
+        ],
+        "selection": {
+          "status": "finite_official_candidate_selection",
+          "selected_ids": [
+            1
+          ],
+          "inference_used": true
+        },
+        "selected_norms": [
+          {
+            "kind": "LEI",
+            "number": 9503,
+            "year": 1997,
+            "articles": []
+          }
+        ]
+      },
+      "norms": [
+        {
+          "norm": {
+            "kind": "LEI",
+            "number": 9503,
+            "year": 1997,
+            "articles": []
+          },
+          "status": "official_text_retrieved",
+          "devices": [
+            "identificacao",
+            "art256",
+            "art290-a",
+            "art291",
+            "art298",
+            "art301",
+            "art312-a",
+            "art278-a",
+            "art312-b",
+            "art1",
+            "art4",
+            "art5",
+            "art6"
+          ],
+          "gaps": [
+            "N\u00e3o foi poss\u00edvel confirmar a norma e sua reda\u00e7\u00e3o nas fontes oficiais consultadas.",
+            "Texto atualizado vinculado pelo cat\u00e1logo da C\u00e2mara, conferido agora; n\u00e3o \u00e9 comprova\u00e7\u00e3o de reda\u00e7\u00e3o hist\u00f3rica.",
+            "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+          ]
+        }
+      ]
+    }
+  ],
+  "tested_image_id": "sha256:efac0325d30ee8e194ece086525c4b4ba9080dfed456a72801ab0777938282fb"
+}

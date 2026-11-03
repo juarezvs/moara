@@ -1,0 +1,19 @@
+/* Markdown is sanitized dynamic HTML; selectors remain scoped to .markdown. */
+.markdown .moara-typing-cursor{display:inline-block;width:2px;height:1em;margin-left:3px;background:var(--primary,#7961e8);vertical-align:-.1em;animation:moara-caret 1.1s steps(2,start) infinite}
+.markdown pre{overflow:auto;max-width:100%;border:1px solid var(--border,#dbe2ef);border-radius:10px;background:#f4f6fa;padding:16px;tab-size:2}
+.markdown pre code{font:12.5px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;background:transparent;color:#24334b;white-space:pre}
+.markdown pre .hljs-keyword,.markdown pre .hljs-selector-tag,.markdown pre .hljs-literal{color:#7943ab}
+.markdown pre .hljs-string,.markdown pre .hljs-attr{color:#207248}
+.markdown pre .hljs-number,.markdown pre .hljs-built_in{color:#95612a}
+.markdown pre .hljs-comment{color:#64748b;font-style:italic}
+.markdown pre .hljs-title,.markdown pre .hljs-name{color:#245fbb}
+[data-theme=dark] .markdown pre{background:#101c30}
+[data-theme=dark] .markdown pre code{color:#d8e3f5}
+[data-theme=dark] .markdown pre .hljs-keyword,[data-theme=dark] .markdown pre .hljs-selector-tag,[data-theme=dark] .markdown pre .hljs-literal{color:#c7a0fb}
+[data-theme=dark] .markdown pre .hljs-string,[data-theme=dark] .markdown pre .hljs-attr{color:#8ed5a8}
+[data-theme=dark] .markdown pre .hljs-number,[data-theme=dark] .markdown pre .hljs-built_in{color:#f1bf88}
+[data-theme=dark] .markdown pre .hljs-comment{color:#9aaac2}
+[data-theme=dark] .markdown pre .hljs-title,[data-theme=dark] .markdown pre .hljs-name{color:#91baff}
+.a11y-high-contrast .markdown pre,.a11y-high-contrast .markdown pre code,.a11y-high-contrast .markdown pre code span{color:#fff!important;background:#000!important}
+@keyframes moara-caret{to{opacity:0}}
+@media(prefers-reduced-motion:reduce){.markdown .moara-typing-cursor{animation:none}}

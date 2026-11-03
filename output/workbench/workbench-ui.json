@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "five_context_actions": true,
+    "keyboard_tab_navigation": true,
+    "drag_drop_indexed_and_selected": true,
+    "pasted_text_persisted_and_indexed": true,
+    "reusable_template_saved": true,
+    "template_selected_as_context": true,
+    "saved_prompt_applied": true,
+    "cited_RAG_draft_on_GPU": true,
+    "seconds_for_draft": 6.16,
+    "template_snapshot_in_history": true,
+    "edited_draft_downloaded": true,
+    "edited_draft_persisted": true,
+    "original_answer_preserved": true,
+    "dossier_restores_document_selection": true,
+    "legal_form_runs_mandatory_preflight": true,
+    "reviewed_plan_precedes_draft_generation": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_history_available": true,
+    "reading_preferences_preserved": true,
+    "large_text_no_horizontal_overflow": true,
+    "no_javascript_errors": true,
+    "synthetic_content_archived": true
+  },
+  "created_chats": [
+    "95c9ede5-aba5-4815-9521-6dc5fdc501e7",
+    "37e55c4d-79bc-40d7-baec-2d1fc36a67b3",
+    "4e909ce1-cf16-4608-87d7-7b10537413d8"
+  ],
+  "created_resources": [
+    "8c850cb6-4db4-4868-88ee-fda6d62e136b",
+    "cd36661b-efa2-480b-bf83-6de622a7c9df",
+    "04eacd23-b9e1-4a7b-89e6-e575b0965328",
+    "7e3f1ddf-1c4a-4e90-a2e8-8c1b5ff16344",
+    "e49282b1-5665-478e-81ce-2f1bc431556e",
+    "eccaaa0b-2ed3-499e-a016-003b3712d2bb"
+  ],
+  "javascript_errors": [],
+  "candidate_proxy": false,
+  "native_test_session_revoked": true
+}

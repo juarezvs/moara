@@ -1,0 +1,42 @@
+{
+  "uploaded_file_id": "ed8b83f1-b497-4110-95c5-94adb8302783",
+  "processing_complete": true,
+  "default": {
+    "http_status": 200,
+    "budget_error": false,
+    "answer_characters": 1554,
+    "metadata": {
+      "request_id": "9b0e504c-41a7-4e98-bc71-c3f57c9c4ba3",
+      "profile": "general",
+      "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+      "model_name": "Gemma 4 12B",
+      "reason": "assistant_shared_principal",
+      "identity_version": "2.0.0",
+      "inference_used": true,
+      "assistant": {
+        "id": "desenvolvedora",
+        "name": "Moara Desenvolvedora",
+        "version": "2.0.0",
+        "revision": 1,
+        "prompt_sha256": "c62472ee570f444efe997e3cb3f26c976540b9ff67b15aee97e82c819b18e894",
+        "policy_version": "2.0.0",
+        "allowed_tools": [
+          "development.propose",
+          "documents.read",
+          "documents.search"
+        ],
+        "decision": "allowed",
+        "reason": "institutional_technology"
+      },
+      "execution_backend": "gpu"
+    },
+    "error_detail": null
+  },
+  "max_tokens_4096": {
+    "http_status": 413,
+    "budget_error": true,
+    "answer_characters": 0,
+    "metadata": null,
+    "error_detail": "estimated_context_budget_exceeded"
+  }
+}

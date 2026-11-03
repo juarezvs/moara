@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "personal_key_created": true,
+    "secret_not_retrievable": true,
+    "continue_bundle_valid_no_secret": true,
+    "sdk_models": true,
+    "sdk_code_generation": true,
+    "gpu_execution": true,
+    "response_seconds": 2.29,
+    "sdk_streaming_stable_envelope": true,
+    "sdk_tool_call": true,
+    "sdk_tool_roundtrip": true,
+    "sdk_stream_tool_arguments": true,
+    "key_cannot_admin_or_issue_keys": true,
+    "profile_allowlist_enforced": true,
+    "revocation_blocks_sdk": true,
+    "generated_code_functional_tests": true
+  },
+  "test_key_ids": [
+    "a3681e6b-57c2-48a3-9dbb-b74bb8a3fc0c"
+  ],
+  "test_credentials_revoked": true
+}

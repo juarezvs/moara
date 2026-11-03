@@ -2,7 +2,7 @@
 import asyncio,base64,hashlib,json,uuid
 from .platform_exports import isolated as export_isolated
 from fastapi import APIRouter,Depends,HTTPException,Request
-from fastapi.responses import Response
+from fastapi.responses import Response,StreamingResponse
 from .auth import require
 from . import platform_store as store,platform_runs as runs,platform_knowledge as knowledge
 from .platform_contracts import ResourceCreate,ResourceUpdate,RunCreate,Upload,SearchRequest,TemplateRender,DatasetQuery,Revision,AGENTS,OPERATIONS
@@ -52,9 +52,10 @@ async def upload(body:Upload,request:Request,actor=Depends(require('documents.us
  return resource
 @router.get('/documents/{identifier}/download')
 async def download(identifier:uuid.UUID,request:Request,actor=Depends(require('documents.use'))):
- _,row,raw=await knowledge.blob(request.app,actor,identifier)
+ from .document_uploads import open_blob,stream_blob
+ _,row=await open_blob(request.app,actor,identifier)
  await request.app.state.db.audit(actor,'document.downloaded',identifier)
- return Response(raw,media_type='application/octet-stream',headers={'Content-Disposition':'attachment; filename="document'+('.'+row['filename'].rsplit('.',1)[-1])+'"'})
+ return StreamingResponse(stream_blob(request.app,row),media_type='application/octet-stream',headers={'Content-Length':str(row['size_bytes']),'Content-Disposition':'attachment; filename="document'+('.'+row['filename'].rsplit('.',1)[-1])+'"'})
 @router.get('/documents/{identifier}/chunks')
 async def chunks(identifier:uuid.UUID,request:Request,actor=Depends(require('knowledge.use'))):
  await store.get(request.app,actor,identifier,kind='document')

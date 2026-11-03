@@ -1,0 +1,11 @@
+  # MOARA_PRIMARY_ENTRY_BEGIN
+  @moara_primary_entry {
+    path /
+    method GET HEAD
+    not query interface=anterior
+  }
+  header @moara_primary_entry Cache-Control "no-store"
+  redir @moara_primary_entry /moara/chat 302
+  redir /chat-anterior /?interface=anterior 302
+  redir /chat-anterior/ /?interface=anterior 302
+  # MOARA_PRIMARY_ENTRY_END

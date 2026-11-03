@@ -29,7 +29,7 @@ class SearchRequest(Strict):
  limit:int=Field(default=6,ge=1,le=12)
 class Upload(Strict):
  filename:str=Field(min_length=1,max_length=180)
- content_base64:str=Field(min_length=4,max_length=5592408)
+ content_base64:str=Field(min_length=4)
  title:str=Field(min_length=1,max_length=200)
  group_id:UUID|None=None
 class TemplateRender(Strict):
@@ -92,9 +92,11 @@ def validate_body(kind,body):
   if set(body.get('tools',[]))-{'knowledge.search','template.render'}:raise HTTPException(422,'tool_not_allowed')
   if len(body.get('document_ids',[]))>64:raise HTTPException(422,'too_many_sources')
  if kind=='project':
-  if set(body)-{'description','language','files','review','last_run'}:raise HTTPException(422,'invalid_resource_fields')
+  if set(body)-{'description','language','files','directories','review','last_run'}:raise HTTPException(422,'invalid_resource_fields')
   if body.get('language','python') not in {'python','fastapi','typescript','angular','react'}:raise HTTPException(422,'unsupported_project_language')
   validate_files(body.get('files',{}))
+  from .project_tree import validate_directories
+  validate_directories(body.get('files',{}),body.get('directories',[]))
  if kind=='workflow':
   if set(body)-{'description','steps','schedule','timeout_seconds'}:raise HTTPException(422,'invalid_resource_fields')
   steps=body.get('steps',[])
@@ -125,7 +127,7 @@ def validate_files(files):
  total=0
  if len({name.casefold() for name in files if isinstance(name,str)})!=len(files):raise HTTPException(422,'duplicate_project_path')
  for name in files:
-  if isinstance(name,str) and any('/'.join(name.split('/')[:i]) in files for i in range(1,len(name.split('/')))):raise HTTPException(422,'conflicting_project_path')
+  if isinstance(name,str) and any('/'.join(name.split('/')[:i]).casefold() in {p.casefold() for p in files if isinstance(p,str)} for i in range(1,len(name.split('/')))):raise HTTPException(422,'conflicting_project_path')
  for name,value in files.items():
   if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z0-9_. /-]{1,180}',name) or name.startswith(('/','.')) or ':' in name or name.rstrip(' .')!=name or any(p.split('.')[0].upper() in {'CON','PRN','AUX','NUL',*[f'COM{i}' for i in range(10)],*[f'LPT{i}' for i in range(10)]} for p in name.split('/')) or '\\' in name or any(p in ('','..','.') or p.rstrip(' .')!=p or p.startswith('.') for p in name.split('/')):raise HTTPException(422,'unsafe_project_path')
   if not isinstance(value,str) or len(value.encode())>200000:raise HTTPException(413,'project_file_too_large')

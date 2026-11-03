@@ -1,0 +1,3 @@
+ARG BASE_IMAGE=moara-core:pre-gpu-20261029
+FROM ${BASE_IMAGE}
+COPY chat_api.py software_routing.py bootstrap.py platform_runs.py /app/moara/gateway/

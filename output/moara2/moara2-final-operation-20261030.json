@@ -1,0 +1,19 @@
+{
+  "services": 27,
+  "not_running": [],
+  "unhealthy": [],
+  "moara-gateway": {
+    "image": "moara-core:2.0-foundation-20261030",
+    "image_id": "sha256:4b3bef33a9692a4a2086d7b2f28d65248e1ad1356b7d0ec79c844c01adae1c17",
+    "status": "running"
+  },
+  "gateway": {
+    "image": "ai-gateway:mtls-20261030",
+    "image_id": "sha256:10757e681c357b04a3384071096e3c3c442a388ea815900cfe460b92caeb1e24",
+    "status": "running"
+  },
+  "legacy_relay": "exited",
+  "ready": "{\"status\":\"ready\",\"database\":true,\"redis\":true,\"institutional_identity\":true}",
+  "core_tests_passed": 43,
+  "inference_gateway_tests_passed": 9
+}

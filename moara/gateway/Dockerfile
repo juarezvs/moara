@@ -12,6 +12,8 @@ RUN python -m pip install --no-index --find-links=/tmp/moara-wheels --require-ha
 WORKDIR /app
 COPY moara/__init__.py /app/moara/__init__.py
 COPY moara/identity /app/moara/identity
+COPY moara/legal_mcp /app/moara/legal_mcp
+COPY moara/assistants /app/moara/assistants
 COPY moara/gateway/*.py /app/moara/gateway/
 COPY moara/gateway/alembic /app/moara/gateway/alembic
 COPY moara/gateway/migrations /app/moara/gateway/migrations

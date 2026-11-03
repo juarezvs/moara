@@ -1,0 +1,10 @@
+/* The focused workspace supplies its own history rail. Global navigation stays accessible. */
+.focus-workbench .workspace{margin-left:0}
+.focus-workbench #page-content{padding:0;max-width:none;width:100%;align-self:stretch}
+.focus-workbench .app-footer{display:none}
+.focus-workbench .sidebar{visibility:hidden;transform:translateX(-103%);z-index:80}
+.focus-workbench .mobile-menu{display:grid}
+.focus-workbench.menu-open .sidebar{visibility:visible;transform:none}
+.focus-workbench.menu-open .menu-backdrop{display:block;position:fixed;inset:0;background:#020a2280;border:0;z-index:70}
+.focus-workbench .close-menu{display:grid;position:absolute;right:12px;top:25px;color:#dfebff}
+html.a11y-large-text .legal-workbench p,html.a11y-large-text .legal-workbench small{font-size:1rem!important}

@@ -1,0 +1,13 @@
+import {Component,EventEmitter,Input,Output,inject,signal} from '@angular/core';
+import {Api} from './api';
+export interface OfficialAssistant {id:string;name:string;description:string;mission:string;version:string;revision:number;enabled:boolean;authorized:boolean;policy_version:string;tools:string[];instructions?:string;tool_catalog?:string[];prompt_sha256:string;}
+@Component({selector:'moara-assistant-picker',standalone:true,template:`
+<section class="assistant-picker" aria-labelledby="assistant-picker-title"><div class="section-heading"><div><span class="eyebrow">INTELIGÊNCIA JURÍDICA E INSTITUCIONAL</span><h2 id="assistant-picker-title">Como a Moara pode apoiar seu trabalho?</h2></div><button type="button" class="secondary" [disabled]="disabled" [attr.aria-pressed]="selected==='auto'" (click)="selectedChange.emit('auto')">Seleção automática</button></div>
+@if(error()){<p role="alert">Não foi possível carregar os assistentes. Atualize a página.</p>}
+<div class="assistant-grid">@for(a of assistants();track a.id){<button type="button" class="assistant-card" [class.selected]="selected===a.id" [attr.aria-pressed]="selected===a.id" [disabled]="disabled||!a.enabled||!a.authorized" (click)="selectedChange.emit(a.id)"><strong>{{a.name}}</strong><span>{{a.description}}</span>@if(!a.enabled){<small>Temporariamente desativada</small>}@else if(!a.authorized){<small>Permissão necessária</small>}</button>}</div></section>`,styles:[`
+.assistant-picker{margin-bottom:1.25rem}.assistant-picker h2{font-size:1.3rem;margin:.4rem 0}.assistant-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}.assistant-card{display:flex;flex-direction:column;gap:.45rem;text-align:left;border:1px solid color-mix(in srgb,currentColor 20%,transparent);border-radius:14px;padding:1rem;background:transparent;color:inherit;cursor:pointer;min-height:108px}.assistant-card strong{font-size:1rem}.assistant-card span,.assistant-card small{font-size:.85rem;line-height:1.45}.assistant-card.selected{border-color:#7160db;box-shadow:0 0 0 2px #7160db33}.assistant-card:disabled{opacity:.55;cursor:not-allowed}.assistant-card:focus-visible{outline:3px solid #7160db;outline-offset:3px}@media(max-width:900px){.assistant-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.assistant-grid{grid-template-columns:1fr}}`]})
+export class AssistantPicker {
+  @Input() selected='auto';@Input() disabled=false;@Output() selectedChange=new EventEmitter<string>();
+  api=inject(Api);assistants=signal<OfficialAssistant[]>([]);error=signal(false);
+  constructor(){this.api.request<OfficialAssistant[]>('/assistants').then(v=>this.assistants.set(v)).catch(()=>this.error.set(true));}
+}

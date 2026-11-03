@@ -1,0 +1,15 @@
+{
+  "owner_all_permissions": true,
+  "stored_default_chat_only": true,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "synthetic_accounts_disabled": 3,
+  "published": true,
+  "image": "sha256:fa45d479c043819a887aa0ea94396ac3b3362c26ad028f2558b46bab004bc7cf",
+  "stopped_private_candidates": [
+    "moara-unified-proxy-stage-fa45d479c0-a7dad4ae",
+    "moara-unified-stage-fa45d479c0",
+    "moara-unified-proxy-stage-985260402b-a7d6276d",
+    "moara-unified-stage-985260402b"
+  ]
+}

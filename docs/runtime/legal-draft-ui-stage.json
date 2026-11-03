@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "processing_is_visible": true,
+    "draft_mode_delivers_petition": true,
+    "draft_has_pending_der_and_hypothesis": true,
+    "no_generic_clarification_gate": true,
+    "legal_sources_are_clickable": true,
+    "actual_sources_are_grounded": true,
+    "current_research_not_fake_case_date": true,
+    "no_response_inner_scroll": true,
+    "editor_action_available": true,
+    "no_javascript_errors": true,
+    "draft_opens_as_editable_document": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "9096fe5a-2213-4e1d-8ca7-e6eb493f6baa"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793643409676124006",
+  "old_fixture_id": "50648e83-c0a0-40dd-bfb2-69b8e0cb8376",
+  "tested_image_id": "sha256:7db47ab68695042db078facd464a62825ae9d41573725cd48340dbb439b9707e"
+}

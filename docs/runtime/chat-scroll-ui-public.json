@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "desktop_scrolls_to_real_processing_indicator": true,
+    "first_content_shows_start_of_answer": true,
+    "stream_does_not_follow_every_chunk": true,
+    "user_can_scroll_while_streaming": true,
+    "completion_respects_manual_reading": true,
+    "next_question_shows_processing": true,
+    "completed_answer_returns_to_start": true,
+    "regeneration_positions_answer_start": true,
+    "interruption_preserves_partial_response": true,
+    "mobile_scrolls_to_processing": true,
+    "mobile_answer_starts_below_header": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_user_controls_remaining_reading": true,
+    "no_javascript_errors": true,
+    "synthetic_chats_archived": true
+  },
+  "created_chats": [
+    "7ab2ed2c-ef04-4bb1-a8f5-bd287f4a2c5f",
+    "2811f3ab-293b-4185-bb51-441413b782ae"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793568442696360915",
+  "old_fixture_id": "c8fcd2b3-cad0-4598-b3d6-733d64ef2de2",
+  "tested_image_id": "sha256:1d2db19f43a7ef705102da9f57771a6dd396e6a0a69d0024d5323b4c56babf89"
+}

@@ -14,11 +14,11 @@ from prometheus_client import CollectorRegistry,Counter,Histogram,generate_lates
 from opentelemetry import trace
 from opentelemetry.propagate import extract
 
-from . import platform_api,platform_runs,platform_development
+from . import platform_api,platform_runs,platform_development,legal_verification,assistants,official_integrations,accessibility_api
 from .settings import Settings
 from .database import Database
 from .auth import Auth,require
-from . import auth_api,identity_api,bootstrap,catalog_api,chat_api,admin_api,history_api,jobs_api,connectors_api,connector_tickets,observability
+from . import auth_api,identity_api,bootstrap,catalog_api,chat_api,admin_api,history_api,previous_history,jobs_api,connectors_api,connector_tickets,observability,developer_api
 
 log=logging.getLogger('moara')
 logging.basicConfig(level=logging.WARNING,format='%(message)s')
@@ -42,12 +42,12 @@ def create_app(settings=None):
         app.state.identity=identity_api.IdentityStore(app.state.db)
         await app.state.auth.seed_roles();await app.state.identity.initialize()
         await bootstrap.seed(app.state.db,app.state.auth)
-        dispatcher=asyncio.create_task(jobs_api.dispatch(app))
-        platform_dispatcher=asyncio.create_task(platform_runs.dispatch(app))
+        await assistants.initialize(app)
+        dispatchers=[asyncio.create_task(jobs_api.dispatch(app)),asyncio.create_task(platform_runs.dispatch(app))] if config.background_jobs_enabled else []
         try:yield
         finally:
-            dispatcher.cancel();platform_dispatcher.cancel()
-            await asyncio.gather(dispatcher,platform_dispatcher,return_exceptions=True)
+            for dispatcher in dispatchers:dispatcher.cancel()
+            await asyncio.gather(*dispatchers,return_exceptions=True)
             await app.state.auth.close();await app.state.http.aclose();await app.state.db.dispose()
             if tracer:await asyncio.to_thread(tracer.shutdown)
 
@@ -61,10 +61,13 @@ def create_app(settings=None):
         except (ValueError,TypeError):identifier=uuid.uuid4()
         request.state.request_id=identifier
         started=time.monotonic();body=bytearray()
-        async for chunk in request.stream():
-            body.extend(chunk)
-            if len(body)>8*1024**2:return JSONResponse({'detail':'request_too_large','request_id':str(identifier)},413)
-        request._body=bytes(body)
+        streamed_document=request.method=='POST' and request.url.path.rstrip('/') in {
+            '/api/v1/platform/documents/upload','/moara/api/v1/platform/documents/upload'}
+        if not streamed_document:
+            async for chunk in request.stream():
+                body.extend(chunk)
+                if len(body)>8*1024**2:return JSONResponse({'detail':'request_too_large','request_id':str(identifier)},413)
+            request._body=bytes(body)
         with trace.get_tracer('moara.gateway').start_as_current_span('http.request',context=extract(request.headers)) as span:
             span.set_attribute('moara.request_id',str(identifier));span.set_attribute('http.request.method',request.method)
             try:response=await call_next(request)
@@ -80,15 +83,26 @@ def create_app(settings=None):
         log.info(json.dumps({'event':'request','request_id':str(identifier),'method':request.method,'route':route,
             'status':response.status_code,'headers_ms':round(duration*1000),'trace_id':trace_id}))
         if trace_id:response.headers['X-Trace-ID']=trace_id
+        libras_policy=response.headers.get('Content-Security-Policy') if route=='/api/v1/accessibility/libras' else None
         response.headers.update({'X-Request-ID':str(identifier),'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',
             'X-Frame-Options':'DENY','Cache-Control':'no-store','Permissions-Policy':'camera=(),microphone=(),geolocation=()',
             'Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"})
+        if libras_policy:response.headers.update({'Content-Security-Policy':libras_policy,'X-Frame-Options':'SAMEORIGIN'})
         return response
 
     @app.exception_handler(RequestValidationError)
     async def validation(request,error):
+        from .ide_compat import is_compat,error_body
+        if is_compat(request):return JSONResponse(error_body(422,'invalid_request'),422)
         return JSONResponse({'detail':'invalid_request','fields':['.'.join(map(str,e['loc'])) for e in error.errors()[:12]],
             'request_id':str(request.state.request_id)},422)
+
+    from starlette.exceptions import HTTPException as StarletteHTTPException
+    @app.exception_handler(StarletteHTTPException)
+    async def http_error(request,error):
+        from .ide_compat import is_compat,error_body
+        value=error_body(error.status_code,error.detail) if is_compat(request) else {'detail':error.detail}
+        return JSONResponse(value,error.status_code,headers=error.headers)
 
     @app.get('/api/v1/health',tags=['Operations'])
     async def health():return {'status':'ok','service':'moara-gateway','version':config.version}
@@ -116,15 +130,31 @@ def create_app(settings=None):
 
     app.include_router(auth_api.router);app.include_router(identity_api.router)
     app.include_router(catalog_api.router);app.include_router(chat_api.router)
+    app.include_router(developer_api.router)
     app.include_router(catalog_api.compat_router)
     app.include_router(admin_api.router)
     app.include_router(history_api.router)
+    app.include_router(previous_history.router)
     app.include_router(jobs_api.router)
     app.include_router(connectors_api.router)
     app.include_router(connector_tickets.router)
     app.include_router(observability.router)
     app.include_router(platform_api.router)
+    from .document_uploads import router as document_upload_router
+    app.include_router(document_upload_router)
     app.include_router(platform_development.router)
+    app.include_router(legal_verification.router)
+    from . import web_research
+    app.include_router(web_research.router)
+    from . import stf_catalog_api
+    app.include_router(stf_catalog_api.router)
+    from . import lexml_catalog_api
+    app.include_router(lexml_catalog_api.router)
+    app.include_router(assistants.router)
+    app.include_router(official_integrations.router)
+    app.include_router(accessibility_api.router)
+    from . import inference_status
+    app.include_router(inference_status.router)
 
     @app.get('/',include_in_schema=False)
     async def index():

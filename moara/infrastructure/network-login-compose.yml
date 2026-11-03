@@ -1,0 +1,3 @@
+services:
+  moara-gateway:
+    image: moara-core:network-login-20261031

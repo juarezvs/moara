@@ -1,0 +1,21 @@
+[Unit]
+Description=Moara GPU inference and primary model warmup
+Requires=docker.service
+PartOf=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/moara-gpu
+ExecStart=/usr/bin/docker compose -f compose.yml up -d --wait --wait-timeout 120
+ExecStart=/usr/bin/python3 /opt/moara-gpu/keep_warm.py
+ExecStop=/usr/bin/docker compose -f compose.yml stop
+TimeoutStartSec=600
+TimeoutStopSec=90
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+{
+  "name": "moara-searxng",
+  "image": "searxng/searxng@sha256:9f59681775ba8d99744796e161d46dfecc771b972572edddb31d92dcfafc12b7",
+  "ready": true,
+  "ports_published": false,
+  "endpoint": "http://moara-searxng:8080"
+}

@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "authentication_required": true,
+    "all_pages_match_complete_bank_counts": true,
+    "no_themes_lost_or_duplicated": true,
+    "com_classification_preserved": true,
+    "sem_classification_preserved": true,
+    "text_search_identifies_theme_69": true,
+    "absent_theme_not_invented": true,
+    "export_has_all_records": true,
+    "every_record_matches_official_response_snapshot": true,
+    "snapshot_not_misrepresented_as_new_legal_verification": true,
+    "mcp_catalogue_tool_available": true
+  },
+  "counts": {
+    "com": 819,
+    "sem": 473
+  },
+  "total": 1292,
+  "version": "20261031T225322Z-3d1ade9dfb4d",
+  "collected_at": "2026-10-31T22:53:15.940365+00:00",
+  "tested_image_id": "sha256:086237d7616ce566b4e9be7bd870e9fab0a5cae6c5411aa38499bb6bf84b81a8"
+}

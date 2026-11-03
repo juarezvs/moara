@@ -1,0 +1,11 @@
+{
+  "published": true,
+  "image": "sha256:80b20651178ca6e98e096eadcfaf26ee7fdd21d464796c3ac5f52f16b81b042e",
+  "unit_tests": 312,
+  "checks": {
+    "ai-server-caddy-1_not_restarted": true,
+    "ai-server-moara-legal-mcp-1_not_restarted": true
+  },
+  "inference_restarted": false,
+  "proxy_reload": "SIGUSR1"
+}

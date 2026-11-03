@@ -12,11 +12,11 @@ def profiles():
                  settings={'auto_eligible': True}, manual_allowed=True) for i in IDS]
 
 @pytest.mark.parametrize('prompt,expected', [
-    ('Crie uma função Python para somar dois números.', 'deepseek-coder-v2-lite'),
+    ('Crie uma função Python para somar dois números.', 'general'),
     ('Refatore o código Python e acrescente testes de persistência.', 'qwen25-coder-32b'),
     ('Revise a arquitetura do software e a segurança da API.', 'llama33-70b'),
     ('Planeje a migração de software de um sistema legado.', 'llama31-70b'),
-    ('Olá!', 'fast'),
+    ('Olá!', 'general'),
 ])
 def test_task_tiers(prompt, expected):
     ordered, _ = automatic_order(profiles(), [{'role':'user', 'content':prompt}])

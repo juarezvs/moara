@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "mandatory_verification_rendered": true,
+    "conclusions_suspended": true,
+    "legal_status_visible": true,
+    "excerpts_rendered": true,
+    "private_evidence_page_opened": true,
+    "evidence_export_available": true,
+    "synthetic_chat_removed": true,
+    "no_javascript_errors": true
+  },
+  "routing": {
+    "request_id": "432011da-b1f8-4273-8add-ff124722dda5",
+    "profile": "general",
+    "model_id": null,
+    "model_name": null,
+    "reason": "legal_verification",
+    "identity_version": "1.0.0",
+    "inference_used": true,
+    "legal_verification": {
+      "status": "verification_incomplete",
+      "reference_date": "2020-01-01",
+      "evidence_id": "fcb7b2eb-1f2c-49cd-b11d-3790d3fece72",
+      "evidence_url": "/moara/api/v1/legal/evidence/fcb7b2eb-1f2c-49cd-b11d-3790d3fece72",
+      "legal_conclusion_allowed": false,
+      "inference_used": true,
+      "inference_purpose": "excerpt_selection_only"
+    }
+  },
+  "seconds_from_send_to_rendered_report": 7.754162535071373,
+  "javascript_errors": [],
+  "synthetic_only": true,
+  "native_test_session_revoked": true
+}

@@ -1,0 +1,43 @@
+{
+  "checks": {
+    "six_tabs_vertical_on_right": true,
+    "vertical_keyboard_navigation": true,
+    "original_background_loaded": true,
+    "original_background_applied": true,
+    "six_institutional_suggestions": true,
+    "central_links_are_real_routes": true,
+    "dark_theme_has_light_text": true,
+    "document_suggestion_opens_upload": true,
+    "law_suggestion_opens_reference_form": true,
+    "draft_plan_software_and_data_suggestions_configure_real_assistants": true,
+    "processing_uses_Moara_mark": true,
+    "minimal_brand_animation": true,
+    "real_document_stages": true,
+    "no_invented_legal_research": true,
+    "model_ran_on_GPU": true,
+    "answer_keeps_document_citations": true,
+    "processing_finishes": true,
+    "real_legal_lookup_stage": true,
+    "legal_confirmation_limits_preserved": true,
+    "mobile_no_overflow": true,
+    "mobile_rail_is_right": true,
+    "mobile_message_field_is_immediately_available": true,
+    "large_text_mobile_no_overflow": true,
+    "high_contrast_removes_background_image": true,
+    "high_contrast_rail_icons_are_legible": true,
+    "reduced_motion_respected": true,
+    "cancel_clears_processing": true,
+    "no_javascript_errors": true,
+    "synthetic_chat_archived": true
+  },
+  "created_chats": [
+    "d2c58bef-0d0b-44e4-9de1-ecb412b401c8",
+    "82246ada-864f-40cb-b9e5-89416e95efd8",
+    "dc198963-4bf3-43e0-99e1-2b5128dbd16b"
+  ],
+  "created_resources": [
+    "47b090f6-63f0-4d9e-b33b-b99a6a9f9c03"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

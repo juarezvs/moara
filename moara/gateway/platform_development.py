@@ -7,9 +7,60 @@ from pydantic import Field
 from .auth import require
 from .platform_contracts import Approval,Strict,RunCreate
 from . import platform_store as store,platform_runs as runs
+from . import project_tree
 router=APIRouter(prefix='/api/v1/platform/projects',tags=['MOARA DEV'])
 class Accept(Approval):
  run_id:uuid.UUID
+class FileOperations(Strict):
+ version:int=Field(ge=1)
+ operations:list[dict]=Field(min_length=1,max_length=64)
+class Restore(Strict):
+ version:int=Field(ge=1)
+ source_version:int=Field(ge=1)
+class ProjectTask(Strict):
+ version:int=Field(ge=1)
+ instructions:str=Field(min_length=2,max_length=4000)
+ allow_delete:bool=False
+def interactive_files(actor):
+ if actor.key_id or not actor.session_id or actor.auth_source=='integration':raise HTTPException(403,'interactive_session_required')
+ actor.require('workspace.use')
+@router.get('/{identifier}/files')
+async def project_files(identifier:uuid.UUID,request:Request,actor=Depends(require('development.use'))):
+ interactive_files(actor)
+ row=await store.get(request.app,actor,identifier,kind='project',write=True)
+ return {'version':row['version'],**project_tree.tree(row['body'])}
+@router.post('/{identifier}/files')
+async def change_files(identifier:uuid.UUID,body:FileOperations,request:Request,actor=Depends(require('development.use'))):
+ interactive_files(actor)
+ row=await store.get(request.app,actor,identifier,kind='project',write=True)
+ if row['version']!=body.version:raise HTTPException(409,'resource_version_conflict')
+ new=project_tree.apply(row['body'],body.operations)
+ return await store.update(request.app,actor,identifier,row['title'],new,row['group_id'],body.version)
+@router.post('/{identifier}/restore')
+async def restore_files(identifier:uuid.UUID,body:Restore,request:Request,actor=Depends(require('development.use'))):
+ interactive_files(actor)
+ row=await store.get(request.app,actor,identifier,kind='project',write=True)
+ old=await request.app.state.db.execute('SELECT body FROM moara.resource_versions WHERE resource_id=CAST(:id AS uuid) AND version=:version',
+  {'id':str(identifier),'version':body.source_version},one=True)
+ if not old:raise HTTPException(404,'resource_version_not_found')
+ previous=store.unseal(request.app,old['body'])
+ new={**row['body'],'files':previous.get('files',{}),'directories':previous.get('directories',[])}
+ return await store.update(request.app,actor,identifier,row['title'],new,row['group_id'],body.version)
+@router.post('/{identifier}/assistant')
+async def edit_with_assistant(identifier:uuid.UUID,body:ProjectTask,request:Request,actor=Depends(require('development.use'))):
+ from .project_agent import run
+ interactive_files(actor);actor.require('chat.use')
+ row=await store.get(request.app,actor,identifier,kind='project',write=True)
+ if row['version']!=body.version:raise HTTPException(409,'resource_version_conflict')
+ try:new,operations,text=await asyncio.wait_for(run(request.app,actor,row['body'],body.instructions,body.allow_delete),timeout=540)
+ except asyncio.TimeoutError:raise HTTPException(504,'project_agent_timeout_no_changes_saved') from None
+ if await request.is_disconnected():raise HTTPException(409,'project_agent_client_disconnected')
+ # A changed role or expired session during inference must prevent the commit.
+ fresh=await request.app.state.auth.authenticate(request)
+ interactive_files(fresh);fresh.require('development.use');fresh.require('chat.use')
+ if fresh.user_id!=actor.user_id:raise HTTPException(403,'job_identity_revoked')
+ saved=await store.update(request.app,fresh,identifier,row['title'],new,row['group_id'],body.version) if operations else {'id':str(identifier),'version':body.version}
+ return {**saved,'text':text,'operations':operations,'saved':bool(operations),'executed':False}
 @router.get('/{identifier}/review')
 async def review(identifier:uuid.UUID,request:Request,actor=Depends(require('development.use'))):
  row=await store.get(request.app,actor,identifier,kind='project',write=True);files=row['body'].get('files',{})

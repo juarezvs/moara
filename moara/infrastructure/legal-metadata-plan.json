@@ -1,0 +1,12 @@
+{
+  "kinds": ["LEI", "LCP", "DEC", "EMC"],
+  "subscriptions": [
+    {"kind":"LEI","number":8112,"year":1990},
+    {"kind":"LEI","number":9503,"year":1997},
+    {"kind":"LEI","number":11340,"year":2006},
+    {"kind":"LEI","number":11416,"year":2006},
+    {"kind":"LEI","number":13105,"year":2015},
+    {"kind":"LEI","number":13709,"year":2018},
+    {"kind":"LEI","number":14133,"year":2021}
+  ]
+}

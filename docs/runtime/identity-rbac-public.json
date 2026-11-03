@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "native_anonymous_login": true,
+    "native_login_accepts_directory_identifier": true,
+    "login_field_order": true,
+    "official_directory_catalog_loaded": true,
+    "login_mobile_no_overflow": true,
+    "selected_organization_routes_network_credentials": true,
+    "mfa_stays_in_native_interface": true,
+    "current_chat_loads": true,
+    "header_uses_original_brand": true,
+    "no_legacy_chat_links": true,
+    "context_beside_options": true,
+    "context_uses_layers_icon": true,
+    "keyboard_toggle_preserves_draft": true,
+    "context_independent_of_options": true,
+    "toggle_preserves_selected_documents": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_context_works": true,
+    "prior_history_uses_selected_branch": true,
+    "prior_history_is_read_only_until_explicit_copy": true,
+    "prior_attachments_do_not_bypass_current_permissions": true,
+    "old_conversation_continues_in_current_chat": true,
+    "context_toggle_available_during_conversation": true,
+    "api_key_page_preserved": true,
+    "new_user_chat_only": true,
+    "rbac_blocks_direct_api_access": true,
+    "user_cannot_grant_own_admin": true,
+    "personal_history_owner_isolation": true,
+    "restricted_menus_hidden": true,
+    "restricted_user_chat_works": true,
+    "grant_revokes_existing_session": true,
+    "granted_module_effective": true,
+    "granted_module_ui_works": true,
+    "revoke_invalidates_existing_session": true,
+    "revoked_module_denied": true,
+    "rbac_admin_mobile_no_overflow": true,
+    "synthetic_rbac_account_disabled": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "87ef6153-99cc-4c80-93fc-21c33139deb5"
+  ],
+  "created_resources": [
+    "12f22fdd-5717-437d-b4cb-6cb874692990"
+  ],
+  "created_rbac_accounts": [
+    "9e6a5636-1e44-4122-87bb-af69ef1e9aa0"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793451670203426357",
+  "old_fixture_id": "9ecd5d3c-e3f4-4efb-8ee0-39c7008fe080",
+  "tested_image_id": "sha256:fa45d479c043819a887aa0ea94396ac3b3362c26ad028f2558b46bab004bc7cf"
+}

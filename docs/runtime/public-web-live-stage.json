@@ -1,0 +1,217 @@
+{
+  "checks": {
+    "mcp_retrieves_real_public_page": true,
+    "snapshot_matches_hash": true,
+    "extraction_is_not_snippet": true,
+    "official_text_is_not_certified_by_search": true,
+    "no_purpose_gate_1": true,
+    "no_purpose_gate_2": true,
+    "no_purpose_gate_3": true,
+    "chat_used_self_hosted_search": true,
+    "chat_explains_web_content": true,
+    "evidence_can_be_replayed": true,
+    "unauthenticated_evidence_is_denied": true,
+    "no_purpose_gate_4": true,
+    "legal_answer_keeps_official_sources": true,
+    "legal_answer_has_legal_verification": true
+  },
+  "cases": [
+    {
+      "question": "Explique fotossintese de forma simples.",
+      "answer": "A fotoss\u00edntese \u00e9 o processo pelo qual as plantas, algas e algumas bact\u00e9rias transformam a energia da luz solar em energia qu\u00edmica (alimento). \u00c9, essencialmente, a forma como a natureza \"fabrica\" comida e oxig\u00eanio.\n\nPara entender de forma simples, podemos dividir o processo em tr\u00eas \"ingredientes\" principais e um resultado:\n\n### 1. Os Ingredientes:\n*   **Luz Solar:** A fonte de energia que inicia a rea\u00e7\u00e3o.\n*   **\u00c1gua ($H_2O$):** Absorvida pelas ra\u00edzes da planta.\n*   **G\u00e1s Carb\u00f4nico ($CO_2$):** Retirado do ar atrav\u00e9s de pequenos poros nas folhas (chamados est\u00f4matos).\n\n### 2. O Processo (A \"Cozinha\"):\nDentro das c\u00e9lulas das plantas, existe uma estrutura chamada **cloroplasto**. \u00c9 nela que fica a **clorofila**, um pigmento verde que tem a fun\u00e7\u00e3o de \"capturar\" a luz do sol.\n\nImagine a planta como uma f\u00e1brica:\n1. A clorofila capta a luz solar.\n2. Essa energia \u00e9 usada para \"quebrar\" as mol\u00e9culas de \u00e1gua e g\u00e1s carb\u00f4nico.\n3. Esses elementos s\u00e3o reorganizados para criar mol\u00e9culas de a\u00e7\u00facar.\n\n### 3. O Resultado:\n*   **Glicose (A\u00e7\u00facar):** \u00c9 o alimento da planta. Ela usa essa energia para crescer, florescer e produzir frutos.\n*   **Oxig\u00eanio ($O_2$):** \u00c9 um \"subproduto\" do processo. Como a planta n\u00e3o precisa de todo o oxig\u00eanio gerado, ela o libera no ar, que \u00e9 o g\u00e1s que n\u00f3s e os outros animais respiramos.\n\n**Resumo em uma frase:**\nA fotoss\u00edntese \u00e9 o processo de converter luz, \u00e1gua e g\u00e1s carb\u00f4nico em energia (a\u00e7\u00facar) e oxig\u00eanio.\n\nMoara \u2014 Intelig\u00eancia a servi\u00e7o da Justi\u00e7a.",
+      "metadata": {
+        "request_id": "69cee54e-df81-43a7-b80a-b65f8cdc2b72",
+        "profile": "gemma4-12b",
+        "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+        "model_name": "Gemma 4 12B",
+        "reason": "assistant_shared_principal",
+        "identity_version": "2.0.0",
+        "inference_used": true,
+        "assistant": {
+          "id": "documental",
+          "name": "Moara Documental",
+          "version": "2.0.0",
+          "revision": 3,
+          "prompt_sha256": "f671ef1b34d722ac592e69647a1a783f69ce9bf6866a97983a1b629eab0f231a",
+          "policy_version": "2.0.0",
+          "allowed_tools": [
+            "documents.export",
+            "documents.read",
+            "documents.search"
+          ],
+          "decision": "allowed",
+          "reason": "specialty_fallback"
+        },
+        "context_management": {
+          "context_length": 8192,
+          "original_input_bytes": 5415,
+          "input_bytes": 5415,
+          "estimation": "utf8_bytes_div_3",
+          "requested_output_tokens": 800,
+          "output_tokens_limit": 800,
+          "omitted_messages": 0,
+          "omitted_turns": 0,
+          "current_input_truncated": false
+        },
+        "execution_backend": "gpu"
+      }
+    },
+    {
+      "question": "Ensine a preparar uma receita simples de bolo.",
+      "answer": "Para preparar um bolo simples de baunilha (conhecido como bolo de \"v\u00f3\"), que \u00e9 uma base excelente para diversos sabores, siga o passo a passo abaixo. Esta receita \u00e9 equilibrada e ideal para iniciantes.\n\n### Ingredientes\n*   **Ovos:** 3 unidades\n*   **A\u00e7\u00facar:** 2 x\u00edcaras (ch\u00e1)\n*   **Manteiga ou Margarina:** 3 colheres (sopa) bem cheias (derretidas ou em temperatura ambiente)\n*   **Farinha de trigo:** 3 x\u00edcaras (ch\u00e1)\n*   **Leite:** 1 x\u00edcara (ch\u00e1)\n*   **Ess\u00eancia de baunilha:** 1 colher (ch\u00e1) \u2014 *opcional*\n*   **Fermento qu\u00edmico em p\u00f3:** 1 colher (sopa)\n*   **Uma pitada de sal**\n\n### Modo de Preparo\n\n1.  **Prepara\u00e7\u00e3o Inicial:**\n    *   Preaque\u00e7a o forno a 180\u00b0C.\n    *   Unte uma forma (com furo no meio ou retangular) com manteiga e polvilhe farinha de trigo, garantindo que o fundo e as laterais estejam cobertos.\n\n2.  **Bater a Base:**\n    *   Em uma tigela grande ou na batedeira, bata os **ovos** e o **a\u00e7\u00facar** at\u00e9 obter um creme claro e fofo.\n    *   Adicione a **manteiga** (ou margarina) e a **ess\u00eancia de baunilha**. Continue batendo at\u00e9 que a mistura esteja homog\u00eanea.\n\n3.  **Incorporar os Secos:**\n    *   Adicione a **farinha de trigo** e a **pitada de sal** aos poucos, alternando com o **leite**. \n    *   *Dica:* N\u00e3o bata muito ap\u00f3s colocar a farinha; apenas misture at\u00e9 que a massa fique lisa e sem grumos. Isso garante que o bolo fique fofinho e n\u00e3o \"solado\".\n\n4.  **Finaliza\u00e7\u00e3o:**\n    *   Adicione o **fermento em p\u00f3** por \u00faltimo. Misture delicadamente com uma colher ou esp\u00e1tula, fazendo movimentos de baixo para cima.\n\n5.  **Assar:**\n    *   Despeje a massa na forma preparada.\n    *   Leve ao forno por aproximadamente 35 a 45 minutos. \n    *   **Teste do palito:** Espete um palito no centro do bolo; se ele sair limpo, o bolo est\u00e1 pronto.\n\n6.  **Resfriar:**\n    *   Retire do forno e deixe esfriar antes de desenformar para n\u00e3o quebrar a estrutura do bolo.\n\n---\n**Dicas Extras:**\n*   **Chocolate:** Para fazer um bolo de chocolate, substitua 1 x\u00edcara da farinha de trigo por 1 x\u00edcara de cacau em p\u00f3 ou chocolate em p\u00f3.\n*   **Sabor:** Voc\u00ea pode adicionar raspas de lim\u00e3o ou laranja \u00e0 massa para um toque c\u00edtrico.\n\nMoara \u2014 Intelig\u00eancia a servi\u00e7o da Justi\u00e7a.",
+      "metadata": {
+        "request_id": "0d8280bc-1b8b-449a-aea1-40a36c7fd29f",
+        "profile": "gemma4-12b",
+        "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+        "model_name": "Gemma 4 12B",
+        "reason": "assistant_shared_principal",
+        "identity_version": "2.0.0",
+        "inference_used": true,
+        "assistant": {
+          "id": "documental",
+          "name": "Moara Documental",
+          "version": "2.0.0",
+          "revision": 3,
+          "prompt_sha256": "f671ef1b34d722ac592e69647a1a783f69ce9bf6866a97983a1b629eab0f231a",
+          "policy_version": "2.0.0",
+          "allowed_tools": [
+            "documents.export",
+            "documents.read",
+            "documents.search"
+          ],
+          "decision": "allowed",
+          "reason": "general_assistance"
+        },
+        "context_management": {
+          "context_length": 8192,
+          "original_input_bytes": 5422,
+          "input_bytes": 5422,
+          "estimation": "utf8_bytes_div_3",
+          "requested_output_tokens": 800,
+          "output_tokens_limit": 800,
+          "omitted_messages": 0,
+          "omitted_turns": 0,
+          "current_input_truncated": false
+        },
+        "execution_backend": "gpu"
+      }
+    },
+    {
+      "question": "Pesquise na web a documentacao oficial do Angular Signals e explique como funcionam.",
+      "answer": "Os Signals do Angular s\u00e3o descritos como inv\u00f3lucros de valores que notificam consumidores interessados quando o valor muda. [W1.1](https://angular.dev/guide/signals)\n\nEsses sinais podem conter qualquer tipo de valor, desde tipos primitivos at\u00e9 estruturas de dados complexas. [W1.1](https://angular.dev/guide/signals)\n\n**Fontes consultadas:**\n\n- [W1.1](https://angular.dev/guide/signals) \u2014 conferida em 2026-11-02T16:56:32.056212+00:00.\n- [W2.1](https://www.dio.me/articles/angular-signals-guia-completo) \u2014 conferida em 2026-11-02T16:56:32.888302+00:00.\n- [W3.1](https://www.alura.com.br/artigos/entendendo-signals-angular) \u2014 conferida em 2026-11-02T16:56:32.730767+00:00.\n\n[Registro da pesquisa e evid\u00eancias](/moara/api/v1/web/evidence/d5d2d969-8337-4b77-84b1-467422c78ba5).",
+      "metadata": {
+        "request_id": "d7782020-5b48-45f2-8496-5db4fad1461b",
+        "profile": "gemma4-12b",
+        "model_id": null,
+        "model_name": null,
+        "reason": "web_research",
+        "identity_version": "2.0.0",
+        "inference_used": true,
+        "assistant": {
+          "id": "documental",
+          "name": "Moara Documental",
+          "version": "2.0.0",
+          "revision": 3,
+          "prompt_sha256": "f671ef1b34d722ac592e69647a1a783f69ce9bf6866a97983a1b629eab0f231a",
+          "policy_version": "2.0.0",
+          "allowed_tools": [
+            "documents.export",
+            "documents.read",
+            "documents.search"
+          ],
+          "decision": "allowed",
+          "reason": "public_web_research"
+        },
+        "web_research": {
+          "provider": "searxng_self_hosted",
+          "status": "retrieved_content",
+          "evidence_id": "d5d2d969-8337-4b77-84b1-467422c78ba5",
+          "sources": [
+            {
+              "url": "https://angular.dev/guide/signals",
+              "sha256": "d79ed333d8df9c8d385aab4fac13cef827091ad71c94e1fbb9b912421b5f76b2",
+              "retrieved_at": "2026-11-02T16:56:32.056212+00:00",
+              "official_domain": false
+            },
+            {
+              "url": "https://www.dio.me/articles/angular-signals-guia-completo",
+              "sha256": "f963f3746cf83f9b79ea5da13246192e30f28ce2e3fe930675d794956ad662c1",
+              "retrieved_at": "2026-11-02T16:56:32.888302+00:00",
+              "official_domain": false
+            },
+            {
+              "url": "https://www.alura.com.br/artigos/entendendo-signals-angular",
+              "sha256": "00aaa75b145af7246d336b92099dfb2afd078730bca47b9ffbf4cce9811a12aa",
+              "retrieved_at": "2026-11-02T16:56:32.730767+00:00",
+              "official_domain": false
+            }
+          ],
+          "inference_used": true
+        }
+      }
+    },
+    {
+      "question": "Qual a lei de cargos e salarios do judiciario federal?",
+      "answer": "A norma principal localizada para esse assunto \u00e9:\n\nLei 11416/2006 \u2014 Lei n\u00ba 11.416, de 15 de Dezembro de 2006. Disp\u00f5e sobre as Carreiras dos Servidores do Poder Judici\u00e1rio da Uni\u00e3o; revoga as Leis n\u00bas 9.421, de 24 de dezembro de 1996, 10.475, de 27 de junho de 2002, 10.417, de 5 de abril de 2002, e 10.944, de 16 de setembro de 2004; e d\u00e1 outras provid\u00eancias. [L1.1](https://www2.camara.leg.br/legin/fed/lei/2006/lei-11416-15-dezembro-2006-548306-norma-pl.html)\n\n[L1.1] [Identifica\u00e7\u00e3o e ementa na fonte oficial](https://www2.camara.leg.br/legin/fed/lei/2006/lei-11416-15-dezembro-2006-548306-norma-pl.html).\n\nData de refer\u00eancia: 2026-11-02. Fontes conferidas em 2026-11-02T16:56:49.991308+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/e9b201e0-9426-462d-be0e-b89fc9aacf77)",
+      "metadata": {
+        "request_id": "92721289-cfb0-4948-899a-1cf1df9de2f9",
+        "profile": "gemma4-12b",
+        "model_id": null,
+        "model_name": null,
+        "reason": "legal_verification",
+        "identity_version": "2.0.0",
+        "inference_used": true,
+        "assistant": {
+          "id": "juridica",
+          "name": "Moara Jur\u00eddica",
+          "version": "2.0.0",
+          "revision": 1,
+          "prompt_sha256": "7a917e1854f8b3c0ab7e922a62fd6e15ec55bb25eb817f2958e51b4f09085582",
+          "policy_version": "2.0.0",
+          "allowed_tools": [
+            "documents.export",
+            "documents.read",
+            "documents.search",
+            "jurisprudencia.read",
+            "normas.read"
+          ],
+          "decision": "allowed",
+          "reason": "legal_research"
+        },
+        "legal_verification": {
+          "status": "official_sources_retrieved",
+          "reference_date_basis": "current_date_assumed_for_information",
+          "reference_date": "2026-11-02",
+          "evidence_id": "e9b201e0-9426-462d-be0e-b89fc9aacf77",
+          "evidence_url": "/moara/api/v1/legal/evidence/e9b201e0-9426-462d-be0e-b89fc9aacf77",
+          "legal_conclusion_allowed": false,
+          "inference_used": true,
+          "inference_purpose": "grounded_explanation",
+          "answer_status": "official_identity_answer",
+          "execution_backend": null
+        }
+      }
+    }
+  ],
+  "retrieval_source": {
+    "url": "https://angular.dev/guide/signals",
+    "official_domain": false,
+    "retrieved_at": "2026-11-02T16:55:40.691132+00:00",
+    "sha256": "d79ed333d8df9c8d385aab4fac13cef827091ad71c94e1fbb9b912421b5f76b2",
+    "text_sha256": "e54c05a37eeb36c6ac9e8de145f635d46f1ccac5e5f01caf0eddb25778d67c26",
+    "bytes": 264938,
+    "excerpt": "TIP: Check out Angular's Essentials before diving into this comprehensive guide.\nWhat are signals?\nA signal is a wrapper around a value that notifies interested consumers when that value changes. Signals can contain any value, from primitives to complex data structures.\nYou read a signal's value by calling its getter function, which allows Angular to track where the signal is used.\nSignals may be either writable or read-only.\nWritable signals\nWritable signals provide an API for updating their values directly. You create writable signals by calling the signal function with the signal's initial value:\n// Signals are getter functions - calling them reads their value.\nWritable signals have the type WritableSignal.\nConverting writable signals to readonly\nIMPORTANT: The readonly signals do not have any built-in mechanism that would prevent deep-mutation of their value.\nComputed signals\nSee RxJS interop with Angular signals for details on interoperability between signals and RxJS.\nAngular DevTools can visualize the signal graph of a component or directive, showing how its signals, computeds, effects, and other reactive nodes depend on each other. See Debug the signal graph to learn how to open, read, and inspect the graph.",
+    "text_characters": 10435,
+    "excerpt_truncated": true,
+    "extractor": "trafilatura-2.3.1",
+    "content_type": "text/html; charset=utf-8",
+    "last_modified": "Thu, 29 Oct 2026 17:55:46 GMT",
+    "robots_sha256": "104a8f5834747179e18fa5cb5fadd0c7d685beed7f5ab34793edaf19d60d7dd0",
+    "claim_veracity": "not_certified",
+    "legal_vigency": "not_certified"
+  },
+  "images": {
+    "core": "sha256:14b88b60b611876672d0dfa4bbd3c60bed1b34e35756b5c89ea6716e53832379",
+    "mcp": "sha256:04d56767786459161f0a86c264009c49701aa4ff71705d718f35009f6a2454ba"
+  }
+}

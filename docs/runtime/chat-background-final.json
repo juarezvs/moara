@@ -1,0 +1,15 @@
+{
+  "published": true,
+  "tested_image_id": "sha256:c89349618cbad8816e5610f454d7e3cd45ca342526a120d6bb6cad5d94d3a3fd",
+  "checks": {
+    "chat-background-ui-stage.json": true,
+    "chat-background-ui-public.json": true,
+    "chat-background-code-stage.json": true,
+    "mcp_unchanged": true
+  },
+  "backend_files_preserved": 88,
+  "stopped_preserved_candidates": [
+    "moara-unified-proxy-stage-c89349618c-62632890",
+    "moara-chat-background-stage-c89349618c"
+  ]
+}

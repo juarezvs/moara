@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "owned_project_files_listed": true,
+    "stale_changes_are_rejected": true,
+    "unsafe_batch_is_rejected": true,
+    "failed_batch_is_atomic": true,
+    "folder_browser_visible": true,
+    "create_folder_in_ui": true,
+    "move_folder_in_ui": true,
+    "delete_folder_in_ui": true,
+    "ai_created_real_file": true,
+    "ai_preserved_existing_file": true,
+    "ai_read_edited_and_moved_existing_file": true,
+    "ai_edit_preserved_other_files": true,
+    "restore_keeps_history_and_increments_version": true,
+    "history_preserves_intermediate_versions": true,
+    "mobile_no_horizontal_overflow": true,
+    "no_javascript_errors": true,
+    "synthetic_project_archived": true
+  },
+  "created_resources": [
+    "2003c8c2-d3e7-4940-b6c2-8dfe2ccc8ca1"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793632534713257277",
+  "old_fixture_id": "d7c93851-9f05-4738-a336-ea4e67d7d005",
+  "tested_image_id": "sha256:2c6b77769e542126c8606001814d7440b9031bc69e5535caf681ea9d068a8253"
+}

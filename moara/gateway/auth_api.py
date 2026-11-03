@@ -2,6 +2,7 @@ import asyncio
 import hmac
 import hashlib
 import uuid
+import httpx
 from datetime import datetime,timezone
 from typing import Literal
 from fastapi import APIRouter,Depends,HTTPException,Request
@@ -23,9 +24,17 @@ class Preferences(Strict):
     theme:Literal['light','dark']|None=None
     welcome_seen:bool|None=None
 
+class Mfa(Strict):
+    challenge_token:str=Field(min_length=20,max_length=160,repr=False)
+    code:str=Field(default='',max_length=128,repr=False)
+    recovery:bool=False
+    reset_token:str=Field(default='',max_length=160,repr=False)
+
+def private_response(value):return JSONResponse(value,headers={'Cache-Control':'no-store','Pragma':'no-cache'})
+
 def session_response(auth,token,expires):
     csrf=hmac.new(auth.settings.session_key,token.encode(),hashlib.sha256).hexdigest()
-    response=JSONResponse({'authenticated':True,'csrf_token':csrf,'expires_at':expires.isoformat()})
+    response=JSONResponse({'authenticated':True,'csrf_token':csrf,'expires_at':expires.isoformat()},headers={'Cache-Control':'no-store','Pragma':'no-cache'})
     response.set_cookie(auth.settings.session_cookie,token,secure=True,httponly=True,samesite='strict',path='/moara',
         max_age=max(0,int((expires-datetime.now(timezone.utc)).total_seconds())))
     return response
@@ -34,10 +43,37 @@ def session_response(auth,token,expires):
 async def login(body:Login,request:Request):
     auth=request.app.state.auth;auth.origin(request)
     row,legacy=await auth.password_login(body.email.strip(),body.password,request.client.host if request.client else 'unknown')
+    if isinstance(legacy,dict):return private_response(legacy)
     token,expires=await auth.session(row,legacy)
     actor=await auth.from_row(row)
     await auth.db.audit(actor,'auth.login',request_id=request.state.request_id)
     return session_response(auth,token,expires)
+
+@router.post('/mfa/{action}')
+async def mfa(action:Literal['start','verify','confirm','recover'],body:Mfa,request:Request):
+    auth=request.app.state.auth;auth.origin(request)
+    await auth.limit('mfa-ticket:'+hashlib.sha256(body.challenge_token.encode()).hexdigest(),10,300)
+    await auth.limit('mfa-ip:'+(request.client.host if request.client else 'unknown'),60,300)
+    suffix={'start':'enroll/start','verify':'verify','confirm':'enroll/confirm','recover':'recover'}[action]
+    payload={'challenge_token':body.challenge_token}
+    if action in ('verify','confirm'):payload.update(code=body.code,recovery=body.recovery)
+    if action=='recover':payload['reset_token']=body.reset_token
+    try:
+        result=await request.app.state.http.post(auth.settings.legacy_webui+'/api/v1/auths/mfa/'+suffix,json=payload,timeout=15)
+        if result.status_code!=200:raise HTTPException(429 if result.status_code==429 else 401,'mfa_verification_failed')
+        data=result.json()
+    except (httpx.HTTPError,ValueError):raise HTTPException(503,'legacy_auth_unavailable') from None
+    if action=='start':return private_response({'manual_key':data.get('manual_key'),'qr_code':data.get('qr_code')})
+    if isinstance(data,dict) and isinstance(data.get('token'),str):
+        row=await auth.legacy_user(data['token']);native,expires=await auth.session(row,data['token'])
+        response=session_response(auth,native,expires)
+        if data.get('recovery_codes'):
+            import json
+            value={'authenticated':True,'csrf_token':hmac.new(auth.settings.session_key,native.encode(),hashlib.sha256).hexdigest(),'recovery_codes':data['recovery_codes']}
+            response.body=json.dumps(value).encode();response.headers['content-length']=str(len(response.body))
+        response.headers['Cache-Control']='no-store';return response
+    if data.get('next_step') in ('enroll','verify','recover') and isinstance(data.get('challenge_token'),str):return private_response({'mfa_required':True,**{k:data[k] for k in ('next_step','challenge_token','expires_in') if k in data}})
+    raise HTTPException(503,'invalid_authentication_response')
 
 @router.post('/session')
 async def bridge(request:Request):

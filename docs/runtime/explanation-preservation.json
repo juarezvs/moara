@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "all_web_assets_identical": true,
+    "premium_interface_preserved": true,
+    "chat_scrolling_code_preserved": true,
+    "other_backend_capabilities_preserved": true
+  },
+  "before": {
+    "sha256": "bb1b56e358ac46f4ff9880589fefa408bbf32c03a3123084b7035074321b2b73",
+    "files": 83,
+    "other_python_sha256": "35cbb0c8ba4bce56beb32675377f3bb0875268b7f8266e80cab628db7120931e",
+    "other_python_count": 83
+  },
+  "after": {
+    "sha256": "bb1b56e358ac46f4ff9880589fefa408bbf32c03a3123084b7035074321b2b73",
+    "files": 83,
+    "other_python_sha256": "35cbb0c8ba4bce56beb32675377f3bb0875268b7f8266e80cab628db7120931e",
+    "other_python_count": 83
+  },
+  "tested_image_id": "sha256:37ca22156212c9ddc0ff21a69b46302c3fde2d9018583f21144d3082542f6588"
+}

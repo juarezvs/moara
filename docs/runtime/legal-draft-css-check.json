@@ -1,0 +1,16 @@
+{
+  "before": [
+    "styles-JVG73MGM.css"
+  ],
+  "after": [
+    "styles-XO4AEP4K.css"
+  ],
+  "changes": [
+    {
+      "operation": "delete",
+      "before": ".fixed{position:fixed",
+      "after": ""
+    }
+  ],
+  "active_css_identical": false
+}

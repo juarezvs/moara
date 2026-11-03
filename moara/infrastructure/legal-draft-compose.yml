@@ -1,0 +1,5 @@
+services:
+  moara-gateway:
+    image: moara-core:legal-draft-app-20261102
+  moara-legal-mcp:
+    image: moara-core:legal-draft-mcp-20261102

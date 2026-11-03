@@ -1,0 +1,15 @@
+{
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "published": true,
+  "mcp_version": "0.3.0",
+  "preserved_stopped_candidates": [
+    "moara-legal-app-information-stage-a9d3c26fa4",
+    "moara-legal-information-stage-a9d3c26fa4",
+    "moara-legal-app-information-stage-fc05657b88",
+    "moara-legal-information-stage-fc05657b88",
+    "moara-legal-app-information-stage-1f7777b41a",
+    "moara-legal-information-stage-1f7777b41a"
+  ],
+  "gateway_image": "sha256:a9d3c26fa4169df4fc0b3ec813a0fd53281a128ccf949b3bc2ef11c216c02579"
+}

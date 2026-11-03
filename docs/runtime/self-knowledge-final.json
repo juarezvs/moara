@@ -1,0 +1,26 @@
+{
+  "published": true,
+  "tested_image_id": "sha256:6234f6ee1a6da9fcebf68e6d9a148aa255d940469bf18bcbb9b9fbbb195cb098",
+  "checks": {
+    "self-knowledge-stage.json": true,
+    "self-knowledge-public.json": true,
+    "self-knowledge-legal-stage.json": true,
+    "self-knowledge-legal-public.json": true,
+    "self-knowledge-preservation.json": true,
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "metadata_timer_active": true,
+    "public_root_opens_current_chat": true,
+    "ai-server-moara-gateway-1_tested_image": true,
+    "ai-server-moara-gateway-1_read_only_catalogs": true,
+    "ai-server-moara-legal-mcp-1_tested_image": true,
+    "ai-server-moara-legal-mcp-1_read_only_catalogs": true
+  },
+  "unit_tests": 236,
+  "stopped_preserved_candidates": [
+    "moara-self-knowledge-app-stage-6234f6ee1a",
+    "moara-self-knowledge-mcp-stage-6234f6ee1a",
+    "moara-self-knowledge-app-stage-d7a65a519f",
+    "moara-self-knowledge-mcp-stage-d7a65a519f"
+  ]
+}

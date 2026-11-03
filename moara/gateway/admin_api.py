@@ -15,24 +15,28 @@ class Strict(BaseModel):model_config=ConfigDict(extra='forbid')
 class AccountCreate(Strict):
     name:str=Field(min_length=2,max_length=160)
     email:str=Field(min_length=5,max_length=200,pattern=r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
-    roles:list[str]=Field(min_length=1,max_length=7)
+    roles:list[str]=Field(min_length=1,max_length=32)
 class AccountUpdate(Strict):
     active:bool
-    roles:list[str]=Field(min_length=1,max_length=7)
+    roles:list[str]=Field(min_length=1,max_length=32)
 class KeyCreate(Strict):
     account_id:uuid.UUID
     name:str=Field(min_length=2,max_length=120)
     scopes:list[str]=Field(min_length=1,max_length=30)
     allowed_profiles:list[str]=Field(min_length=1,max_length=30)
     allowed_sources:list[uuid.UUID]=Field(default_factory=list,max_length=100)
-    rpm:int=Field(default=60,ge=1,le=600)
+    rpm:int=Field(default=60,ge=0,le=600,description='Requests per minute; 0 disables the per-key request quota.')
     validity_days:int=Field(default=90,ge=1,le=365)
+
+def interactive(actor):
+    if actor.key_id or actor.auth_source=='integration':raise HTTPException(403,'interactive_session_required')
 
 ACCOUNT_COLUMNS='id,subject,name,email,auth_source,active,password_change_required,created_at,updated_at'
 
 @router.get('/roles')
 async def roles(request:Request,actor=Depends(require('users.read'))):
-    return await request.app.state.db.execute('SELECT id,name,permissions FROM moara.roles ORDER BY id')
+    rows=await request.app.state.db.execute('SELECT id,name,permissions FROM moara.roles ORDER BY id')
+    return [{**r,'name':ROLES[r['id']][0],'permissions':sorted(ROLES[r['id']][1])} if r['id'] in ROLES else r for r in rows]
 
 @router.get('/accounts')
 async def accounts(request:Request,actor=Depends(require('users.read'))):
@@ -79,7 +83,7 @@ def validate_roles(roles):
 
 @router.post('/accounts',status_code=201)
 async def create_account(body:AccountCreate,request:Request,actor=Depends(require('users.manage'))):
-    actor.require('roles.assign');validate_roles(body.roles)
+    interactive(actor);actor.require('roles.assign');validate_roles(body.roles)
     db=request.app.state.db;identifier=uuid.uuid4();password=secrets.token_urlsafe(24)
     async with PASSWORD_SLOTS:hashed=await asyncio.to_thread(PASSWORDS.hash,password)
     async with db.engine.begin() as conn:
@@ -96,7 +100,7 @@ async def create_account(body:AccountCreate,request:Request,actor=Depends(requir
 
 @router.put('/accounts/{identifier}')
 async def update_account(identifier:uuid.UUID,body:AccountUpdate,request:Request,actor=Depends(require('users.manage'))):
-    actor.require('roles.assign');validate_roles(body.roles);db=request.app.state.db
+    interactive(actor);actor.require('roles.assign');validate_roles(body.roles);db=request.app.state.db
     async with db.engine.begin() as conn:
         await db.execute('SELECT pg_advisory_xact_lock(42612554)',conn=conn)
         target=await db.execute('SELECT id FROM moara.accounts WHERE id=CAST(:id AS uuid)',{'id':str(identifier)},one=True,conn=conn)
@@ -122,7 +126,7 @@ async def list_keys(request:Request,actor=Depends(require('api_keys.manage'))):
 @router.post('/api-keys',status_code=201)
 async def create_key(body:KeyCreate,request:Request,actor=Depends(require('api_keys.manage'))):
     # Management and identity-publication credentials must remain interactive.
-    allowed={'chat.use','profiles.read','identity.read','connectors.read','data.query','jobs.read','jobs.cancel'}
+    allowed={'chat.use','profiles.read','identity.read','development.use','connectors.read','data.query','jobs.read','jobs.cancel'}
     if not set(body.scopes)<=allowed:raise HTTPException(422,'integration_scope_not_allowed')
     db=request.app.state.db
     account=await db.execute('SELECT * FROM moara.accounts WHERE id=CAST(:id AS uuid)',{'id':str(body.account_id)},one=True)

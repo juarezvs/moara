@@ -1,0 +1,37 @@
+{
+  "checks": {
+    "root_opens_redesigned_workspace": true,
+    "single_sidebar_work_navigation": true,
+    "space_background_removed": true,
+    "header_brand_preserved": true,
+    "editorial_welcome_and_guidance_visible": true,
+    "context_toggle_preserved": true,
+    "assistant_and_model_options_preserved": true,
+    "work_modes_preserved": true,
+    "administration_links_preserved": true,
+    "all_work_areas_operate": true,
+    "keyboard_navigation_preserved": true,
+    "desktop_no_horizontal_overflow": true,
+    "sidebar_top_not_clipped_by_header": true,
+    "dark_mode_operates": true,
+    "tablet_no_horizontal_overflow": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_drawer_traps_keyboard_focus": true,
+    "mobile_drawer_escape_and_focus": true,
+    "mobile_navigation_selects_and_closes": true,
+    "real_chat_still_operates": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "53733d23-6168-4c5f-95dd-9519ea8f886d"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793494343089096585",
+  "old_fixture_id": "cc58033e-1c85-4baa-9e0d-72a76b7d6653",
+  "tested_image_id": "sha256:984ac563e8667d42035254d680ea42ffb5cc5d67aa43d237fc4125f06996f77d"
+}

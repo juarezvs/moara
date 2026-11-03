@@ -1,0 +1,37 @@
+ try:
+  page.goto('https://moara.am.trf1.gov.br/moara/',wait_until='domcontentloaded')
+  expect(page.locator('.dashboard-cards')).to_be_visible(timeout=45000);checkpoint(context)
+  original_theme=page.locator('html').get_attribute('data-theme') or 'light'
+  def theme(value):
+   if page.locator('html').get_attribute('data-theme')!=value:
+    page.get_by_role('button',name='Ativar tema escuro' if value=='dark' else 'Ativar tema claro').click()
+    expect(page.locator('html')).to_have_attribute('data-theme',value)
+  def background():
+   return page.locator('.workspace').evaluate('(e)=>{const s=getComputedStyle(e);return {image:s.backgroundImage,position:s.backgroundPosition,size:s.backgroundSize,attachment:s.backgroundAttachment}}')
+  theme('light');light=background();checks['reference_uses_original_image']='chat-bg.png' in light['image']
+  page.screenshot(path='/artifacts/background-reference-light.png',mask=[page.locator('.sidebar'),page.locator('.page-header h1'),page.locator('moara-operations')])
+  theme('dark');dark=background();checks['reference_dark_has_original_image']='chat-bg.png' in dark['image'];theme('light')
+  page.goto('https://moara.am.trf1.gov.br/moara/chat',wait_until='domcontentloaded')
+  expect(page.get_by_label('Sua mensagem',exact=True)).to_be_visible(timeout=45000)
+  checks['chat_matches_reference_light']=background()==light
+  checks['chat_does_not_cover_background']=page.locator('.legal-workbench').evaluate('(e)=>getComputedStyle(e).backgroundColor==="rgba(0, 0, 0, 0)"')
+  checks['single_navigation_preserved']=page.locator('.work-history .work-nav [role=tablist]').count()==1
+  page.get_by_role('button',name='Contexto',exact=True).click();expect(page.locator('#work-context')).to_be_visible();page.get_by_role('button',name='Contexto',exact=True).click();checks['context_toggle_operates']=True
+  page.screenshot(path='/artifacts/background-chat-light.png',mask=[page.locator('.history-items'),page.locator('.work-user')])
+  page.get_by_label('Sua mensagem',exact=True).fill('Oi');page.get_by_role('button',name=re.compile('Enviar solicita')).click()
+  expect(page.locator('.message:not(.user-message) .markdown')).not_to_be_empty(timeout=90000)
+  checks['real_chat_operates']=True
+  checks['answer_has_readable_surface']=page.locator('.work-conversation.has-messages').evaluate('(e)=>getComputedStyle(e).backgroundColor==="rgb(255, 255, 255)"')
+  checks['composer_does_not_cover_background']=page.locator('.work-composer-zone').evaluate('(e)=>getComputedStyle(e).backgroundColor==="rgba(0, 0, 0, 0)"')
+  theme('dark');checks['chat_matches_reference_dark']=background()==dark
+  checks['dark_background_not_covered']=page.locator('.legal-workbench').evaluate('(e)=>getComputedStyle(e).backgroundColor==="rgba(0, 0, 0, 0)"')
+  page.screenshot(path='/artifacts/background-chat-dark.png',mask=[page.locator('.history-items'),page.locator('.work-user')])
+  theme('light');page.set_viewport_size({'width':390,'height':844})
+  checks['mobile_no_horizontal_overflow']=page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  checks['mobile_matches_reference_background']=background()==light
+  page.screenshot(path='/artifacts/background-chat-mobile.png')
+  page.evaluate('document.documentElement.classList.add("a11y-high-contrast")')
+  checks['high_contrast_preserved']=page.locator('.legal-workbench').evaluate('(e)=>getComputedStyle(e).backgroundColor==="rgb(0, 0, 0)"')
+  page.evaluate('document.documentElement.classList.remove("a11y-high-contrast")')
+  checks['no_javascript_errors']=not errors
+  theme(original_theme)

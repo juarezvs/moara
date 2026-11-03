@@ -1,0 +1,211 @@
+[
+  {
+    "tag": "COMECE AQUI",
+    "title": "Você está na área certa?",
+    "intro": "A versão R2 está publicada. O endereço inicial do site abre o chat institucional. Os seis testes ficam em outra área do mesmo site: Espaço de trabalho.",
+    "steps": [
+      "No mesmo navegador em que você entrou na Moara, abra uma nova aba.",
+      "Acesse https://moara.am.trf1.gov.br/moara/espaco.",
+      "Confira o título “Espaço de trabalho” e as abas Documentos, Prompts, Templates, Assistentes, MOARA DEV, Processos, Analytics e MOARA FLOW.",
+      "Se estiver em /moara/, use o menu lateral “Espaço de trabalho”."
+    ],
+    "image": "01-espaco-trabalho.png",
+    "caption": "Tela real de produção, com uma conta fictícia de usuário. Esta é a área usada no roteiro.",
+    "note": "O roteiro anterior não deixou suficientemente clara a diferença entre o chat da raiz do site e este módulo."
+  },
+  {
+    "tag": "ACESSO",
+    "title": "Login, navegação e permissões",
+    "intro": "A captura abaixo mostra a entrada do endereço raiz sem sessão. Ela não é a biblioteca de documentos.",
+    "steps": [
+      "Conclua seu login institucional normalmente, escolhendo a sua unidade e usando suas credenciais. Não use os dados da conta fictícia do tutorial.",
+      "Depois do login, acesse diretamente /moara/espaco. Uma sessão institucional compatível pode ser reaproveitada pelo módulo.",
+      "Se o acesso voltar para outra página ou o menu não aparecer, registre a URL e a mensagem. O módulo exige a permissão workspace.use.",
+      "Se o módulo aparecer, mas a IA falhar com no_compatible_execution_available, peça ao administrador para conferir seu acesso a um perfil de IA habilitado."
+    ],
+    "image": "00-entrada-raiz.png",
+    "caption": "Entrada real da Moara. A unidade exibida é o valor inicial da tela; escolha a sua unidade.",
+    "note": "Não é necessário trocar a versão do site para encontrar os módulos. A conta fictícia precisou de acesso temporário ao perfil fast; a sua conta deve ter seus próprios perfis autorizados."
+  },
+  {
+    "tag": "TESTE 1 / DOCUMENTOS",
+    "title": "Enviar o TXT e encontrar “Indexar”",
+    "intro": "Use o arquivo tutorial-alfa.txt fornecido na pasta dados-ficticios.",
+    "steps": [
+      "Clique na aba Documentos.",
+      "Em “Adicionar documento (até 4 MiB)”, escolha tutorial-alfa.txt. O envio acontece ao selecionar o arquivo.",
+      "Aguarde o documento aparecer na lista. Se ele não ficar aberto, clique no nome tutorial-alfa.txt.",
+      "No cartão “Editar item”, clique em “Indexar para consulta”. O botão aparece somente quando um documento está selecionado.",
+      "Role até “Execuções”. Use “Atualizar” e aguarde a operação Indexação ficar Concluída."
+    ],
+    "image": "02-documento-indexar.png",
+    "caption": "O botão fica abaixo de Salvar versão, Histórico de versões e Arquivar, no documento selecionado.",
+    "note": "Texto do arquivo: No procedimento fictício Alfa, o prazo de resposta é de cinco dias úteis. A indexação pode aguardar outras tarefas e o carregamento do modelo."
+  },
+  {
+    "tag": "TESTE 1 / PERGUNTA",
+    "title": "A seção chama-se “Consultar conhecimento”",
+    "intro": "Esta seção fica abaixo dos cartões do módulo. Ela não se chama “Consultar Documentos”.",
+    "steps": [
+      "Role a página até o título “Consultar conhecimento”.",
+      "No campo Pergunta, digite: Qual é o prazo do procedimento fictício Alfa? Cite a fonte.",
+      "Clique em “Consultar fontes autorizadas”.",
+      "Em Execuções, aguarde Consulta documental ficar Concluída.",
+      "Clique em Resultado na linha dessa execução. O resultado aparece em um cartão acima da tabela."
+    ],
+    "image": "03-consultar-conhecimento.png",
+    "caption": "Seção real de consulta. O botão enfileira a pergunta; a resposta não surge imediatamente neste campo.",
+    "note": "Resultado esperado: cinco dias úteis, com referência ao documento fictício. O sistema pesquisa as fontes que sua conta está autorizada a consultar."
+  },
+  {
+    "tag": "TESTE 1 / CONFERÊNCIA",
+    "title": "Conferir a resposta e a fonte",
+    "intro": "Na versão capturada, o cartão Resultado apresenta os dados em formato estruturado (JSON). Isso faz parte da interface atual.",
+    "steps": [
+      "Localize o campo text: nele aparece a resposta e o marcador da citação, como [1].",
+      "Localize citations: confira se a referência corresponde ao documento usado no teste.",
+      "Confirme o prazo de cinco dias úteis. Não considere apenas o estado Concluída como prova de uma resposta correta.",
+      "Os botões de DOCX e PDF permitem exportar resultados textuais."
+    ],
+    "image": "04-resposta-documental.png",
+    "caption": "Resposta obtida no site publicado com o TXT fictício, e não uma imagem de demonstração inventada.",
+    "note": "Se a operação falhar, abra Resultado e registre o campo error. Compartilhe a mensagem, sem enviar senha ou documentos sigilosos."
+  },
+  {
+    "tag": "TESTE 2 / AGENTES",
+    "title": "Selecionar o agente Arquiteto",
+    "intro": "Agentes especializados é uma seção da mesma página, abaixo de Consultar conhecimento. Não é uma aba superior.",
+    "steps": [
+      "Role até “Agentes especializados”.",
+      "No campo Especialidade, selecione Arquiteto.",
+      "Em “Solicitação ao agente”, escreva: Proponha uma arquitetura simples para um cadastro interno de tarefas fictícias. Responda em até cinco tópicos.",
+      "Deixe as fontes desmarcadas neste exemplo de orientação geral.",
+      "Clique em “Solicitar análise”. Em Execuções, aguarde Agente especializado ficar Concluída e abra Resultado."
+    ],
+    "image": "05-agente-arquiteto.png",
+    "caption": "Arquiteto é uma opção dentro de Especialidade. A seção permanece disponível ao alternar entre os módulos.",
+    "note": "Resultado esperado: uma proposta de arquitetura. O agente não cria serviços nem executa código automaticamente."
+  },
+  {
+    "tag": "TESTE 3 / TEMPLATES",
+    "title": "Preencher a variável e gerar DOCX",
+    "intro": "O exemplo usa um template textual. O modelo DOCX opcional pode ficar sem seleção.",
+    "steps": [
+      "Clique em Templates e depois em Novo item, se necessário.",
+      "Preencha Título com “Tutorial - saudação fictícia”.",
+      "Em “Texto (use {{campo}} para variáveis)”, digite: Olá, {{nome}}.",
+      "Em “Variáveis separadas por vírgula”, informe nome. Clique em Salvar versão.",
+      "No novo campo nome, informe Pessoa de teste.",
+      "Clique em “Preencher e gerar DOCX”. O navegador fará o download."
+    ],
+    "image": "07-template-preencher.png",
+    "caption": "Depois de salvar o template, surge o campo correspondente à variável nome.",
+    "note": "Resultado esperado no DOCX: Olá, Pessoa de teste. O documento deve ser revisado antes de qualquer uso real."
+  },
+  {
+    "tag": "TESTE 3 / RESULTADO",
+    "title": "Conferir o texto e baixar o PDF",
+    "intro": "Após gerar o DOCX, o cartão Resultado exibe o texto preenchido.",
+    "steps": [
+      "Confirme que o nome da pessoa substituiu {{nome}}.",
+      "Clique em “Baixar PDF de conferência”.",
+      "Abra o DOCX e o PDF baixados pelo navegador.",
+      "Confira o conteúdo e a indicação de rascunho. O PDF é uma cópia textual paginada; não promete reproduzir o layout de um Word formatado."
+    ],
+    "image": "08-template-resultado.png",
+    "caption": "Resultado real do preenchimento com Pessoa de teste.",
+    "note": "Os downloads geralmente ficam na pasta Downloads do navegador. O bloqueio de downloads automáticos pode exigir a ação normal do usuário no navegador."
+  },
+  {
+    "tag": "TESTE 4 / MOARA DEV",
+    "title": "Pedir um arquivo Python simples",
+    "intro": "O teste propõe código fictício e permite revisar os arquivos antes de aceitá-los.",
+    "steps": [
+      "Clique em MOARA DEV e crie um novo item.",
+      "Use o título “Tutorial - projeto Python 42” e a linguagem python.",
+      "Na descrição, informe: Projeto fictício mínimo. Somente main.py, sem dependências, imprime 42.",
+      "Clique em Salvar versão. Só depois surgem os controles de solicitação e arquivos.",
+      "Em Solicitação, escreva: Crie somente main.py com print(42). Não adicione dependências.",
+      "Clique em “Propor plano e arquivos”. Aguarde Proposta de projeto ficar Concluída e abra Resultado."
+    ],
+    "image": "09-projeto-solicitar.png",
+    "caption": "Projeto salvo na interface real. A proposta ainda precisa ser aceita para alterar os arquivos do projeto.",
+    "note": "O tempo de geração depende do modelo autorizado e da fila. Não clique repetidamente: acompanhe a execução já criada."
+  },
+  {
+    "tag": "TESTE 4 / REVISÃO",
+    "title": "Aceitar os arquivos e exportar Git",
+    "intro": "O resultado contém os arquivos propostos, plano, diferenças e revisão de segurança. Confira antes de aceitar.",
+    "steps": [
+      "No Resultado, confira se main.py contém a operação esperada, como print(42).",
+      "Leia a revisão e confirme que não há dependências ou ações inesperadas.",
+      "Clique em “Aceitar arquivos propostos nesta versão”.",
+      "No cartão Editar item, selecione o arquivo e confira seu conteúdo.",
+      "Clique em “Exportar histórico Git” para baixar o bundle do projeto.",
+      "A execução é opcional e exige development.execute: contas autorizadas verão “Revisar arquivos para execução” e, depois, “Aprovar e executar esta versão”."
+    ],
+    "image": "11-projeto-arquivos-git.png",
+    "caption": "Arquivos aceitos e exportação Git. A conta comum usada nas capturas não recebeu permissão para executar código.",
+    "note": "Sem os botões de execução, conclua o teste pela revisão e exportação. Isso é uma restrição de permissão, não ausência do módulo. Na execução autorizada de print(42), a saída esperada é 42."
+  },
+  {
+    "tag": "TESTE 5 / MOARA FLOW",
+    "title": "Criar uma etapa de notificação simulada",
+    "intro": "Este fluxo não envia e-mail, mensagem ou notificação a terceiros.",
+    "steps": [
+      "Clique em MOARA FLOW e crie um novo item.",
+      "Use o título “Tutorial - fluxo fictício” e a descrição “Teste sem envio de mensagens reais.”",
+      "Em Nova etapa, selecione Notificação simulada.",
+      "Em Mensagem de teste, informe: Esta é uma notificação fictícia do tutorial.",
+      "Clique em Adicionar etapa. Confira a etapa na lista e mantenha Agendar execução desmarcado.",
+      "Clique em Salvar versão e depois em Executar teste."
+    ],
+    "image": "12-fluxo-etapa.png",
+    "caption": "Uma etapa adicionada, sem agendamento e sem envio externo.",
+    "note": "Em Execuções, aguarde Fluxo ficar Concluída e abra Resultado. A descrição do fluxo sozinha não substitui a conferência das etapas."
+  },
+  {
+    "tag": "TESTE 5 / RESULTADO",
+    "title": "Conferir a simulação do fluxo",
+    "intro": "O resultado deve registrar as etapas executadas e indicar ausência de escritas externas.",
+    "steps": [
+      "Confira a etapa notification.test e a mensagem fictícia.",
+      "Confira external_writes: false.",
+      "Verifique se a versão do fluxo corresponde à versão que você salvou.",
+      "Não é esperado receber uma mensagem fora da Moara: a operação é simulada."
+    ],
+    "image": "13-fluxo-resultado.png",
+    "caption": "Resultado real do fluxo fictício executado no site publicado.",
+    "note": "Ao terminar, você pode arquivar os itens de teste pela própria interface. Não ative agendamento para este exercício."
+  },
+  {
+    "tag": "TESTE 6 / ANALYTICS",
+    "title": "Enviar o CSV e configurar a soma",
+    "intro": "Use tutorial-indicadores.csv, incluído na pasta dados-ficticios.",
+    "steps": [
+      "Em Documentos, envie tutorial-indicadores.csv. Não é necessário indexá-lo para este cálculo de CSV.",
+      "Clique em Analytics e crie um novo item.",
+      "Use o título “Tutorial - total fictício por setor”.",
+      "Em Fontes autorizadas, marque somente tutorial-indicadores.csv.",
+      "Informe setor em Coluna de agrupamento, selecione Soma em Operação e informe quantidade em Coluna numérica.",
+      "Deixe os filtros em branco. Clique em Salvar versão e depois em Calcular indicador."
+    ],
+    "image": "14-analytics-configurar.png",
+    "caption": "Configuração com uma única fonte e os nomes exatos das colunas do CSV.",
+    "note": "CSV: setor,quantidade / A,2 / A,3 / B,4. Use o arquivo fornecido para preservar as quebras de linha e a vírgula como separador."
+  },
+  {
+    "tag": "TESTE 6 / RESULTADO",
+    "title": "Conferir A = 5 e B = 4",
+    "intro": "Analytics mostra uma tabela e barras, e oferece um CSV com o resultado calculado.",
+    "steps": [
+      "No cartão Indicador calculado, confira o grupo A com valor 5 e 2 registros.",
+      "Confira o grupo B com valor 4 e 1 registro.",
+      "Abra também o CSV baixado pelo navegador.",
+      "Se os resultados forem diferentes, revise fonte selecionada, operação, nomes das colunas e filtros."
+    ],
+    "image": "15-analytics-resultado.png",
+    "caption": "Valores calculados na publicação real a partir das três linhas do CSV fictício.",
+    "note": "Este cálculo é determinístico. Não é uma estimativa produzida pelo modelo de linguagem."
+  }
+]

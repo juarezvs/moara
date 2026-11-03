@@ -1,0 +1,47 @@
+  # Real, synthetic native account: authorization is tested against HTTP APIs, not just menus.
+  def api_call(target,path,method='GET',body=None):
+   return target.evaluate("""async({path,method,body})=>{let csrf='';if(method!=='GET'){const me=await(await fetch('/moara/api/v1/auth/me')).json();csrf=me.csrf_token||'';}const r=await fetch('/moara/api/v1'+path,{method,headers:{'Content-Type':'application/json','X-Moara-CSRF':csrf},...(body===null?{}:{body:JSON.stringify(body)})});return {status:r.status,data:await r.json()};}""",{'path':path,'method':method,'body':body})
+  import secrets,time
+  email='rbac-qa-'+str(time.time_ns())+'@example.invalid';label='RBAC QA '+str(time.time_ns())
+  result=api_call(page,'/admin/accounts','POST',{'name':label,'email':email,'roles':['user']})
+  assert result['status']==201
+  account=result['data']['id'];temporary=result['data']['temporary_password'];final_password=secrets.token_urlsafe(30)
+  user_context=browser.new_context(viewport={'width':1400,'height':1000});configure(user_context);user=user_context.new_page()
+  def user_login(password):
+   user.goto('https://moara.am.trf1.gov.br/moara/login');expect(user.locator('select[name=organization]')).to_be_enabled(timeout=30000)
+   user.locator('select[name=organization]').select_option('local');user.locator('input[name=email]').fill(email);user.locator('input[name=password]').fill(password)
+   user.get_by_role('button',name=re.compile('^Entrar')).click()
+  try:
+   user_login(temporary);expect(user.get_by_role('heading',name='Defina sua senha')).to_be_visible(timeout=30000)
+   user.locator('input[name=password]').fill(final_password);user.locator('input[name=confirm]').fill(final_password);user.get_by_role('button',name='Salvar senha').click()
+   expect(user.get_by_role('heading',name='Como posso ajudar você hoje?')).to_be_visible(timeout=30000)
+   me=api_call(user,'/auth/me')['data'];checks['new_user_chat_only']=set(me['permissions'])=={'chat.use','history.read','history.manage','profiles.read','identity.read'}
+   checks['rbac_blocks_direct_api_access']=all(api_call(user,path)['status']==403 for path in ['/admin/accounts','/admin/roles','/models','/connectors/sources','/platform/resources','/developer/configuration','/status'])
+   checks['user_cannot_grant_own_admin']=api_call(user,'/admin/accounts/'+account,'PUT',{'active':True,'roles':['administrator']})['status']==403
+   checks['personal_history_owner_isolation']=api_call(user,'/chats/'+chats[-1])['status']==404
+   checks['restricted_menus_hidden']=user.locator('a[href="/moara/acessos"],a[href="/moara/desenvolvimento/api"],a[href="/moara/fontes"]').count()==0 and user.get_by_role('tab',name='Documentos',exact=True).count()==0
+   user.get_by_label('Sua mensagem',exact=True).fill('Oi');user.get_by_role('button',name='Enviar solicitação',exact=True).click()
+   expect(user.locator('.message:not(.user-message) .markdown').last).to_contain_text('Moara',timeout=60000);checks['restricted_user_chat_works']=True
+   user.screenshot(path='/artifacts/rbac-user.png',mask=[user.locator('.work-user')])
+   page.goto('https://moara.am.trf1.gov.br/moara/acessos');expect(page.get_by_role('heading',name='Identidade e acessos')).to_be_visible()
+   page.get_by_label('Buscar usuário').fill(label)
+   page.get_by_role('row').filter(has_text=label).get_by_role('button',name='Permissões',exact=True).click()
+   page.locator('input[name=role-developer]').check();page.get_by_role('button',name='Salvar permissões',exact=True).click()
+   expect(page.get_by_role('status')).to_contain_text('Permissões atualizadas')
+   checks['grant_revokes_existing_session']=api_call(user,'/auth/me')['status']==401
+   user_login(final_password);expect(user.get_by_role('heading',name='Como posso ajudar você hoje?')).to_be_visible(timeout=30000)
+   checks['granted_module_effective']=api_call(user,'/developer/configuration')['status']==200
+   user.goto('https://moara.am.trf1.gov.br/moara/desenvolvimento/api');expect(user.get_by_role('heading',name='API para VS Code',exact=True)).to_be_visible()
+   checks['granted_module_ui_works']=True
+   page.get_by_role('row').filter(has_text=label).get_by_role('button',name='Permissões',exact=True).click()
+   page.locator('input[name=role-developer]').uncheck();page.get_by_role('button',name='Salvar permissões',exact=True).click()
+   expect(page.get_by_role('heading',name='Permissões de '+label)).to_have_count(0)
+   checks['revoke_invalidates_existing_session']=api_call(user,'/auth/me')['status']==401
+   user_login(final_password);expect(user.get_by_role('heading',name='Como posso ajudar você hoje?')).to_be_visible(timeout=30000)
+   checks['revoked_module_denied']=api_call(user,'/developer/configuration')['status']==403
+   page.screenshot(path='/artifacts/rbac-admin.png',mask=[page.locator('.table-wrap'),page.locator('.profile')])
+   page.set_viewport_size({'width':390,'height':844});checks['rbac_admin_mobile_no_overflow']=page.evaluate('document.documentElement.scrollWidth<=innerWidth+1');page.set_viewport_size({'width':1600,'height':1100})
+  finally:
+   disabled=api_call(page,'/admin/accounts/'+account,'PUT',{'active':False,'roles':['user']})
+   checks['synthetic_rbac_account_disabled']=disabled['status']==200
+   user_context.close()

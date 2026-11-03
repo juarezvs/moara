@@ -1,0 +1,39 @@
+{
+  "published": true,
+  "image": "sha256:80b20651178ca6e98e096eadcfaf26ee7fdd21d464796c3ac5f52f16b81b042e",
+  "checks": {
+    "backend_tests": true,
+    "frontend_build_and_13_tests": true,
+    "document-upload-ui-stage.json": true,
+    "document-upload-ui-public.json": true,
+    "document-upload-live-stage.json": true,
+    "document-upload-live-public.json": true,
+    "ai-server-caddy-1_not_restarted": true,
+    "ai-server-moara-legal-mcp-1_not_restarted": true,
+    "backup_verified": true,
+    "database_expansion_and_encryption": true,
+    "rejected_uploads_rolled_back": true,
+    "models_remain_resident": true,
+    "auth_rbac_legal_drafting_and_brand_preserved": true
+  },
+  "backend_tests": 312,
+  "frontend_tests": 13,
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "database": {
+    "version": "0011_streamed_documents",
+    "bigint": true,
+    "encrypted_segments_exist": true,
+    "unfinished_upload_resources": 0
+  },
+  "retired_private_candidates": [
+    "moara-document-upload-tls-cab7a8ccd5",
+    "moara-document-upload-stage-80b2065117",
+    "moara-document-upload-tls-65f8f6b301",
+    "moara-document-upload-tls-688be0f2ce",
+    "moara-document-upload-stage-f21ece8fbb"
+  ]
+}

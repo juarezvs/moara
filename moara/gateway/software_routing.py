@@ -15,9 +15,9 @@ def preferences(messages):
             return 'coding', 'task_software_deep', ['llama33-70b', 'llama31-70b', 'coding', 'qwen25-coder-32b']
         if len(text) > 280 or any(word in text for word in ('refator', 'varios arquivos', 'multiplos arquivos', 'testes', 'repositorio', 'depur')):
             return 'coding', 'task_software_complex', ['qwen25-coder-32b', 'coding', 'deepseek-coder-v2-lite', 'qwen25-coder-7b']
-        return 'coding', 'task_software', ['deepseek-coder-v2-lite', 'qwen25-coder-7b', 'coding', 'qwen25-coder-32b']
+        return 'coding', 'task_software', ['general', 'qwen25-coder-7b', 'coding', 'qwen25-coder-32b']
     category = 'fast' if len(text) < 180 and len(messages) < 4 else 'general'
-    return category, 'task_short' if category == 'fast' else 'task_general', ['fast', 'gemma4-12b', 'general'] if category == 'fast' else ['gemma4-12b', 'general', 'llama33-70b', 'llama31-70b']
+    return category, 'task_short' if category == 'fast' else 'task_general', ['general', 'gemma4-12b', 'fast'] if category == 'fast' else ['general', 'gemma4-12b', 'llama33-70b', 'llama31-70b']
 
 
 def automatic_order(profiles, messages):

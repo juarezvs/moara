@@ -28,10 +28,9 @@ def unavailable(message=None):
         'sources':[],'execution_mode':'data_query_unavailable'}
 
 def planner_order(question):
-    # Cross-unit SQL requires joins and precise source IDs. Prefer the coding
-    # profile for this task; keep the smaller general profile for simple plans.
-    units=set(re.findall(r'\b(?:SJ[A-Z]{2}|JFAM)\b',question.upper()))
-    return ('coding','general','llama33-70b','llama31-70b') if len(units)>1 else ('general','coding','llama33-70b','llama31-70b')
+    # All official assistants share the validated principal GPU model. Heavy
+    # CPU specialists remain available only as explicit authorized selections.
+    return ('general',)
 
 def secp_profile_command(question):
     match=re.fullmatch(r'\s*(?:usar|use|utilize|selecionar|selecione)\s+(?:o\s+)?perfil\s+([A-Za-z0-9_-]{1,80})\s+(?:(?:do|no)\s+)?SECP[.!]?\s*',question,re.I)
@@ -39,8 +38,8 @@ def secp_profile_command(question):
     return (bool(re.search(r'\bperfis\b',question,re.I) and re.search(r'\bSECP\b',question,re.I)),None)
 
 
-async def answer(question,request,actor):
-    if request.scope.get('moara_disable_data_tools') or '/internal/connectors/' in request.scope.get('path','') or not data_question(question):return None
+async def answer(question,request,actor,*,force=False):
+    if request.scope.get('moara_disable_data_tools') or '/internal/connectors/' in request.scope.get('path','') or (not force and not data_question(question)):return None
     personal_portal=bool(re.search(r'\b(contracheques?|holerites?)\b',question,re.I))
     secp=bool(re.search(r'\bsecp\b',question,re.I))
     if secp and getattr(actor,'key_id',None) is not None and not actor.can('data.query'):

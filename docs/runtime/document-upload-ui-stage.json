@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "actual_intermediate_percent_is_visible": true,
+    "large_file_above_32_mib_is_accepted": true,
+    "upload_reaches_one_hundred_percent": true,
+    "progress_is_measured_in_multiple_steps": true,
+    "confirmation_is_distinct_from_transfer": true,
+    "download_matches_original_bytes": true,
+    "four_mib_message_is_absent": true,
+    "no_javascript_errors": true,
+    "synthetic_documents_archived": true
+  },
+  "created_chats": [],
+  "created_resources": [
+    "7982824e-c222-4fe9-b792-2ee143f19e67"
+  ],
+  "javascript_errors": [],
+  "network_errors": [],
+  "upload_responses": [
+    {
+      "status": 201
+    }
+  ],
+  "bytes": 41943760,
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793647576408695783",
+  "old_fixture_id": "2fe8e79f-cba6-4249-b14f-de36172f650d",
+  "tested_image_id": "sha256:80b20651178ca6e98e096eadcfaf26ee7fdd21d464796c3ac5f52f16b81b042e"
+}

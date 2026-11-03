@@ -1,0 +1,343 @@
+{
+  "checks": {
+    "thinking_visible_before_first_token": true,
+    "thinking_uses_moara_mark": true,
+    "thinking_respects_reduced_motion": true,
+    "cursor_visible_during_stream": true,
+    "text_visible_before_network_completes": true,
+    "stream_keeps_growing_while_paused": true,
+    "manual_reading_position_is_preserved": true,
+    "resume_follows_stream_end": true,
+    "stream_text_is_not_hidden_by_composer": true,
+    "code_has_syntax_highlighting": true,
+    "cursor_removed_on_completion": true,
+    "dark_code_theme_has_correct_background": true,
+    "real_sse_arrives_in_multiple_reads": true,
+    "response_renders_incrementally": true,
+    "rendering_has_no_500ms_main_thread_stall": true,
+    "assistant_is_html_not_textarea": true,
+    "desktop_messages_grow_beyond_viewport": true,
+    "desktop_no_inner_vertical_scroller": true,
+    "desktop_window_is_scroll_owner": true,
+    "desktop_input_sticks_to_bottom": true,
+    "desktop_no_horizontal_overflow": true,
+    "desktop_answer_end_is_readable": true,
+    "mobile_messages_grow_beyond_viewport": true,
+    "mobile_no_inner_vertical_scroller": true,
+    "mobile_window_is_scroll_owner": true,
+    "mobile_input_sticks_to_bottom": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_answer_end_is_readable": true,
+    "small_mobile_messages_grow_beyond_viewport": true,
+    "small_mobile_no_inner_vertical_scroller": true,
+    "small_mobile_window_is_scroll_owner": true,
+    "small_mobile_input_sticks_to_bottom": true,
+    "small_mobile_no_horizontal_overflow": true,
+    "small_mobile_answer_end_is_readable": true,
+    "context_outside_sticky_composer": true,
+    "input_stays_sticky_with_context_open": true,
+    "options_outside_sticky_composer": true,
+    "reduced_motion_is_supported": true,
+    "no_javascript_errors": true,
+    "test_chats_archived": true
+  },
+  "metrics": {
+    "network_reads": 85,
+    "visible_updates": 28,
+    "max_long_task_ms": 84,
+    "desktop": {
+      "height": 2538.40625,
+      "client": 2538,
+      "scroll": 2538,
+      "max": "none",
+      "overflow": "visible",
+      "position": "sticky",
+      "composerBottom": 950,
+      "composerTop": 655.9375,
+      "windowY": 1532,
+      "documentHeight": 3063,
+      "viewport": 950,
+      "width": 1500,
+      "pageWidth": 1500,
+      "messageWidth": 1018,
+      "ancestors": [
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2538,
+          "scroll": 2538
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2644,
+          "scroll": 2644
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2676,
+          "scroll": 2676
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2990,
+          "scroll": 2990
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2990,
+          "scroll": 2990
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2990,
+          "scroll": 2990
+        },
+        {
+          "tag": "MAIN",
+          "overflow": "visible",
+          "max": "none",
+          "height": 2990,
+          "scroll": 2990
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 3063,
+          "scroll": 3063
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 3063,
+          "scroll": 3063
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "tag": "MOARA-ROOT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        }
+      ]
+    },
+    "mobile": {
+      "height": 4128.03125,
+      "client": 4128,
+      "scroll": 4128,
+      "max": "none",
+      "overflow": "visible",
+      "position": "sticky",
+      "composerBottom": 844,
+      "composerTop": 558.84375,
+      "windowY": 2363,
+      "documentHeight": 4725,
+      "viewport": 844,
+      "width": 390,
+      "pageWidth": 390,
+      "messageWidth": 360,
+      "ancestors": [
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4128,
+          "scroll": 4128
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4274,
+          "scroll": 4274
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4294,
+          "scroll": 4294
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4660,
+          "scroll": 4660
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4660,
+          "scroll": 4660
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4660,
+          "scroll": 4660
+        },
+        {
+          "tag": "MAIN",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4660,
+          "scroll": 4660
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4725,
+          "scroll": 4725
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 4725,
+          "scroll": 4725
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "tag": "MOARA-ROOT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        }
+      ]
+    },
+    "small_mobile": {
+      "height": 5151.921875,
+      "client": 5152,
+      "scroll": 5152,
+      "max": "none",
+      "overflow": "visible",
+      "position": "sticky",
+      "composerBottom": 640,
+      "composerTop": 331.34375,
+      "windowY": 2887,
+      "documentHeight": 5773,
+      "viewport": 640,
+      "width": 320,
+      "pageWidth": 320,
+      "messageWidth": 290,
+      "ancestors": [
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5152,
+          "scroll": 5152
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5298,
+          "scroll": 5298
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5318,
+          "scroll": 5318
+        },
+        {
+          "tag": "SECTION",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5708,
+          "scroll": 5708
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5708,
+          "scroll": 5708
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5708,
+          "scroll": 5708
+        },
+        {
+          "tag": "MAIN",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5708,
+          "scroll": 5708
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5773,
+          "scroll": 5773
+        },
+        {
+          "tag": "DIV",
+          "overflow": "visible",
+          "max": "none",
+          "height": 5773,
+          "scroll": 5773
+        },
+        {
+          "tag": "NG-COMPONENT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "tag": "MOARA-ROOT",
+          "overflow": "visible",
+          "max": "none",
+          "height": 0,
+          "scroll": 0
+        }
+      ]
+    }
+  },
+  "created_chats": [
+    "4d801b31-9482-4d15-a881-94042b7d4c4c"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793640573902575892",
+  "old_fixture_id": "52e6c5f9-f793-42c6-982e-3d9a59325873",
+  "tested_image_id": "sha256:2bf8df6a72f63c754a787d9184c308bd86412772a953b060fc1f3e77ea8731b5"
+}

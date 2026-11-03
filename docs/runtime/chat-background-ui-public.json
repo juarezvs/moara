@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "reference_uses_original_image": true,
+    "reference_dark_has_original_image": true,
+    "chat_matches_reference_light": true,
+    "chat_does_not_cover_background": true,
+    "single_navigation_preserved": true,
+    "context_toggle_operates": true,
+    "real_chat_operates": true,
+    "answer_has_readable_surface": true,
+    "composer_does_not_cover_background": true,
+    "chat_matches_reference_dark": true,
+    "dark_background_not_covered": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_matches_reference_background": true,
+    "high_contrast_preserved": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "6748be96-9788-47e0-bcbf-bb666574486c"
+  ],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-public-1793626754000431674",
+  "old_fixture_id": "7364cf79-c098-4af7-900f-0186376b2a5d",
+  "tested_image_id": "sha256:c89349618cbad8816e5610f454d7e3cd45ca342526a120d6bb6cad5d94d3a3fd"
+}

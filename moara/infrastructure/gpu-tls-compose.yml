@@ -1,0 +1,49 @@
+services:
+  moara-gpu-tunnel:
+    profiles: [rollback]
+  moara-gpu-tunnel-tls:
+    extends:
+      file: ../moara/infrastructure/gpu-compose.yml
+      service: moara-gpu-tunnel
+    command:
+      - '-NT'
+      - '-g'
+      - '-o'
+      - 'ExitOnForwardFailure=yes'
+      - '-o'
+      - 'ServerAliveInterval=10'
+      - '-o'
+      - 'ServerAliveCountMax=3'
+      - '-o'
+      - 'StrictHostKeyChecking=yes'
+      - '-o'
+      - 'UserKnownHostsFile=/run/secrets/moara_gpu_known_hosts'
+      - '-o'
+      - 'IdentitiesOnly=yes'
+      - '-o'
+      - 'BatchMode=yes'
+      - '-o'
+      - 'ConnectTimeout=5'
+      - '-i'
+      - '/run/secrets/moara_gpu_tunnel_key'
+      - '-L'
+      - '0.0.0.0:11443:127.0.0.1:11443'
+      - '-L'
+      - '0.0.0.0:11444:127.0.0.1:11444'
+      - '-L'
+      - '0.0.0.0:11445:127.0.0.1:11445'
+      - 'nutec@172.19.5.246'
+  gateway:
+    image: ai-gateway:mtls-20261030
+    environment:
+      GPU_INFERENCE_BASE_URL: https://moara-gpu-tunnel-tls:11443
+      GPU_EMBEDDING_BASE_URL: https://moara-gpu-tunnel-tls:11444
+      GPU_METRICS_URL: https://moara-gpu-tunnel-tls:11445/status
+      GPU_TLS_CA_FILE: /run/secrets/moara_gpu_ca
+      GPU_TLS_CERT_FILE: /run/secrets/moara_gpu_client_cert
+      GPU_TLS_KEY_FILE: /run/secrets/moara_gpu_client_key
+    secrets: [moara_gpu_ca, moara_gpu_client_cert, moara_gpu_client_key]
+secrets:
+  moara_gpu_ca: {file: ../secrets/moara_gpu_ca.crt}
+  moara_gpu_client_cert: {file: ../secrets/moara_gpu_client.crt}
+  moara_gpu_client_key: {file: ../secrets/moara_gpu_client.key}

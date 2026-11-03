@@ -1,0 +1,77 @@
+{
+  "complete": true,
+  "version": "20261031T225322Z-3d1ade9dfb4d",
+  "collected_at": "2026-10-31T22:53:15.940365+00:00",
+  "source": "https://portal.stf.jus.br/repercussaogeral/teses.asp",
+  "source_updated_label": "31/10/2026 19:08:10",
+  "counts": {
+    "com": 819,
+    "sem": 473
+  },
+  "total": 1292,
+  "unique_themes": 1292,
+  "themes_in_both_banks": [],
+  "snapshots": [
+    {
+      "url": "https://portal.stf.jus.br/robots.txt",
+      "method": "GET",
+      "form": null,
+      "retrieved_at": "2026-10-31T22:53:16.585652+00:00",
+      "sha256": "10044f96770e2008bc2662a24971b438d2e5b67654f9cdcdec3e31189d92489c",
+      "bytes": 73,
+      "content_type": "text/plain",
+      "bank": null,
+      "snapshot_file": "10044f96770e2008bc2662a24971b438d2e5b67654f9cdcdec3e31189d92489c.gz"
+    },
+    {
+      "url": "https://portal.stf.jus.br/repercussaogeral/teses.asp",
+      "method": "GET",
+      "form": null,
+      "retrieved_at": "2026-10-31T22:53:17.660581+00:00",
+      "sha256": "b55f28b37006a2a6501c70c295ccf20ff0090271591434e524f030ac0ee118ba",
+      "bytes": 56906,
+      "content_type": "text/html",
+      "bank": null,
+      "snapshot_file": "b55f28b37006a2a6501c70c295ccf20ff0090271591434e524f030ac0ee118ba.gz"
+    },
+    {
+      "url": "https://portal.stf.jus.br/scripts/tesesrepercussaogeral.js",
+      "method": "GET",
+      "form": null,
+      "retrieved_at": "2026-10-31T22:53:18.625117+00:00",
+      "sha256": "6c0b213c36db9684246569cba84a833342bda370023de2440d8d7d2793cea376",
+      "bytes": 12715,
+      "content_type": "application/javascript",
+      "bank": null,
+      "snapshot_file": "6c0b213c36db9684246569cba84a833342bda370023de2440d8d7d2793cea376.gz"
+    },
+    {
+      "url": "https://portal.stf.jus.br/repercussaogeral/retornartesesrepercussaogeral.asp",
+      "method": "POST",
+      "form": {
+        "tipo": "com"
+      },
+      "retrieved_at": "2026-10-31T22:53:20.358676+00:00",
+      "sha256": "7665798ecbd3aee062989433ea9ae4cf871429ce8e89219b2d8a822021b54d4c",
+      "bytes": 439448,
+      "content_type": "application/json; Charset=UTF-8",
+      "bank": "com",
+      "snapshot_file": "7665798ecbd3aee062989433ea9ae4cf871429ce8e89219b2d8a822021b54d4c.gz"
+    },
+    {
+      "url": "https://portal.stf.jus.br/repercussaogeral/retornartesesrepercussaogeral.asp",
+      "method": "POST",
+      "form": {
+        "tipo": "sem"
+      },
+      "retrieved_at": "2026-10-31T22:53:21.781646+00:00",
+      "sha256": "67fd49235464e5a130e46e11fbe3df0ef16859b1fd79b0f14b10fe7bfe887000",
+      "bytes": 233637,
+      "content_type": "application/json; Charset=UTF-8",
+      "bank": "sem",
+      "snapshot_file": "67fd49235464e5a130e46e11fbe3df0ef16859b1fd79b0f14b10fe7bfe887000.gz"
+    }
+  ],
+  "pagination": "portal_downloads_each_bank_once_and_paginates_the_complete_array_in_browser",
+  "notice": "Acervo de teses divulgadas pelo STF. A divulgação pode anteceder a publicação do acórdão. Ausência de repercussão geral não equivale a tese de mérito constitucional. A coleta não confirma recursos, trânsito em julgado ou modulação; temas com mérito pendente podem não constar destes bancos."
+}

@@ -1,0 +1,18 @@
+{
+  "mcp_version": "0.8.1",
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "published": true,
+  "image": "sha256:3ab8c4480eee042199eda2ab27d1bee1e889c91e97cc6a0d16177d820242d3de",
+  "unit_tests": 179,
+  "exact_question_public_api": true,
+  "exact_question_public_chat": true,
+  "inference_restarted": false,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-3ab8c4480e-fb2cc7d2",
+    "moara-careers-app-stage-3ab8c4480e",
+    "moara-careers-mcp-stage-3ab8c4480e",
+    "moara-careers-app-stage-da36ddf02f",
+    "moara-careers-mcp-stage-da36ddf02f"
+  ]
+}

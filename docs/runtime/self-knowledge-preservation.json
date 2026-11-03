@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "all_web_assets_identical": true,
+    "premium_interface_preserved": true,
+    "chat_scrolling_code_preserved": true,
+    "other_backend_capabilities_preserved": true
+  },
+  "before": {
+    "sha256": "bb1b56e358ac46f4ff9880589fefa408bbf32c03a3123084b7035074321b2b73",
+    "files": 83,
+    "other_python_sha256": "1096bac929b876d170fadea6cb86dc23e7197f4ed05753e8a32d2de6311962b0",
+    "other_python_count": 84
+  },
+  "after": {
+    "sha256": "bb1b56e358ac46f4ff9880589fefa408bbf32c03a3123084b7035074321b2b73",
+    "files": 83,
+    "other_python_sha256": "1096bac929b876d170fadea6cb86dc23e7197f4ed05753e8a32d2de6311962b0",
+    "other_python_count": 84
+  },
+  "tested_image_id": "sha256:6234f6ee1a6da9fcebf68e6d9a148aa255d940469bf18bcbb9b9fbbb195cb098"
+}

@@ -1,0 +1,28 @@
+--- chat.ts
++++ chat.ts
+@@ -30,15 +30,19 @@
+     const epoch=++this.scrollEpoch;
+     afterNextRender(()=>{
+       if(this.scrollDestroyed||epoch!==this.scrollEpoch||(!processing&&!this.following()))return;
+-      const root=this.scrollHost.nativeElement;const box=root.querySelector<HTMLElement>('.work-conversation .messages');
++      const root=this.scrollHost.nativeElement;
+       const composer=root.querySelector<HTMLElement>('.work-composer-zone');
+-      if(composer){const height=getComputedStyle(composer).position==='sticky'?Math.ceil(composer.getBoundingClientRect().height):0;root.style.setProperty('--chat-composer-height',String(height)+'px');}
+-      if(processing){if(box)box.scrollTop=box.scrollHeight;root.querySelector<HTMLElement>('.moara-processing')?.scrollIntoView({block:'center',behavior:'instant'});return;}
+-      if(box)box.scrollTop=box.scrollHeight;
+-      root.querySelector<HTMLElement>('.stream-end')?.scrollIntoView({block:'end',behavior:'instant'});
++      const composerHeight=composer&&getComputedStyle(composer).position==='sticky'?Math.ceil(composer.getBoundingClientRect().height):0;
++      root.style.setProperty('--chat-composer-height',String(composerHeight)+'px');
++      const target=root.querySelector<HTMLElement>(processing?'.moara-processing':'.stream-end');
++      if(!target)return;
++      const headerHeight=document.querySelector<HTMLElement>('.moara-site-header')?.getBoundingClientRect().height||0;
++      const available=Math.max(0,window.innerHeight-headerHeight-composerHeight);
++      const bottom=processing?headerHeight+available/2:window.innerHeight-composerHeight-24;
++      window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().bottom-bottom),behavior:'instant'});
+     },{injector:this.scrollInjector});
+   }
+-  @HostListener('wheel') @HostListener('touchmove') preserveReadingPosition(){if(this.busy()&&this.received()){this.following.set(false);++this.scrollEpoch;}}
++  @HostListener('window:wheel') @HostListener('window:touchmove') preserveReadingPosition(){if(this.busy()&&this.received()){this.following.set(false);++this.scrollEpoch;}}
+   @HostListener('pointerdown',['$event']) preservePointerReading(event:PointerEvent){if((event.target as Element)?.closest?.('.work-conversation'))this.preserveReadingPosition();}
+   @HostListener('keydown',['$event']) preserveKeyboardReading(event:KeyboardEvent){if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(event.key))this.preserveReadingPosition();}
+   followResponse(){this.following.set(true);this.scrollToResponse();}

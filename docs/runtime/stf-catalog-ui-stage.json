@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "complete_bank_counts_visible": true,
+    "pagination_changes_records": true,
+    "without_repercussion_filter_preserved": true,
+    "text_search_in_without_rg_bank": true,
+    "exact_theme_search_and_leading_case": true,
+    "official_source_links": true,
+    "snapshot_limit_notice_visible": true,
+    "complete_export_downloads_in_browser": true,
+    "mobile_has_no_horizontal_overflow": true,
+    "selected_theme_prepares_live_check_in_chat": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [],
+  "created_resources": [],
+  "created_rbac_accounts": [],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793488276394396969",
+  "old_fixture_id": "28b00e67-418c-4b99-9ac2-25c0220427b8",
+  "tested_image_id": "sha256:78488fa1d7fdd71ae573f9ad8dc7ad0f581756f577946788a14ef6f041dc35d4"
+}

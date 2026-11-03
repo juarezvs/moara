@@ -1,0 +1,16 @@
+{
+  "published": true,
+  "image": "sha256:1d2db19f43a7ef705102da9f57771a6dd396e6a0a69d0024d5323b4c56babf89",
+  "controlled_scroll_checks": 15,
+  "real_conversation_checks": 12,
+  "preservation_checks": 7,
+  "backend_unchanged": true,
+  "mcp_unchanged": true,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "stopped_preserved_candidates": [
+    "moara-unified-proxy-stage-1d2db19f43-58178b17",
+    "moara-chat-scroll-stage-1d2db19f43",
+    "moara-chat-scroll-stage-094af350b2"
+  ]
+}

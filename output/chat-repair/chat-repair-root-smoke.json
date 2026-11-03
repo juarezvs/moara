@@ -1,0 +1,79 @@
+{
+  "quais suas habilidades?": true,
+  "o que voc\u00ea pode fazer?": true,
+  "long_history_document_analysis": {
+    "status": 200,
+    "metadata": {
+      "request_id": "1afe20c5-a758-4e9c-9837-881aa3703c72",
+      "profile": "general",
+      "model_id": "63af8a56-5676-52b1-b969-887658bb937d",
+      "model_name": "Gemma 4 12B",
+      "reason": "assistant_shared_principal",
+      "identity_version": "2.0.0",
+      "inference_used": true,
+      "assistant": {
+        "id": "documental",
+        "name": "Moara Documental",
+        "version": "2.0.0",
+        "revision": 3,
+        "prompt_sha256": "f671ef1b34d722ac592e69647a1a783f69ce9bf6866a97983a1b629eab0f231a",
+        "policy_version": "2.0.0",
+        "allowed_tools": [
+          "documents.export",
+          "documents.read",
+          "documents.search"
+        ],
+        "decision": "allowed",
+        "reason": "authorized_documentary_context"
+      },
+      "attachment_input_diagnostics": {
+        "upstream_client": "webui",
+        "legacy_session": false,
+        "messages": [
+          {
+            "role": "system",
+            "bytes": 1562,
+            "context_blocks": 0,
+            "question_blocks": 0,
+            "recognized_wrapper": false
+          },
+          {
+            "role": "assistant",
+            "bytes": 800,
+            "context_blocks": 0,
+            "question_blocks": 0,
+            "recognized_wrapper": false
+          },
+          {
+            "role": "user",
+            "bytes": 8905,
+            "context_blocks": 1,
+            "question_blocks": 1,
+            "recognized_wrapper": true
+          }
+        ]
+      },
+      "document_context": {
+        "origin": "authenticated_webui_inline_text",
+        "source_ids": [
+          "1"
+        ],
+        "full_document_coverage_confirmed": false
+      },
+      "context_management": {
+        "context_length": 8192,
+        "original_input_bytes": 18336,
+        "input_bytes": 18336,
+        "estimation": "utf8_bytes_div_3",
+        "requested_output_tokens": 512,
+        "output_tokens_limit": 512,
+        "omitted_messages": 0,
+        "omitted_turns": 0,
+        "current_input_truncated": false
+      },
+      "execution_backend": "gpu",
+      "citation_validation": "client_source_ids_only"
+    },
+    "notice_visible": false
+  }
+}

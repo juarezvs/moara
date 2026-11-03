@@ -1,0 +1,10 @@
+[Unit]
+Description=Maintain Moara GPU residency
+
+[Timer]
+OnBootSec=90
+OnUnitInactiveSec=30
+Unit=moara-gpu-warm.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "personal_project_generated": true,
+    "project_contains_real_source": true,
+    "generation_does_not_fake_execution": true,
+    "existing_sandbox_is_enabled": true,
+    "project_execution_completed": true,
+    "generated_application_tests_pass": true,
+    "execution_stays_isolated": true
+  },
+  "generation_id": "c13942f1-7801-4f38-ac99-7f0a58dd79e2",
+  "execution_id": "461cf9a4-b7ef-4656-a24b-ccfcc7ec14d1",
+  "result": {
+    "exit_code": 0,
+    "output": "DEMO_OK\n",
+    "truncated": false,
+    "termination": null,
+    "duration_seconds": 4.294,
+    "network": "none",
+    "memory_mib": 256,
+    "cpu_limit": 1,
+    "runtime_image": "sha256:47cfddf5b672bce68f24986e4bd9eba031f8310f97eb9fa454e5eb5e08acd92d",
+    "isolation": "rootless_docker_default_seccomp",
+    "requires_review": true
+  },
+  "files": {
+    "main.py": "def total(precos, quantidades):\n    if len(precos) != len(quantidades):\n        raise ValueError(\"Listas de pre\u00e7os e quantidades devem ter o mesmo tamanho.\")\n    \n    soma = 0.0\n    for preco, quantidade in zip(precos, quantidades):\n        if quantidade < 0:\n            raise ValueError(\"Quantidade n\u00e3o pode ser negativa.\")\n        soma += preco * quantidade\n    return soma\n\nif __name__ == \"__main__\":\n    # Testes solicitados\n    assert total([10, 2.5], [2, 3]) == 27.5\n    assert total([], []) == 0\n    \n    print(\"DEMO_OK\")"
+  },
+  "tested_image_id": "sha256:125195644fe6b7a04c7941376375136da65c92cca98c644c190dc4148fe079c1"
+}

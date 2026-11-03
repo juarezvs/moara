@@ -1,0 +1,28 @@
+{
+  "origin": "https://moara.am.trf1.gov.br",
+  "environment": "production",
+  "synthetic_account": true,
+  "checks": {
+    "workspace_as_regular_user": true,
+    "document_indexed": {
+      "status": "completed",
+      "error": null
+    },
+    "knowledge_answer": {
+      "status": "failed",
+      "error": "no_compatible_execution_available"
+    }
+  },
+  "images": [
+    "00-entrada-raiz.png",
+    "01-espaco-trabalho.png",
+    "02-documento-indexar.png",
+    "03-consultar-conhecimento.png",
+    "erro-captura.png"
+  ],
+  "root_url": "https://moara.am.trf1.gov.br/auth?redirect=%2F",
+  "root_title": "Moara AI",
+  "workspace_url": "https://moara.am.trf1.gov.br/moara/espaco",
+  "error": "knowledge_answer:no_compatible_execution_available",
+  "passed": false
+}

@@ -1,0 +1,26 @@
+{
+  "status": {
+    "transport": "mutual_tls_over_ssh",
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "gpu": {
+      "sampled_at": "2026-10-30T16:29:47Z",
+      "available": true,
+      "gpus": [
+        {
+          "name": "NVIDIA RTX A2000 12GB",
+          "memory_total_mib": 12282,
+          "memory_used_mib": 9955,
+          "memory_free_mib": 1944,
+          "temperature_c": 35,
+          "utilization_percent": 0
+        }
+      ]
+    }
+  },
+  "without_client_certificate": "rejected",
+  "untrusted_ca": "rejected",
+  "incorrect_server_identity": "rejected",
+  "streaming_gpu": "passed",
+  "embeddings_gpu": "passed"
+}

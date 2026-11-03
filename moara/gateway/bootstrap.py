@@ -63,5 +63,9 @@ async def seed(db,auth):
                 VALUES(:id,:name,:category,:enabled,:public,CAST(:owners AS jsonb),CAST(:groups AS jsonb),CAST(:settings AS jsonb),true) ON CONFLICT(id) DO NOTHING''',
                 {'id':alias,'name':old.get('name') or alias,'category':'coding' if alias in {'coding','qwen25-coder-32b','deepseek-coder-v2-lite'} else 'fast' if alias=='fast' else 'general',
                     'enabled':bool(old.get('is_active',True)),'public':public,'owners':as_json(sorted(set(owners))),'groups':as_json(groups),'settings':as_json(settings)},conn=conn)
-            await db.execute('''INSERT INTO moara.profile_models(profile_id,model_id,priority) VALUES(:profile,CAST(:model AS uuid),0) ON CONFLICT DO NOTHING''',
+            # Initial import must not restore an old mapping after an operator
+            # deliberately changes the model behind an existing profile.
+            await db.execute('''INSERT INTO moara.profile_models(profile_id,model_id,priority)
+                SELECT CAST(:profile AS varchar(64)),CAST(:model AS uuid),0 WHERE NOT EXISTS
+                (SELECT 1 FROM moara.profile_models WHERE profile_id=CAST(:profile AS varchar(64))) ON CONFLICT DO NOTHING''',
                 {'profile':alias,'model':str(identifier)},conn=conn)

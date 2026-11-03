@@ -1,0 +1,62 @@
+{
+  "published": true,
+  "tested_image_id": "sha256:368899965892c77c3fac238b77b93dfed93b84689218a60cd929ec06cd2a23e2",
+  "unit_tests": 264,
+  "frontend_tests": 10,
+  "checks": {
+    "tested_image_published": true,
+    "frontend_tests_passed": true,
+    "chat-stream-ui-stage.json": true,
+    "chat-stream-ui-public.json": true,
+    "chat-stream-citations-stage.json": true,
+    "chat-stream-citations-public.json": true,
+    "unrelated_backend_modules_preserved": true,
+    "legal_mcp_preserved": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "browser_reports": {
+    "chat-stream-ui-stage.json": {
+      "checks": 21,
+      "metrics": {
+        "network_reads": 102,
+        "visible_updates": 36,
+        "max_long_task_ms": 55
+      }
+    },
+    "chat-stream-ui-public.json": {
+      "checks": 22,
+      "metrics": {
+        "network_reads": 101,
+        "visible_updates": 37,
+        "max_long_task_ms": 54
+      }
+    },
+    "chat-stream-citations-stage.json": {
+      "checks": 13,
+      "metrics": {}
+    },
+    "chat-stream-citations-public.json": {
+      "checks": 13,
+      "metrics": {}
+    }
+  },
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "changed_backend_modules": [
+    "gateway/chat_api.py",
+    "gateway/chat_delivery.py"
+  ],
+  "database_migrations": false,
+  "stopped_private_candidates": [
+    "moara-chat-stream-tls-7d89370b02",
+    "moara-chat-stream-stage-3688999658",
+    "moara-chat-stream-tls-a045a3b82a",
+    "moara-chat-stream-stage-a9b7815f5e",
+    "moara-chat-stream-tls-2ac06a2385",
+    "moara-chat-stream-stage-0208e25c01"
+  ]
+}

@@ -1,9 +1,12 @@
 """Moara routing and OpenAI-compatible inference through the bounded CPU adapter."""
 import asyncio
 import json
+import re
 import time
 import uuid
 from datetime import datetime,timezone
+from typing import Literal
+from uuid import UUID
 import httpx
 from fastapi import APIRouter,Depends,HTTPException,Request
 from fastapi.responses import JSONResponse,StreamingResponse
@@ -12,6 +15,7 @@ from moara.identity.service import compose_prompt
 from moara.identity.stream import IdentityPrefixGuard
 from .auth import require
 from .catalog_api import visible_profiles,candidates
+from .chat_progress import publish
 
 router=APIRouter(tags=['Chat'])
 
@@ -34,6 +38,9 @@ class Completion(BaseModel):
     presence_penalty:float|None=Field(default=None,ge=-2,le=2)
     parallel_tool_calls:bool|None=None
     stream_options:dict|None=None
+    legal_context:dict|None=None
+    assistant_id:Literal['auto','juridica','gabinete','administrativa','documental','desenvolvedora','dados']='auto'
+    document_ids:list[UUID]=Field(default_factory=list,max_length=16)
 
 async def route(db,actor,body,excluded=()):
     profiles=await visible_profiles(db,actor)
@@ -78,41 +85,117 @@ async def record(db,actor,rid,profile,model,reason,stream,identity,status,durati
 @router.post('/api/v1/chat/completions')
 @router.post('/v1/chat/completions')
 async def completion(body:Completion,request:Request,actor=Depends(require('chat.use'))):
+    ide_model=body.model=='moara-code'
+    from .ide_compat import prepare as prepare_ide
+    body=prepare_ide(body,actor)
     validate_messages(body.messages)
+    if body.document_ids and body.tools and body.tool_choice!='none':raise HTTPException(422,'document_analysis_uses_application_tools')
     db=request.app.state.db;started=time.monotonic();rid=uuid.uuid4()
-    profile,model,reason=await route(db,actor,body)
+    automatic_model=body.model=='auto'
     identity,_=await request.app.state.identity.active()
-    last=body.messages[-1]
+    from .client_documents import split_questions,SOURCE_INSTRUCTION as INLINE_SOURCE_INSTRUCTION,validate as validate_inline_sources
+    policy_messages,inline_context=split_questions(body.messages,actor)
+    last=policy_messages[-1]
     canonical=None
     canonical_kind='institutional_identity'
-    if last.get('role')=='user' and not body.response_format and body.tool_choice not in ('required',) and not isinstance(body.tool_choice,dict):
+    from .legal_verification import preflight as legal_preflight,SELECTION_CAPABILITY
+    selection_only=request.scope.get('_moara_legal_selection') is SELECTION_CAPABILITY
+    from .legal_answer import RESEARCH_CAPABILITY
+    research_only=request.scope.get('_moara_legal_research') is RESEARCH_CAPABILITY
+    from .orchestration import CLASSIFICATION_CAPABILITY,FINITE_RANKING_CAPABILITY,PLATFORM_CONTEXT_CAPABILITY,prepare,assert_tool,for_tool,requires_data_execution
+    classification_only=request.scope.get('_moara_intent_classification') is CLASSIFICATION_CAPABILITY
+    ranking_only=request.scope.get('_moara_finite_ranking') is FINITE_RANKING_CAPABILITY
+    from .web_research import CAPABILITY as WEB_CAPABILITY
+    web_only=request.scope.get('_moara_web_research') is WEB_CAPABILITY
+    internal_task=selection_only or research_only or classification_only or ranking_only or web_only
+    assistant=None;identity_question=False
+    if not internal_task:
+        publish(request,'analyzing_request')
+        assistant,canonical,identity_question=await prepare(body,request,actor,identity,rid,policy_messages,inline_context is not None)
+        if canonical is not None:canonical_kind='institutional_policy'
+        if canonical is None and not identity_question and (body.legal_context or assistant and assistant['requires_legal_sources']):
+            publish(request,'preparing_legal_check')
+            if assistant:await for_tool(assistant,actor,'normas.read',request,rid)
+            canonical=await legal_preflight(policy_messages,request,actor,body.legal_context,force=True)
+            if canonical is not None:canonical_kind='legal_verification'
+    profile,model,reason=await route(db,actor,body.model_copy(update={'messages':policy_messages}) if inline_context else body)
+    if assistant and automatic_model:reason='assistant_shared_principal'
+    if not internal_task and canonical is None and last.get('role')=='user' and not body.response_format and body.tool_choice not in ('required',) and not isinstance(body.tool_choice,dict):
         from .data_chat import answer as data_answer
-        canonical=await data_answer(last.get('content',''),request,actor)
+        if assistant and assistant['id']=='dados' and requires_data_execution(last.get('content','')):
+            assert_tool(assistant,actor,'data.read')
+            if body.document_ids:
+                canonical={'answer':'Para calcular indicadores sobre os arquivos, defina no módulo Indicadores do espaço de trabalho a operação, a coluna e os filtros. Não vou apresentar uma contagem ou cálculo inferido de trechos parciais.',
+                           'sources':[],'execution_mode':'structured_document_calculation_required','inference_used':False}
+            else:
+                publish(request,'querying_data')
+                canonical=await data_answer(last.get('content',''),request,actor,force=True)
+                if canonical is None:canonical={'answer':'Nenhuma consulta de dados foi executada nesta operação. Não vou inferir números ou resultados institucionais. Utilize uma fonte e uma operação autorizadas.',
+                                              'sources':[],'execution_mode':'data_execution_required','inference_used':False}
         if canonical is not None:canonical_kind='authorized_data_query'
         from .institutional import answer as resolve
-        if canonical is None:canonical=await resolve(identity,last.get('content',''),request,actor,model=model['display_name'])
+        if canonical is None:canonical=await resolve(identity,last.get('content',''),request,actor,model=model['display_name'],messages=policy_messages)
+    matches=[]
+    platform_context=request.scope.get('_moara_platform_context',{})
+    supplied_authorized_sources=platform_context.get('capability') is PLATFORM_CONTEXT_CAPABILITY and platform_context.get('has_authorized_sources')
+    if not internal_task and not supplied_authorized_sources and assistant and canonical is None:
+        from .chat_evidence import retrieve
+        matches,canonical=await retrieve(body,request,actor,assistant,rid,inline_context is not None)
+        if canonical is not None:canonical_kind='institutional_policy'
+    if not internal_task and canonical is None and not body.tools and not body.response_format and not body.document_ids and not inline_context and not supplied_authorized_sources:
+        from .web_research import answer as web_answer
+        canonical=await web_answer(last.get('content',''),request,actor)
+        if canonical is not None:
+            canonical_kind='web_research'
+            from .legal_verification import guard_candidate
+            guarded_web=await guard_candidate(canonical['answer'],policy_messages,request,actor,assistant,rid)
+            if guarded_web is not None:
+                canonical={**guarded_web,'web_research':canonical['web_research']};canonical_kind='legal_verification'
     metadata={'request_id':str(rid),'profile':profile['id'],'model_id':str(model['id']),
         'model_name':model['display_name'],'reason':reason,'identity_version':identity.document.version,'inference_used':canonical is None}
+    if assistant:metadata['assistant']=assistant['public']
+    if any('<context>' in str(m.get('content') or '') for m in body.messages):
+        from .client_documents import PATTERN
+        metadata['attachment_input_diagnostics']={'upstream_client':actor.upstream_client_id,
+            'legacy_session':bool(actor.legacy_token),
+            'messages':[{'role':m.get('role'),'bytes':len(str(m.get('content') or '').encode()),
+                'context_blocks':str(m.get('content') or '').count('<context>'),
+                'question_blocks':str(m.get('content') or '').count('<moara_user_query>'),
+                'recognized_wrapper':bool(PATTERN.fullmatch(str(m.get('content') or '')))} for m in body.messages]}
     if canonical:
+        if canonical.get('web_research'):
+            metadata['web_research']=canonical['web_research'];metadata['inference_used']=canonical['web_research'].get('inference_used',False)
+        if canonical.get('self_knowledge'):metadata['self_knowledge']=canonical['self_knowledge']
         metadata['model_id']=None;metadata['model_name']=None
         metadata['reason']=canonical_kind
+        if canonical_kind=='legal_verification':metadata['legal_verification']=canonical['legal_verification'];metadata['inference_used']=canonical['legal_verification'].get('inference_used',False)
+        if canonical_kind=='institutional_policy':metadata['policy']=canonical['policy'];metadata['inference_used']=False
         if canonical_kind=='authorized_data_query':metadata.update(data_sources=canonical.get('sources',[]),execution_mode=canonical.get('execution_mode'),inference_used=canonical.get('inference_used',False),data_run_id=canonical.get('run_id'))
         await record(db,actor,rid,profile,model,canonical_kind,body.stream,identity,'canonical',round((time.monotonic()-started)*1000))
-        result={'id':'chatcmpl-'+rid.hex,'object':'chat.completion','created':int(time.time()),'model':'moara-data' if canonical_kind=='authorized_data_query' else 'moara-identity',
+        result={'id':'chatcmpl-'+rid.hex,'object':'chat.completion','created':int(time.time()),'model':{'authorized_data_query':'moara-data','legal_verification':'moara-legal','institutional_policy':'moara-policy','web_research':'moara-web'}.get(canonical_kind,'moara-identity'),
             'choices':[{'index':0,'message':{'role':'assistant','content':canonical['answer']},'finish_reason':'stop'}],
             'usage':{'prompt_tokens':0,'completion_tokens':0,'total_tokens':0},'moara':metadata}
+        if ide_model:result['model']='moara-code'
         if not body.stream:return result
-        async def canonical_stream():
-            yield sse({'id':result['id'],'object':'chat.completion.chunk','model':result['model'],'moara':metadata,
-                'choices':[{'index':0,'delta':{'role':'assistant','content':canonical['answer']},'finish_reason':None}]})
-            yield sse({'id':result['id'],'object':'chat.completion.chunk','model':result['model'],'choices':[{'index':0,'delta':{},'finish_reason':'stop'}]})
-            yield 'data: [DONE]\n\n'
-        return StreamingResponse(canonical_stream(),media_type='text/event-stream')
-    messages=compose_prompt(identity,body.messages)
+        from .chat_delivery import approved_stream
+        return StreamingResponse(approved_stream(result),media_type='text/event-stream',headers={'Cache-Control':'no-store','X-Accel-Buffering':'no'})
+    from .chat_evidence import compose as compose_evidence,SOURCE_INSTRUCTION,source_metadata
+    instruction=assistant['instructions'] if assistant else ''
+    if assistant:instruction+='\nAo produzir orientações gerais ou estruturas documentais sem conferência normativa concluída, use campos de fundamentação a conferir. Não acrescente números de leis, precedentes ou afirmações de vigência por memória do modelo.'
+    if matches:instruction+='\n'+SOURCE_INSTRUCTION;metadata.update(document_sources=source_metadata(matches),execution_mode='buffered_citation_validation')
+    if inline_context:instruction+='\n'+INLINE_SOURCE_INSTRUCTION;metadata['document_context']=inline_context
+    messages=compose_prompt(identity,compose_evidence(body.messages,matches),instruction,development=bool(assistant and assistant['id']=='desenvolvedora'))
     maximum=body.max_tokens or body.max_completion_tokens or profile['settings'].get('max_tokens',512)
-    # Conservative byte budget, explicitly an estimate, never silently truncate.
-    size=len(json.dumps({'messages':messages,'tools':body.tools},ensure_ascii=False).encode())
-    if size>max(1024,(model['context_length']-maximum)*3):raise HTTPException(413,'estimated_context_budget_exceeded')
+    from .context_budget import fit as fit_context,input_size,prefix_notice
+    attached_context=bool(matches) or any(re.search(r'<(?:source|context)\b',str(m.get('content') or ''),re.I) for m in body.messages)
+    messages,maximum,context_info,context_notice=fit_context(messages,body.tools,model['context_length'],maximum,attached_context)
+    metadata['context_management']=context_info
+    # Internal structured tasks consume JSON, not chat prose. Keep the budget
+    # adjustment in audit/metadata without corrupting that machine contract.
+    if internal_task and body.response_format:context_notice=''
+    if context_notice:
+        await db.audit(actor,'context.budget_adjusted','omitted_messages='+str(context_info['omitted_messages'])+';output_limit='+str(maximum),request_id=rid)
+    size=input_size(messages,body.tools)
     payload=body.model_dump(exclude_none=True)
     # Ignore unknown client fields instead of passing execution/transport options through.
     payload={k:v for k,v in payload.items() if k in {'stream','tools','tool_choice','response_format','temperature','max_tokens',
@@ -120,6 +203,12 @@ async def completion(body:Completion,request:Request,actor=Depends(require('chat
     if body.tool_choice=='none':payload.pop('tools',None)
     payload.update(model=model['legacy_alias'] or 'binding:'+str(model['binding_id']),messages=messages,max_tokens=maximum,
         temperature=body.temperature if body.temperature is not None else profile['settings'].get('temperature',0.2))
+    # Portal answers are checked before delivery, including unsolicited legal
+    # references. Native IDE tool streams keep their transport; explicit legal
+    # references in their input already went through application preflight.
+    guarded=bool(assistant and not ide_model)
+    buffered=bool(matches) or bool(inline_context) or guarded
+    if buffered:payload['stream']=False
     if profile['settings'].get('reasoning_effort'):payload['reasoning_effort']=profile['settings']['reasoning_effort']
     elif (model.get('family') or '').casefold().startswith('gemma4'):payload['reasoning_effort']='none'
     timeout=httpx.Timeout(float(profile['settings'].get('timeout',300)),connect=5)
@@ -130,7 +219,8 @@ async def completion(body:Completion,request:Request,actor=Depends(require('chat
     from opentelemetry.propagate import inject
     inject(headers)
     upstream=client.build_request('POST',request.app.state.settings.legacy_gateway+'/v1/chat/completions',json=payload,headers=headers,timeout=timeout)
-    try:response=await client.send(upstream,stream=body.stream)
+    if not internal_task:publish(request,'generating_response')
+    try:response=await client.send(upstream,stream=body.stream and not buffered)
     except httpx.HTTPError:response=None
     # One compatible alternative is allowed only in automatic mode, before any
     # output is delivered. Never retry rate limits, invalid inputs or tool errors.
@@ -156,7 +246,7 @@ async def completion(body:Completion,request:Request,actor=Depends(require('chat
                 timeout=httpx.Timeout(float(profile['settings'].get('timeout',300)),connect=5)
                 upstream=client.build_request('POST',request.app.state.settings.legacy_gateway+'/v1/chat/completions',json=payload,headers=headers,timeout=timeout)
                 await db.audit(actor,'routing.fallback',profile['id'],request_id=rid)
-                try:response=await client.send(upstream,stream=body.stream)
+                try:response=await client.send(upstream,stream=body.stream and not buffered)
                 except httpx.HTTPError:response=None
     if response is None:
         await record(db,actor,rid,profile,model,reason,body.stream,identity,'error',round((time.monotonic()-started)*1000),error='inference_unavailable')
@@ -166,33 +256,57 @@ async def completion(body:Completion,request:Request,actor=Depends(require('chat
         await response.aclose()
         await record(db,actor,rid,profile,model,reason,body.stream,identity,'error',round((time.monotonic()-started)*1000),error='inference_rejected')
         raise HTTPException(status,'inference_rejected')
+    backend=response.headers.get('x-moara-inference-backend')
+    if backend in ('gpu','cpu','cpu-fallback'):
+        metadata['execution_backend']=backend
+        if backend=='cpu-fallback':reason+=':cpu_fallback';metadata['reason']=reason
+    if buffered:
+        if not internal_task:publish(request,'checking_response')
+        from .chat_evidence import finalize_guarded
+        try:result=response.json()
+        finally:await response.aclose()
+        result['moara']=metadata
+        result=await finalize_guarded(result,matches,policy_messages,request,actor,assistant,rid,identity)
+        result=validate_inline_sources(result,inline_context)
+        result=prefix_notice(result,context_notice)
+        await record(db,actor,rid,profile,model,reason,body.stream,identity,'completed',round((time.monotonic()-started)*1000),usage=result.get('usage'))
+        if not body.stream:return JSONResponse(result)
+        from .chat_delivery import approved_stream
+        return StreamingResponse(approved_stream(result),media_type='text/event-stream',headers={'Cache-Control':'no-store','X-Accel-Buffering':'no'})
     if not body.stream:
         try:result=response.json()
         finally:await response.aclose()
+        if ide_model:result['model']='moara-code'
         for choice in result.get('choices',[]):
             content=choice.get('message',{}).get('content')
             if isinstance(content,str) and identity.rejects_self_identification(content):
                 choice['message']['content']=identity.document.presentation
                 metadata['identity_guard_applied']=True
         result['moara']=metadata
+        result=prefix_notice(result,context_notice)
         await record(db,actor,rid,profile,model,reason,False,identity,'completed',round((time.monotonic()-started)*1000),usage=result.get('usage'))
         return JSONResponse(result)
     async def stream():
         state='completed';ttft=None;usage={};finished=False
+        created=int(time.time())
         guard=IdentityPrefixGuard(identity)
         try:
-            yield sse({'object':'moara.routing','moara':metadata,'choices':[]})
+            yield sse({'id':'chatcmpl-'+rid.hex,'object':'chat.completion.chunk','created':created,'model':'moara-code' if ide_model else body.model,'moara':metadata,'choices':[]})
+            if context_notice:yield sse({'object':'chat.completion.chunk','choices':[{'index':0,'delta':{'content':context_notice},'finish_reason':None}]})
             async for line in response.aiter_lines():
                 if await request.is_disconnected():state='cancelled';break
                 if not line.startswith('data:'):continue
                 data=line[5:].strip()
                 if data=='[DONE]':
-                    for value in guard.flush():yield sse(value)
+                    for value in guard.flush():
+                        if ide_model:value.update(id='chatcmpl-'+rid.hex,object='chat.completion.chunk',created=created,model='moara-code')
+                        yield sse(value)
                     finished=True;yield 'data: [DONE]\n\n';break
                 try:chunk=json.loads(data)
                 except ValueError:continue
                 if chunk.get('usage'):usage=chunk['usage']
                 for value in guard.push(chunk):
+                    if ide_model:value.update(id='chatcmpl-'+rid.hex,object='chat.completion.chunk',created=created,model='moara-code')
                     if ttft is None and any(c.get('delta',{}).get('content') or c.get('delta',{}).get('tool_calls') for c in value.get('choices',[])):
                         ttft=round((time.monotonic()-started)*1000)
                     yield sse(value)
@@ -209,7 +323,10 @@ async def completion(body:Completion,request:Request,actor=Depends(require('chat
 
 @router.post('/api/v1/chat/stream')
 async def completion_stream(body:Completion,request:Request,actor=Depends(require('chat.use'))):
-    return await completion(body.model_copy(update={'stream':True}),request,actor)
+    # Structural input failures retain their normal HTTP status before SSE opens.
+    validate_messages(body.messages)
+    from .chat_progress import with_progress
+    return with_progress(request,lambda:completion(body.model_copy(update={'stream':True}),request,actor))
 
 @router.get('/api/v1/status')
 async def status(request:Request,actor=Depends(require('status.read'))):

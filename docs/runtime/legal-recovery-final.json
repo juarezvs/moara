@@ -1,0 +1,20 @@
+{
+  "mcp_version": "0.6.0",
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "published": true,
+  "image": "sha256:2bd9e2e5a1ab6a5b7803f15265fcc801488a6a464bb401708e431275e50b77cd",
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-2bd9e2e5a1-47b085ba",
+    "moara-legal-app-recovery-stage-2bd9e2e5a1",
+    "moara-legal-recovery-stage-2bd9e2e5a1",
+    "moara-legal-app-recovery-stage-7e0324ecb9",
+    "moara-legal-recovery-stage-7e0324ecb9",
+    "moara-legal-app-recovery-stage-7108b7004f",
+    "moara-legal-recovery-stage-7108b7004f",
+    "moara-legal-app-recovery-stage-40f58a3be5",
+    "moara-legal-recovery-stage-40f58a3be5",
+    "moara-legal-recovery-stage-bb9597634d",
+    "moara-legal-app-discovery-stage-bb9597634d"
+  ]
+}

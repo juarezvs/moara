@@ -1,0 +1,30 @@
+services:
+  moara-gateway:
+    image: moara-core:legal-20261030
+    secrets: [moara_legal_key]
+  moara-migrate:
+    image: moara-core:legal-20261030
+  moara-legal-mcp:
+    image: moara-core:legal-20261030
+    restart: unless-stopped
+    command: [uvicorn,moara.legal_mcp.main:app,--host,0.0.0.0,--port,'8076',--workers,'1',--no-access-log]
+    networks: [moara_control,moara_legal_egress]
+    secrets: [moara_legal_key]
+    read_only: true
+    tmpfs: ['/tmp:size=32m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1
+    pids_limit: 64
+    healthcheck:
+      test: [CMD,python,-c,'import urllib.request; urllib.request.urlopen("http://localhost:8076/health",timeout=5)']
+      interval: 20s
+      timeout: 7s
+      retries: 3
+    logging: {driver: json-file,options: {max-size: 10m,max-file: '3'}}
+networks:
+  moara_legal_egress: {}
+secrets:
+  moara_legal_key: {file: ../secrets/moara_legal_key}

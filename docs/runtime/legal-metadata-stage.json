@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "authentication_required": true,
+    "all_pages_accounted_for": true,
+    "no_duplicate_norms": true,
+    "alias_search_finds_law_8112": true,
+    "exact_identity_filter": true,
+    "untrusted_search_not_executed": true,
+    "export_complete": true,
+    "all_archived_sources_pass_sha256": true,
+    "every_metadata_record_matches_official_snapshot": true,
+    "metadata_not_misrepresented_as_normative_text": true,
+    "mcp_tool_uses_same_catalogue": true
+  },
+  "total": 1278,
+  "counts": {
+    "metadata_records": 1278,
+    "lexml_retrieved": 6,
+    "jsonld_legislation": 0,
+    "labelled_html": 6
+  },
+  "version": "20261031T233104575451Z-31b1d288f1",
+  "collected_at": "2026-10-31T23:31:04.575421+00:00",
+  "tested_image_id": "sha256:086237d7616ce566b4e9be7bd870e9fab0a5cae6c5411aa38499bb6bf84b81a8"
+}

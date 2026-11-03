@@ -1,0 +1,92 @@
+{
+  "checks": {
+    "exact_request_delivers_petition": true,
+    "does_not_ask_generic_date_or_subject": true,
+    "pending_fields_not_invented_facts": true,
+    "draft_research_is_not_case_date": true,
+    "no_automatic_entitlement_claim": true,
+    "actual_official_8213_text_retrieved": true,
+    "grounded_legal_reasoning_not_quote_fallback": true,
+    "legal_claims_have_existing_source_ids": true,
+    "evidence_integrity_replayed": true,
+    "date_and_private_fact_policy_recorded": true,
+    "family_economy_is_not_universal_requirement": true
+  },
+  "elapsed_seconds": 76.84,
+  "question": "crie uma peti\u00e7\u00e3o para aposentadoria de um pescador, segurado especial, com fundamenta\u00e7\u00e3o jur\u00eddica robusta.\n\nMODO DE TRABALHO: prepare um RASCUNHO para revis\u00e3o humana. Preserve campos pendentes e diferencie fatos informados de hip\u00f3teses. N\u00e3o pratique atos oficiais.",
+  "answer": "# RASCUNHO \u2014 PETI\u00c7\u00c3O INICIAL DE CONCESS\u00c3O DE APOSENTADORIA \u2014 SEGURADO ESPECIAL PESCADOR\n\n**Premissas para revis\u00e3o:** documento preparat\u00f3rio; os campos entre colchetes precisam ser preenchidos e conferidos. A pesquisa das fontes n\u00e3o comprova os fatos nem o direito ao benef\u00edcio.\n\n**Informado no pedido:** pretende-se uma peti\u00e7\u00e3o de aposentadoria para pescador indicado como segurado especial. **Hip\u00f3tese de estrutura:** aposentadoria por idade do segurado especial; a modalidade precisa ser confirmada. Idade, sexo, per\u00edodos de pesca, DER, decis\u00e3o do INSS e provas devem ser preenchidos ou conferidos a partir do relato e dos documentos; dados ausentes n\u00e3o foram presumidos.\n\n## 1. Endere\u00e7amento e qualifica\u00e7\u00e3o\n\n**AO JU\u00cdZO COMPETENTE DA [SUBSE\u00c7\u00c3O/COMARCA] \u2014 [RITO E COMPET\u00caNCIA A CONFERIR]**\n\n**[NOME DO REQUERENTE]**, [nacionalidade], [estado civil], [profiss\u00e3o], [data de nascimento], CPF [n\u00famero], residente em [endere\u00e7o], por [advogado/procurador, se cab\u00edvel, qualifica\u00e7\u00e3o e procura\u00e7\u00e3o], apresenta o presente pedido em face do INSS, [QUALIFICA\u00c7\u00c3O E REPRESENTA\u00c7\u00c3O PROCESSUAL A CONFERIR].\n\n## 2. Dos fatos e do pedido administrativo\n\nO requerente afirma exercer a pesca em **[LOCAL]**, no per\u00edodo de **[IN\u00cdCIO] a [FIM]**, em **[CONDI\u00c7\u00d5ES DA ATIVIDADE E ORGANIZA\u00c7\u00c3O DO TRABALHO A DESCREVER]**. Esses campos s\u00e3o informa\u00e7\u00f5es a levantar, e n\u00e3o fatos considerados comprovados nesta minuta.\n\n**[SE HOUVE PEDIDO ADMINISTRATIVO, COMPLETAR:]** Na data de **[DER \u2014 DATA DE ENTRADA DO REQUERIMENTO]**, foi apresentado ao INSS o pedido de **[ESP\u00c9CIE DO BENEF\u00cdCIO]**, NB/protocolo **[N\u00daMERO]**. **[SE HOUVE DECIS\u00c3O, INFORMAR SUA DATA E FUNDAMENTO; SE H\u00c1 OMISS\u00c3O, DESCREVER O ANDAMENTO REAL. N\u00c3O AFIRMAR A EXIST\u00caNCIA DE PEDIDO OU INDEFERIMENTO SEM CONFER\u00caNCIA.]**\n\nA controv\u00e9rsia a enfrentar \u00e9 **[MOTIVO CONCRETO DO INDEFERIMENTO/QUEST\u00c3O CONTROVERTIDA]**. A idade, os per\u00edodos alegados, a situa\u00e7\u00e3o previdenci\u00e1ria e os documentos ser\u00e3o confrontados com a legisla\u00e7\u00e3o aplic\u00e1vel nas respectivas datas.\n\n## 3. Da fundamenta\u00e7\u00e3o jur\u00eddica\n\nNo contexto da legisla\u00e7\u00e3o federal consultada:\n\nO enquadramento do requerente como segurado especial decorre do disposto no art. 11, inciso VII, al\u00ednea b, da Lei n\u00ba 8.213/1991. A norma estabelece que a pessoa f\u00edsica residente em im\u00f3vel rural ou em aglomerado urbano ou rural pr\u00f3ximo a ele, que fa\u00e7a da pesca artesanal ou a este assemelhado como profiss\u00e3o habitual ou principal meio de vida, qualifica-se como segurado especial. [L1.2](https://www2.camara.leg.br/legin/fed/lei/1991/lei-8213-24-julho-1991-363650-normaatualizada-pl.html)\n\nPara a concess\u00e3o do benef\u00edcio, a legisla\u00e7\u00e3o prev\u00ea a garantia de aposentadoria por idade para os segurados especiais, conforme o art. 39, inciso I, da Lei n\u00ba 8.213/1991. O requisito legal exige a comprova\u00e7\u00e3o do exerc\u00edcio da atividade de pesca, ainda que de forma descont\u00ednua, no per\u00edodo imediatamente anterior ao requerimento do benef\u00edcio, em tempo igual ao n\u00famero de meses correspondentes \u00e0 car\u00eancia do benef\u00edcio requerido. [L1.3](https://www2.camara.leg.br/legin/fed/lei/1991/lei-8213-24-julho-1991-363650-normaatualizada-pl.html)\n\nO limite de idade para a concess\u00e3o da aposentadoria por idade ao segurado especial \u00e9 reduzido, nos termos do art. 48, \u00a7 1\u00ba, da Lei n\u00ba 8.213/1991. Para o homem, o limite \u00e9 de 60 anos e para a mulher, 55 anos. A aplica\u00e7\u00e3o desta norma condiciona-se \u00e0 comprova\u00e7\u00e3o do efetivo exerc\u00edcio da atividade de pesca no per\u00edodo imediatamente anterior ao requerimento do benef\u00edcio, por tempo igual \u00e0 car\u00eancia exigida. [L1.4](https://www2.camara.leg.br/legin/fed/lei/1991/lei-8213-24-julho-1991-363650-normaatualizada-pl.html)\n\nA explica\u00e7\u00e3o se limita aos pontos que puderam ser fundamentados nesta consulta.\n\n**Forma de exerc\u00edcio da atividade:** o dispositivo consultado admite atua\u00e7\u00e3o **individualmente ou em regime de economia familiar**. A economia familiar n\u00e3o foi adotada como exig\u00eancia universal nesta minuta. [L1.2](https://www2.camara.leg.br/legin/fed/lei/1991/lei-8213-24-julho-1991-363650-normaatualizada-pl.html)\n\n**Aplica\u00e7\u00e3o aos fatos \u2014 completar ap\u00f3s a prova:** demonstrar, separadamente, **[ENQUADRAMENTO COMO SEGURADO ESPECIAL]**, **[REQUISITO ET\u00c1RIO NA DATA PERTINENTE]**, **[PER\u00cdODO DE ATIVIDADE/CAR\u00caNCIA]** e **[DOCUMENTOS QUE SUSTENTAM CADA PER\u00cdODO]**. A indica\u00e7\u00e3o de uma norma n\u00e3o supre a demonstra\u00e7\u00e3o desses elementos.\n\n## 4. Da prova e dos pontos controvertidos\n\n[RELACIONAR OS DOCUMENTOS EFETIVAMENTE DISPON\u00cdVEIS, SUAS DATAS, TITULARES E O FATO QUE CADA UM SUSTENTA. INDICAR DIVERG\u00caNCIAS, PER\u00cdODOS SEM COBERTURA E OUTRAS PROVAS A REQUERER, COM PERTIN\u00caNCIA AO CASO.]\n\nConferir o CNIS e o processo administrativo, a documenta\u00e7\u00e3o da atividade pesqueira e eventual autodeclara\u00e7\u00e3o. N\u00e3o se presume que registro de pescador, recebimento de seguro-defeso ou declara\u00e7\u00e3o isolada satisfa\u00e7a automaticamente todos os requisitos da aposentadoria.\n\n## 5. Dos pedidos\n\nDiante do exposto, requer-se, **conforme os fatos e os fundamentos que forem confirmados**:\n\n1. [RECEBIMENTO E PROCESSAMENTO DO PEDIDO, COM DEFINI\u00c7\u00c3O DO RITO E DA COMPET\u00caNCIA, QUANDO JUDICIAL].\n\n2. O reconhecimento da condi\u00e7\u00e3o de segurado especial e dos per\u00edodos de atividade **[PER\u00cdODOS]**, na extens\u00e3o efetivamente comprovada.\n\n3. A concess\u00e3o de **[MODALIDADE DA APOSENTADORIA]**, se demonstrados os requisitos aplic\u00e1veis, com termo inicial **[DATA E FUNDAMENTO A CONFERIR]** e efeitos financeiros **[A APURAR, SE CAB\u00cdVEIS]**.\n\n4. A aprecia\u00e7\u00e3o das provas indicadas e a produ\u00e7\u00e3o de **[PROVAS PERTINENTES A ESPECIFICAR]**.\n\n5. [PEDIDOS EVENTUAIS DE GRATUIDADE, TUTELA, INTIMA\u00c7\u00d5ES, ENCARGOS E DEMAIS CONSEQU\u00caNCIAS PROCESSUAIS: INCLUIR APENAS AP\u00d3S CONFERIR PRESSUPOSTOS, DOCUMENTOS E FUNDAMENTA\u00c7\u00c3O].\n\n## 6. Valor, fechamento e revis\u00e3o\n\n**Valor da causa, quando cab\u00edvel:** R$ **[VALOR A CALCULAR, COM MEM\u00d3RIA E CRIT\u00c9RIO JUR\u00cdDICO A CONFERIR]**.\n\nTermos em que, pede deferimento.\n\n[LOCAL], [DATA].\n\n[NOME E ASSINATURA DO RESPONS\u00c1VEL / OAB, QUANDO CAB\u00cdVEL].\n\n### Antes de utilizar\n\nPreencher os campos, confrontar os fatos e documentos com as fontes e revisar pedidos, compet\u00eancia e c\u00e1lculos. Nenhuma a\u00e7\u00e3o foi protocolada ou assinada. A data de consulta das fontes n\u00e3o foi adotada como DER, data de aquisi\u00e7\u00e3o do direito ou data dos fatos.\n\nData de refer\u00eancia: 2026-11-02. Fontes conferidas em 2026-11-02T18:18:41.589635+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/9a8f5dd3-69f6-47c8-8b69-f20323b54d4a)",
+  "metadata": {
+    "status": "official_sources_retrieved",
+    "reference_date_basis": "current_date_for_draft_research_not_case",
+    "reference_date": "2026-11-02",
+    "evidence_id": "9a8f5dd3-69f6-47c8-8b69-f20323b54d4a",
+    "evidence_url": "/moara/api/v1/legal/evidence/9a8f5dd3-69f6-47c8-8b69-f20323b54d4a",
+    "legal_conclusion_allowed": false,
+    "inference_used": true,
+    "inference_purpose": "grounded_explanation",
+    "answer_status": "legal_draft_with_pending_fields",
+    "draft": true,
+    "execution_backend": "gpu"
+  },
+  "grounding_status": "grounded_explanation",
+  "validation_rejections": [],
+  "review_issues": [
+    [
+      {
+        "index": 2,
+        "reason": "O texto afirma que a car\u00eancia \u00e9 de 180 contribui\u00e7\u00f5es mensais, mas o suporte L1.5:2 indica que para segurados especiais (inciso VII do art. 11), a car\u00eancia \u00e9 de 10 contribui\u00e7\u00f5es mensais (conforme o inciso III do art. 25, correlacionado ao art. 39, par\u00e1grafo \u00fanico, e a regra de comprova\u00e7\u00e3o de tempo de"
+      },
+      {
+        "index": 4,
+        "reason": "A fonte permite atividade individual OU economia familiar; n\u00e3o converter a segunda alternativa em requisito universal."
+      }
+    ],
+    [
+      {
+        "index": 2,
+        "reason": "O texto afirma que a car\u00eancia \u00e9 de 180 contribui\u00e7\u00f5es mensais, mas o suporte L1.5:2 indica que o art. 25, inciso II, estabelece 180 contribui\u00e7\u00f5es para aposentadoria por idade, por\u00e9m o suporte L1.3:1 e L1.4:2 especificam que para o segurado especial, a comprova\u00e7\u00e3o do exerc\u00edcio da atividade substitui a"
+      },
+      {
+        "index": 4,
+        "reason": "A fonte permite atividade individual OU economia familiar; n\u00e3o converter a segunda alternativa em requisito universal."
+      }
+    ]
+  ],
+  "failure_reason": null,
+  "model_outputs": null,
+  "sources": [
+    {
+      "norm": {
+        "kind": "LEI",
+        "number": 8213,
+        "year": 1991,
+        "articles": [
+          "11",
+          "25",
+          "38-a",
+          "38-b",
+          "39",
+          "48",
+          "55",
+          "106"
+        ]
+      },
+      "source": "https://www2.camara.leg.br/legin/fed/lei/1991/lei-8213-24-julho-1991-363650-normaatualizada-pl.html",
+      "devices": [
+        "identificacao",
+        "art11",
+        "art39",
+        "art48",
+        "art25",
+        "art55",
+        "art38-a",
+        "art38-b",
+        "art106"
+      ]
+    }
+  ],
+  "images": {
+    "core": "sha256:7db47ab68695042db078facd464a62825ae9d41573725cd48340dbb439b9707e",
+    "mcp": "sha256:d97ef9943c654e944763226d318a8560a5cf4cc4b5bb9346f5db11537e1b1e80"
+  }
+}

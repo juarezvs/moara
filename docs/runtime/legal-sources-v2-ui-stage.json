@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "native_chat_uses_new_camara_provenance": true,
+    "official_wording_and_version_dates_in_answer": true,
+    "related_norms_reported": true,
+    "encrypted_evidence_manifest_integrity": true,
+    "replay_is_not_new_verification": true,
+    "schema2_with_official_sources": true,
+    "no_uncertified_legal_conclusion": true,
+    "public_manifest_omits_source_binaries": true,
+    "downloaded_source_hashes_reproduce": true,
+    "source_snapshot_count": 8,
+    "evidence_page_displays_new_history_and_checks": true,
+    "evidence_not_public": true,
+    "ordinary_chat_remains_available": true,
+    "no_javascript_errors": true,
+    "synthetic_chat_archived": true
+  },
+  "created_chats": [
+    "e5f6a527-9e36-4e8e-9c51-93b0af81e5d6",
+    "3e5474bf-8eaf-4e0a-91da-6304837597c1"
+  ],
+  "evidence_ids": [
+    "7efc96df-000e-4790-a66d-3d06ca646670"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

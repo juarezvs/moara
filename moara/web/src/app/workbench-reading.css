@@ -1,0 +1,45 @@
+/* One reading column for question and answer, retaining the Moara shell. */
+.work-conversation .messages{padding:24px clamp(12px,3vw,34px)}
+.work-conversation .message{box-sizing:border-box;width:100%;max-width:850px;margin:0 auto 28px;padding:18px 22px;font-size:15px;line-height:1.8;min-width:0}
+.work-conversation .user-message{width:100%;max-width:850px;margin-inline:auto}
+.message-copy{display:flex;justify-content:flex-start;margin-top:14px}.message-copy button{font-size:11px;color:var(--brand-muted);padding:5px 8px;border-radius:6px}.message-copy button:hover{background:var(--work-soft)}
+@media(max-width:600px){.work-conversation .messages{padding:16px 10px}.work-conversation .message{font-size:14px;padding:14px 12px;margin-bottom:20px}}
+
+/* Explicit request/reply positioning; streamed text must not pull the reader down. */
+.work-main,.work-conversation .messages{overflow-anchor:none}
+
+/* The document is the vertical scroll owner; messages grow with their HTML. */
+:host,.legal-workbench,.work-main,.work-body,.work-conversation,.work-conversation .messages{
+  min-width:0;
+  height:auto;
+  max-height:none;
+  overflow:visible;
+}
+.legal-workbench{align-items:start}
+.work-main{min-height:calc(100dvh - 73px)}
+.work-conversation .messages{min-height:0}
+.work-conversation .message{overflow-wrap:anywhere}
+
+/* Keep controls in normal flow above a compact, opaque sticky composer. */
+.composer-support{padding:16px clamp(22px,4vw,64px);min-width:0}
+.composer-support .work-settings,.composer-support .context-card{margin:0 auto 16px;max-width:1020px}
+.work-composer-zone{
+  position:sticky;
+  bottom:0;
+  z-index:10;
+  background:var(--brand-surface,#fff);
+  border-top:1px solid var(--brand-line,var(--border));
+  padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
+}
+.welcome-composer .work-composer-zone{position:static;background:transparent;border:0}
+.work-composer{max-width:1020px;margin-inline:auto}
+.work-composer-zone .context-chips{max-width:1020px;margin-inline:auto}
+.has-conversation .work-composer textarea{min-height:76px}
+.work-composer textarea{max-height:180px}
+:host-context([data-theme=dark]) .work-composer-zone{background:var(--brand-surface,#172a3b)}
+@media(max-width:760px){.work-main{min-height:calc(100dvh - 65px)}}
+@media(max-width:700px){
+  .work-composer-zone{position:sticky;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px))}
+  .work-composer-zone .work-composer textarea{min-height:72px;padding-bottom:12px!important}
+  .composer-support{padding:12px}
+}

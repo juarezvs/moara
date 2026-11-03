@@ -1,0 +1,9 @@
+[Unit]
+Description=Check and restore Moara primary GPU residency
+After=moara-gpu.service
+Requires=moara-gpu.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/moara-gpu/keep_warm.py
+TimeoutStartSec=300

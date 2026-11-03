@@ -1,0 +1,3 @@
+services:
+  moara-gateway:
+    image: moara-core:work-progress-20261030

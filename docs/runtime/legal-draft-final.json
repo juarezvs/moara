@@ -1,0 +1,58 @@
+{
+  "published": true,
+  "images": {
+    "core": "sha256:7db47ab68695042db078facd464a62825ae9d41573725cd48340dbb439b9707e",
+    "mcp": "sha256:d97ef9943c654e944763226d318a8560a5cf4cc4b5bb9346f5db11537e1b1e80"
+  },
+  "unit_tests": 299,
+  "checks": {
+    "unit_tests_pass": true,
+    "core_is_tested_image": true,
+    "mcp_is_tested_image": true,
+    "legal-draft-live-stage.json": true,
+    "legal-draft-live-public.json": true,
+    "legal-draft-ui-stage.json": true,
+    "legal-draft-ui-public.json": true,
+    "search_has_no_host_ports": true,
+    "search_restarts_automatically": true,
+    "search_is_on_private_network": true,
+    "ai-server-moara-gateway-1_catalogues_read_only": true,
+    "ai-server-moara-legal-mcp-1_catalogues_read_only": true,
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "frontend_brand_assets_preserved": true,
+    "active_css_has_only_reviewed_unused_utility_removal": true,
+    "concurrent_api_key_update_preserved": true,
+    "legal_metadata_timer_active": true
+  },
+  "inference": {
+    "available": true,
+    "principal_resident": true,
+    "embeddings_resident": true
+  },
+  "database_migrations": false,
+  "stopped_private_candidates": [
+    "moara-legal-draft-tls-4dc0a6d4db",
+    "moara-legal-draft-app-stage-7db47ab686",
+    "moara-legal-draft-mcp-stage-7db47ab686",
+    "moara-legal-draft-tls-e3b4aa6042",
+    "moara-legal-draft-app-stage-e6123b0452",
+    "moara-legal-draft-mcp-stage-e6123b0452",
+    "moara-legal-draft-tls-f435e7853f",
+    "moara-legal-draft-app-stage-0b3ebdc1aa",
+    "moara-legal-draft-mcp-stage-0b3ebdc1aa",
+    "moara-legal-draft-tls-8eeef6f6f2",
+    "moara-legal-draft-app-stage-b18384911f",
+    "moara-legal-draft-mcp-stage-b18384911f",
+    "moara-legal-draft-tls-76f565ec5e",
+    "moara-legal-draft-app-stage-0a2b70393f",
+    "moara-legal-draft-mcp-stage-0a2b70393f",
+    "moara-legal-draft-app-stage-fc9e2b3513",
+    "moara-legal-draft-mcp-stage-fc9e2b3513",
+    "moara-legal-draft-tls-959fb382e9",
+    "moara-legal-draft-app-stage-029331ba58",
+    "moara-legal-draft-mcp-stage-029331ba58",
+    "moara-legal-draft-app-stage-94d9c1beb7",
+    "moara-legal-draft-mcp-stage-94d9c1beb7"
+  ]
+}

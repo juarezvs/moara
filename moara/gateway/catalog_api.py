@@ -19,7 +19,9 @@ async def visible_profiles(db,actor):
     result=[]
     for row in rows:
         if actor.allowed_profiles is not None and row['id'] not in actor.allowed_profiles:continue
-        permitted=actor.can('profiles.manage') or row['public'] or actor.subject in row['allowed_subjects'] or groups.intersection(row['allowed_groups'])
+        # The initial chat role includes the shared principal, never arbitrary model profiles.
+        default_chat=(row['id']=='gemma4-12b' and 'user' in actor.roles and actor.can('chat.use') and actor.auth_source!='integration')
+        permitted=default_chat or actor.can('profiles.manage') or bool(actor.key_id and getattr(actor,'owner_profiles_manage',False)) or row['public'] or actor.subject in row['allowed_subjects'] or groups.intersection(row['allowed_groups'])
         # Existing integration keys retain their previously authorized aliases.
         if actor.auth_source=='integration' and actor.upstream_key and row['legacy_compatible']:permitted=True
         if permitted:result.append(row)
@@ -49,9 +51,18 @@ async def openai_models(request:Request,actor=Depends(require('profiles.read')))
     for profile in await visible_profiles(request.app.state.db,actor):
         if await candidates(request.app.state.db,profile):available.append(profile)
     data=[{'id':p['id'],'object':'model','created':0,'owned_by':'moara','name':p['name']} for p in available]
+    if actor.can('development.use') and any(p['id']=='general' and p['manual_allowed'] for p in available):
+        data.insert(0,{'id':'moara-code','object':'model','created':0,'owned_by':'moara','name':'Moara Desenvolvedora'})
     if any(p['settings'].get('auto_eligible',p['id'] in {'coding','general','fast'}) for p in available):
         data.insert(0,{'id':'auto','object':'model','created':0,'owned_by':'moara','name':'Moara AI · Automático'})
     return {'object':'list','data':data}
+
+@compat_router.get('/v1/models/{identifier}')
+async def openai_model(identifier:str,request:Request,actor=Depends(require('profiles.read'))):
+    values=await openai_models(request,actor)
+    model=next((m for m in values['data'] if m['id']==identifier),None)
+    if model is None:raise HTTPException(404,'model_not_found')
+    return model
 
 @router.get('/models')
 async def models(request:Request,actor=Depends(require('models.read'))):

@@ -1,0 +1,898 @@
+
+--- PAGE 1 ---
+
+
+--- PAGE 2 ---
+
+
+--- PAGE 3 ---
+Comitê Gestor de Informação do Portal LexML
+Grupo de Trabalho de Elaboração do Manual de Pesquisa do Portal LexML
+Manual de Pesquisa do Portal LexML
+Senado Federal
+2013
+
+--- PAGE 4 ---
+Créditos  
+Integrantes do Grupo de Trabalho de Elaboração do Manual de Pesquisa do Portal LexML
+Beethoven Batista Filho – Procuradoria Geral da República
+Cláudia Sardinha Schneider – Procuradoria Geral da República
+Doraeliza Wainer Di Pilla Gorovitz – Procuradoria Geral da República
+Edilenice J. Lima Passos – Senado Federal
+Ernesto Carlos Bodê – Câmara dos Deputados
+João Alberto de Oliveira Lima – Senado Federal
+Najla Bastos de Melo – Superior Tribunal de Justiça – Coordenadora do Grupo de Trabalho
+Patrícia Coelho F. Menezes da Silva – Senado Federal 
+Patricia Cristina Moura Pessoa Baena – Câmara dos Deputados
+Colaboradores:
+Rodrigo Corrêa Ribeiro – Senado Federal (capa e diagramação)
+___________________________________________________________________________________________________________________
+   Comitê Gestor de Informação do Portal LexML (Brasil)( CGLEXML).  Grupo de Trabalho de 
+          Elaboração do Manual de Pesquisa do Portal LexML. 
+       Manual de pesquisa do portal LexML / Comitê Gestor de Informação do Portal LexML , Grupo de Trabalho de Elaboração do Manual de 
+Pesquisa do Portal LexML. – Brasília : Senado Federal, 2013. 
+          44 p.  : il. ; 15,5 cm. 
+ISBN 978-85-7018-506-8
+1. Gestão da informação jurídica. 2. Pesquisa jurídica, manual, Brasil. I. Título.
+CDD 001.5___________________________________________________________________________________________________________________
+
+--- PAGE 5 ---
+Sumário
+Apresentação .......................................................................................................................................................................................................................................... 7
+Introdução
+ 
+................................................................................................................................................................................................................................................ 7
+1 Noções básicas para pesquisar no Portal LexML
+ 
+.......................................................................................................................................................... 8
+2 Operadores para combinar palavras
+ 
+..................................................................................................................................................................................11
+3 Pesquisa simplificada e avançada
+ 
+............................................................................................................................................................................................13
+4 O resultado da pesquisa
+ 
+............................................................................................................................................................................................................20
+5 Detalhamento do documento selecionado
+ 
+....................................................................................................................................................................27
+6 Recomendações para melhorar sua pesquisa
+ 
+...............................................................................................................................................................35
+Glossário
+ 
+..................................................................................................................................................................................................................................................37
+
+--- PAGE 6 ---
+
+
+--- PAGE 7 ---
+Apresentação
+A missão do Projeto LexML é organizar a informação legislativa e jurídica do Brasil. Trata-se de uma iniciativa 
+patrocinada pela Comunidade de Tecnologia da Informação aplicada ao Controle (www.ticontrole.gov.br) que 
+reúne representantes dos Poderes Legislativo, Executivo, Judiciário, do Ministério Público e da Advocacia-Geral 
+da União. Essa iniciativa é realizada primordialmente pelo Senado Federal.
+O portal de pesquisa da Rede de Informação Legislativa e Jurídica LexML (www.lexml.gov.br) foi inaugurado 
+em 30 de junho de 2009 e é um dos principais resultados desse projeto. 
+Introdução
+O acervo do Portal LexML reúne, organiza, integra e dá acesso a documentos de legislação, jurisprudência e 
+proposições legislativas das esferas federal, estadual e municipal dos Poderes Executivo, Legislativo e Judiciário 
+e do Ministério Público. Disponibiliza ainda doutrina correlacionada com a legislação, por meio do acesso ao 
+registro de livros jurídicos disponíveis na Rede RVBI (Rede Virtual de Bibliotecas).
+É um imenso volume de informação, especializada e atualizada diariamente, com formatos diferentes e 
+integrado em um único portal de pesquisa. Essa diversidade de tipos de informação implica em campos 
+específicos de pesquisa para cada categoria de documento, sendo necessário também o desenvolvimento de 
+formatos distintos de apresentação de resultados de busca. 
+Para permitir o melhor aproveitamento pelo usuário, apresentamos o manual completo de utilização 
+desse sistema de informações com orientação sobre o que abrange cada categoria e tipo de documento 
+7
+
+--- PAGE 8 ---
+e detalhes de como utilizar da melhor forma a pesquisa avançada na busca por informações específicas. O 
+manual aprofunda as questões apresentadas na Lista de Perguntas Frequentes (FAQ), e dá ao pesquisador as 
+ferramentas necessárias para a construção de estratégias de busca mais elaboradas. Descreve ainda passo a 
+passo a utilização dos operadores de busca e filtros disponíveis, além de trazer exemplos do resultado de cada 
+operação ou refinamento sugerido.
+O manual está estruturado nas seguintes seções:
+1 – Noções básicas para pesquisar no Portal LexML;
+2 – Operadores para combinar palavras;
+3 – Pesquisa simplificada e avançada;
+4 – O resultado da pesquisa;
+5 - Detalhamento do documento selecionado;
+6 – Recomendações para melhorar a sua pesquisa.
+Há ainda, ao final, um glossário que reúne os principais conceitos utilizados neste manual.
+A base de dados do Portal LexML é referencial, isto é, são indexadas as informações descritivas. O acesso ao 
+inteiro teor dos documentos é realizado por link para as bases de informações das instituições que participam 
+da Rede LexML.
+1 Noções básicas para pesquisar no Portal LexML
+Antes de iniciar a pesquisa, é necessário ter conhecimento de algumas noções básicas sobre a utilização 
+do Portal LexML.
+8
+
+--- PAGE 9 ---
+1.1 Múltiplas formas, mesmo resultado
+É indiferente:
+a) uso de maiúsculas e minúsculas
+Exemplo: Uma pesquisa da palavra Paraíba traz os mesmos resultados de uma pesquisa da palavra paraíba.
+b) acentuação e cedilha
+Exemplo: A pesquisa das palavras instituição, instituiçao ou instituicao retornará a mesma quantidade 
+de documentos. 
+c) pontuação e zeros à esquerda em números
+Exemplo: Uma pesquisa dos números 8.112, 8112 ou 008112 retornará a mesma quantidade de documentos.
+d) números ordinais
+Exemplo: A pesquisa por “8ª Região” ou “8 Região” retornará a mesma quantidade de documentos.
+e) hífens
+Exemplo: A pesquisa por “diretor geral” ou “diretor-geral” retornará a mesma quantidade de documentos.
+1.2 Pesquisa por termos livres ou palavras-chaves
+É possível utilizar termos da livre escolha do pesquisador ou utilizar os termos autorizados pelos vocabulários 
+controlados mantidos pelas instituições responsáveis pelas bases de dados. 
+Na atual versão, a pesquisa se restringe aos dados descritivos dos documentos (metadados). A pesquisa não 
+é realizada nas palavras do texto integral do documento.
+9
+
+--- PAGE 10 ---
+Recomenda-se a pesquisa por palavras-chaves – aquela que utiliza os termos constantes dos vocabulários 
+controlados – por garantir um resultado de pesquisa mais preciso.
+Ao utilizar os termos de livre escolha, prefira os termos no singular e evite o uso de palavras irrelevantes tais 
+como artigos, preposições, conjunções etc.
+Os termos de busca devem estar grafados em português. Podem ser pesquisados termos em idiomas 
+estrangeiros, incluindo o latim, se não houver tradução para o nosso idioma ou se for comum no 
+vocabulário jurídico.
+Exemplo:	 •
+	
+factoring
+	 •
+	
+rebus sic stantibus
+1.3 Variantes ortográficas
+É um mecanismo interno que auxilia na pesquisa de um conceito ou de um termo. Com isso, o sistema realiza 
+a pesquisa pelas variações de número, gênero e grau, além de considerar também a grafia arcaica do termo. 
+Por exemplo, para o termo “servidor”, o sistema retornará também documentos que contenham os termos 
+“servidores”, “servidora” ou “servidoras”.
+Da mesma forma, o sistema pesquisa as grafias diferentes existentes para um mesmo termo.
+Exemplo:
+	
+	 •
+	
+quota e cota (grafias diferentes)
+	 •
+	
+sancção e sanção (português arcaico)
+	 •
+	
+Rui e Ruy (nomes de pessoas)
+	 •
+	
+Brasil e Brazil (nomes de lugares)
+10
+
+--- PAGE 11 ---
+2 Operadores para combinar palavras
+Os operadores booleanos são expressões simples e monossilábicas que informam ao sistema de busca como 
+combinar os termos de sua pesquisa. Os operadores servem para restringir a pesquisa, portanto devem ser 
+utilizados com cautela.
+São admitidos os operadores AND e NOT. O operador AND é padrão, ou seja, não deve ser digitado. Ele 
+funciona como a palavra “E” e significa uma intercessão, ou seja, o sistema irá recuperar documentos que 
+contenham todas as palavras digitadas.
+Exemplos:
+ •
+	
+mulher
+	
+trabalho
+	 •
+	
+crime
+	
+fiscalização
+	
+meio
+	
+ambiente
+O operador “NOT”, correspondente ao campo “exceto” da pesquisa avançada e indica que você não deseja 
+que apareça nos resultados a palavra ou expressão digitada no campo “exceto”. 
+Por exemplo, se digitar “Plano”, no campo “Apelido/Nome Popular” e “Real”, no campo “exceto”, retornará 
+resultados que contenham a palavra “Plano”, mas que não contenham a palavra “Real”. 
+2.1 Operador de proximidade
+Para pesquisar frases ou termos próximos use aspas. Ao colocar conjuntos de palavras entre aspas, o sistema 
+procurará exatamente essas palavras na ordem indicada, sem alterações. 
+Exemplos: •
+	“códig
+o
+	
+civil”
+	 •
+	“r
+ecurso
+	
+ordinário
+	
+em
+	
+mandado
+	
+de
+	
+segurança”
+	
+11
+
+--- PAGE 12 ---
+As pesquisas acima retornarão os documentos que possuem a expressão exata tal como digitada.
+2.2 Operador de truncagem
+O caractere asterisco (*) permite pesquisar palavras pelo prefixo ou sufixo. Quando utilizado substitui 
+quaisquer letras, em qualquer quantidade.
+Exemplo: constitu*
+O sistema buscará todos os registros que contenham o radical “constitu”, tais como: constituição, constituinte, 
+constitucional, constitucionalidade, constituto etc.
+Exemplo: *constitucional
+O sistema buscará todos os registros que contenham o termo “constitucional” ao final da palavra, 
+retornando, além da própria palavra “constitucional” as ocorrências de “inconstitucional”, “infraconstitucional”, 
+“anticonstitucional” etc.
+2.3 Operador de Substituição de Caractere
+O caractere interrogação ”?” permite pesquisar palavras omitindo uma quantidade específica de letras.
+Exemplo: ao pesquisar a palavra president? o sistema retornará documentos que contenham a palavra 
+presidente ou presidenta. 
+Em outro exemplo, ao pesquisar a palavra UF??, o sistema retornará documentos que contenham palavras 
+com quatro letras que se iniciam por “UF” tais como UFPB,
+	
+UFCG,	
+UFPE entre outras.
+Exemplo: ao pesquisar a palavra ?????constitucional, o sistema retornará documentos que tenham as palavras 
+infraconstitucional, superconstitucional, mas não retornará ocorrências de inconstitucional.
+12
+
+--- PAGE 13 ---
+3 Pesquisa simplificada e avançada
+O Portal LexML oferece duas possibilidades diferentes de pesquisa: simplificada e avançada.
+3.1 Pesquisa simplificada
+Ao acessar o Portal LexML, é aberto o formulário para a pesquisa simplificada.
+Digite aqui a palavra, sigla, frase, número 
+ou data que deseja encontrar. 13
+
+--- PAGE 14 ---
+Esse tipo de pesquisa permite que você digite a palavra, sigla, frase, número ou data que deseja encontrar, sem 
+especificar campos.
+É possível pesquisar em toda a base de dados ou delimitar a categoria da informação procurada: “Legislação”, 
+“Jurisprudência”, “Proposições Legislativas”, “Doutrina” e “Outras Manifestações”. Após a digitação, clique em 
+“Encontrar” ou tecle “Enter”. 
+O resultado trará documentos que contenham todas as palavras digitadas na pesquisa, ou seja, o padrão de 
+operador booleano utilizado internamente pelo sistema de busca é o And.
+3.2 Pesquisa avançada
+Na pesquisa avançada você digita as palavras ou números que deseja encontrar em campos específicos. Não 
+é necessário preencher todos os campos, mas é aconselhável combinar informações de dois ou mais campos.
+Esse tipo de pesquisa permite utilizar o operador booleano Not (campo “exceto”). 
+Encontre documentos que possuam...
+   os seguintes termos [    ]  exceto [...] 
+Considerando os seguintes filtros...
+   Sigla [   ] exceto [  ]
+   Localidade [  ]  exceto  [   ]
+Sigla: recupere documentos pelas siglas do tipo de documento, da autoridade emitente, de determinada 
+jurisdição ou área territorial de uma autoridade emitente. Para pesquisar os nomes por extenso de localidade, 
+autoridade emitente ou tipo de documento, utilize os campos específicos para esse fim. As demais siglas 
+devem ser pesquisadas nos campos Título, Ementa ou na Pesquisa Simplificada.
+14
+
+--- PAGE 15 ---
+Exemplo: 	 •	MG	
+	
+•
+	TR
+T8
+	 •
+	
+STF
+	 •
+	
+PLS
+Para obter a lista completa de todas as siglas de tipo de documento, da autoridade emitente, de determinada 
+jurisdição ou área territorial de uma autoridade emitente. proceda da seguinte forma: na página inicial, sem 
+informar termos, clique em “Encontrar”; na página de resultado de pesquisa, clique em “mais...” ao final da lista 
+de siglas. A página resultante lista todas as siglas cadastradas no LexML. Posicione o mouse sobre a sigla para 
+obter o seu significado.
+Categoria do Documento: Os documentos incluídos no Portal LexML estão divididos em seis categorias: 
+Jurisprudência, Legislação, Proposições Legislativas, Doutrina, Publicação Oficial e Outras Manifestações. 
+•	Legislação: compreende os documentos que possuem conteúdo normativo. Considera toda a legislação 
+de hierarquia superior (da Constituição até Resoluções do Senado Federal, Câmara dos Deputados e 
+Congresso Nacional) e de hierarquia inferior (Portarias, Instruções Normativas, etc)
+•	Jurisprudência: compreende Acórdãos, Acórdãos de Relação, Súmulas, Súmulas Vinculantes, Orientações 
+Jurisprudenciais e demais resultados da produção do Poder Judiciário.
+•	Proposições Legislativas: compreende Projetos de Decreto Legislativo, Projetos de Lei, Projetos de Lei 
+Complementar, Projetos de Lei de Conversão, Projetos de Resolução, Propostas de Emenda Constitucional 
+e demais documentos originados durante o processo legislativo.
+•	Doutrina: compreende Livros, Capítulos de Livros, Revista, Artigos de Revista, Jornal e Artigos de Jornal da 
+15
+
+--- PAGE 16 ---
+área jurídica.
+•	Publicação Oficial: consiste nos periódicos que veiculam os documentos oficiais, tais como Diário Oficial da 
+União, Diário do Congresso Nacional e Diário da Justiça Eletrônico.
+•	Outras Manifestações: compreende os pareceres, petições iniciais e demais documentos relacionados à 
+atividade administrativa ou jurisdicional. 
+Tipo de Documento: utilize para delimitar um tipo específico de documento dentre os listados nas Categorias 
+do Documento.
+Localidade: encontre documentos de uma autoridade emitente para uma determinada jurisdição ou área territorial. 
+Ao pesquisar “Minas Gerais”, o sistema retornará resultados específicos desse estado incluindo os seus municípios. 
+Veja em ACERVO (http://www.lexml.gov.br/desc_acervo.html) as localidades que podem ser pesquisadas.
+Exemplo: 
+ Minas Ger
+ais
+ 
+ 
+MG
+ Soledade RS
+ Soledade Rio Gr
+ande do Sul
+A localidade está relacionada à autoridade emitente, e não ao conteúdo do documento.
+No caso de tribunais da justiça especializada, localizados nas unidades da federação, deve-se especificar o ramo 
+da justiça especializada e a região do tribunal regional. 
+Exemplo: 
+ Justiça 
+Trabalho 8ª Região
+ Justiça T
+rabalho Pará Amapá
+16
+
+--- PAGE 17 ---
+No caso dos tribunais de justiça, considera-se neste campo a unidade da federação do tribunal.
+Esfera Autoridade Emitente: As autoridades emitentes dos documentos incluídos no Portal LexML estão 
+classificadas em quatro níveis: “federal”, “estadual”, “distrital” e “municipal”. 
+Autoridade Emitente: é possível pesquisar pelo nome por extenso da instituição, órgão ou colegiado que 
+emitiu o documento. No caso de legislação de hierarquia superior, utilizou-se, por convenção, as autoridades 
+“federal”, “estadual” e “municipal”.
+Se por exemplo, for digitada a palavra “federal”, o resultado trará apenas registros de autoridades federais. Se 
+for pesquisado, por exemplo, a expressão “Supremo Tribunal Federal”, o resultado trará apenas registros da 
+autoridade “Supremo Tribunal Federal”. 
+Para a pesquisa pela sigla do nome da autoridade utilize o campo Sigla.
+No caso de documentos produzidos por entidades ou órgãos que foram extintos, a pesquisa pode ser 
+realizada de duas formas: 
+1.
+ pela denominação anter
+ior, que retorna apenas os documentos emitidos por essa entidade ou órgão extinto;
+2.
+ pela denominação da entidade ou ór
+gão sucessor, que retorna todos os documentos emitidos por essas 
+instituições. 
+Por exemplo: ao pesquisar “Advocacia-Geral da União”, o sistema retorna também os documentos emitidos 
+pela “Consultoria-Geral da República” (órgão antecessor da AGU); entretanto, ao pesquisar “Consultoria-
+Geral da República” o sistema retorna apenas os documentos dessa autoridade emitente.
+Número: encontre informações pelo número de uma lei, instrução normativa, projeto de lei etc. 
+17
+
+--- PAGE 18 ---
+Título: Esse campo contém informações que identificam o documento de forma inequívoca. É formado 
+pelo designativo da espécie do documento (lei, decreto, acórdão, entre outros), pelo respectivo número, e, 
+dependendo do caso, o ano ou a data. No caso da doutrina, recupera pelo título da obra.
+Exemplos:
+Acórdão do Processo Nº 188334-2008-0-0-0
+Decreto nº 96.895, de 30 de Setembro de 1988 
+Projeto de lei do Senado nº 00054, de 2005 
+Código Penal Comentado
+Apelido / Nome Popular: as normas jurídicas são identificadas pela epígrafe, que é a identificação singular 
+composta por sua espécie normativa, número e data. Entretanto, algumas recebem denominações populares 
+em função do seu assunto, autor da proposição legislativa ou aspecto curioso. Nesse campo, é possível 
+pesquisar por esses “apelidos” ou “nomes populares” da norma. 
+Exemplos: 
+Código Civil
+Lei Maria da Penha
+Lei Seca
+Ementa: consiste na descrição do conteúdo do documento. Nesse campo, é possível localizar informações 
+que fazem parte da ementa.
+Assunto/Indexação: consiste na descrição do conteúdo do documento por meio de palavras-chave 
+proporcionando uma recuperação mais precisa da informação para os documentos que foram 
+18
+
+--- PAGE 19 ---
+indexados pelo provedor de dados.
+URN:	 A URN (do inglês Unif
+orm Resource Name) é a identificação persistente e inequívoca de cada 
+documento dentro do Portal LexML, que pode ser reconhecida sem ambivalências e de forma internacional. 
+Exemplos: Lei n. 8.112
+Lei 8112 federal urn:lex:br:federal:lei:1990-12-11;8112
+Lei 8112 estadual (MG) urn:lex:br;minas.gerais:estadual:lei:1981-12-03;8112
+Lei 8112 do município de Uberaba (MG) urn:lex:br;minas.gerais;uberaba:municipal:lei:2001-12-10;8112
+Do Ano: encontre informações pelo intervalo entre anos ou apenas por um ano específico. Para cada 
+categoria, considere:
+1.
+ Legislação:
+ o ano da data de assinatura da norma original;
+2.
+ Jur
+isprudência: o ano da data de julgamento;
+3.
+ Proposições Legislativas:
+ o ano da data de iniciativa;
+4.
+ Doutr
+ina: o ano da publicação;
+5.
+ Pub
+licação Oficial: o ano da edição do periódico;
+6.
+ Outr
+as Manifestações: o ano de criação do documento.
+Doutrina: pesquise obras por autor, classificação, idioma e biblioteca utilizando os campos a seguir: 
+Autor: localize as obras de determinado autor informando o nome ou partes do nome.
+19
+
+--- PAGE 20 ---
+Exemplos:  Delmanto
+ Celso Delmanto
+Classificação CDDir: 
+localize as obras pelo código e/ou descrição da classe.
+Exemplos: 
+ 341.5
+ Adolescente 342.17
+ Cr
+iança Adolescente
+Idioma: especifique o idioma da obra.
+Exemplos: 
+Francês
+ 
+Espanhol
+Biblioteca: localize as obras do acervo de uma biblioteca específica utilizando as siglas convencionadas pela Rede 
+Virtual de Bibliotecas [http://www.senado.gov.br/biblioteca/rvbi/rvbi.asp], quais sejam, AGU, CAM, CLD, MJU, 
+MTE, PGR, PRO, SEN, STF, STJ, STM, TCD, TJD e TST. É indiferente a utilização de vírgulas para separar as siglas.
+Exemplos: 
+ TST
+: Pesquisa obras que fazem parte do acervo da Biblioteca do TST.
+[ SEN CAM STJ ] exceto [ STF ]: Pesquisa obras que fazem parte do acervo das Bibliotecas do 
+Senado, da Câmara e STJ mas que não fazem parte do acervo da Biblioteca do STF.
+4 O resultado da pesquisa
+Após digitar os termos de busca, o sistema retorna uma página com os resultados localizados. Por intermédio 
+desta página é possível acessar os documentos recuperados, modificar a pesquisa, refinar o resultado obtido 
+e utilizar a cesta de itens.
+20
+
+--- PAGE 21 ---
+1 Mostra as palavras pesquisadas 
+e a quantidade de itens recupe-
+rados no resultado.
+5 Possibilidade de adicionar este 
+item à Cesta de Itens ou ver se 
+ele já está “Adicionado” à Cesta.
+3 Barra de Navegação: acesso à Cesta 
+de Itens; opção de Modificar Pesquisa,  
+acesso à Página Anterior, Página Inicial 
+e formulário de Pesquisa Avançada.
+2 Mostra os critérios de 
+ordenamento possíveis.
+4 Quantidade 
+de páginas do 
+resultado.
+6 Itens do resultado 
+da pesquisa
+7 Mostra a quantidade de itens 
+encontrados por características 
+permitindo a navegação guiada 
+por filtros.
+21
+
+--- PAGE 22 ---
+4.1 Entendendo a página com o resultado de pesquisa
+Na parte superior da página de resultados, encontra-se o logotipo do Portal LexML, utilize-o como atalho 
+para retornar à página principal do Portal.
+Logo abaixo da logomarca, no canto esquerdo, aparecem os termos e os filtros utilizados para a pesquisa. O 
+ícone ”[X]” possibilita a exclusão dos termos ou dos filtros e um novo resultado é apresentado.
+Em alguns casos, o sistema oferece alternativa para os termos de pesquisa:
+•	quando a palavra é digitada incorretamente; ou
+•	quando o resultado de pesquisa apresenta poucos itens.
+Para aceitar, basta clicar nos termos sugeridos que o sistema refará a pesquisa.
+22
+
+--- PAGE 23 ---
+Também é informada a quantidade de itens recuperados. Utilize essa informação para decidir se haverá ou 
+não necessidade de modificar a pesquisa ou refiná-la pelos filtros disponíveis.
+No canto superior direito, é apresentada a barra de navegação com as seguintes opções: Cesta de Itens, Modificar 
+Pesquisa, Página Anterior, Página Inicial, Pesquisa Avançada, Visualizar Tudo. “Cesta de Itens” permite armazenar 
+os itens selecionados montando uma lista à parte; “Modificar Pesquisa” permite acrescentar ou subtrair termos 
+utilizados na pesquisa; “Página Anterior” e “Página Inicial” permitem a navegação entre páginas; “Pesquisa Avançada” 
+apresenta o formulário de pesquisa por campos e “Visualizar Tudo” mostra todo o acervo da base de dados.
+Na coluna da esquerda, na página de resultados, é possível visualizar a quantidade de itens recuperados por 
+Categoria de Documento, Localidade, Autoridade, Doutrina, Data e Sigla.
+Os filtros podem ser utilizados de duas maneiras:
+•	Ao clicar no sinal “+”, será apresentada a expansão do filtro sem ocorrer o refinamento da pesquisa;
+•	Ao clicar no nome, será apresentado um novo resultado de pesquisa
+Expansão do Filtro “Judiciário”                            Seleção do Filtro “Judiciário” 
+23
+
+--- PAGE 24 ---
+O filtro “Data” localiza por década, ano, mês e dia ou por intervalo de anos, podendo ser combinado com 
+outros filtros. No caso da Doutrina, o filtro “Data” é válido apenas para o ano da edição, não havendo 
+detalhamento de mês e dia. Sendo assim, ao selecionar um mês ou dia, de forma implícita, a doutrina será 
+excluída do resultado da pesquisa.
+Do lado direito da página de resultados, são mostrados os resultados propriamente ditos. As palavras utilizadas 
+para a pesquisa aparecem em destaque com a cor laranja. Por intermédio desses resultados é possível acessar 
+mais informações sobre o documento, seu texto integral, entre outras possibilidades, bastando clicar no 
+hiperlink no campo Título.
+4.2 Ordenando os resultados obtidos
+Ao realizar uma pesquisa, os resultados já aparecem ordenados por Relevância, sendo possível reordená-los 
+por Título, Data ascendente ou Data descendente.
+Em linhas gerais, a relevância é calculada com base em estatísticas de ocorrências dos argumentos.
+24
+
+--- PAGE 25 ---
+4.3 Cesta de itens
+A “Cesta de Itens” armazena os documentos selecionados no resultado obtido durante a sessão de pesquisa. 
+Para incluir um item na cesta, clique em “Adicionar”. Automaticamente o documento será incluído na cesta e 
+aparecerá como “Adicionado” na lista de resultados.
+Para visualizar os documentos da cesta de itens, clique no link “Cesta de Itens” na página de resultados. Para 
+excluir itens da cesta clique em “Retirar” ao lado do item que deseja excluir.
+Clique aqui para excluir 
+o documento da cesta.
+25
+
+--- PAGE 26 ---
+4.4 Refinar a pesquisa
+É possível refinar a pesquisa a partir da página de resultados utilizando os filtros Categoria do Documento, 
+Localidade, Autoridade, Doutrina, Data e/ou Sigla. Alguns filtros possuem vários níveis.
+Por exemplo, é possível, utilizando o filtro Autoridade,
+selecionar a Esfera (Federal),
+o Poder (Judiciário),
+26
+
+--- PAGE 27 ---
+a Instituição (Superior Tribunal de Justiça),
+e o Órgão Julgador (Corte Especial). 
+Outra forma de refinar a pesquisa é por intermédio da opção “Modificar Pesquisa” (no canto superior direito, 
+na barra de navegação) a qual apresentará os formulários de pesquisa básica ou avançada, conforme o caso.
+5 Detalhamento do documento selecionado
+O detalhamento das informações do documento é organizado por áreas que agrupam as informações de 
+acordo com a categoria do documento selecionado. A primeira e as duas últimas áreas são comuns a todas 
+as categorias de documentos.
+27
+
+--- PAGE 28 ---
+Ao lado da logomarca “LexML” estão disponíveis três atalhos para a “Página Anterior” do navegador, a “Página 
+Inicial” do Portal LexML e o formulário de “Pesquisa Avançada”.
+A primeira área apresenta as informações básicas para a identificação e descrição do documento. Para localizar 
+as informações complementares é preciso acessar a página do órgão provedor da informação original, que 
+está registrado no campo “Mais detalhes”.
+A área “Favoritos (Social Bookmark)” possui atalhos para que o usuário registre o endereço da página em que 
+se encontra nos serviços de compartilhamento de favoritos ou na seção de favoritos do navegador utilizado. 
+A área “Links para esta página” apresenta duas opções de código HTML para referenciar a página corrente: 
+uma só com texto e outra com texto e imagem. Essa codificação HTML nas caixas de textos (links) pode ser 
+copiada para uso em outras páginas, tais como blogs e artigos. 
+28
+
+--- PAGE 29 ---
+As seções seguintes apresentam as áreas de detalhamento de acordo com a categoria do documento.
+5.1 Detalhamento da categoria legislação
+A apresentação do detalhamento de um documento da categoria Legislação é formada por até quatro áreas. 
+A área “Publicação Oficial” apresenta as informações sobre as publicações, republicações e retificações do 
+documento veiculadas em periódico oficial. Caso essa área não apresente dados, significa que o sistema de 
+informação provedor de dados não registrou essa informação relacionada ao documento.
+A área “Outras Publicações” apresenta links para o inteiro teor dos documentos nos sistemas de 
+informações tal como se encontram nos provedores de dados. Normalmente são disponibilizadas a 
+versão originalmente publicada e, quando existente, o texto atualizado ou a versão do texto para uma 
+determinada data.
+29
+
+--- PAGE 30 ---
+Observe que ao lado de alguns hiperlinks existe um mecanismo chamado Linker, que permite a detecção 
+automática de remissões para outras normas. O sistema detecta essas remissões e estabelece hiperlinks, 
+permitindo que o usuário navegue para a página do LexML da norma referenciada.
+[ Lei 11.705/2008 sem Linker ]
+30
+
+--- PAGE 31 ---
+[ Lei 11.705/2008 com Linker ] 
+A área “Texto Anotado”, quando existente, permite a navegação para a versão anotada da norma.
+A área “Doutrina Referenciada” apresenta uma lista com a doutrina relacionada à norma.
+As informações sobre a doutrina referenciada são apresentadas em uma tabela formada por seis colunas. 
+As linhas podem ser ordenadas, de forma ascendente ou descendente, ao clicar nas setas ao lado do 
+nome da coluna. 
+31
+
+--- PAGE 32 ---
+Para ordenar simultaneamente pelo conteúdo de duas ou mais colunas, mantenha a tecla “Ctrl” pressionada 
+enquanto clica nos nomes das colunas. 
+Para pesquisar na tabela, digite no campo “Filtrar” números ou palavras que serão aplicados como filtros em 
+todas as colunas.
+5.2 Detalhamento da categoria proposições legislativas
+Nas proposições legislativas, o link “Mais Detalhes” direciona para a página de tramitação da proposição em 
+32
+
+--- PAGE 33 ---
+cada casa legislativa. Caso uma proposição tramite por mais de uma casa legislativa, o LexML apresenta os links 
+de tramitação e texto integral nas respectivas instituições.
+5.3 Detalhamento da categoria jurisprudência
+Na Jurisprudência, o link “Mais Detalhes” direciona para a página de tramitação do processo no tribunal. Caso 
+um processo possua mais de um acórdão, a área “Do Mesmo Processo” apresenta links para os outros acórdãos.
+5.4 Detalhamento da categoria doutrina
+A primeira área do detalhamento de uma obra, além das informações básicas, permite pesquisar todas as 
+obras do autor que estão no acervo do LexML, além de outras obras que compartilham a mesma classificação 
+segundo a Classificação Decimal de Direito (CDDir).
+33
+
+--- PAGE 34 ---
+A segunda área apresenta as edições por formato e idioma em ordem decrescente de data. Também é 
+informada a disponibilidade para empréstimo da obra assim como a sua localização (número de chamada) 
+na estante da biblioteca. Por fim, as normas mencionadas pelo autor e catalogadas pelo bibliotecário são 
+relacionadas com links de navegação.
+34
+
+--- PAGE 35 ---
+A área “Normas Referenciadas” reúne todas as normas mencionadas em todas as edições, com as respectivas ementas.
+5.5 Detalhamento da categoria publicação oficial
+Essa categoria contempla as edições dos periódicos oficiais disponíveis no LexML tais como Diário Oficial da 
+União, Diário da Justiça, Diário do Congresso Nacional etc.
+A área “Publicação Oficial” contém o link para a edição do periódico oficial.
+5.6 Detalhamento da categoria outras manifestações
+Essa categoria contempla os documentos oficiais que complementam ou auxiliam na compreensão 
+de documentos classificados em Legislação, Proposições Legislativas ou Jurisprudência. Exemplos de 
+documentos nesta categoria são os pareceres, as notas técnicas, os atos declaratórios, as súmulas 
+administrativas, dentre outros. Usualmente, está disponível o link da Publicação Oficial, se houver, e o link 
+do inteiro teor do documento.
+6 Recomendações para melhorar sua pesquisa
+Em casos de resultados nulos ou com excesso de documentos, recomendamos o que se segue:
+35
+
+--- PAGE 36 ---
+6.1 Resultado nulo
+Caso não encontre a informação procurada no Portal LexML, siga os seguintes passos:
+•	verifique se o tipo de informação faz parte do acervo; 
+•	consulte o tópico “como eu posso melhorar minha pesquisa” da FAQ; 
+•	tente realizar a pesquisa com termos sinônimos;
+•	verifique a grafia dos termos;
+•	use caracteres de truncamento (“*”) ou de substituição de uma letra (“?”);
+•	altere ou inclua outros termos de pesquisa; 
+•	utilize “T odos os Campos” do formulário Pesquisa Avançada ao invés do campo “Indexação/Assunto”;
+•	solicite o auxílio do seu bibliotecário.
+6.2 Resultado com excesso de documentos
+•	use aspas para pesquisar termos compostos; 
+•	utilize a opção de pesquisa avançada para delimitar os seus argumentos de pesquisa em campos específicos; 
+•	altere ou exclua termos da pesquisa; 
+•	refine o resultado selecionando as opções de filtro de localidade (estados e municípios), autoridade (federal, 
+estadual, municipal), tipo de documento (legislação, jurisprudência, outras manifestações, proposições 
+legislativas), data e siglas.
+36
+
+--- PAGE 37 ---
+Glossário
+Apelido de Legislação – as normas jurídicas são identificadas pela epígrafe, que é a identificação singular 
+composta por sua espécie normativa, número e data. Entretanto, algumas recebem denominações populares 
+em função do seu assunto, autor da proposição legislativa ou aspecto curioso. 
+Área – a página de detalhamento está dividida em seções (boxes) que agrupam informações correlatas.
+Argumento de Pesquisa – são as palavras ou expressões escolhidas pelo pesquisador para efetuar a pesquisa.
+Assunto – é o tema ou matéria de um determinado documento.
+Atalho – é um modo mais rápido para acessar um documento ou sítio na web.
+Autoridade Emitente – é aquela responsável pela criação do documento. Convencionou-se “federal”, 
+“estadual”, “municipal” e “distrital” como autoridades emitentes das seguintes espécies normativas: constituição, 
+lei orgânica, emenda constitucional, emenda à lei orgânica, lei complementar, lei delegada, lei, medida provisória, 
+decreto-lei e decreto. 
+Base
+	de
+	dados
+ – conjunto de dados armazenados em computador para serem recuperados posteriormente.
+Blog – página web que contém textos curtos e/ou diários pessoais ou institucionais organizados 
+cronologicamente.
+Campo – local onde são registradas e armazenadas informações de acordo com características e condições 
+previamente determinadas. Os campos podem servir como critério de ordenação ou filtro de pesquisa. 
+Casa
+	 Legislativa
+ – forma genérica para denominar as seguintes instituições: Senado Federal, Câmara dos 
+Deputados, Congresso Nacional, Assembleia Legislativa e Câmara de Vereadores.
+37
+
+--- PAGE 38 ---
+Categoria de Documento – é a classificação dos documentos contidos no Portal LexML, que são: 
+Jurisprudência, Legislação, Proposições Legislativas, Doutrina, Publicação Oficial e Outras Manifestações. 
+CDDir – acrônimo da “Classificação Decimal de Direito”. Criada pela bibliotecária Dóris Queiroz Carvalho a 
+partir da Classificação Decimal de Dewey (CDD), trata-se da expansão da classe 34 (Direito) da CDD para 
+melhor se adaptar ao Direito brasileiro.
+Cesta de Itens – armazenamento temporário dos documentos selecionados no resultado obtido para fins de 
+impressão ou envio por correio eletrônico. Válido durante a mesma sessão de pesquisa 
+Código
+	 HTML
+ – HTML é o acrônimo para a expressão em inglês Hyper Text Markup Language. É uma 
+linguagem de marcação para a criação de páginas na web.
+Dado
+	 Descritiv
+o – conjunto de dados capazes de caracterizar um documento (livro, artigo de periódico, 
+decisão ou norma jurídica). Ver também: Metadado. 
+Doutrina – conjunto de documentos que registram o entendimento de autores sobre determinada matéria 
+jurídica. No Portal LexML, a doutrina compreende Livros, Capítulos de Livros, Revista, Artigos de Revista, 
+Jornal e Artigos de Jornal. 
+Doutrina
+	Ref
+erenciada – trata-se da lista de referências bibliográficas que estejam relacionadas à determinada 
+norma jurídica. 
+Ementa – texto conciso que explicita o conteúdo de uma norma jurídica ou decisão judicial.
+Estratégia
+	de
+	Busca
+ – procedimento sistemático utilizado para a pesquisa. Consiste na escolha de palavras ou 
+termos utilizados, dos campos onde serão colocados ou ainda dos operadores booleanos.
+Expressão – conjunto de palavras utilizado na pesquisa.
+38
+
+--- PAGE 39 ---
+Favoritos (Social Bookmark) – Lista pessoal dos endereços dos sítios web preferidos.
+Filtro – processo que consiste na seleção de documentos de acordo com critérios previamente estabelecidos.
+Formulário
+	de
+	P
+esquisa – formulário eletrônico padronizado, com campos previamente definidos, onde são 
+digitados os argumentos de pesquisa. Ver também: Pesquisa Avançada. Pesquisa Simplificada.
+Grafia Arcaica – forma antiga de escrever uma palavra.
+Hiperlink – é o vínculo ou elo entre duas informações relacionadas e que permite que o usuário navegue de 
+uma para outra.
+Indexação – é a técnica da representação do conteúdo de um documento por meio de palavras-chaves.
+Informação
+	 Básica
+	 de
+	 Identificação
+ – é o conjunto de elementos mínimos para a identificação de um 
+documento. Ver também: URN.
+Informação
+	
+Descritiva – Ver: Dados Descritivos.
+Informação Jurídica – toda a unidade de conhecimento humano que tem a finalidade de embasar manifestações 
+de pensamento de todos aqueles que lidam com a matéria jurídica, quando procuram estudar (do ponto de 
+vista legal) ou regulamentar situações, relações e comportamentos humanos, ou ainda quando interpretam e 
+aplicam dispositivos legais.
+Informação
+	 Legislativa
+ – é aquela resultante do processo legislativo. Consiste nas proposições legislativas, 
+pareceres, relatórios e emendas.
+Inteiro T eor – trata-se do texto integral de um documento.
+Jurisdição – área territorial onde a autoridade judiciária exerce o seu poder de dizer o direito.
+39
+
+--- PAGE 40 ---
+Jurisprudência – conjunto de decisões judiciais. Exemplos: Acórdãos, Súmulas, Súmulas Vinculantes, Orientações 
+Jurisprudenciais e demais resultados da produção do Poder Judiciário em sua atividade finalística.
+Legislação – conjunto de normas jurídicas, abrangendo tanto as de hierarquia superior (Constituição do Brasil 
+até Resoluções do Senado Federal, Câmara dos Deputados e Congresso Nacional), quanto as de hierarquia 
+inferior (Portarias, Instruções Normativas, etc)
+Link – Ver: Hiperlink
+Linker
+	– é uma f
+erramenta que permite a detecção automática de remissões para normas jurídicas no inteiro 
+teor de um documento. O sistema detecta essas remissões e estabelece hiperlinks, permitindo que o usuário 
+navegue para a página do LexML que contém a norma objeto da remissão.
+Metadado – Trata-se de um conjunto de informações que descrevem a forma e o conteúdo de um documento. 
+Ver também: Dado Descritivo.
+Navegador
+	
+– também conhecido como “Browser”, é um programa utilizado para navegação na internet.
+Navegar – explorar o conteúdo da internet.
+Nome popular – Ver : Apelido de Legislação
+Norma
+	
+Referenciada – é a norma identificada como pertinente ou relacionada ao documento catalogado.
+Operador
+	Booleano
+ – são expressões simples e monossilábicas que informam ao sistema de busca como 
+combinar os termos utilizados em uma pesquisa.
+Operador de Proximidade – é o operador utilizado para informar ao sistema que duas ou mais palavras utilizadas 
+na busca devem estar na sequência indicada. No Portal LexML, as aspas são os operadores de proximidade.
+40
+
+--- PAGE 41 ---
+Operador de Substituição de Caractere – é o operador que permite pesquisar palavras substituindo uma 
+ou mais letras. No Portal LexML, utiliza-se o ponto de interrogação para indicar a substituição de uma 
+determinada letra.
+Operador de Truncagem – é o operador que permite pesquisar palavras pelo prefixo ou sufixo. No Portal 
+LexML, utiliza-se o sinal gráfico asterisco para indicar a substituição de quaisquer letras, em qualquer quantidade.
+Outras Manifestações – termo genérico para designar os pareceres, as petições iniciais e outros documentos 
+relacionados às demais categorias de documentos do Portal LexML.
+Página
+	
+com
+	
+o
+	
+Resultado
+	
+da
+	
+Pesquisa – Ver : Resultado da Pesquisa.
+Palavra
+	Ir
+relevante – também conhecida como stopword. É a palavra sem significado relevante para a busca, 
+tais como: preposições, artigos e conjunções.
+Palavra-chave – é um dos metadados que sintetiza o conteúdo de um determinado documento.
+Pesquisa
+	A
+vançada – é um tipo de pesquisa que oferece mais recursos de busca para o pesquisador. Ver 
+também: Formulário de Pesquisa.
+Pesquisa Simplificada – é um tipo de pesquisa que oferece um campo genérico de pesquisa. Ver também: 
+Formulário de Pesquisa.
+Proposição
+	 Legislativa
+ – é qualquer matéria submetida à deliberação de uma Casa Legislativa. Exemplos: 
+Projetos de Decreto Legislativo, Projetos de Lei, Projetos de Lei Complementar, Projetos de Lei de Conversão, 
+Projetos de Resolução, Propostas de Emenda Constitucional.
+Publicação Oficial – consiste nos periódicos que veiculam os documentos oficiais, tais como Diário Oficial da 
+União, Diário do Congresso Nacional e Diário da Justiça Eletrônico.
+41
+
+--- PAGE 42 ---
+RVBI	– Rede Virtual de Bibliotecas - Congresso Nacional é uma rede cooperativa de bibliotecas, coordenada 
+pela Biblioteca do Senado Federal, que agrega recursos humanos, bibliográficos e materiais de quatorze 
+bibliotecas da Administração Pública Federal e do governo do Distrito Federal, dos Poderes Legislativo, 
+Executivo, Judiciário e Ministério Público Federal (http://www.senado.gov.br/senado/biblioteca/rvbi/rvbi.asp). 
+Refinamento
+	de
+	P
+esquisa – é o procedimento utilizado para filtrar as informações encontradas e localizar 
+aquelas que mais se aproximem do interesse do pesquisador.
+Relevância – é uma qualidade subjetiva atribuída aos documentos de um resultado de busca de acordo com 
+o argumento de pesquisa, que permite ordenar os documentos localizados.
+Resultado
+	da
+	P
+esquisa – trata-se da página, no Portal LexML, que relaciona os documentos que contem a 
+palavra ou palavras indicadas na busca.
+Resultado
+	
+Nulo – é pesquisa que não retorna nenhum documento.
+Serviço
+	de
+	compar
+tilhamento
+	de
+	fa
+voritos – serviço oferecido na web que permite o registro e a guarda de 
+endereços de sítios favoritos de um usuário.
+Social
+	
+Bookmark - Ver Favoritos
+Sessão de Pesquisa – interação de um usuário com um sistema de busca. 
+T ermo de busca – Ver Argumento de Pesquisa
+T ermo
+	livr
+e – são os termos, palavras, expressões ou números utilizados na busca por informação que não 
+estão necessariamente relacionados no Vocabulário Controlado.
+T exto integral – Ver: Inteiro Teor.
+42
+
+--- PAGE 43 ---
+Tramitação da Proposição – trata-se do processo legislativo onde uma proposição legislativa passa de uma 
+fase a outra até o seu arquivamento ou transformação em norma jurídica.
+URN – (do inglês Uniform Resource Name) é a identificação persistente e inequívoca de cada documento 
+dentro do Portal LexML, que pode ser reconhecida sem ambivalências e de forma internacional. 
+Variante
+	 Or
+tográfica – são termos que possuem grafias similares ou ainda sejam flexões de gênero, 
+número ou grau.
+V ocabulário
+	Contr
+olado – conjunto de termos autorizados por uma instituição a serem utilizados, no processo 
+de indexação, de modo a identificar o conteúdo do documento.
+V ocabulário
+	
+Jurídico – conjunto de termos técnicos utilizados na área jurídica.
+43
+
+--- PAGE 44 ---
+Senado Federal
+M e s a  D i r e t o r a
+Biênio 2013/2014
+Senador Renan Calheiros
+PRESIDENTE
+SUPLENTES DE SECRETÁRIO
+Senador Magno Malta
+Senador Jayme Campos
+Senador João Durval
+Senador Casildo Maldaner
+Doris Marize Romariz Peixoto
+DIRETORA-GERAL
+Claudia Lyra Nascimento
+SECRETÁRIA-GERAL DA MESA
+Senador Jorge Viana
+1º VICE-PRESIDENTE
+Senador Romero Jucá
+2º VICE-PRESIDENTE
+Senador Flexa Ribeiro
+1º SECRETÁRIO
+Senadora Ângela Portela
+2ª SECRETÁRIA
+Senador Ciro Nogueira
+3º SECRETÁRIO
+Senador João Vicente Claudino
+4º SECRETÁRIO
+44

@@ -18,27 +18,53 @@ async def embeddings(app,texts):
  return result
 
 async def blob(app,actor,identifier):
- resource=await store.get(app,actor,identifier,kind='document')
- row=await app.state.db.execute('SELECT * FROM moara.document_blobs WHERE resource_id=CAST(:id AS uuid)',{'id':str(identifier)},one=True)
- if not row:raise HTTPException(404,'document_blob_not_found')
- return resource,row,base64.b64decode(store.unseal(app,row['content']))
+ from .document_uploads import open_blob,stream_blob
+ resource,row=await open_blob(app,actor,identifier)
+ raw=bytearray()
+ async for part in stream_blob(app,row):raw.extend(part)
+ return resource,row,bytes(raw)
 
 async def ingest(app,actor,identifier,checkpoint):
- resource,row,raw=await blob(app,actor,identifier)
- chunks=await asyncio.to_thread(isolated_extract,raw,row['filename']);vectors=[]
- for offset in range(0,len(chunks),16):
+ from .document_uploads import open_blob,stream_blob
+ from pathlib import Path
+ import tempfile,sys,os
+ resource,row=await open_blob(app,actor,identifier)
+ scratch=Path(os.getenv('MOARA_DOCUMENT_WORK_DIR','/data/document-work'))
+ scratch.mkdir(parents=True,exist_ok=True,mode=0o700)
+ with tempfile.TemporaryDirectory(prefix='ingest-',dir=scratch) as folder:
+  source=Path(folder)/'source';output=Path(folder)/'chunks.jsonl'
+  with source.open('wb') as target:
+   async for part in stream_blob(app,row):
+    await checkpoint()
+    await asyncio.to_thread(target.write,part)
   await checkpoint()
-  vectors.extend(await embeddings(app,[c['text'] for c in chunks[offset:offset+16]]))
- await checkpoint();await store.get(app,actor,identifier,kind='document',write=True)
- async with app.state.db.engine.begin() as conn:
-  await app.state.db.execute('DELETE FROM moara.document_chunks WHERE document_id=CAST(:id AS uuid)',{'id':str(identifier)},conn=conn)
-  for ordinal,(chunk,vector) in enumerate(zip(chunks,vectors)):
-   await app.state.db.execute("""INSERT INTO moara.document_chunks(id,document_id,ordinal,page,content,search_terms,embedding,embedding_model,checksum)
-    VALUES(CAST(:id AS uuid),CAST(:doc AS uuid),:ordinal,:page,:content,to_tsvector('portuguese',:text),CAST(:vector AS vector),'embeddinggemma-300m',:checksum)""",
-    {'id':str(uuid.uuid4()),'doc':str(identifier),'ordinal':ordinal,'page':chunk['page'],
-     'content':store.seal(app,chunk['text']),'text':chunk['text'],'vector':json.dumps(vector),
-     'checksum':hashlib.sha256(chunk['text'].encode()).hexdigest()},conn=conn)
- return {'document_id':str(identifier),'chunks':len(chunks),'source_sha256':row['sha256'],'embedding_model':'embeddinggemma-300m'}
+  child=await asyncio.create_subprocess_exec(sys.executable,'-m','moara.gateway.document_extract_stream','--input',str(source),'--output',str(output),'--filename',row['filename'],stdout=asyncio.subprocess.DEVNULL,stderr=asyncio.subprocess.DEVNULL)
+  try:
+   if await child.wait():raise HTTPException(422,'document_extraction_failed_or_ocr_required')
+  finally:
+   if child.returncode is None:child.kill();await child.wait()
+  await store.get(app,actor,identifier,kind='document',write=True)
+  ordinal=0
+  # The index remains atomic while vectors and inserts use bounded batches.
+  async with app.state.db.engine.begin() as conn:
+   await app.state.db.execute('DELETE FROM moara.document_chunks WHERE document_id=CAST(:id AS uuid)',{'id':str(identifier)},conn=conn)
+   with output.open(encoding='utf8') as chunks:
+    while True:
+     batch=[]
+     for _ in range(16):
+      line=chunks.readline()
+      if not line:break
+      batch.append(json.loads(line))
+     if not batch:break
+     await checkpoint()
+     vectors=await embeddings(app,[c['text'] for c in batch])
+     for chunk,vector in zip(batch,vectors):
+      await app.state.db.execute("""INSERT INTO moara.document_chunks(id,document_id,ordinal,page,content,search_terms,embedding,embedding_model,checksum)
+       VALUES(CAST(:id AS uuid),CAST(:doc AS uuid),:ordinal,:page,:content,to_tsvector('portuguese',:text),CAST(:vector AS vector),'embeddinggemma-300m',:checksum)""",
+       {'id':str(uuid.uuid4()),'doc':str(identifier),'ordinal':ordinal,'page':chunk['page'],'content':store.seal(app,chunk['text']),'text':chunk['text'],'vector':json.dumps(vector),'checksum':hashlib.sha256(chunk['text'].encode()).hexdigest()},conn=conn)
+      ordinal+=1
+   await checkpoint();await store.get(app,actor,identifier,kind='document',write=True,conn=conn)
+ return {'document_id':str(identifier),'chunks':ordinal,'source_sha256':row['sha256'],'embedding_model':'embeddinggemma-300m'}
 
 async def search(app,actor,spec):
  actor.require('knowledge.use')

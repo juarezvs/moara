@@ -1,0 +1,99 @@
+{
+  "identity_sha256": "80a3c4aa2b6c7e6976b419bc15879b51a0fb89afc4af1b583f7817b22918d346",
+  "inference": {
+    "available": true,
+    "transport": "mutual_tls_over_ssh",
+    "principal_resident": true,
+    "embeddings_resident": true,
+    "gpu": {
+      "sampled_at": "2026-10-30T16:47:48Z",
+      "available": true,
+      "gpus": [
+        {
+          "name": "NVIDIA RTX A2000 12GB",
+          "memory_total_mib": 12282,
+          "memory_used_mib": 9959,
+          "memory_free_mib": 1940,
+          "temperature_c": 37,
+          "utilization_percent": 0
+        }
+      ]
+    },
+    "queue": {
+      "concurrency": 1,
+      "waiting": 0,
+      "active": false,
+      "limit": 16,
+      "timeout_seconds": 120.0
+    },
+    "principal_model": "moara-main-gpu",
+    "persistent_documents_on_gpu": false
+  },
+  "six_concurrent_requests": {
+    "wall_seconds": 16.73,
+    "results": [
+      {
+        "assistant": "juridica",
+        "seconds": 0.2,
+        "backend": null,
+        "passed": true
+      },
+      {
+        "assistant": "gabinete",
+        "seconds": 7.01,
+        "backend": "gpu",
+        "passed": true
+      },
+      {
+        "assistant": "administrativa",
+        "seconds": 13.39,
+        "backend": "gpu",
+        "passed": true
+      },
+      {
+        "assistant": "documental",
+        "seconds": 3.52,
+        "backend": "gpu",
+        "passed": true
+      },
+      {
+        "assistant": "desenvolvedora",
+        "seconds": 16.72,
+        "backend": "gpu",
+        "passed": true
+      },
+      {
+        "assistant": "dados",
+        "seconds": 9.91,
+        "backend": "gpu",
+        "passed": true
+      }
+    ],
+    "serialized_inference": true
+  },
+  "scope_and_official_acts_blocked": true,
+  "PJe_SEI_prepared_and_disabled": true,
+  "legal_preflight": {
+    "seconds": 6.41,
+    "status": "verification_incomplete",
+    "evidence_id": "d06cbb97-fcb5-484f-8b4d-f7aee080ec00",
+    "legal_conclusions_suspended": true
+  },
+  "restricted_key_cannot_read_documents_or_metrics": true,
+  "xlsx_ingestion_and_cited_answer": {
+    "passed": true,
+    "seconds": 1.8,
+    "sources": [
+      {
+        "citation": "[D1]",
+        "document_id": "4a13bad4-3d12-478b-b9b9-82a6d0e51bf0",
+        "page": null,
+        "chunk_id": "6926a865-e8df-4fa1-a5d1-f3f369d73c6a",
+        "title": "Moara2 \u2014 planilha sint\u00e9tica de valida\u00e7\u00e3o",
+        "excerpt_truncated": false,
+        "source_url": "/moara/api/v1/platform/documents/4a13bad4-3d12-478b-b9b9-82a6d0e51bf0/download"
+      }
+    ]
+  },
+  "test_keys_revoked_and_document_archived": true
+}

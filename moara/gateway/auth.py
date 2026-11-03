@@ -54,8 +54,9 @@ class Auth:
                 VALUES(CAST(:id AS uuid),:subject,:name,:email,'legacy',CAST(:id AS uuid)) ON CONFLICT(subject) DO NOTHING RETURNING id''',
                 {'id':str(legacy_id),'subject':subject,'name':name,'email':email},one=True,conn=conn)
             if created:
+                await self.db.audit(None,'account.institutional.registered',legacy_id,conn=conn)
                 await self.db.execute('INSERT INTO moara.account_roles(account_id,role_id) VALUES(CAST(:id AS uuid),:role)',
-                    {'id':str(legacy_id),'role':'administrator' if role=='admin' else 'user'},conn=conn)
+                    {'id':str(legacy_id),'role':'user'},conn=conn)
             await self.db.execute('UPDATE moara.accounts SET name=:name,email=:email,updated_at=now() WHERE subject=:subject',
                 {'name':name,'email':email,'subject':subject},conn=conn)
             row=await self.db.execute('SELECT * FROM moara.accounts WHERE subject=:subject',{'subject':subject},one=True,conn=conn)
@@ -102,7 +103,8 @@ class Auth:
                         {'id':identifier,'group':group_id},conn=conn)
         roles=await self.db.execute('''SELECT r.id,r.permissions FROM moara.roles r JOIN moara.account_roles a ON a.role_id=r.id
             WHERE a.account_id=CAST(:id AS uuid)''',{'id':str(row['id'])})
-        permissions=frozenset(p for r in roles for p in r['permissions'])
+        # Built-in definitions are authoritative; stale stored defaults cannot widen access.
+        permissions=frozenset(p for r in roles for p in (ROLES[r['id']][1] if r['id'] in ROLES else r['permissions']))
         return Actor(user_id=row['id'],subject=row['subject'],name=row['name'],email=row['email'],
             roles=tuple(r['id'] for r in roles),permissions=permissions,auth_source=row['auth_source'],
             password_change_required=row['password_change_required'],preferences=row.get('preferences') or {},**kwargs)
@@ -136,10 +138,14 @@ class Auth:
             if not valid or not local['active']:raise HTTPException(401,'invalid_credentials')
             return local,None
         try:
-            response=await self.http.post(self.settings.legacy_webui+'/api/v1/auths/signin',json={'email':email,'password':password},timeout=15)
+            directory='\\' in email
+            response=await self.http.post(self.settings.legacy_webui+('/api/v1/auths/ldap' if directory else '/api/v1/auths/signin'),
+                json={('user' if directory else 'email'):email,'password':password},timeout=15)
         except httpx.HTTPError:raise HTTPException(503,'legacy_auth_unavailable') from None
         if response.status_code!=200:raise HTTPException(401,'invalid_credentials')
         data=response.json()
+        if isinstance(data,dict) and data.get('next_step') in ('enroll','verify','recover') and isinstance(data.get('challenge_token'),str):
+            return None,{'mfa_required':True,'next_step':data['next_step'],'challenge_token':data['challenge_token'],'expires_in':data.get('expires_in',300)}
         if not isinstance(data,dict) or not isinstance(data.get('token'),str):
             # MFA challenges are completed by the existing authentication UI.
             raise HTTPException(409,'complete_institutional_login_in_existing_chat')
@@ -166,6 +172,7 @@ class Auth:
                 if not key:raise HTTPException(401,'invalid_api_key')
                 row=await self.db.execute('SELECT * FROM moara.accounts WHERE id=CAST(:id AS uuid)',{'id':str(key['account_id'])},one=True)
                 actor=await self.from_row(row,key_id=key['id'],allowed_profiles=tuple(key['allowed_profiles']),allowed_sources=tuple(key['allowed_sources']))
+                actor.owner_profiles_manage=actor.can('profiles.manage')
                 actor.permissions=frozenset(p for p in key['scopes'] if actor.can(p))
                 rate=key['rpm']
                 await self.db.execute('UPDATE moara.api_keys SET last_used_at=now() WHERE id=CAST(:id AS uuid)',{'id':str(key['id'])})
@@ -225,7 +232,11 @@ class Auth:
         route=getattr(request.scope.get('route'),'path',request.url.path)
         if actor.password_change_required and actor.key_id is None and route not in ('/api/v1/auth/me','/api/v1/auth/password','/api/v1/auth/logout'):
             raise HTTPException(403,'password_change_required')
-        await self.limit('actor:'+actor.subject+(':'+str(actor.key_id) if actor.key_id else ''),rate,60)
+        # Only an administratively configured API key may have rpm=0.
+        # Login/session throttles remain unchanged; authentication and scopes
+        # above must still succeed before this exemption can apply.
+        if not (actor.key_id is not None and rate == 0):
+            await self.limit('actor:'+actor.subject+(':'+str(actor.key_id) if actor.key_id else ''),rate,60)
         request.state.actor=actor
         return actor
 

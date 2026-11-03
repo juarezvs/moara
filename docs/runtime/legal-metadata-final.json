@@ -1,0 +1,35 @@
+{
+  "published": true,
+  "image": "sha256:086237d7616ce566b4e9be7bd870e9fab0a5cae6c5411aa38499bb6bf84b81a8",
+  "mcp_version": "0.10.0",
+  "catalogue_counts": {
+    "metadata_records": 1278,
+    "lexml_retrieved": 8,
+    "jsonld_legislation": 0,
+    "labelled_html": 8
+  },
+  "catalogue_version": "20261031T234221917357Z-266b94b8e8",
+  "collected_at": "2026-10-31T23:42:21.917332+00:00",
+  "unit_tests": 196,
+  "read_only_catalogue_mounts": true,
+  "every_initial_record_verified_against_official_snapshots": true,
+  "timer_active": true,
+  "timer_interval_hours": 6,
+  "scheduled_service_executed_successfully": true,
+  "inference_restarted": false,
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-086237d761-5de772f1",
+    "moara-legal-metadata-app-stage-086237d761",
+    "moara-legal-metadata-mcp-stage-086237d761",
+    "moara-unified-proxy-stage-a9252ad53d-c8e4d643",
+    "moara-legal-metadata-app-stage-a9252ad53d",
+    "moara-legal-metadata-mcp-stage-a9252ad53d",
+    "moara-unified-proxy-stage-5f2983fa58-302c6337",
+    "moara-legal-metadata-app-stage-5f2983fa58",
+    "moara-legal-metadata-mcp-stage-5f2983fa58",
+    "moara-legal-metadata-app-stage-27a1869b6e",
+    "moara-legal-metadata-mcp-stage-27a1869b6e"
+  ]
+}

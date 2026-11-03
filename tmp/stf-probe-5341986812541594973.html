@@ -1,0 +1,155 @@
+
+
+
+<style>
+    .tooltip-inner {
+        max-width: inherit;
+    }
+
+    .tooltip-arrow {
+        display: none;
+    }
+    .d-block {
+        display: inline-block;
+    }
+    .linha-links {
+        display: flex;
+        gap: 20px;
+        align-items: center; 
+        justify-content: center;
+        margin-top: 16px;
+    }
+    .linha-links p {
+        margin: 0; 
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <a href="/jurisprudenciaRepercussao/pesquisarProcesso.asp" class="btn btn-primary btn-md botao-enviar">Nova Pesquisa</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 text-left">
+		<a onclick="window.open('exportarDados.asp?txtTituloTema=hiv+e+militar&situacaoRG=TODAS', '', 'width=800, height=600, resizable=1, scrollbars=0'); return false;" id="btn-exportar-dados" class="btn btn-light">
+			<i class="fas fa-file-excel"></i>
+			<span>Exportar Dados</span>
+		</a>
+    </div>
+	<br>
+</div>
+
+<table class="table table-striped table-bordered table-hover table-condensed text-center" id="listagem-repercussao-geral" style="font-size: 0.8rem;">
+    <thead>
+        <tr>
+            <th style="width: 6% !important;">Tema</th>
+            <th style="width: 40% !important;">Título</th>
+            <th style="width: 10% !important;">Leading Case</th>
+            <th style="width: 20% !important;">Relator(a)</th>
+            <th style="width: 12% !important;">Situação Atual</th>
+            <th style="width: 12% !important;">Tese / Data Tese</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+                    <a target="_blank" href="verAndamentoProcesso.asp?incidente=6689678&numeroProcesso=1447945&classeProcesso=RE&numeroTema=1310">
+                        1310
+                    </a>
+                </td>
+                <td>
+                    <a target="_blank" href="verAndamentoProcesso.asp?incidente=6689678&numeroProcesso=1447945&classeProcesso=RE&numeroTema=1310">
+                        Impossibilidade de o militar, portador assintomático do vírus HIV, ser reformado ex officio por incapacidade definitiva para o serviço ativo das Forças Armadas, somente por esse motivo, antes da alteração legislativa promovida pela Lei 13.954/2019.
+                    </a>
+                    <div class="linha-links">
+                        <p class="link-item">
+                            <a href="#" data-toggle="tooltip" title="Recurso extraordinário em que se discute à luz dos artigos 40; §1; I; § 4º; 93; IX; 142; e 201, da Constituição Federal, se o portador do vírus HIV assintomático é considerado incapaz para o serviço militar, devendo ser definitivamente afastado do serviço ativo das Forças Armadas.">
+                                <strong>Ver Descrição</strong>
+                                <span style="display:none;">Recurso extraordinário em que se discute à luz dos artigos 40; §1; I; § 4º; 93; IX; 142; e 201, da Constituição Federal, se o portador do vírus HIV assintomático é considerado incapaz para o serviço militar, devendo ser definitivamente afastado do serviço ativo das Forças Armadas.</span>
+                            </a>
+                        </p>
+                        <p class="link-item">
+                            <a href="#" data-toggle="tooltip" title="10328-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Regime | Reintegração<br>10349-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Sistema Remuneratório e Benefícios | Reforma<br>10351-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Sistema Remuneratório e Benefícios | Agregação">
+                                <strong>Ver Assuntos</strong>
+                                <span style="display:none;">10328-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Regime | Reintegração<br>10349-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Sistema Remuneratório e Benefícios | Reforma<br>10351-DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO | Militar | Sistema Remuneratório e Benefícios | Agregação</span>
+                            </a>
+                        </p>
+                    </div>
+                    
+                </td>
+                <td>
+                    
+                        <p class="m-b-8">
+                            <a target="_blank"
+                            href="/processos/detalhe.asp?incidente=6689678"
+                            class="m-b-16 d-inline"> 
+                                RE&nbsp;1447945
+                            </a>
+                        </p>
+                    
+                        <p class="m-b-8">
+                            <a target="_blank" href="verPronunciamento.asp?pronunciamento=10697923" target="_blank">
+                                <strong>Manifestação</strong>
+                            </a>
+                        </p>
+                    
+                    <p class="m-b-8">
+                        <a target="_blank" href="https://jurisprudencia.stf.jus.br/pages/search?base=acordaos&sinonimo=true&plural=true&page=1&&pageSize=10&sort=_score&sortBy=desc&isAdvance=true&classeNumeroIncidente=RE%201447945" target="_blank">
+                            <strong>Acórdão de Admissão da RG</strong>
+                        </a>
+                    </p>
+                </td>
+                <td>                  
+                    <p class="m-b-16">
+                        MIN. ALEXANDRE DE MORAES
+                    </p>
+                    
+                        <p class="m-b-8">
+                            <a href="#" onclick="window.open('detalharProcesso.asp?numeroTema=1310', '', 'width=800, height=600, resizable=1, scrollbars=0'); return false;">
+                                <strong>Quadro de votos</strong>
+                            </a>
+                        </p>
+                    
+                </td>
+                <td>
+                    <p class="text-success"><strong>Há repercussão geral</strong></p>10/08/2024<span class="d-block m-t-16" data-toggle="tooltip" title="Publicado em: 27/08/2024"><strong>Acórdão de Repercussão Geral publicado</strong></span>
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="verAndamentoProcesso.asp?incidente=6689678&numeroProcesso=1447945&classeProcesso=RE&numeroTema=1310">
+                                            
+                        <p></p>
+                    </a>
+
+                </td>
+            </tr>
+        
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <a href="/jurisprudenciaRepercussao/pesquisarProcesso.asp" class="btn btn-primary btn-md botao-enviar">Nova Pesquisa</a>
+    </div>
+</div>
+<div class="m-b-32"></div>
+<style>
+    .tooltip.in .tooltip-inner {
+        text-align: left;
+    }
+ </style>
+<script>
+    $('a[data-toggle=tooltip]').tooltip({
+        placement: 'bottom',
+        html: true
+    });
+    
+    $('span[data-toggle=tooltip]').tooltip({
+            placement: 'top'
+        });
+
+    $('#listagem-repercussao-geral').DataTable({
+        lengthChange: true,
+        order: [[0, "asc"]]
+    });
+</script>

@@ -6,15 +6,21 @@ from pathlib import PurePosixPath
 from fastapi import HTTPException
 
 MEDIA={'.txt':'text/plain','.md':'text/markdown','.csv':'text/csv','.pdf':'application/pdf',
- '.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}
+ '.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+ '.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}
 def decode_upload(filename,encoded):
  if '/' in filename or '\\' in filename or filename.startswith('.'):raise HTTPException(422,'invalid_filename')
  suffix=PurePosixPath(filename).suffix.lower()
  if suffix not in MEDIA:raise HTTPException(422,'unsupported_document_type')
  try:raw=base64.b64decode(encoded,validate=True)
  except ValueError:raise HTTPException(422,'invalid_base64') from None
- if not 1<=len(raw)<=4194304:raise HTTPException(413,'document_size_limit')
+ if not raw:raise HTTPException(422,'empty_document')
  if suffix=='.pdf' and not raw.startswith(b'%PDF-'):raise HTTPException(422,'invalid_pdf')
+ if suffix=='.xlsx':
+  try:
+   from .xlsx_documents import archive
+   with archive(raw):pass
+  except (ValueError,zipfile.BadZipFile,KeyError):raise HTTPException(422,'invalid_xlsx') from None
  if suffix=='.docx':
   try:
    with zipfile.ZipFile(io.BytesIO(raw)) as z:
@@ -45,6 +51,9 @@ def extract(raw,filename):
      result=subprocess.run(['tesseract',str(target)+'.png','stdout','-l','por+eng','--psm','3'],capture_output=True,check=True,timeout=20,env={**__import__('os').environ,'OMP_THREAD_LIMIT':'1'})
      page['text']=result.stdout.decode('utf-8');page['ocr']=True
      Path(str(target)+'.png').unlink()
+ elif suffix=='.xlsx':
+  from .xlsx_documents import extract as extract_xlsx
+  pages=extract_xlsx(raw)
  elif suffix=='.docx':
   from docx import Document
   doc=Document(io.BytesIO(raw));parts=[p.text for p in doc.paragraphs]

@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "all_web_assets_identical": true,
+    "premium_interface_preserved": true,
+    "chat_scrolling_code_preserved": true,
+    "other_backend_capabilities_preserved": true
+  },
+  "before": {
+    "preserved_contracts": {
+      "identity_manifest": "9aa60c2ee48cfe2675a9926b63c0a2a0698a66d2d05363608dda30179239359c",
+      "other_assistants": "fce5c09b178f822a2851a0c12e1dd80d484910692b3177b5a8a1f3c72e39afb9",
+      "developer_permissions": [
+        "chat.use",
+        "development.use"
+      ],
+      "developer_tools": [
+        "development.propose",
+        "documents.read",
+        "documents.search"
+      ]
+    },
+    "sha256": "1985d31795c7c03a42fea18d0169d6866b7f5ef27aa9a9e7803e39dbe03d37d2",
+    "files": 85,
+    "other_python_sha256": "f8caf915a79cc60d74fa9d7ce83c52c840b50635392830a97935ca03affee18c",
+    "other_python_count": 81
+  },
+  "after": {
+    "preserved_contracts": {
+      "identity_manifest": "9aa60c2ee48cfe2675a9926b63c0a2a0698a66d2d05363608dda30179239359c",
+      "other_assistants": "fce5c09b178f822a2851a0c12e1dd80d484910692b3177b5a8a1f3c72e39afb9",
+      "developer_permissions": [
+        "chat.use",
+        "development.use"
+      ],
+      "developer_tools": [
+        "development.propose",
+        "documents.read",
+        "documents.search"
+      ]
+    },
+    "sha256": "1985d31795c7c03a42fea18d0169d6866b7f5ef27aa9a9e7803e39dbe03d37d2",
+    "files": 85,
+    "other_python_sha256": "f8caf915a79cc60d74fa9d7ce83c52c840b50635392830a97935ca03affee18c",
+    "other_python_count": 81
+  },
+  "tested_image_id": "sha256:125195644fe6b7a04c7941376375136da65c92cca98c644c190dc4148fe079c1"
+}

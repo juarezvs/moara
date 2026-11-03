@@ -1,0 +1,15 @@
+services:
+  moara-gateway:
+    image: moara-core:public-web-app-20261102
+    environment:
+      MOARA_PUBLIC_WEB_SEARCH: "true"
+  moara-legal-mcp:
+    image: moara-core:public-web-mcp-20261102
+    environment:
+      MOARA_SEARXNG_URL: http://moara-searxng:8080
+    networks:
+      moara_public_search: {}
+networks:
+  moara_public_search:
+    external: true
+    name: moara-public-search

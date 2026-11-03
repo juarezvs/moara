@@ -1,0 +1,5 @@
+services:
+  moara-gateway:
+    image: moara-core:2.0-foundation-20261030
+  moara-migrate:
+    image: moara-core:2.0-foundation-20261030

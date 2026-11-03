@@ -1,0 +1,8 @@
+ARG BASE_IMAGE=ai-gateway:pre-gpu-20261029
+FROM ${BASE_IMAGE}
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends openssh-client \
+    && rm -rf /var/lib/apt/lists/*
+COPY tunnel_health.py /opt/moara/tunnel_health.py
+COPY tunnel_supervisor.py /opt/moara/tunnel_supervisor.py
+ENTRYPOINT ["python", "/opt/moara/tunnel_supervisor.py"]

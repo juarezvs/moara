@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "connection_fields": true,
+    "ui_create_key": true,
+    "secret_removed_after_close": true,
+    "browser_download_no_secret": true,
+    "ui_revoke_key": true,
+    "revocation_denies_access": true,
+    "mobile_no_document_overflow": true,
+    "chat_preserved": true,
+    "no_javascript_errors": true
+  },
+  "test_key_ids": [
+    "e7c888e1-8533-41f1-afa8-f03f1abcd6a5"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true
+}

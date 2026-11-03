@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "backend_and_identity_unchanged": true,
+    "all_backend_modules_preserved": true,
+    "original_background_preserved": true
+  },
+  "before": {
+    "backend_sha256": "ad22e189f686f62d8fe49a87f81557ff4a23b461db376b3e79c0f8efb2194965",
+    "python_files": 88,
+    "brand_assets": {
+      "mark.svg": "cd514032bdd6164caac10cd8962f4b1122df863eb080c23d7decc1606d78ce65",
+      "chat-bg.png": "f7edff381c3c1eb6ee6d26be593f1aa6f0e8b4040a808463f5a70f54acf91ccc"
+    }
+  },
+  "after": {
+    "backend_sha256": "ad22e189f686f62d8fe49a87f81557ff4a23b461db376b3e79c0f8efb2194965",
+    "python_files": 88,
+    "brand_assets": {
+      "mark.svg": "cd514032bdd6164caac10cd8962f4b1122df863eb080c23d7decc1606d78ce65",
+      "chat-bg.png": "f7edff381c3c1eb6ee6d26be593f1aa6f0e8b4040a808463f5a70f54acf91ccc"
+    }
+  },
+  "tested_image_id": "sha256:c89349618cbad8816e5610f454d7e3cd45ca342526a120d6bb6cad5d94d3a3fd",
+  "mcp_image_before": "sha256:37ca22156212c9ddc0ff21a69b46302c3fde2d9018583f21144d3082542f6588"
+}

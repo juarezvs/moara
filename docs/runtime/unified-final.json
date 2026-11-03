@@ -1,0 +1,15 @@
+{
+  "principal_resident": true,
+  "embeddings_resident": true,
+  "published": true,
+  "gateway_image": "sha256:e7e22760891d27e0383b8b7fc2ac80b888a5d39c1c6b4ac249704f524368fbd8",
+  "preserved_stopped_candidates": [
+    "moara-unified-proxy-stage-e7e2276089-51e1da23",
+    "moara-unified-stage-e7e2276089",
+    "moara-unified-proxy-stage-891f29ab79-43dd8db0",
+    "moara-unified-proxy-stage-891f29ab79",
+    "moara-unified-stage-891f29ab79",
+    "moara-unified-proxy-stage-36ecfa26dc",
+    "moara-unified-stage-36ecfa26dc"
+  ]
+}

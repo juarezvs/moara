@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "native_anonymous_login": true,
+    "native_login_accepts_directory_identifier": true,
+    "login_field_order": true,
+    "official_directory_catalog_loaded": true,
+    "login_mobile_no_overflow": true,
+    "selected_organization_routes_network_credentials": true,
+    "mfa_stays_in_native_interface": true,
+    "current_chat_loads": true,
+    "header_uses_original_brand": true,
+    "no_legacy_chat_links": true,
+    "context_beside_options": true,
+    "context_uses_layers_icon": true,
+    "keyboard_toggle_preserves_draft": true,
+    "context_independent_of_options": true,
+    "toggle_preserves_selected_documents": true,
+    "mobile_no_horizontal_overflow": true,
+    "mobile_context_works": true,
+    "prior_history_uses_selected_branch": true,
+    "prior_history_is_read_only_until_explicit_copy": true,
+    "prior_attachments_do_not_bypass_current_permissions": true,
+    "old_conversation_continues_in_current_chat": true,
+    "context_toggle_available_during_conversation": true,
+    "api_key_page_preserved": true,
+    "no_javascript_errors": true,
+    "synthetic_resources_archived": true
+  },
+  "created_chats": [
+    "8efb92ff-82cc-4f46-a7f2-7e28cad8c16c"
+  ],
+  "created_resources": [
+    "2ac1e3cb-862b-4cf8-a9bb-32b29dbfeaf8"
+  ],
+  "javascript_errors": [],
+  "native_test_session_revoked": true,
+  "synthetic_previous_chat_archived": true,
+  "test_container": "moara-unified-browser-stage-1793449670403758392",
+  "old_fixture_id": "d44a422d-3644-4c02-8e31-b46bffbb7ca9",
+  "tested_image_id": "sha256:fd6fcdd6e1e843b260036eec823f93587665e8e9fca3c534f3719e5f9eafe4f5"
+}

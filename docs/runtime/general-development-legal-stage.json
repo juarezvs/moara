@@ -1,0 +1,519 @@
+{
+  "checks": {
+    "actual_explanation": true,
+    "comparison_understood": true,
+    "both_concepts_explained": true,
+    "consent_difference_explained": true,
+    "official_citations_adjacent": true,
+    "no_source_only_fallback": true,
+    "evidence_reproducible": true,
+    "no_unfounded_vigency_certificate": true,
+    "no_role_inversion": true,
+    "current_regulatory_source": true
+  },
+  "seconds": 34.39,
+  "answer": "No contexto da legisla\u00e7\u00e3o federal consultada:\n\nA principal diferen\u00e7a entre cess\u00e3o e requisi\u00e7\u00e3o reside na natureza do ato e no grau de concord\u00e2ncia necess\u00e1rio. A cess\u00e3o \u00e9 um ato que exige a concord\u00e2ncia do agente p\u00fablico, do cedente e do cession\u00e1rio, sendo geralmente destinada ao exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. J\u00e1 a requisi\u00e7\u00e3o \u00e9 um ato irrecus\u00e1vel, em que o agente p\u00fablico passa a exercer fun\u00e7\u00f5es no \u00f3rg\u00e3o requisitante sem altera\u00e7\u00e3o de sua lota\u00e7\u00e3o original. [L1.3](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html) [L1.2](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html)\n\nNo regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos. [L1.3](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html) [L1.2](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html)\n\nData de refer\u00eancia: 2026-11-02. Fontes conferidas em 2026-11-02T14:23:29.851178+00:00.\n\nA consulta explica as fontes recuperadas; n\u00e3o certifica cobertura integral de altera\u00e7\u00f5es, vig\u00eancia hist\u00f3rica ou efeitos judiciais no caso concreto.\n\n[Consultar evid\u00eancias e fontes](/moara/api/v1/legal/evidence/2372c899-2f15-450e-831c-abbd441b7007)",
+  "metadata": {
+    "status": "official_sources_retrieved",
+    "reference_date_basis": "current_date_assumed_for_information",
+    "reference_date": "2026-11-02",
+    "evidence_id": "2372c899-2f15-450e-831c-abbd441b7007",
+    "evidence_url": "/moara/api/v1/legal/evidence/2372c899-2f15-450e-831c-abbd441b7007",
+    "legal_conclusion_allowed": false,
+    "inference_used": true,
+    "inference_purpose": "grounded_explanation",
+    "answer_status": "grounded_explanation",
+    "execution_backend": "gpu"
+  },
+  "grounded_response": {
+    "status": "grounded_explanation",
+    "inference_used": true,
+    "task": "compare",
+    "points": [
+      {
+        "text": "A principal diferen\u00e7a entre cess\u00e3o e requisi\u00e7\u00e3o reside na natureza do ato e no grau de concord\u00e2ncia necess\u00e1rio. A cess\u00e3o \u00e9 um ato que exige a concord\u00e2ncia do agente p\u00fablico, do cedente e do cession\u00e1rio, sendo geralmente destinada ao exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. J\u00e1 a requisi\u00e7\u00e3o \u00e9 um ato irrecus\u00e1vel, em que o agente p\u00fablico passa a exercer fun\u00e7\u00f5es no \u00f3rg\u00e3o requisitante sem altera\u00e7\u00e3o de sua lota\u00e7\u00e3o original.",
+        "source_id": "L1.3",
+        "quote": "Art. 3\u00ba A cess\u00e3o \u00e9 o ato pelo qual o agente p\u00fablico, sem suspens\u00e3o ou interrup\u00e7\u00e3o do v\u00ednculo funcional com o \u00f3rg\u00e3o ou a entidade de origem, passa a ter exerc\u00edcio em outro \u00f3rg\u00e3o ou outra entidade. \u00a7 1\u00ba Exceto se houver disposi\u00e7\u00e3o legal em contr\u00e1rio, a cess\u00e3o somente poder\u00e1 ocorrer para o exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. \u00a7 2\u00ba N\u00e3o haver\u00e1 cess\u00e3o sem: I - o pedido do cession\u00e1rio; II - a concord\u00e2ncia do cedente; e III - a concord\u00e2ncia do agente p\u00fablico."
+      },
+      {
+        "text": "A principal diferen\u00e7a entre cess\u00e3o e requisi\u00e7\u00e3o reside na natureza do ato e no grau de concord\u00e2ncia necess\u00e1rio. A cess\u00e3o \u00e9 um ato que exige a concord\u00e2ncia do agente p\u00fablico, do cedente e do cession\u00e1rio, sendo geralmente destinada ao exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. J\u00e1 a requisi\u00e7\u00e3o \u00e9 um ato irrecus\u00e1vel, em que o agente p\u00fablico passa a exercer fun\u00e7\u00f5es no \u00f3rg\u00e3o requisitante sem altera\u00e7\u00e3o de sua lota\u00e7\u00e3o original.",
+        "source_id": "L1.2",
+        "quote": "Art. 9\u00ba A requisi\u00e7\u00e3o \u00e9 o ato irrecus\u00e1vel, em que o agente p\u00fablico requisitado passa a ter exerc\u00edcio no \u00f3rg\u00e3o ou na entidade requisitante, sem altera\u00e7\u00e3o da lota\u00e7\u00e3o no \u00f3rg\u00e3o ou na entidade de origem. \u00a7 1\u00ba A requisi\u00e7\u00e3o somente ser\u00e1 realizada por \u00f3rg\u00e3o ou entidade que possua prerrogativa expressa de requisitar agentes p\u00fablicos. \u00a7 2\u00ba A requisi\u00e7\u00e3o n\u00e3o ser\u00e1 nominal e o \u00f3rg\u00e3o ou a entidade requisitada poder\u00e1 indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es a serem exercidas no"
+      },
+      {
+        "text": "No regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos.",
+        "source_id": "L1.3",
+        "quote": "Art. 3\u00ba A cess\u00e3o \u00e9 o ato pelo qual o agente p\u00fablico, sem suspens\u00e3o ou interrup\u00e7\u00e3o do v\u00ednculo funcional com o \u00f3rg\u00e3o ou a entidade de origem, passa a ter exerc\u00edcio em outro \u00f3rg\u00e3o ou outra entidade. \u00a7 1\u00ba Exceto se houver disposi\u00e7\u00e3o legal em contr\u00e1rio, a cess\u00e3o somente poder\u00e1 ocorrer para o exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. \u00a7 2\u00ba N\u00e3o haver\u00e1 cess\u00e3o sem: I - o pedido do cession\u00e1rio; II - a concord\u00e2ncia do cedente; e III - a concord\u00e2ncia do agente p\u00fablico.",
+        "actor_corrections": [
+          {
+            "verb": "indicar",
+            "from": "requisitante",
+            "to": "requisitado",
+            "basis": "explicit_subject_in_cited_passage"
+          }
+        ]
+      },
+      {
+        "text": "No regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos.",
+        "source_id": "L1.2",
+        "quote": "Art. 9\u00ba A requisi\u00e7\u00e3o \u00e9 o ato irrecus\u00e1vel, em que o agente p\u00fablico requisitado passa a ter exerc\u00edcio no \u00f3rg\u00e3o ou na entidade requisitante, sem altera\u00e7\u00e3o da lota\u00e7\u00e3o no \u00f3rg\u00e3o ou na entidade de origem. \u00a7 1\u00ba A requisi\u00e7\u00e3o somente ser\u00e1 realizada por \u00f3rg\u00e3o ou entidade que possua prerrogativa expressa de requisitar agentes p\u00fablicos. \u00a7 2\u00ba A requisi\u00e7\u00e3o n\u00e3o ser\u00e1 nominal e o \u00f3rg\u00e3o ou a entidade requisitada poder\u00e1 indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es a serem exercidas no",
+        "actor_corrections": [
+          {
+            "verb": "indicar",
+            "from": "requisitante",
+            "to": "requisitado",
+            "basis": "explicit_subject_in_cited_passage"
+          }
+        ]
+      },
+      {
+        "text": "No regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos.",
+        "source_id": "L1.2",
+        "quote": "\u00f3rg\u00e3o ou na entidade requisitante. \u00a7 3\u00ba O disposto no \u00a7 2\u00ba n\u00e3o se aplica \u00e0s requisi\u00e7\u00f5es para a Presid\u00eancia da Rep\u00fablica ou a Vice-Presid\u00eancia da Rep\u00fablica. \u00a7 4\u00ba Na requisi\u00e7\u00e3o, n\u00e3o h\u00e1 preju\u00edzo da remunera\u00e7\u00e3o ou do sal\u00e1rio permanente do agente p\u00fablico, inclu\u00eddos encargos sociais, abono pecuni\u00e1rio, gratifica\u00e7\u00e3o natalina, f\u00e9rias e adicional de um ter\u00e7o. \u00a7 5\u00ba Na requisi\u00e7\u00e3o de agente p\u00fablico, sem preju\u00edzo dos demais direitos e vantagens a que fa\u00e7a jus e de acordo com os mesmos",
+        "actor_corrections": [
+          {
+            "verb": "indicar",
+            "from": "requisitante",
+            "to": "requisitado",
+            "basis": "explicit_subject_in_cited_passage"
+          }
+        ]
+      },
+      {
+        "text": "No regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos.",
+        "source_id": "L1.2",
+        "quote": "crit\u00e9rios aplic\u00e1veis caso permanecesse no \u00f3rg\u00e3o ou na entidade de origem, s\u00e3o garantidas: I - a promo\u00e7\u00e3o e a progress\u00e3o funcional; e II - a participa\u00e7\u00e3o em concurso de remo\u00e7\u00e3o para altera\u00e7\u00e3o da unidade de lota\u00e7\u00e3o ou de exerc\u00edcio. (Par\u00e1grafo acrescido pelo Decreto n\u00ba 11.306, de 22/12/2022) \u00a7 6\u00ba Na hip\u00f3tese prevista no inciso II do \u00a7 5\u00ba, a eventual altera\u00e7\u00e3o material do local de exerc\u00edcio ou de lota\u00e7\u00e3o se dar\u00e1 quando encerrada a requisi\u00e7\u00e3o. (Par\u00e1grafo acrescido pelo Decreto n\u00ba",
+        "actor_corrections": [
+          {
+            "verb": "indicar",
+            "from": "requisitante",
+            "to": "requisitado",
+            "basis": "explicit_subject_in_cited_passage"
+          }
+        ]
+      }
+    ],
+    "validation_rejections": [],
+    "generation_attempts": 1,
+    "evidence_review": "completed_not_a_legal_certificate",
+    "review_issues": [
+      []
+    ],
+    "omitted_paragraph_count": 0,
+    "answer": "No contexto da legisla\u00e7\u00e3o federal consultada:\n\nA principal diferen\u00e7a entre cess\u00e3o e requisi\u00e7\u00e3o reside na natureza do ato e no grau de concord\u00e2ncia necess\u00e1rio. A cess\u00e3o \u00e9 um ato que exige a concord\u00e2ncia do agente p\u00fablico, do cedente e do cession\u00e1rio, sendo geralmente destinada ao exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. J\u00e1 a requisi\u00e7\u00e3o \u00e9 um ato irrecus\u00e1vel, em que o agente p\u00fablico passa a exercer fun\u00e7\u00f5es no \u00f3rg\u00e3o requisitante sem altera\u00e7\u00e3o de sua lota\u00e7\u00e3o original. [L1.3](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html) [L1.2](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html)\n\nNo regime de cess\u00e3o, o v\u00ednculo funcional com o \u00f3rg\u00e3o de origem permanece, mas a movimenta\u00e7\u00e3o depende de um pedido do cession\u00e1rio e da anu\u00eancia das partes. Em contraste, a requisi\u00e7\u00e3o n\u00e3o \u00e9 nominal, o que permite ao \u00f3rg\u00e3o requisitado indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es necess\u00e1rias. Al\u00e9m disso, a requisi\u00e7\u00e3o garante ao agente direitos como promo\u00e7\u00e3o, progress\u00e3o funcional e participa\u00e7\u00e3o em concursos de remo\u00e7\u00e3o, mantendo a remunera\u00e7\u00e3o e o sal\u00e1rio permanente sem preju\u00edzos. [L1.3](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html) [L1.2](https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html)",
+    "execution_backend": "gpu",
+    "source_ids": [
+      "L1.3",
+      "L1.2"
+    ]
+  },
+  "excerpts": [
+    {
+      "norm": {
+        "kind": "DEC",
+        "number": 10835,
+        "year": 2021,
+        "articles": []
+      },
+      "excerpts": [
+        {
+          "device": "identificacao",
+          "name": "Identifica\u00e7\u00e3o e ementa oficial",
+          "text": "Decreto 10835/2021 \u2014 Decreto n\u00ba 10.835, de 14 de Outubro de 2021. Disp\u00f5e sobre as cess\u00f5es, as requisi\u00e7\u00f5es e as altera\u00e7\u00f5es de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho em que a administra\u00e7\u00e3o p\u00fablica federal, direta e indireta, seja parte.",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-norma-pe.html",
+          "version_date": "2026-11-02",
+          "text_basis": "official_catalogue_identity_not_effective_date",
+          "effective_date_confirmed": false
+        },
+        {
+          "device": "art9",
+          "name": "Art. 9",
+          "text": "Art. 9\u00ba A requisi\u00e7\u00e3o \u00e9 o ato irrecus\u00e1vel, em que o agente p\u00fablico requisitado passa a ter exerc\u00edcio no \u00f3rg\u00e3o ou na entidade requisitante, sem altera\u00e7\u00e3o da lota\u00e7\u00e3o no \u00f3rg\u00e3o ou na entidade de origem. \u00a7 1\u00ba A requisi\u00e7\u00e3o somente ser\u00e1 realizada por \u00f3rg\u00e3o ou entidade que possua prerrogativa expressa de requisitar agentes p\u00fablicos. \u00a7 2\u00ba A requisi\u00e7\u00e3o n\u00e3o ser\u00e1 nominal e o \u00f3rg\u00e3o ou a entidade requisitada poder\u00e1 indicar o agente p\u00fablico de acordo com as atribui\u00e7\u00f5es a serem exercidas no \u00f3rg\u00e3o ou na entidade requisitante. \u00a7 3\u00ba O disposto no \u00a7 2\u00ba n\u00e3o se aplica \u00e0s requisi\u00e7\u00f5es para a Presid\u00eancia da Rep\u00fablica ou a Vice-Presid\u00eancia da Rep\u00fablica. \u00a7 4\u00ba Na requisi\u00e7\u00e3o, n\u00e3o h\u00e1 preju\u00edzo da remunera\u00e7\u00e3o ou do sal\u00e1rio permanente do agente p\u00fablico, inclu\u00eddos encargos sociais, abono pecuni\u00e1rio, gratifica\u00e7\u00e3o natalina, f\u00e9rias e adicional de um ter\u00e7o. \u00a7 5\u00ba Na requisi\u00e7\u00e3o de agente p\u00fablico, sem preju\u00edzo dos demais direitos e vantagens a que fa\u00e7a jus e de acordo com os mesmos crit\u00e9rios aplic\u00e1veis caso permanecesse no \u00f3rg\u00e3o ou na entidade de origem, s\u00e3o garantidas: I - a promo\u00e7\u00e3o e a progress\u00e3o funcional; e II - a participa\u00e7\u00e3o em concurso de remo\u00e7\u00e3o para altera\u00e7\u00e3o da unidade de lota\u00e7\u00e3o ou de exerc\u00edcio. (Par\u00e1grafo acrescido pelo Decreto n\u00ba 11.306, de 22/12/2022) \u00a7 6\u00ba Na hip\u00f3tese prevista no inciso II do \u00a7 5\u00ba, a eventual altera\u00e7\u00e3o material do local de exerc\u00edcio ou de lota\u00e7\u00e3o se dar\u00e1 quando encerrada a requisi\u00e7\u00e3o. (Par\u00e1grafo acrescido pelo Decreto n\u00ba 11.306, de 22/12/2022) Requisi\u00e7\u00f5es com reembolso",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art3",
+          "name": "Art. 3",
+          "text": "Art. 3\u00ba A cess\u00e3o \u00e9 o ato pelo qual o agente p\u00fablico, sem suspens\u00e3o ou interrup\u00e7\u00e3o do v\u00ednculo funcional com o \u00f3rg\u00e3o ou a entidade de origem, passa a ter exerc\u00edcio em outro \u00f3rg\u00e3o ou outra entidade. \u00a7 1\u00ba Exceto se houver disposi\u00e7\u00e3o legal em contr\u00e1rio, a cess\u00e3o somente poder\u00e1 ocorrer para o exerc\u00edcio de cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a. \u00a7 2\u00ba N\u00e3o haver\u00e1 cess\u00e3o sem: I - o pedido do cession\u00e1rio; II - a concord\u00e2ncia do cedente; e III - a concord\u00e2ncia do agente p\u00fablico. Limita\u00e7\u00e3o da cess\u00e3o para outros Poderes ou entes federativos",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art26",
+          "name": "Art. 26",
+          "text": "Art. 26. N\u00e3o haver\u00e1 reembolso pela administra\u00e7\u00e3o p\u00fablica federal, direta e indireta: I - dos valores que excedam o teto remunerat\u00f3rio aplic\u00e1vel aos servidores da administra\u00e7\u00e3o p\u00fablica federal direta, aut\u00e1rquica e fundacional; II - das participa\u00e7\u00f5es nos lucros ou nos resultados; III - da multa prevista no \u00a7 1\u00ba do art. 18 da Lei n\u00ba 8.036, de 11 de maio de 1990; IV - das parcelas relativas a cargo em comiss\u00e3o ou fun\u00e7\u00e3o de confian\u00e7a exercido no \u00f3rg\u00e3o ou na entidade de origem; V - dos valores decorrentes de ades\u00e3o do servidor ou do empregado a programas de demiss\u00e3o incentivada; VI - dos valores despendidos pelo \u00f3rg\u00e3o ou pela entidade de origem com assist\u00eancia m\u00e9dica e odontol\u00f3gica que n\u00e3o se enquadrem no disposto no inciso VI do caput do art. 25; e VII - quaisquer outras parcelas, indenizat\u00f3rias ou remunerat\u00f3rias, que n\u00e3o estejam incorporadas \u00e0 remunera\u00e7\u00e3o ou ao sal\u00e1rio do servidor ou do empregado e que possuam natureza tempor\u00e1ria, eventual ou sejam pagas em decorr\u00eancia da fun\u00e7\u00e3o exercida no \u00f3rg\u00e3o ou na entidade de origem. \u00a7 1\u00ba A empresa estatal n\u00e3o dependente de recursos do Tesouro Nacional para o pagamento de despesas de pessoal ou para o custeio em geral poder\u00e1 suportar o \u00f4nus referente aos valores de parcelas n\u00e3o reembols\u00e1veis se: I - for caracterizado o interesse da entidade na cess\u00e3o de que trata o inciso I do \u00a7 1\u00ba do art. 2\u00ba; e II - for atendido o disposto nos regulamentos internos. \u00a7 2\u00ba O disposto neste artigo n\u00e3o se aplica \u00e0s cess\u00f5es em que figurem como entidade de origem e, simultaneamente, como entidade cession\u00e1ria empresas estatais n\u00e3o dependentes de recursos do Tesouro Nacional para o pagamento de despesas de pessoal ou para o custeio em geral. Divulga\u00e7\u00e3o do reembolso",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art1",
+          "name": "Art. 1",
+          "text": "Art. 1\u00ba Este Decreto se aplica \u00e0s cess\u00f5es, \u00e0s requisi\u00e7\u00f5es e \u00e0s altera\u00e7\u00f5es de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho no \u00e2mbito da administra\u00e7\u00e3o p\u00fablica federal, direta e indireta, inclu\u00eddas as empresas p\u00fablicas e as sociedades de economia mista. \u00a7 1\u00ba O disposto neste Decreto abrange: I - os servidores p\u00fablicos efetivos; II - os empregados p\u00fablicos de que trata a Lei n\u00ba 8.878, de 11 de maio de 1994; e III - os empregados de empresas estatais. \u00a7 2\u00ba Para fins do disposto neste Decreto, a express\u00e3o agentes p\u00fablicos abrange todos os relacionados no \u00a7 1\u00ba. Conceito de movimenta\u00e7\u00e3o",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art2",
+          "name": "Art. 2",
+          "text": "Art. 2\u00ba A movimenta\u00e7\u00e3o, para fins do disposto neste Decreto, \u00e9 a altera\u00e7\u00e3o do exerc\u00edcio do agente p\u00fablico, sem suspens\u00e3o ou interrup\u00e7\u00e3o do v\u00ednculo com o \u00f3rg\u00e3o ou a entidade de origem, para servir a outro \u00f3rg\u00e3o ou entidade dos Poderes da Uni\u00e3o, dos Estados, do Distrito Federal ou dos Munic\u00edpios. Par\u00e1grafo \u00fanico. S\u00e3o formas de movimenta\u00e7\u00e3o do agente p\u00fablico: I - a cess\u00e3o; II - a requisi\u00e7\u00e3o; e III - a altera\u00e7\u00e3o de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho. CAP\u00cdTULO II DA CESS\u00c3O Conceito de cess\u00e3o",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art8",
+          "name": "Art. 8",
+          "text": "Art. 8\u00ba A cess\u00e3o poder\u00e1 ser encerrada, a qualquer momento, por ato unilateral do cedente, do cession\u00e1rio ou do agente p\u00fablico cedido. \u00a7 1\u00ba O retorno do agente p\u00fablico ao \u00f3rg\u00e3o ou \u00e0 entidade de origem, quando requerido pelo cedente, ser\u00e1 realizado por meio de notifica\u00e7\u00e3o ao cession\u00e1rio. \u00a7 2\u00ba Na hip\u00f3tese de cess\u00e3o em curso h\u00e1 mais de um ano, o cession\u00e1rio poder\u00e1 exigir a manuten\u00e7\u00e3o da cess\u00e3o, no interesse da administra\u00e7\u00e3o p\u00fablica, pelo prazo de at\u00e9 um m\u00eas, contado da data de recebimento da notifica\u00e7\u00e3o do cedente ou do requerimento do agente p\u00fablico. \u00a7 3\u00ba N\u00e3o atendida a notifica\u00e7\u00e3o de que trata o \u00a7 1\u00ba no prazo estabelecido, o agente p\u00fablico ser\u00e1 notificado diretamente pelo cedente para se apresentar ao \u00f3rg\u00e3o ou \u00e0 entidade de origem no prazo de um m\u00eas, contado da data de recebimento da notifica\u00e7\u00e3o pelo agente p\u00fablico, sob pena de caracteriza\u00e7\u00e3o de aus\u00eancia imotivada. CAP\u00cdTULO III DA REQUISI\u00c7\u00c3O Principais elementos",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art22",
+          "name": "Art. 22",
+          "text": "Art. 22. N\u00e3o poder\u00e1 ser requerida ou mantida a movimenta\u00e7\u00e3o de agente p\u00fablico na hip\u00f3tese de indisponibilidade or\u00e7ament\u00e1ria ou financeira do \u00f3rg\u00e3o ou da entidade respons\u00e1vel pelo \u00f4nus do ressarcimento. Par\u00e1grafo \u00fanico. A disponibilidade de reembolso dos \u00f3rg\u00e3os e das entidades da administra\u00e7\u00e3o p\u00fablica federal direta, aut\u00e1rquica, fundacional e das empresas estatais dependentes de recursos do Tesouro Nacional para o custeio total ou parcial de despesas de pessoal ou para o custeio em geral com as cess\u00f5es, as requisi\u00e7\u00f5es e as altera\u00e7\u00f5es de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho observar\u00e1 os limites or\u00e7ament\u00e1rios anuais estabelecidos no ato conjunto de que trata o art. 32. Encaminhamento ao Minist\u00e9rio da Economia",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art24",
+          "name": "Art. 24",
+          "text": "Art. 24. O valor a ser reembolsado ser\u00e1 apresentado mensalmente ao \u00f3rg\u00e3o ou \u00e0 entidade de destino do agente p\u00fablico pelo \u00f3rg\u00e3o ou pela entidade de origem, discriminado por parcela e por agente p\u00fablico. \u00a7 1\u00ba O pedido de reembolso ocorrer\u00e1 at\u00e9 o \u00faltimo dia \u00fatil do segundo m\u00eas ap\u00f3s o m\u00eas de refer\u00eancia do pagamento do agente p\u00fablico. \u00a7 2\u00ba O reembolso ocorrer\u00e1 at\u00e9 o \u00faltimo dia \u00fatil do m\u00eas subsequente ao m\u00eas em que tiver sido efetuado o pedido de que trata o \u00a7 1\u00ba. \u00a7 3\u00ba O descumprimento do disposto no caput implica encerramento da cess\u00e3o, da requisi\u00e7\u00e3o ou da composi\u00e7\u00e3o da for\u00e7a de trabalho e o \u00f3rg\u00e3o ou a entidade de origem do agente p\u00fablico proceder\u00e1 na forma estabelecida no art. 8\u00ba. Parcelas reembols\u00e1veis",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art27",
+          "name": "Art. 27",
+          "text": "Art. 27. Os dados relativos a reembolsos realizados por \u00f3rg\u00e3os e entidades da administra\u00e7\u00e3o p\u00fablica federal, direta e indireta, ser\u00e3o divulgados no Portal da Transpar\u00eancia do Governo Federal de maneira individualizada e com especifica\u00e7\u00e3o das parcelas. Par\u00e1grafo \u00fanico. O disposto no caput n\u00e3o se aplica \u00e0s cess\u00f5es, \u00e0s requisi\u00e7\u00f5es e \u00e0s altera\u00e7\u00f5es de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho em que figurem como cession\u00e1rias empresas estatais n\u00e3o dependentes de recursos do Tesouro Nacional para o pagamento de despesas de pessoal ou para o custeio em geral. CAP\u00cdTULO VI DO TETO REMUNERAT\u00d3RIO C\u00e1lculo do teto remunerat\u00f3rio",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art29",
+          "name": "Art. 29",
+          "text": "Art. 29. A compet\u00eancia para autorizar a cess\u00e3o ou disponibilizar a requisi\u00e7\u00e3o \u00e9 do Ministro de Estado ou da autoridade m\u00e1xima da entidade a que pertencer o agente p\u00fablico, ressalvada a hip\u00f3tese prevista no \u00a7 4\u00ba do art. 93 da Lei n\u00ba 8.112, de 11 de dezembro de 1990. \u00a7 1\u00ba Na hip\u00f3tese de cess\u00e3o ou requisi\u00e7\u00e3o para outro Poder ou outro ente federativo, a delega\u00e7\u00e3o ser\u00e1 permitida apenas \u00e0s autoridades a que se refere o Decreto n\u00ba 8.851, de 20 de setembro de 2016. \u00a7 2\u00ba Na hip\u00f3tese de cess\u00e3o ou requisi\u00e7\u00e3o de agente p\u00fablico de empresa estatal dependente ou n\u00e3o dependente de recursos do Tesouro Nacional para outro Poder ou ente federativo ou para \u00f3rg\u00e3os constitucionalmente aut\u00f4nomos, a compet\u00eancia ser\u00e1 da autoridade m\u00e1xima da entidade. CAP\u00cdTULO VIII DISPOSI\u00c7\u00d5ES FINAIS Publica\u00e7\u00e3o no Di\u00e1rio Oficial da Uni\u00e3o",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art30",
+          "name": "Art. 30",
+          "text": "Art. 30. As movimenta\u00e7\u00f5es ser\u00e3o publicadas no Di\u00e1rio Oficial da Uni\u00e3o. Dispensa de novo ato de cess\u00e3o ou de requisi\u00e7\u00e3o (Denomina\u00e7\u00e3o acrescida pelo Decreto n\u00ba 11.306, de 22/12/2022)",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        },
+        {
+          "device": "art30-a",
+          "name": "Art. 30-a",
+          "text": "Art. 30-A. Novo ato de cess\u00e3o ou de requisi\u00e7\u00e3o ser\u00e1 dispensado nas hip\u00f3teses de: I - altera\u00e7\u00e3o do cargo ou da fun\u00e7\u00e3o de confian\u00e7a exercida; II - altera\u00e7\u00e3o do \u00f3rg\u00e3o, da autarquia ou da funda\u00e7\u00e3o p\u00fablica de exerc\u00edcio no \u00e2mbito da administra\u00e7\u00e3o p\u00fablica federal; e III - convers\u00e3o da cess\u00e3o em requisi\u00e7\u00e3o ou vice-versa. Par\u00e1grafo \u00fanico. Para as hip\u00f3teses previstas no caput: I - ser\u00e1 obrigat\u00f3ria a comunica\u00e7\u00e3o pr\u00e9via ao \u00f3rg\u00e3o ou \u00e0 entidade de origem; e II - ser\u00e3o aferidas, pelos entes da administra\u00e7\u00e3o envolvidos, as condi\u00e7\u00f5es legais e regulamentares para a manuten\u00e7\u00e3o da movimenta\u00e7\u00e3o. (Par\u00e1grafo acrescido pelo Decreto n\u00ba 11.306, de 22/12/2022) Normas complementares",
+          "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "version_date": "2026-11-02",
+          "version_date_basis": "retrieval_date_not_amendment_or_effective_date",
+          "effective_date_confirmed": false,
+          "text_truncated": false,
+          "text_basis": "official_current_compilation"
+        }
+      ]
+    }
+  ],
+  "discovery": {
+    "status": "official_candidates_retrieved",
+    "checked_at": "2026-11-02T14:23:22.732874+00:00",
+    "query": "diferen\u00e7a entre cess\u00e3o requisi\u00e7\u00e3o servidor",
+    "candidates": [
+      {
+        "norm": {
+          "kind": "DEC",
+          "number": 10835,
+          "year": 2021,
+          "articles": []
+        },
+        "name": "Decreto n\u00ba 10.835, de 14 de Outubro de 2021",
+        "summary": "Disp\u00f5e sobre as cess\u00f5es, as requisi\u00e7\u00f5es e as altera\u00e7\u00f5es de exerc\u00edcio para composi\u00e7\u00e3o da for\u00e7a de trabalho em que a administra\u00e7\u00e3o p\u00fablica federal, direta e indireta, seja parte.",
+        "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-norma-pe.html",
+        "catalogue_rank": 6,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "official_revocation_lead": true,
+        "relevance_score": 15
+      },
+      {
+        "norm": {
+          "kind": "LEI",
+          "number": 11357,
+          "year": 2006,
+          "articles": []
+        },
+        "name": "Lei n\u00ba 11.357 de 19/10/2006",
+        "summary": "Disp\u00f5e sobre a cria\u00e7\u00e3o do Plano Geral de Cargos do Poder Executivo - PGPE e do Plano Especial de Cargos do Minist\u00e9rio do Meio Ambiente e do IBAMA; institui a Gratifica\u00e7\u00e3o Espec\u00edfica de Doc\u00eancia dos servidores dos extintos Territ\u00f3rios Federais do Acre, Amap\u00e1, Rond\u00f4nia e Roraima - GEDET; fixa o valor e estabelece crit\u00e9rios para a concess\u00e3o da Gratifica\u00e7\u00e3o de Servi\u00e7o Volunt\u00e1rio, de que trata a Lei n\u00ba 10.486, de 4 de julho de 2002, aos militares dos extintos Territ\u00f3rios Federais do Amap\u00e1, Rond\u00f4nia e Roraima; autoriza a redistribui\u00e7\u00e3o, para os Quadros de Pessoal Espec\u00edfico das Ag\u00eancias Reguladoras, dos servidores ocupantes de cargos de provimento efetivo do Plano de Classifica\u00e7\u00e3o de Cargos, institu\u00eddo pela Lei n\u00ba 5.645, de 10 de dezembro de 1970, ou planos correlatos das autarquias e funda\u00e7\u00f5es p\u00fablicas, cedidos \u00e0quelas autarquias, nas condi\u00e7\u00f5es que especifica; cria Planos Especiais de Cargos, no \u00e2mbito das Ag\u00eancias Reguladoras referidas no Anexo I da Lei n\u00ba 10.871, de 20 de maio de 2004; institui a Gratifica\u00e7\u00e3o de Efetivo Desempenho em Regula\u00e7\u00e3o - GEDR, devida aos ocupantes dos cargos do Plano Especial de Cargos da Ag\u00eancia Nacional de Vigil\u00e2ncia Sanit\u00e1ria - ANVISA; cria as carreiras e o Plano Especial de Cargos do Fundo Nacional de Desenvolvimento da Educa\u00e7\u00e3o - FNDE e do Instituto Nacional de Pesquisas Educacionais - INEP; aumenta o valor da Gratifica\u00e7\u00e3o Espec\u00edfica de Publica\u00e7\u00e3o e Divulga\u00e7\u00e3o da Imprensa Nacional - GEPDIN, institu\u00edda pela Lei n\u00ba 11.090, de 7 de janeiro de 2005, e d\u00e1 outras provid\u00eancias.",
+        "source": "https://legis.senado.leg.br/dadosabertos/legislacao/572142.json",
+        "reference_hits": 4,
+        "relevance_score": 19
+      },
+      {
+        "norm": {
+          "kind": "LEI",
+          "number": 8112,
+          "year": 1990,
+          "articles": []
+        },
+        "name": "Lei n\u00ba 8.112 de 11/12/1990",
+        "summary": "Disp\u00f5e sobre o Regime Jur\u00eddico dos Servidores P\u00fablicos Civis da Uni\u00e3o, das autarquias e das funda\u00e7\u00f5es p\u00fablicas federais",
+        "source": "https://legis.senado.leg.br/dadosabertos/legislacao/549988.json",
+        "reference_hits": 3,
+        "relevance_score": 17
+      },
+      {
+        "norm": {
+          "kind": "DEC",
+          "number": 925,
+          "year": 1993,
+          "articles": []
+        },
+        "name": "Decreto n\u00ba 925, de 10 de Setembro de 1993",
+        "summary": "Disp\u00f5e sobre a cess\u00e3o de servidores de \u00f3rg\u00e3os e entidades da Administra\u00e7\u00e3o P\u00fablica Federal.",
+        "source": "https://www2.camara.leg.br/legin/fed/decret/1993/decreto-925-10-setembro-1993-336719-norma-pe.html",
+        "catalogue_rank": 2,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "relevance_score": 15
+      },
+      {
+        "norm": {
+          "kind": "DEC",
+          "number": 492,
+          "year": 1992,
+          "articles": []
+        },
+        "name": "Decreto n\u00ba 492, de 9 de Abril de 1992",
+        "summary": "Disp\u00f5e sobre a cess\u00e3o de servidores de \u00f3rg\u00e3os ou entidades da Administra\u00e7\u00e3o P\u00fablica Federal.",
+        "source": "https://www2.camara.leg.br/legin/fed/decret/1992/decreto-492-9-abril-1992-343106-norma-pe.html",
+        "catalogue_rank": 3,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "relevance_score": 15
+      },
+      {
+        "norm": {
+          "kind": "DEC",
+          "number": 97459,
+          "year": 1989,
+          "articles": []
+        },
+        "name": "Decreto n\u00ba 97.459, de 15 de Janeiro de 1989",
+        "summary": "Disp\u00f5e sobre a cess\u00e3o de servidores da Administra\u00e7\u00e3o P\u00fablica Federal e d\u00e1 outras provid\u00eancias .",
+        "source": "https://www2.camara.leg.br/legin/fed/decret/1989/decreto-97459-15-janeiro-1989-448015-norma-pe.html",
+        "catalogue_rank": 4,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "relevance_score": 15
+      },
+      {
+        "norm": {
+          "kind": "DEC",
+          "number": 4050,
+          "year": 2001,
+          "articles": []
+        },
+        "name": "Decreto n\u00ba 4.050, de 12 de Dezembro de 2001",
+        "summary": "Regulamenta o art. 93 da Lei n\u00ba 8.112, de 11 de dezembro de 1990, que disp\u00f5e sobre a cess\u00e3o de servidores de \u00f3rg\u00e3os e entidades da Administra\u00e7\u00e3o P\u00fablica Federal, direta, aut\u00e1rquica e fundacional, e d\u00e1 outras provid\u00eancias.",
+        "source": "https://www2.camara.leg.br/legin/fed/decret/2001/decreto-4050-12-dezembro-2001-426969-norma-pe.html",
+        "catalogue_rank": 9,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "relevance_score": 15
+      },
+      {
+        "norm": {
+          "kind": "LEI",
+          "number": 13328,
+          "year": 2016,
+          "articles": []
+        },
+        "name": "Lei n\u00ba 13.328, de 29 de Julho de 2016",
+        "summary": "Cria, transforma e extingue cargos e fun\u00e7\u00f5es; reestrutura cargos e carreiras; altera a remunera\u00e7\u00e3o de servidores; altera a remunera\u00e7\u00e3o de militares de ex-Territ\u00f3rios Federais; altera disposi\u00e7\u00f5es sobre gratifica\u00e7\u00f5es de desempenho; disp\u00f5e sobre a incid\u00eancia de contribui\u00e7\u00e3o previdenci\u00e1ria facultativa sobre parcelas remunerat\u00f3rias; e modifica regras sobre requisi\u00e7\u00e3o e cess\u00e3o de servidores.",
+        "source": "https://www2.camara.leg.br/legin/fed/lei/2016/lei-13328-29-julho-2016-783462-norma-pl.html",
+        "catalogue_rank": 10,
+        "discovered_by_query": "cess\u00e3o requisi\u00e7\u00e3o",
+        "reference_hits": 0,
+        "relevance_score": 12
+      }
+    ],
+    "source_checks": [
+      {
+        "source": "www.camara.leg.br",
+        "url": "https://www.camara.leg.br/legislacao/busca?geral=cess%C3%A3o+requisi%C3%A7%C3%A3o",
+        "attempted_at": "2026-11-02T14:23:22.785568+00:00",
+        "status": "retrieved",
+        "sha256": "ef9aaef5cefab7b61a803ccb9f7efb87e06020671f66895af6153a89faeb03e5"
+      },
+      {
+        "source": "www.camara.leg.br",
+        "url": "https://www.camara.leg.br/legislacao/busca?geral=cess%C3%B5es+requisi%C3%A7%C3%B5es",
+        "attempted_at": "2026-11-02T14:23:24.028053+00:00",
+        "status": "retrieved",
+        "sha256": "f3b014b2028276286df7e241db0850165ad0cabd832373128cc8f8d7529006f2"
+      },
+      {
+        "source": "www.camara.leg.br",
+        "url": "https://www.camara.leg.br/legislacao/busca?geral=diferen%C3%A7a+entre+cess%C3%A3o+requisi%C3%A7%C3%A3o+servidor",
+        "attempted_at": "2026-11-02T14:23:24.729574+00:00",
+        "status": "retrieved",
+        "sha256": "e2f06bf310469a6c5c826fabe7dcf7f8c8f3efa821a8d4fb1ac049dc1db11970"
+      },
+      {
+        "source": "Senado",
+        "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=LEI&numero=11357&ano=2006",
+        "attempted_at": "2026-11-02T14:23:25.348292+00:00",
+        "status": "retrieved",
+        "sha256": "18e9dcbe3ed93a5298016bb8dce6f39fa40bd7d399027ea2e68e2f445d5994e5"
+      },
+      {
+        "source": "Senado",
+        "url": "https://legis.senado.leg.br/dadosabertos/legislacao/lista.json?tipo=LEI&numero=8112&ano=1990",
+        "attempted_at": "2026-11-02T14:23:26.062314+00:00",
+        "status": "retrieved",
+        "sha256": "df0b76b95acd6fff93e433c8edfe1e616ccf64ad06281a43d5d21569466f2473"
+      },
+      {
+        "source": "www2.camara.leg.br",
+        "url": "https://www2.camara.leg.br/legin/fed/decret/2017/decreto-9144-22-agosto-2017-785368-norma-pe.html",
+        "attempted_at": "2026-11-02T14:23:26.190961+00:00",
+        "status": "retrieved",
+        "sha256": "8c64637bd754ea2bc04cbf50919771152dfb32509e7f44d0c0c0e14b128ca0f9"
+      },
+      {
+        "source": "www2.camara.leg.br",
+        "url": "https://www2.camara.leg.br/legin/fed/decret/1989/decreto-98021-3-agosto-1989-325354-norma-pe.html",
+        "attempted_at": "2026-11-02T14:23:27.264219+00:00",
+        "status": "retrieved",
+        "sha256": "a657a1a32e54c3d03c30d9d94043c72838e21f56531a8285b938d15d31a88e93"
+      }
+    ],
+    "legal_conclusion_allowed": false,
+    "coverage": "federal_partial",
+    "gaps": [
+      "Busca federal por assunto com cobertura parcial. Relev\u00e2ncia no cat\u00e1logo n\u00e3o confirma vig\u00eancia, exclusividade ou aplica\u00e7\u00e3o ao caso."
+    ],
+    "query_variants": [
+      "cess\u00e3o requisi\u00e7\u00e3o",
+      "cess\u00f5es requisi\u00e7\u00f5es",
+      "diferen\u00e7a entre cess\u00e3o requisi\u00e7\u00e3o servidor"
+    ],
+    "selection": {
+      "status": "finite_official_candidate_selection",
+      "selected_ids": [
+        1
+      ],
+      "inference_used": true
+    },
+    "selected_norms": [
+      {
+        "kind": "DEC",
+        "number": 10835,
+        "year": 2021,
+        "articles": []
+      }
+    ]
+  },
+  "recovery_steps": [],
+  "norms": [
+    {
+      "norm": {
+        "kind": "DEC",
+        "number": 10835,
+        "year": 2021,
+        "articles": []
+      },
+      "source": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+      "status": "official_text_retrieved",
+      "gaps": [
+        "A cronologia das reda\u00e7\u00f5es n\u00e3o comprova, por si s\u00f3, entrada em vigor, transi\u00e7\u00e3o ou efic\u00e1cia no caso concreto.",
+        "Texto atualizado vinculado pelo cat\u00e1logo da C\u00e2mara, conferido agora; n\u00e3o \u00e9 comprova\u00e7\u00e3o de reda\u00e7\u00e3o hist\u00f3rica.",
+        "Pesquisa jurisprudencial n\u00e3o exaustiva: refer\u00eancias do Senado n\u00e3o certificam tr\u00e2nsito em julgado ou modula\u00e7\u00e3o de efeitos."
+      ],
+      "source_checks": [
+        {
+          "source": "Senado",
+          "url": "https://legis.senado.leg.br/dadosabertos/legislacao/DEC/10835/2021.json",
+          "attempted_at": "2026-11-02T14:23:29.851868+00:00",
+          "status": "retrieved",
+          "sha256": "9bd497a039559d654462ab07ebe129e242173769f353e5a854299218346a16a8"
+        },
+        {
+          "source": "normas.leg.br",
+          "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:decreto:2021-10-14;10835&&tipo_documento=maior-detalhe",
+          "attempted_at": "2026-11-02T14:23:29.989582+00:00",
+          "status": "retrieved",
+          "sha256": "fbbb76ea7997c1dcd333e9d175ffef0153e349e4dcd44d04da3866843091ffe4"
+        },
+        {
+          "source": "www.camara.leg.br",
+          "url": "https://www.camara.leg.br/legislacao/busca?geral=10.835&ano=2021",
+          "attempted_at": "2026-11-02T14:23:30.563272+00:00",
+          "status": "retrieved",
+          "sha256": "8025d03298c2e65014020aeff2f74dbf3623d0f17168f323083ff9974fc13989"
+        },
+        {
+          "source": "www2.camara.leg.br",
+          "url": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-norma-pe.html",
+          "attempted_at": "2026-11-02T14:23:31.099208+00:00",
+          "status": "retrieved",
+          "sha256": "88346e0df08d0dafa586b6e29b540ea4b84ecd39504529729cce6755d0f9d4aa"
+        },
+        {
+          "source": "www2.camara.leg.br",
+          "url": "https://www2.camara.leg.br/legin/fed/decret/2021/decreto-10835-14-outubro-2021-791864-normaatualizada-pe.html",
+          "attempted_at": "2026-11-02T14:23:31.932549+00:00",
+          "status": "retrieved",
+          "sha256": "462af19cb5e0a731dc92db3e8e5b6abddd92fbf3e8fe51d343c0e13cafd33487"
+        }
+      ]
+    }
+  ],
+  "tested_image_id": "sha256:125195644fe6b7a04c7941376375136da65c92cca98c644c190dc4148fe079c1"
+}
